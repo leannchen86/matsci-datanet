@@ -1,0 +1,18 @@
+# Raw transcripts and corpus: contain a pasted credential, personal names,
+# email addresses and local machine paths. Never commit these.
+research/raw-conversations/
+research/corpus/
+late2.txt
+
+# Secrets
+.env
+*.pem
+*.key
+.pmgrc.yaml
+
+# OS / editor
+.DS_Store
+*.swp
+.venv/
+__pycache__/
+*.pyc

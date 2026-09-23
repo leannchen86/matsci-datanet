@@ -1,0 +1,2505 @@
+{
+ "ml-benchmark-science": {
+  "lens": "Science of ML evaluation and benchmarking (leakage, splits, hidden tests, statistics, metric validity, construct validity, ceilings, documentation, freezing, Goodhart, adoption), aimed at the checked plan in plan.md",
+  "principles": [
+   {
+    "id": "P1",
+    "name": "Split by the unit that leaks",
+    "plain": "Rows that share a source (same paper, same formula, same duplicate file) must sit on one side of a split. A script must print a leak report that proves it.",
+    "how_to_check": "For each train/test or calibration/test split in the plan: is the group unit named, does a script print 'share of test rows with a sibling in train' for that unit, and is that share 0? Yes/no.",
+    "why_it_matters_here": "D3 freezes a list of paper IDs. But correction 17 says most of the 25.5 to 42.2 jump is unseen formulas, and correction 19 says a chemical-system holdout still leaves the test paper in training 52.4% of the time. One group key is not enough: the leak report must cover paper AND formula, and the seen/unseen breakdown must stay beside every number. D2's 'one private check that matters' (a duplicate pair on both sides of the calibration/test split) is the same principle on the X-ray side. The general claim is old (2018 in materials), so the news in N2 can only be the TE-specific numbers and the frozen list.",
+    "sources": [
+     {
+      "who": "Kapoor and Narayanan",
+      "year": "2022 (arXiv), 2023 (Patterns)",
+      "title": "Leakage and the Reproducibility Crisis in ML-based Science",
+      "url": "https://arxiv.org/abs/2207.07048",
+      "opened": true,
+      "what_it_says": "Leakage errors found in 17 fields, affecting 329 papers. Gives a taxonomy of 8 leakage types and proposes model info sheets. In one case study the claimed ML advantage vanished once leakage was fixed."
+     },
+     {
+      "who": "Meredig et al.",
+      "year": "2018",
+      "title": "Can machine learning identify the next high-temperature superconductor? Examining extrapolation performance for materials discovery",
+      "url": "https://citrine.io/can-machine-learning-identify-the-next-high-temperature-superconductor-examining-extrapolation-performance-for-materials-discovery/",
+      "opened": true,
+      "what_it_says": "Standard cross-validation overestimates performance for materials discovery. Proposes leave-one-cluster-out cross-validation and a nearest-neighbour baseline. (Publisher page returned 403; the group's own summary page was opened.)"
+     },
+     {
+      "who": "Li, Fu, Omee, Hu",
+      "year": "2023 (arXiv), 2024 (npj Comput. Mater.)",
+      "title": "MD-HIT: Machine learning for materials property prediction with dataset redundancy control",
+      "url": "https://arxiv.org/abs/2307.04351",
+      "opened": true,
+      "what_it_says": "Many near-identical materials in a dataset make random splits give inflated scores. Releases a tool that thins a dataset so no two samples are closer than a threshold."
+     }
+    ]
+   },
+   {
+    "id": "P2",
+    "name": "Freeze test list and decision rule first",
+    "plain": "Fix the test items, a separate tuning set, and the pass/fail rule before looking at results. Log any later change with old and new numbers side by side.",
+    "how_to_check": "(a) Before the run, does a dated, hashed file hold the test list, a separate dev list, and the decision threshold? (b) Were all baseline settings chosen on dev only? Yes/no to each.",
+    "why_it_matters_here": "D1's done-test ends in a one-line verdict ('worth building' or 'bug-fix') but gives no threshold: how many differing rows must be real chemistry? The two sort categories have no written definition yet, and the sorter is the person who wants the answer. D3: the 5-neighbour vs 1-neighbour choice was already compared on test numbers (correction 17), so N2's new baseline needs a dev split cut from the training papers. Already right: N3 fixes its 'harder' bands in advance; changing the project's marker needs a dated amendment; the project itself was pre-registered on 2026-07-09.",
+    "sources": [
+     {
+      "who": "Hofman, Chatzimparmpas, Sharma, Watts, Hullman",
+      "year": "2023",
+      "title": "Pre-registration for Predictive Modeling",
+      "url": "https://arxiv.org/abs/2311.18807",
+      "opened": true,
+      "what_it_says": "Predictive modelling suffers from data-dependent choices and unintended test-set reuse. Offers a lightweight pre-registration template and is frank about its limits."
+     },
+     {
+      "who": "Blum and Hardt",
+      "year": "2015",
+      "title": "The Ladder: A Reliable Leaderboard for Machine Learning Competitions",
+      "url": "https://arxiv.org/abs/1502.04585",
+      "opened": true,
+      "what_it_says": "Repeated scoring against one holdout lets entrants overfit it. Gives a leaderboard mechanism with guarantees under adaptive submissions."
+     },
+     {
+      "who": "Recht, Roelofs, Schmidt, Shankar",
+      "year": "2019",
+      "title": "Do ImageNet Classifiers Generalize to ImageNet?",
+      "url": "https://arxiv.org/abs/1902.10811",
+      "opened": true,
+      "what_it_says": "Fresh test sets built by the original recipe cut accuracy by 11 to 14% on ImageNet, while model rankings held. Only a fresh set shows this."
+     }
+    ]
+   },
+   {
+    "id": "P3",
+    "name": "Intervals that respect clusters; compare paired",
+    "plain": "Every score gets an interval. Count independent units, not rows. Compare two tools on the same items with a paired test.",
+    "how_to_check": "Does the D4 function take a cluster ID and a paired flag, and does 38 vs 35 of 40 still return 'tie' when the 40 scans are clustered into 20 mixtures? Yes/no.",
+    "why_it_matters_here": "The 40 scans are 20 mixtures, each scanned for 2 and for 8 minutes. So there are 20 independent powders, not 40. TE rows cluster by paper (12,222 rows, 3,015 papers). builds.md records that row-level intervals on clustered data were wrong in an earlier round. D4's spec does not mention clusters. The same function should be pointed at the marking rules too: 'strict off on 8 of 18, lenient off on 13 of 18' is a paired comparison on 18 items and is probably a tie.",
+    "sources": [
+     {
+      "who": "Miller",
+      "year": "2024",
+      "title": "Adding Error Bars to Evals: A Statistical Approach to Language Model Evaluations",
+      "url": "https://arxiv.org/abs/2411.00640",
+      "opened": true,
+      "what_it_says": "Treat test items as a sample from a larger population. Gives formulas for standard errors, for differences between two models, and for planning an eval. (Clustered standard errors are in the body of the paper; I opened the abstract page only.)"
+     },
+     {
+      "who": "Dror, Baumer, Shlomov, Reichart",
+      "year": "2018",
+      "title": "The Hitchhiker's Guide to Testing Statistical Significance in Natural Language Processing",
+      "url": "https://aclanthology.org/P18-1128/",
+      "opened": true,
+      "what_it_says": "Significance testing is often skipped or misused in NLP papers. Gives a simple protocol for picking the right test."
+     },
+     {
+      "who": "Dietterich",
+      "year": "1998",
+      "title": "Approximate Statistical Tests for Comparing Supervised Classification Learning Algorithms",
+      "url": "https://doi.org/10.1162/089976698300017197",
+      "opened": false,
+      "what_it_says": "From memory, not opened in this run: recommends McNemar's paired test when two classifiers are scored on one shared test set."
+     }
+    ]
+   },
+   {
+    "id": "P4",
+    "name": "Size the test before building it",
+    "plain": "Decide the smallest difference you care about, then compute how many items you need. If you cannot get that many, say plainly that the test cannot rank tools.",
+    "how_to_check": "For each planned comparison: is a minimum detectable difference, and the n it needs, written down before data are run or collected? Yes/no.",
+    "why_it_matters_here": "L2 passes: about 385 powders for plus or minus 5 points near 50% accuracy; 470 to 780 paired powders to separate two tools 5 points apart. Not yet done for N3: the number of powders per minor-ingredient band is unknown until D6, and the under-10%-by-weight band of a 240-mixture set may give intervals near plus or minus 10 points. Not done for the 25-pair table either: it cannot rank five marking rules. It is a unit-test file, not a leaderboard of markers. N2 should resample by paper when it sizes its three-split comparison.",
+    "sources": [
+     {
+      "who": "Card, Henderson, Khandelwal, Jia, Mahowald, Jurafsky",
+      "year": "2020",
+      "title": "With Little Power Comes Great Responsibility",
+      "url": "https://arxiv.org/abs/2010.06595",
+      "opened": true,
+      "what_it_says": "Underpowered experiments are common in NLP. Small test sets in a popular benchmark cannot support most comparisons to the state of the art. A typical 2,000-sentence translation test set has about 75% power to detect a 1-point difference."
+     },
+     {
+      "who": "Miller",
+      "year": "2024",
+      "title": "Adding Error Bars to Evals",
+      "url": "https://arxiv.org/abs/2411.00640",
+      "opened": true,
+      "what_it_says": "Includes power analysis for planning an eval."
+     }
+    ]
+   },
+   {
+    "id": "P5",
+    "name": "Give the metric a signature and version",
+    "plain": "A score is comparable only if the scoring settings are printed with it. Ship the metric as code that emits a settings string, and store that string with every score.",
+    "how_to_check": "Does every stored score row carry a string naming: rule and version, tolerance, reference library and snapshot date, tool version, candidate cap, and whether 'correct' means the exact set of phases or per-phase credit? Can the 12/17/32/38 spread be fully explained by differing fields of that string? Yes/no.",
+    "why_it_matters_here": "This is the closest ML twin of the X-ray marking problem. Correction 1's three causes (the rule, stale stored marks, the reference library and set-up) are three signature fields. The 15 stale rows are cached scores with no version. Today's tools report in different units: one reports 'k of 40', one a phase recovery rate decided by a GPT-4 judge, a September 2026 one micro-F1. None can be compared. The week-1 table is the right first test of whether a signature alone removes the spread.",
+    "sources": [
+     {
+      "who": "Post",
+      "year": "2018",
+      "title": "A Call for Clarity in Reporting BLEU Scores",
+      "url": "https://arxiv.org/abs/1804.08771",
+      "opened": true,
+      "what_it_says": "The same translation metric differs by up to 1.8 points between common configurations, mostly from text pre-processing. Scores across papers are not comparable. Proposes a community-standard scheme and a tool (sacreBLEU) that enforces it."
+     },
+     {
+      "who": "RADAR-PD authors",
+      "year": "2026",
+      "title": "Automated multiphase identification and refinement in powder diffraction using mismatch-tolerant machine learning",
+      "url": "https://arxiv.org/html/2605.12478",
+      "opened": true,
+      "what_it_says": "Scores phase recovery on 291 mineral-archive samples (79.7% vs 64.3% for Dara). A GPT-4 prompt decides whether predicted and reference structures are the same phase; it accepts alternate settings, supercells, hydration differences and defect variants."
+     },
+     {
+      "who": "Tong et al.",
+      "year": "2026",
+      "title": "Scalable machine learning framework for multiphase identification from powder X-ray diffraction",
+      "url": "https://arxiv.org/abs/2609.06908",
+      "opened": true,
+      "what_it_says": "Abstract only: reports micro-F1 of 0.935 on a curated experimental set. The abstract gives no item count, matching rule or interval."
+     }
+    ]
+   },
+   {
+    "id": "P6",
+    "name": "Check the metric against expert judgment",
+    "plain": "A marking rule is itself a model. Test it against labels from at least two specialists working apart, and report agreement with an interval. An AI-drafted key is a draft, not ground truth.",
+    "how_to_check": "Is there a set of pairs labelled by 2 or more specialists independently, with their agreement reported, and is each marking rule's agreement with them given with an interval? Until then, is every figure against the AI key worded 'disagrees with the draft key'? Yes/no.",
+    "why_it_matters_here": "D1 labels its key 'AI-drafted, not yet reviewed' (good). L1 asks one specialist. One rater gives no agreement number, and the notes say specialists publicly disagree on ordered vs disordered crystal versions. The same issue hides in the week-1 test: 'spelling artifact vs real chemistry' is a chemistry judgment made by a newcomer plus an AI. Do two blind passes and list where they differ. The field's one published equivalence judge (a GPT-4 prompt) was not validated against people in its paper. That is both the gap and the prior art.",
+    "sources": [
+     {
+      "who": "Mathur, Baldwin, Cohn",
+      "year": "2020",
+      "title": "Tangled up in BLEU: Reevaluating the Evaluation of Automatic Machine Translation Evaluation Metrics",
+      "url": "https://arxiv.org/abs/2006.06264",
+      "opened": true,
+      "what_it_says": "How you judge a metric against human ratings is itself fragile: outliers can mislead. Proposes checking metrics on pairwise system rankings with thresholds for the two kinds of error."
+     },
+     {
+      "who": "Zheng et al.",
+      "year": "2023",
+      "title": "Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena",
+      "url": "https://arxiv.org/abs/2306.05685",
+      "opened": true,
+      "what_it_says": "A strong LLM judge agreed with people over 80% of the time, the same as people with each other. It also shows position, verbosity and self-enhancement biases."
+     },
+     {
+      "who": "RADAR-PD authors",
+      "year": "2026",
+      "title": "Automated multiphase identification and refinement in powder diffraction using mismatch-tolerant machine learning",
+      "url": "https://arxiv.org/html/2605.12478",
+      "opened": true,
+      "what_it_says": "The page describes the GPT-4 equivalence judge and visual checks of fit plots, but no validation of the judge's verdicts against specialists."
+     }
+    ]
+   },
+   {
+    "id": "P7",
+    "name": "Say what decision the score supports",
+    "plain": "A benchmark measures a construct: the real-world ability you care about. Name the user and the decision, then check that the items and the scoring match it.",
+    "how_to_check": "Does each marking preset and each exam name one user and one decision (for example 'did my synthesis make the target compound?') and say which tiers count as correct for that use? Does the sample type match that use? Yes/no.",
+    "why_it_matters_here": "The tiered marker is the right shape, because 'correct' depends on use. A synthesis chemist may accept a different crystal form; an analyst measuring amounts may not. Weighed mixtures of bought powders are not reaction products: the marking rule moved 12 vs 32 of 40 on the first and only 1 to 3 of 20 on the second. So the exam type changes the finding. TE: relative error on a signed quantity is a weak construct; the plan adds sign accuracy and absolute error (good).",
+    "sources": [
+     {
+      "who": "Raji, Bender, Paullada, Denton, Hanna",
+      "year": "2021",
+      "title": "AI and the Everything in the Whole Wide World Benchmark",
+      "url": "https://arxiv.org/abs/2111.15366",
+      "opened": true,
+      "what_it_says": "Famous benchmarks are framed as general measures of progress but have construct validity problems: they are narrow and carry hidden assumptions."
+     },
+     {
+      "who": "Bean et al.",
+      "year": "2025",
+      "title": "Measuring what Matters: Construct Validity in Large Language Model Benchmarks",
+      "url": "https://arxiv.org/abs/2511.04703",
+      "opened": true,
+      "what_it_says": "Review of 445 benchmarks. Finds patterns that undermine validity and gives eight recommendations, starting with defining the phenomenon being measured."
+     },
+     {
+      "who": "Bowman and Dahl",
+      "year": "2021",
+      "title": "What Will it Take to Fix Benchmarking in Natural Language Understanding?",
+      "url": "https://arxiv.org/abs/2104.02145",
+      "opened": true,
+      "what_it_says": "Sets four criteria for a benchmark. The abstract names the areas: dataset design, annotation reliability, size, and handling of social bias."
+     },
+     {
+      "who": "Riebesell et al.",
+      "year": "2023",
+      "title": "Matbench Discovery: A framework to evaluate machine learning crystal stability predictions",
+      "url": "https://arxiv.org/abs/2308.14920",
+      "opened": true,
+      "what_it_says": "A materials example: a model with good regression error can still give many false positives at the decision boundary, so the metric must match the task."
+     }
+    ]
+   },
+   {
+    "id": "P8",
+    "name": "Show floor, ceiling and headroom",
+    "plain": "Put a trivial baseline and a best-achievable score beside every result. Build a test only where the gap between them is wider than the test's own error bar.",
+    "how_to_check": "Does each results table show (a) a trivial baseline, (b) a ceiling from label noise or human agreement, each with an includes/excludes line, and (c) is ceiling minus best current tool larger than the interval half-width at the planned n? Yes/no.",
+    "why_it_matters_here": "N4 does (a) and (b) for TE: 0.48% reading noise, 12.9% within a paper, 32.7% across papers, 15.0% answers-known ceiling, 42.2% model. The X-ray side has no ladder yet. N3 needs a floor (for example 'always name the major ingredients') and a ceiling per band (lab X-ray scans cannot see ingredients below roughly 1 to 5% by weight; a specialist on the same scans). The plan already used headroom well: the 40-scan set is saturated (38 vs 35 is a tie), and the relabelled set was dropped (random 20.1% vs perfect 21.8%). L2's sizing assumes accuracy near 50%; N3 must confirm that before any lab is asked.",
+    "sources": [
+     {
+      "who": "Crusius, Cipcigan, Biggin",
+      "year": "2025",
+      "title": "Are we fitting data or noise? Analysing the predictive power of commonly used datasets in drug-, materials-, and molecular-discovery",
+      "url": "https://pubs.rsc.org/en/content/articlehtml/2025/fd/d4fd00091a",
+      "opened": false,
+      "what_it_says": "NOT opened (publisher and preprint pages returned 403). From search results only: derives best-achievable scores for nine datasets from experimental error; four had published models at or past that bound; releases a Python package and web app."
+     },
+     {
+      "who": "Northcutt, Athalye, Mueller",
+      "year": "2021",
+      "title": "Pervasive Label Errors in Test Sets Destabilize Machine Learning Benchmarks",
+      "url": "https://arxiv.org/abs/2103.14749",
+      "opened": true,
+      "what_it_says": "At least 3.3% label errors on average across 10 test sets, at least 6% in ImageNet validation. Wrong test labels can flip which model looks better."
+     },
+     {
+      "who": "Ott, Barbosa-Silva, Blagec, Brauner, Samwald",
+      "year": "2022",
+      "title": "Mapping global dynamics of benchmark creation and saturation in artificial intelligence",
+      "url": "https://arxiv.org/abs/2203.04592",
+      "opened": true,
+      "what_it_says": "Across 3,765 benchmarks, a large share moved quickly to near-saturation."
+     },
+     {
+      "who": "Kiela et al.",
+      "year": "2021",
+      "title": "Dynabench: Rethinking Benchmarking in NLP",
+      "url": "https://arxiv.org/abs/2104.14337",
+      "opened": true,
+      "what_it_says": "Models top benchmarks fast yet fail simple challenge cases; proposes benchmarks that are refreshed with harder items."
+     }
+    ]
+   },
+   {
+    "id": "P9",
+    "name": "A hidden test needs rules, not just secrecy",
+    "plain": "Blind tests work because of governance: fresh items each round, a custodian who is not a contestant, limits on scored submissions, and published independent assessment.",
+    "how_to_check": "Does the L2 one-page request name each of: a custodian who does not enter; a hash of the answer key lodged before release; a cap on scored submissions; file names and headers with no recipe clues; a plan for new powders each round; what is published afterwards? Yes/no per item.",
+    "why_it_matters_here": "L2 lists pilot size, the file-naming rule and who holds the answers. Missing: a submission cap (repeated scoring leaks the key), a refresh plan (once answers are released the set becomes a practice exam), and the conflict if the partner lab also builds a tool that enters. One lab means a one-instrument exam; the plan says so. Public file names that spell out recipes are the X-ray version of test data posted in plain text.",
+    "sources": [
+     {
+      "who": "Protein Structure Prediction Center (CASP organisers)",
+      "year": "1994 to 2026",
+      "title": "CASP home page",
+      "url": "https://predictioncenter.org/",
+      "opened": true,
+      "what_it_says": "Blind prediction of structures not yet public, every two years since 1994, judged by independent assessment teams, results published in a journal."
+     },
+     {
+      "who": "Blum and Hardt",
+      "year": "2015",
+      "title": "The Ladder: A Reliable Leaderboard for Machine Learning Competitions",
+      "url": "https://arxiv.org/abs/1502.04585",
+      "opened": true,
+      "what_it_says": "Repeated submissions against one holdout corrupt a leaderboard; gives a principled fix."
+     },
+     {
+      "who": "Jacovi, Caciularu, Goldman, Goldberg",
+      "year": "2023",
+      "title": "Stop Uploading Test Data in Plain Text",
+      "url": "https://arxiv.org/abs/2305.10160",
+      "opened": true,
+      "what_it_says": "Practical steps against test-set contamination: encrypt public test data and bar derivative distribution; avoid items whose answers sit online; release source context."
+     }
+    ]
+   },
+   {
+    "id": "P10",
+    "name": "Ship a datasheet with every artefact",
+    "plain": "Each list, key or table ships with a short sheet: source snapshot and hash, how rows were chosen, who or what made the labels, licence, known errors, and what it must not be used for.",
+    "how_to_check": "For each file the plan ships (tricky-pairs CSV, 499-row match table, frozen paper-ID list, number card): is there a one-page sheet with those fields, and does it say 'not a hidden test' where answers are public? Yes/no.",
+    "why_it_matters_here": "The plan has the pieces, scattered: checksums (D0, D3), an 'AI-drafted' label column (D1), a basis-of-evidence column and neutral wording (D2), IDs only for unlicensed data. There is no common template. N5 ('four questions before trusting a materials leaderboard') overlaps existing general checklists of 46 criteria and 32 questions. N5 should map onto them and claim only the materials-specific parts.",
+    "sources": [
+     {
+      "who": "Gebru et al.",
+      "year": "2018 (arXiv), 2021 (CACM)",
+      "title": "Datasheets for Datasets",
+      "url": "https://arxiv.org/abs/1803.09010",
+      "opened": true,
+      "what_it_says": "Every dataset should come with a sheet covering motivation, composition, collection process and recommended uses."
+     },
+     {
+      "who": "Mitchell et al.",
+      "year": "2018",
+      "title": "Model Cards for Model Reporting",
+      "url": "https://arxiv.org/abs/1810.03993",
+      "opened": true,
+      "what_it_says": "Short documents stating intended use, evaluation procedure and performance across conditions."
+     },
+     {
+      "who": "Reuel, Hardy, Smith, Lamparth, Hardy, Kochenderfer",
+      "year": "2024",
+      "title": "BetterBench: Assessing AI Benchmarks, Uncovering Issues, and Establishing Best Practices",
+      "url": "https://arxiv.org/abs/2411.12990",
+      "opened": true,
+      "what_it_says": "Scores 24 benchmarks against 46 lifecycle criteria. Most do not report statistical significance and are hard to replicate. Ships a minimum-quality checklist."
+     },
+     {
+      "who": "Kapoor, Cantrell, Peng et al.",
+      "year": "2023",
+      "title": "REFORMS: Reporting Standards for Machine Learning Based Science",
+      "url": "https://arxiv.org/abs/2308.07832",
+      "opened": true,
+      "what_it_says": "A 32-question checklist with guidelines, written by 19 researchers, for authors, referees and journals."
+     }
+    ]
+   },
+   {
+    "id": "P11",
+    "name": "Read the rows; keep hand-picked sets apart",
+    "plain": "Totals hide causes. Publish row-level tables and slice by known factors. Never quote a pass rate on hand-picked hard cases as an error rate in the wild.",
+    "how_to_check": "Does each headline number come with a row-level file and at least one slice named in advance? Is every figure from the tricky-pairs file worded as 'unit tests failed', not 'percent wrong'? Yes/no.",
+    "why_it_matters_here": "The plan is strongest here: the 40-row hand sort, the seen/unseen formula breakdown, accuracy by minor-ingredient band, and the per-scan flag 'were all true ingredients in the candidate list'. The risk is wording. 'Strict wrong on 8 of 18' comes from pairs chosen to be hard. The prevalence number is the 40-row count, and that covers one tool install on one dataset.",
+    "sources": [
+     {
+      "who": "Ribeiro, Wu, Guestrin, Singh",
+      "year": "2020",
+      "title": "Beyond Accuracy: Behavioral Testing of NLP Models with CheckList",
+      "url": "https://arxiv.org/abs/2005.04118",
+      "opened": true,
+      "what_it_says": "Held-out accuracy hides failures. Proposes unit-test style checks: minimum functionality tests, invariance tests, and more. Users wrote twice as many tests and found almost three times as many bugs."
+     },
+     {
+      "who": "Northcutt, Athalye, Mueller",
+      "year": "2021",
+      "title": "Pervasive Label Errors in Test Sets Destabilize Machine Learning Benchmarks",
+      "url": "https://arxiv.org/abs/2103.14749",
+      "opened": true,
+      "what_it_says": "Row-level review of test labels found errors that change conclusions drawn from totals."
+     }
+    ]
+   },
+   {
+    "id": "P12",
+    "name": "Replicate before you generalise",
+    "plain": "A finding about a benchmark on one dataset and one tool is local. Show it on a second independent dataset and tool, or word it as local.",
+    "how_to_check": "Is each headline claim in N5 shown on 2 or more independent datasets and 2 or more tools? If not, does the text say 'in our set-up'? Yes/no.",
+    "why_it_matters_here": "The marking effect held on 1 of 2 X-ray datasets, with one local install (version 1.1.12, open reference pools capped at 80 candidates). The TE split effect is one database and formula-only models. The plan's 'do not sell 12-to-32 as field-wide' passes. N5 must keep that wording. N3 is the natural replication: re-mark its results under every rule.",
+    "sources": [
+     {
+      "who": "Dehghani et al.",
+      "year": "2021",
+      "title": "The Benchmark Lottery",
+      "url": "https://arxiv.org/abs/2107.07002",
+      "opened": true,
+      "what_it_says": "Which method looks best can change a lot just by picking different benchmark tasks."
+     },
+     {
+      "who": "Gorman and Bedrick",
+      "year": "2019",
+      "title": "We Need to Talk about Standard Splits",
+      "url": "https://aclanthology.org/P19-1267/",
+      "opened": true,
+      "what_it_says": "Rankings reproduced on the standard split did not all survive re-drawn random splits."
+     },
+     {
+      "who": "Recht, Roelofs, Schmidt, Shankar",
+      "year": "2019",
+      "title": "Do ImageNet Classifiers Generalize to ImageNet?",
+      "url": "https://arxiv.org/abs/1902.10811",
+      "opened": true,
+      "what_it_says": "A careful replication of a test set changed absolute scores a lot but kept rankings."
+     }
+    ]
+   },
+   {
+    "id": "P13",
+    "name": "Assume the score will be gamed",
+    "plain": "Once a number is a target, tools drift toward what it rewards. Design the score so that vague or padded answers lose.",
+    "how_to_check": "Does the marker charge for extra wrong phases as well as missed ones? Does 'cannot tell' score below 'same'? Would a tool that lists more phases, or a vaguer formula, gain under any preset? Run it as a unit test. Yes/no.",
+    "why_it_matters_here": "The lenient rule already merges different compounds (Nb2O5 with Nb12O29). Notes G23: adding a spurious phase always improves the curve fit, so X-ray tools over-answer by default. 'k of 40 correct' hides whether extra phases were charged. It also applies to the user's own project: moving its marker after seeing 0.309 vs 0.745 is the same trap, and the dated-amendment rule covers it.",
+    "sources": [
+     {
+      "who": "Thomas and Uminsky",
+      "year": "2020 (arXiv), 2022 (Patterns)",
+      "title": "The Problem with Metrics is a Fundamental Problem for AI",
+      "url": "https://arxiv.org/abs/2002.08512",
+      "opened": true,
+      "what_it_says": "Optimising a metric invites gaming and short-term focus (Goodhart's law). Remedies: several metrics, qualitative checks alongside, and input from the people affected."
+     }
+    ]
+   },
+   {
+    "id": "P14",
+    "name": "No user, no benchmark",
+    "plain": "Most benchmarks are never adopted. Secure one outside user or host before building for outsiders, and make the tool trivial to run.",
+    "how_to_check": "Before N1 or N5 is built for others: is there one named outside tool author, benchmark host or specialist who has said they would run or host it? Yes/no.",
+    "why_it_matters_here": "The only sure user is the user's own project; the plan says so. The notes record a metals benchmark with 3 submissions against 6,044 downloads. The BLEU-signature tool spread because it was one install, printed a signature, and tied itself to the community's existing standard. The twin here: offer the marker as an option inside an existing tool's own marking script or an existing X-ray benchmark, not as a new standalone. The plan's 'one question only you can answer' is this principle.",
+    "sources": [
+     {
+      "who": "Ott, Barbosa-Silva, Blagec, Brauner, Samwald",
+      "year": "2022",
+      "title": "Mapping global dynamics of benchmark creation and saturation in artificial intelligence",
+      "url": "https://arxiv.org/abs/2203.04592",
+      "opened": true,
+      "what_it_says": "Many of 3,765 benchmarks never found wide use."
+     },
+     {
+      "who": "Koch, Denton, Hanna, Foster",
+      "year": "2021",
+      "title": "Reduced, Reused and Recycled: The Life of a Dataset in Machine Learning Research",
+      "url": "https://arxiv.org/abs/2112.01716",
+      "opened": true,
+      "what_it_says": "Benchmark use concentrates on fewer and fewer datasets, mostly from a small number of institutions."
+     },
+     {
+      "who": "Post",
+      "year": "2018",
+      "title": "A Call for Clarity in Reporting BLEU Scores",
+      "url": "https://arxiv.org/abs/1804.08771",
+      "opened": true,
+      "what_it_says": "Adoption route: adopt the existing community scheme and ship a tool that enforces it."
+     }
+    ]
+   }
+  ],
+  "prior_art": [
+   {
+    "name": "sacreBLEU (Post 2018)",
+    "what_it_is": "A scoring tool for machine translation that fixes the settings and prints a version-and-settings string with every score.",
+    "overlaps_which_item": "D1 40-row marking test, N1 tiered marking function",
+    "opened": true,
+    "url": "https://arxiv.org/abs/1804.08771",
+    "already_in_notes": false,
+    "what_is_left_open": "Nothing like it exists for X-ray phase answers as far as this run found. The idea transfers directly: signature string plus one agreed default."
+   },
+   {
+    "name": "RADAR-PD's GPT-4 phase-equivalence judge",
+    "what_it_is": "A 2026 X-ray/neutron phase-ID paper that lets a GPT-4 prompt decide if a predicted structure is the same phase as the reference (accepts alternate settings, supercells, hydration and defect variants). 291 mineral-archive samples.",
+    "overlaps_which_item": "D1 tricky-pairs key, N1 marker tiers",
+    "opened": true,
+    "url": "https://arxiv.org/html/2605.12478",
+    "already_in_notes": true,
+    "what_is_left_open": "The page shows no validation of the judge against specialists and no runnable rule card. Its accepted-variant list is a ready comparison for the plan's tier names."
+   },
+   {
+    "name": "Martirossyan et al. 2025, 'All that structure matches does not glitter'",
+    "what_it_is": "Audit of crystal-structure-prediction benchmarks: one common set is only about 40% unique structures; random splits put crystal forms of one formula on both sides; the match-rate metric misleads. Proposes two new metrics (METRe, cRMSE) and cleaned splits, including variants with mirror-image pairs.",
+    "overlaps_which_item": "N1 structure-level marking; D1 mirror-image guard row; P1 splits",
+    "opened": true,
+    "url": "https://arxiv.org/abs/2509.12178",
+    "already_in_notes": false,
+    "what_is_left_open": "It covers generated structures on computed data, not marking formula-only answers from measured scans. Abstract only was read."
+   },
+   {
+    "name": "Wei, Li, Omee, Hu 2023, 'Towards Quantitative Evaluation of Crystal Structure Prediction Performance' (and CSPBench 2024)",
+    "what_it_is": "A set of automatic structure-similarity metrics to replace case-by-case manual comparison, plus a 180-structure benchmark of 13 algorithms.",
+    "overlaps_which_item": "N1 marking function (structure tier)",
+    "opened": true,
+    "url": "https://arxiv.org/abs/2307.05886",
+    "already_in_notes": false,
+    "what_is_left_open": "Aimed at structure prediction, not phase identification. CSPBench itself was seen in search results only (https://arxiv.org/abs/2407.00733), not opened."
+   },
+   {
+    "name": "CheckList (Ribeiro et al. 2020)",
+    "what_it_is": "Unit-test style behavioural tests for models: minimum functionality, invariance and directional tests.",
+    "overlaps_which_item": "D1 tricky-pairs table",
+    "opened": true,
+    "url": "https://arxiv.org/abs/2005.04118",
+    "already_in_notes": false,
+    "what_is_left_open": "A method template only. The mirror-image pair is an invariance test; the Nb2O5 vs Nb12O29 pair is a minimum functionality test. Use its vocabulary instead of inventing one."
+   },
+   {
+    "name": "Reynolds Cup (Raven and Self 2017 review)",
+    "what_it_is": "Blind contest on weighed mineral mixtures, any method allowed, ranked by a 'bias' score (summed deviation from the true amounts). About 448 participants and 21 samples over 2002 to 2014. Notes that phases reported by automatic search-match programs were often implausible.",
+    "overlaps_which_item": "L2 hidden exam, N3 practice exam, P13 over-answering",
+    "opened": true,
+    "url": "https://www.cambridge.org/core/product/identifier/S0009860400039410/type/journal_article",
+    "already_in_notes": true,
+    "what_is_left_open": "Notes know the contest but not its scoring rule. It is for human analysts, about 3 samples a round, clay-heavy, scored on amounts not on naming. No standing machine-scored version."
+   },
+   {
+    "name": "CASP",
+    "what_it_is": "Blind protein-structure test every two years since 1994 with independent assessors.",
+    "overlaps_which_item": "L2 hidden exam (governance template)",
+    "opened": true,
+    "url": "https://predictioncenter.org/",
+    "already_in_notes": true,
+    "what_is_left_open": "Template only. Needs a steady stream of unpublished answers, which one partner lab does not give."
+   },
+   {
+    "name": "Blum and Hardt 2015 (the Ladder) and Jacovi et al. 2023",
+    "what_it_is": "Leaderboard mechanism against overfitting by repeated submission; practical rules against test-set contamination (encrypt, bar derivatives, avoid items with answers online).",
+    "overlaps_which_item": "L2 hidden exam; N3 (public answers, recipe in file names); D3 frozen paper-ID list",
+    "opened": true,
+    "url": "https://arxiv.org/abs/1502.04585",
+    "already_in_notes": false,
+    "what_is_left_open": "General ML. Second URL: https://arxiv.org/abs/2305.10160. The plan's L2 one-pager lacks a submission cap and a refresh rule."
+   },
+   {
+    "name": "Codabench",
+    "what_it_is": "Free challenge host that keeps answers hidden.",
+    "overlaps_which_item": "L2 hidden exam",
+    "opened": false,
+    "url": "https://www.codabench.org/",
+    "already_in_notes": true,
+    "what_is_left_open": "Not opened in this run; taken from the notes (G17, single-agent finding)."
+   },
+   {
+    "name": "Meredig et al. 2018, leave-one-cluster-out cross-validation",
+    "what_it_is": "The standard materials citation for 'random splits overstate performance', with a nearest-neighbour baseline.",
+    "overlaps_which_item": "D3 private TE re-run, N2 TE note",
+    "opened": true,
+    "url": "https://citrine.io/can-machine-learning-identify-the-next-high-temperature-superconductor-examining-extrapolation-performance-for-materials-discovery/",
+    "already_in_notes": false,
+    "what_is_left_open": "Not TE, not grouped by paper, no frozen list. It means the general claim is 8 years old; N2 must not present it as new."
+   },
+   {
+    "name": "MD-HIT (Li, Fu, Omee, Hu 2023/2024)",
+    "what_it_is": "Tool that removes near-duplicate materials so random splits stop flattering models.",
+    "overlaps_which_item": "D3, N2; the dropped 'fair-split generator'",
+    "opened": true,
+    "url": "https://arxiv.org/abs/2307.04351",
+    "already_in_notes": false,
+    "what_is_left_open": "Shown on computed-property datasets. Says nothing about paper-level grouping of measured TE curves. Supports the plan's choice not to build a split tool."
+   },
+   {
+    "name": "MatFold",
+    "what_it_is": "Existing materials split tool (grouped and out-of-distribution folds).",
+    "overlaps_which_item": "D3, N2",
+    "opened": false,
+    "url": "https://github.com/d2r2group/MatFold",
+    "already_in_notes": true,
+    "what_is_left_open": "Not opened in this run; URL from memory. Plan already drops the pull request."
+   },
+   {
+    "name": "2026 Materials and Design TE paper with a composition-wise split",
+    "what_it_is": "'Physics-inspired feature engineering and interpretable machine learning for thermoelectric properties of multicomponent materials'. Search snippet: R-squared about 0.96 on a random split falls to 0.82 to 0.88 when whole compositions are held out (3,879 compositions).",
+    "overlaps_which_item": "N2 TE note (the '1-2 hour search for an existing TE leakage audit')",
+    "opened": false,
+    "url": "https://www.sciencedirect.com/science/article/pii/S0264127526011068",
+    "already_in_notes": false,
+    "what_is_left_open": "NOT opened (403); search snippet only. It holds out compositions, not papers, on one dataset, and ships no frozen list as far as the snippet shows. So correction 21 stands, but 'TE papers split at random' now has a counter-example to cite."
+   },
+   {
+    "name": "Ma and Poon 2025, 'Reexamining Machine Learning Models on Predicting Thermoelectric Properties'",
+    "what_it_is": "Looks like an audit by its title. The abstract is about adding physics features and dopant properties.",
+    "overlaps_which_item": "N2 TE note",
+    "opened": true,
+    "url": "https://arxiv.org/abs/2509.00299",
+    "already_in_notes": false,
+    "what_is_left_open": "The abstract has nothing on leakage, splits or baselines. Not the audit N2 worries about. Whether any paper-level TE leakage audit exists is still unknown after two searches."
+   },
+   {
+    "name": "Crusius, Cipcigan, Biggin 2025, 'Are we fitting data or noise?'",
+    "what_it_is": "Best-achievable-score bounds from experimental error for nine chemistry and materials datasets, with a Python package and web app. Four datasets had models at or past the bound.",
+    "overlaps_which_item": "N4 noise ladder and number card",
+    "opened": false,
+    "url": "https://pubs.rsc.org/en/content/articlehtml/2025/fd/d4fd00091a",
+    "already_in_notes": false,
+    "what_is_left_open": "NOT opened (403 on publisher and preprint); search results only. Unknown whether any TE set is included. The plan's ladder adds rungs this work does not seem to have (reading noise, within-paper, across-paper), but N4 should cite it and check its package before writing new code."
+   },
+   {
+    "name": "Miller 2024, 'Adding Error Bars to Evals'",
+    "what_it_is": "Formulas for standard errors, paired differences, clustering and power for evals.",
+    "overlaps_which_item": "D4 'tie or not?' function",
+    "opened": true,
+    "url": "https://arxiv.org/abs/2411.00640",
+    "already_in_notes": false,
+    "what_is_left_open": "Nothing. D4 is an implementation of known statistics; cite it, add the cluster argument, claim no novelty."
+   },
+   {
+    "name": "BetterBench (46 criteria), REFORMS (32 questions), Kapoor-Narayanan model info sheets, Bean et al. 2025 (8 recommendations)",
+    "what_it_is": "General checklists for judging a benchmark or an ML-based scientific claim.",
+    "overlaps_which_item": "N5 'four questions before trusting a materials leaderboard'",
+    "opened": true,
+    "url": "https://arxiv.org/abs/2411.12990",
+    "already_in_notes": false,
+    "what_is_left_open": "None is materials-specific, and none covers 'is the data what its label says' for measured vs simulated scans or a label-noise ladder from lab round robins. N5 should map its four questions onto these and keep only what is new. Other URLs: https://arxiv.org/abs/2308.07832, https://arxiv.org/abs/2207.07048, https://arxiv.org/abs/2511.04703."
+   },
+   {
+    "name": "GALAXI (arXiv 2609.06908, 7 Sept 2026)",
+    "what_it_is": "New X-ray phase-ID tool with classifiers for 64,594 structures and a public web interface. Reports micro-F1 0.935 on a curated experimental set, above search-match and earlier deep-learning tools.",
+    "overlaps_which_item": "N3 practice exam (a second tool to run); P5 (yet another scoring unit)",
+    "opened": true,
+    "url": "https://arxiv.org/abs/2609.06908",
+    "already_in_notes": false,
+    "what_is_left_open": "Abstract only. No item count, matching rule or intervals in the abstract; the HTML full text returned 404. Shows the field is moving this month and that scores are still reported in non-comparable units."
+   },
+   {
+    "name": "Northcutt et al. 2021 and Recht et al. 2019",
+    "what_it_is": "Test-set label-error audit (6% in ImageNet validation) and fresh-test-set replication (11 to 14% drop, rankings held).",
+    "overlaps_which_item": "D5/L3 error notes, N6 TE suspect list, D2 match table",
+    "opened": true,
+    "url": "https://arxiv.org/abs/2103.14749",
+    "already_in_notes": true,
+    "what_is_left_open": "gaps.md quotes both facts (G17, G34) without naming the sources. Second URL: https://arxiv.org/abs/1902.10811. Lesson for D5: report how much the errors change a score or a ranking, not only how many there are."
+   },
+   {
+    "name": "Matbench Discovery (Riebesell et al. 2023)",
+    "what_it_is": "Computed-data materials leaderboard whose paper argues the metric must match the discovery task.",
+    "overlaps_which_item": "N5 short note; P7",
+    "opened": true,
+    "url": "https://arxiv.org/abs/2308.14920",
+    "already_in_notes": true,
+    "what_is_left_open": "Notes know it as a leaderboard (G41), not for its metric-validity argument. It is computed data only, so the measured-data side stays open."
+   },
+   {
+    "name": "IUCr powder-diffraction round robins (quantitative analysis 2001/2002; search-match 2002) and the 1990 structure-similarity classification",
+    "what_it_is": "Older community tests with weighed 4- and 7-ingredient mixtures and lenient human marking; a formal vocabulary for 'how alike are two structures'.",
+    "overlaps_which_item": "N1 tier names, N3 practice exam, D6 web check",
+    "opened": false,
+    "url": "https://www.iucr.org/resources/commissions/powder-diffraction/projects",
+    "already_in_notes": true,
+    "what_is_left_open": "Not opened in this run; URL from memory and may have moved. Notes flag these as single-agent findings. D6 should verify them on the web as planned."
+   },
+   {
+    "name": "XRDBench",
+    "what_it_is": "LLM-oriented X-ray benchmark (100 question tasks, 34 end-to-end tasks); answers are in public JSON per the latest notes.",
+    "overlaps_which_item": "N3 practice exam, L2, P14 (possible host for the marker)",
+    "opened": false,
+    "already_in_notes": true,
+    "what_is_left_open": "Not opened in this run. Notes flip-flopped on whether its answers are public; latest word is public. 30% of its score comes from an LLM judge, so P6 applies to it too."
+   }
+  ],
+  "notes": "IS THIS EVAL WORK? Yes. Almost every planned item is an evaluation-science item, and mostly meta-evaluation (testing the tests, not the models). Map: D1/N1 = metric validity and versioning (the sacreBLEU problem). D2 = data validity and contamination. D3/N2 = leakage and splits. D4 = error bars. D6/N3/L2 = test-set construction and hidden-test governance. N4 = ceilings. N5 = a benchmark checklist. D5/N6/L3 = label-error audit. Only D0 (file rescue) is not eval work. So checking the plan against eval principles first is a fair ask.\n\nWHERE THE PLAN ALREADY PASSES (by my reading of plan.md): local wording of claims (P12); row-level error analysis and slices (P11); power sizing for L2 (P4); headroom used to kill two ideas (P8); 'practice exam, never hidden' for public answers (P9); AI-drafted key labelled as draft (P6); dated amendment before touching the pre-registered project (P2, P13); flag-never-fix.\n\nWHERE IT FAILS OR IS SILENT (each is cheap to fix before starting D1):\n1. D1 has no pre-written threshold for its one-line verdict and no written definition of 'spelling artifact' vs 'real chemistry'. The sorter is a newcomer plus an AI, single pass (P2, P6).\n2. D4 has no cluster argument. 40 scans are 20 powders; TE rows cluster by paper (P3).\n3. No metric signature is planned for stored scores, though correction 1's three causes are exactly three signature fields (P5).\n4. D3/N2 have no dev split; the neighbour count was already compared on test numbers (P2). The leak report needs two keys, paper and formula (P1).\n5. The X-ray side has no floor/ceiling ladder; N3 needs one per band before L2's 'near 50%' sizing is trusted (P8).\n6. L2's one-pager lacks a submission cap, a refresh rule and a custodian-conflict line (P9).\n7. The marker's handling of extra wrong phases and of 'cannot tell' is unspecified (P13).\n8. No common datasheet template; N5 does not yet map to existing checklists (P10).\n9. No outside user is named for N1/N5 (P14). The plan admits this.\n\nPRIOR ART THE NOTES DO NOT HAVE (grep of plan.md, gaps.md, builds.md, storyline.md, glossary found no mention): sacreBLEU, CheckList, Miller 2024, Card et al., Kapoor-Narayanan, REFORMS, BetterBench, Meredig 2018 leave-one-cluster-out, MD-HIT, Crusius et al. noise bounds, Martirossyan et al. 2025 on structure-match metrics, Wei et al. 2023 / CSPBench, the Ladder, Jacovi et al., GALAXI (Sept 2026), and a 2026 TE paper that already reports a composition-wise split drop. None of these kills a planned item. Several shrink novelty claims: N2's general point is 8 years old in materials; N4 has a close cousin with a released package; D4 and N5 are implementations or specialisations of known work and should say so.\n\nUNKNOWN / OUT OF REACH: Whether a paper-level TE leakage audit exists is still unknown (two searches, not exhaustive). Whether Crusius et al. include any TE data is unknown (pages returned 403). GALAXI's matching rule and test size are unknown (abstract only). How the Dara paper's own marking script decides 'correct' is unknown from the abstract page.\n\nSOURCING HONESTY: opened=true means I opened that URL in this run, usually the arXiv abstract page, not the full paper. Where a detail lives only in a paper's body (for example Miller's clustered standard errors) I say so. opened=false items: Dietterich 1998, Crusius et al. 2025, the Materials and Design TE paper, MatFold, Codabench, the IUCr round robins, XRDBench. For these I relied on search snippets, the notes, or memory, as stated per item. Publisher pages at RSC, Nature, Springer, ChemRxiv and ScienceDirect refused access (403 or login redirect). Nothing was downloaded, no form filled, nobody contacted, no local file written.\n\nFILES READ (all read-only): <session-scratchpad> (full); .../scratchpad/synth/gaps.md (full); .../scratchpad/plan/verify_K2_prior-art.md (full); .../scratchpad/page/big-picture.html (section id=next, text only); grep passes over .../scratchpad/synth/builds.md, storyline.md, glossary_usermodel.md."
+ },
+ "validity-and-strategy": {
+  "lens": "validity theory plus hard strategy",
+  "notes": "DIRECT ANSWER TO THE USER'S QUESTION. Yes, this is evaluation work. Almost every planned item is an eval. About five of them (D1 tricky-pairs key, D4 tie function, N1 tiered marker, N4 noise ladder, N5 'four questions' note) are one level further up: tools and commentary about how exams are marked. That is evaluation of evaluation. And yes, it is worth checking principles before the next step. The check below changes the order of work more than the content.\n\nVERDICT UNDER THIS LENS: right direction, mis-sequenced, with real drift risk. (1) 'Evaluation data before a training corpus' was a deliberate earlier decision and it survives validity theory. (2) But the weight of the plan has slid from evaluation DATA (trusted measured test items, which is curation, the user's stated focus) to evaluation TOOLING and notes, because tooling is what can be done at a desk. The curation items (D2 match table, D5 corrections, N6 suspect list, D3 frozen DOI list) were demoted to 'courtesy'. (3) Most desk items polish internal validity (marking, ties, splits, noise). The plan's own numbers say the signal is in external validity: on 20 real reaction products the marking rule moves 1 to 3 of 20 while the tool gap is 11 to 13 of 20. (4) The only certain user is the user's own project. No outside decider is named for any item. (5) The step that decides the fork (will one diffraction specialist engage) sits after about two weeks of desk work. It should run in parallel from day one. It needs the user's yes and the user sends it.\n\nWHAT MAY BE OUT OF REACH. The dominant bottleneck under this lens is fresh, hidden, measured test items from real reactions, with an answer key made independently of the tools. That needs a lab and someone who holds the answers for years. A small outside team may not be able to get this. The honest small version is a one-off blind check with one lab, labelled as such. For thermoelectric (TE) data the values are already public, so any benchmark is a practice exam. The plan already says this; keep saying it.\n\nNEW FACTS FOUND THIS RUN (not in plan.md or gaps.md). (a) The Dara paper (arXiv 2510.19667, HTML version) reports its own weighed-mixture test as 10 binary plus 10 ternary mixtures at two scan times: Dara 18/20 and 20/20, the commercial tool 16/20 and 18/20. So the best tool is already at ceiling on the 8-minute scans; headroom exists only in the 2-minute scans. 18+20 = 38, which matches the '38' in plan correction 1. (b) For the 20 reaction products the paper says the answer key came from one human expert who used a commercial database 'and suggestions from Dara', and success was counted as 'all peaks indexed', not 'right phases named'. So the only external-validity set in the plan has an answer key that is not independent of one graded tool. (c) The Dara authors state the tool fails when a phase is missing from the database and that lab powder XRD cannot settle composition. These three facts matter more to validity than the marking rule. They come from a small-model summary of the arXiv HTML page; re-read the exact wording before quoting it anywhere.\n\nPRIOR-ART GAPS IN THE NOTES. plan.md and gaps.md contain no evaluation-methodology literature at all (no validity theory, Goodhart, leakage-in-science, materials-ML evaluation reviews). Direct overlaps the notes do not know: AFLOW-XtalFinder (N1), Alampara et al. 2025 and REFORMS and BetterBench (N5), NoiseEstimator (N4), Meredig LOCO-CV and formula-grouped Starrydata splits already in print (D3/N2), Miller 2024 and Card 2020 (D4). N2's premise 'TE papers split at random' is now partly false: at least one 2025 Starrydata paper groups by reduced formula. Since plan correction 17 says most of the jump comes from unseen formulas, the split already in use captures most of the effect. What is left for N2 is the smaller paper-level residual (24.8% to 29.4%) and the frozen DOI list.\n\nDISCLOSURES. (1) Tool side effect: when I fetched the arXiv PDF of Manheim and Garrabrant to confirm the four Goodhart variants, the WebFetch tool saved the PDF binary to its own tool-results folder under ~/.claude/projects/.../4306e524-8308-4b33-8c27-c48b1baaf736/tool-results/. This conflicts with the no-PDF-to-disk rule. I did not delete it (read-only rule) and used only abstract or HTML pages afterwards. (2) opened=true means I fetched that URL in this run and a small summarising model reported the content; I did not read full texts. (3) Not opened, cited from memory or search snippets only and flagged opened=false: Messick 1995, Sambasivan 2021, Donoho 2017, Crusius 2025, Raven and Self 2017, the two 2026 ScienceDirect TE papers, pymatgen StructureMatcher docs. Publisher pages that demanded sign-in were not followed. (4) 'Criterion contamination' in P5 is a textbook psychometrics term used from memory, not a citation. (5) The AM Bench figure (3 submissions vs 6,044 downloads) is quoted from gaps.md G34, not re-verified. (6) Files read: <session-scratchpad>, .../synth/gaps.md, .../synth/storyline.md, .../synth/glossary_usermodel.md, .../synth/builds.md (grep), .../page/big-picture.html (section 'next'). Nothing was written, moved or deleted by me.",
+  "principles": [
+   {
+    "id": "P1",
+    "name": "Name the decision and the decider",
+    "plain": "A score is never valid in general. It is valid for one stated use. Before building an eval, write who will decide what from its number.",
+    "how_to_check": "For each planned eval item, can you fill in this line with a role outside this chat: 'ROLE will choose between A and B using this number'? Yes or no per item.",
+    "why_it_matters_here": "Only the user's own project passes today (0.309 vs 0.745, n=55), and that is an internal user. D4, N1, N4 and N5 have no named decider. plan.md section 8 admits 'who is we' is unconfirmed. Without a decider, nobody can say which marking tier or which interval width is 'right'.",
+    "sources": [
+     {
+      "who": "Michael T. Kane",
+      "title": "Validating the Interpretations and Uses of Test Scores (J. Educational Measurement 50(1))",
+      "year": "2013",
+      "url": "https://eric.ed.gov/?id=EJ996447",
+      "what_it_says": "What gets validated is the proposed interpretation and use of a score, not the test. More ambitious claims need more support.",
+      "opened": true
+     },
+     {
+      "who": "George Heilmeier / DARPA",
+      "title": "The Heilmeier Catechism",
+      "year": "1970s (DARPA page, current)",
+      "url": "https://www.darpa.mil/about/heilmeier-catechism",
+      "what_it_says": "Eight questions for any project, including who cares, what difference success makes, and what the mid-term and final exams are.",
+      "opened": true
+     }
+    ]
+   },
+   {
+    "id": "P2",
+    "name": "Exam task must stand for real skill",
+    "plain": "Construct validity: the test task must exercise the skill the real job needs. Naming known powders in a weighed mixture (ground truth by recipe) is not the same skill as analysing a real reaction product with shifted, disordered, poorly crystalline or unlisted phases.",
+    "how_to_check": "Is there measured evidence that tool rankings on weighed mixtures match tool rankings on real reaction products, for the same tools? If no, does every claim say 'on weighed mixtures' and nothing wider? Fail if neither.",
+    "why_it_matters_here": "Plan correction 2: the marking rule moves 1 to 3 of 20 on reaction products; the tool gap is 11 to 13 of 20. The Dara paper reports 20/20 on its 8-minute weighed scans but 15/20 on reaction products, and says the tool fails when a phase is not in the database. A 2024 critique found two thirds of one autonomous lab's claimed new materials were likely known disordered compounds (atoms sharing sites). Disorder is the real failure mode, and weighed mixtures of pure powders contain none. gaps.md also records one tool finding four different three-phase answers with near-identical fit: the measurement itself may not pin down the answer.",
+    "sources": [
+     {
+      "who": "Abigail Z. Jacobs, Hanna Wallach",
+      "title": "Measurement and Fairness",
+      "year": "2021",
+      "url": "https://arxiv.org/abs/1912.05511",
+      "what_it_says": "Unobservable constructs are measured through a model of how they show up in data; harm comes from mismatch between construct and measurement. Introduces construct validity and reliability for computational systems.",
+      "opened": true
+     },
+     {
+      "who": "Raji, Bender, Paullada, Denton, Hanna",
+      "title": "AI and the Everything in the Whole Wide World Benchmark",
+      "year": "2021",
+      "url": "https://arxiv.org/abs/2111.15366",
+      "what_it_says": "Benchmarks built on narrow tasks get over-read as measures of a general ability.",
+      "opened": true
+     },
+     {
+      "who": "Fei, McDermott, Rom, Wang, Ceder",
+      "title": "Dara: Automated multiple-hypothesis phase identification and refinement from powder X-ray diffraction",
+      "year": "2025",
+      "url": "https://arxiv.org/html/2510.19667",
+      "what_it_says": "Own benchmark: 10 binary + 10 ternary precursor mixtures at two scan times (18/20, 20/20) and 20 reaction products (15/20 'all peaks indexed'). States failure when phases are absent from the database and that lab XRD cannot settle composition.",
+      "opened": true
+     },
+     {
+      "who": "Leeman, Liu, Stiles, Schoop and co-authors",
+      "title": "Challenges in High-Throughput Inorganic Materials Prediction and Autonomous Synthesis (PRX Energy 3, 011002)",
+      "year": "2024",
+      "url": "https://collaborate.princeton.edu/en/publications/challenges-in-high-throughput-inorganic-materials-prediction-and-/",
+      "what_it_says": "Two thirds of the claimed successes are likely known compositionally disordered versions of the predicted compounds. Automated Rietveld analysis (whole-pattern fitting) is not yet reliable.",
+      "opened": true
+     }
+    ]
+   },
+   {
+    "id": "P3",
+    "name": "Cover the failure modes that matter",
+    "plain": "Content validity: list the real-world ways phase identification fails first. Then count test items per failure mode. Empty rows are named gaps, not silence.",
+    "how_to_check": "Does a written coverage table exist with rows such as: phase not in database; solid solution or shifted lattice; amorphous (non-crystalline) content; minor phase under about 5 wt%; preferred orientation; 4 or more phases; and a count of test items in each row? Yes or no.",
+    "why_it_matters_here": "D1's roughly 25 tricky pairs cover naming ambiguity only (NiO vs Ni1.875O2, Nb2O5 vs Nb12O29). D6/N3 add more phases, still known powders. No planned item covers 'phase not in database', which is the tool authors' own stated limit. The Reynolds Cup (blind mineral contest) uses realistic clay-bearing mixtures, and its 12-year review names poorly crystalline clays as the main error source.",
+    "sources": [
+     {
+      "who": "The Clay Minerals Society",
+      "title": "The Reynolds Cup (contest page)",
+      "year": "current page, contest since 2002",
+      "url": "https://www.clays.org/reynolds/",
+      "what_it_says": "Biennial blind contest; three realistic clay-bearing mineral mixtures per round; any method allowed, powder XRD dominates; scored by summed absolute error with tie-breaks including misidentified phases.",
+      "opened": true
+     },
+     {
+      "who": "Raven, Self",
+      "title": "Outcomes of 12 Years of the Reynolds Cup Quantitative Mineral Analysis Round Robin (Clays and Clay Minerals 65(2))",
+      "year": "2017",
+      "url": "https://link.springer.com/article/10.1346/CCMN.2017.064054",
+      "what_it_says": "From a search snippet only: top finishers named nearly all phases; poor finishers misidentified phases; clay minerals were the largest error source. Page required sign-in, not opened.",
+      "opened": false
+     },
+     {
+      "who": "Samuel R. Bowman, George E. Dahl",
+      "title": "What Will it Take to Fix Benchmarking in Natural Language Understanding?",
+      "year": "2021",
+      "url": "https://arxiv.org/abs/2104.02145",
+      "what_it_says": "Sets out four criteria a benchmark should meet. Abstract opened; my recollection of the four (valid task coverage, reliable labels, statistical power, no reward for harmful shortcuts) is from memory.",
+      "opened": true
+     }
+    ]
+   },
+   {
+    "id": "P4",
+    "name": "External validity before internal polish",
+    "plain": "First show the result transfers to the real setting, a second test set, or a second instrument. Only then tighten marking rules, intervals and splits.",
+    "how_to_check": "Count planned desk-days by type. Are more days spent on internal validity (marking, ties, splits, noise) than on external validity (second measured set, second instrument or lab, real reaction products)? If yes, fail. Also: is every comparative claim backed by at least two independent test sets, or labelled 'one set, one instrument'?",
+    "why_it_matters_here": "D1, D4, N1, N4 and D3 are all internal. Only D6/N3 and L1/L2 touch external validity and they come later. The 40 scans come from one lab's instrument; L2 is designed as a one-instrument exam; plan correction 29 admits 'one lab is enough' is reasoning, not evidence. D6/N3 (three harder public measured sets) is the cheapest external check and deserves to move up.",
+    "sources": [
+     {
+      "who": "Liao, Taori, Raji, Schmidt",
+      "title": "Are We Learning Yet? A Meta Review of Evaluation Failures Across Machine Learning (NeurIPS Datasets and Benchmarks)",
+      "year": "2021",
+      "url": "https://datasets-benchmarks-proceedings.neurips.cc/paper/2021/hash/757b505cfd34c64c85ca5b5690ee5293-Abstract-round2.html",
+      "what_it_says": "Splits evaluation failures into internal validity (baselines, test-set reuse) and external validity (does progress transfer beyond the benchmark).",
+      "opened": true
+     },
+     {
+      "who": "Dehghani, Tay, Gritsenko and co-authors",
+      "title": "The Benchmark Lottery",
+      "year": "2021",
+      "url": "https://arxiv.org/abs/2107.07002",
+      "what_it_says": "Relative ranking of methods changes a lot with the choice of benchmark tasks.",
+      "opened": true
+     }
+    ]
+   },
+   {
+    "id": "P5",
+    "name": "Answer key independent of graded tools",
+    "plain": "If the ground truth was produced with help from a tool being graded, the score partly measures the tool agreeing with itself. Psychometrics calls this criterion contamination.",
+    "how_to_check": "For each test set: was the answer key made by someone who had not seen any graded tool's output? Yes or no. For any planned specialist review: does the specialist mark blind first, before seeing the AI-drafted verdicts?",
+    "why_it_matters_here": "Weighed mixtures pass (the key is the recipe). The 20 reaction products do not: the Dara paper says its human expert used 'suggestions from Dara', and success was 'all peaks indexed', not 'right phases'. That set is the plan's only external-validity evidence and it feeds the '11 to 13 of 20 tool gap'. L1 has the same risk: D1's key is 'AI-drafted, not yet reviewed', so a specialist shown it will anchor on it. gaps.md G19 already noted 'judgment vs judgment' for another tool but did not connect it to this set.",
+    "sources": [
+     {
+      "who": "Fei, McDermott, Rom, Wang, Ceder",
+      "title": "Dara: Automated multiple-hypothesis phase identification and refinement from powder X-ray diffraction",
+      "year": "2025",
+      "url": "https://arxiv.org/html/2510.19667",
+      "what_it_says": "Reaction-product ground truth came from a human expert using a commercial database and Dara's suggestions; patterns were counted by whether all peaks were indexed.",
+      "opened": true
+     },
+     {
+      "who": "Michael T. Kane",
+      "title": "Validating the Interpretations and Uses of Test Scores",
+      "year": "2013",
+      "url": "https://eric.ed.gov/?id=EJ996447",
+      "what_it_says": "Each inference from observed response to claimed meaning needs its own backing; the scoring inference (is the key right) is the first link.",
+      "opened": true
+     }
+    ]
+   },
+   {
+    "id": "P6",
+    "name": "Scoring rule must match the decision",
+    "plain": "Pick the metric from the decision it feeds, not from what is easy to compute or from a classification scheme.",
+    "how_to_check": "Is each marking tier (strict formula, lenient formula, structure-level) tied in writing to a named downstream use, for example 'did the synthesis make the target compound' versus 'which structure family formed'? If tiers are justified only by a crystallography naming scheme, fail.",
+    "why_it_matters_here": "N1 takes its tier names from a 1990 classification. Nobody has said which tier a synthesis chemist or an autonomous lab actually needs. The Dara authors say lab XRD cannot settle composition, so a strict-formula tier may demand more than the measurement can give. Matbench Discovery is the materials precedent: a good regression error hid a high false-positive rate at the decision threshold. sacreBLEU shows the modest, real value of a standard scorer: it fixed reporting, not the construct.",
+    "sources": [
+     {
+      "who": "Riebesell, Goodall, Benner and co-authors",
+      "title": "Matbench Discovery -- A framework to evaluate machine learning crystal stability predictions",
+      "year": "2023 (rev. 2024)",
+      "url": "https://arxiv.org/abs/2308.14920",
+      "what_it_says": "Regression metrics and task-relevant classification metrics are misaligned; accurate regressors can still give many false positives near the decision boundary. Argues for prospective benchmarks.",
+      "opened": true
+     },
+     {
+      "who": "Matt Post",
+      "title": "A Call for Clarity in Reporting BLEU Scores",
+      "year": "2018",
+      "url": "https://arxiv.org/abs/1804.08771",
+      "what_it_says": "The same metric varies by up to 1.8 points across configurations; a shared scorer (sacreBLEU) removes that spread.",
+      "opened": true
+     }
+    ]
+   },
+   {
+    "id": "P7",
+    "name": "Effect must beat noise and tool gap",
+    "plain": "A marking or split effect justifies a tool only if it is larger than sampling noise and changes which tool wins, on the data that matters.",
+    "how_to_check": "On the target data (reaction products, not only the 40 weighed scans): does changing the marking rule flip any tool ranking, or move a score by more than the interval half-width? Yes or no. If no, stop N1.",
+    "why_it_matters_here": "By D4's own example, 38 vs 35 of 40 is a tie (interval 0.0 to 15.0 points). With n of 20 to 40 almost nothing is resolvable. On reaction products the rule moves 1 to 3 of 20 and rankings hold. On the 8-minute weighed scans the best tool is at 20/20, so there is no room for a rule to matter. Users choosing a tool care about ranking; ImageNet's re-test showed absolute scores can drop 11 to 14% while rankings hold.",
+    "sources": [
+     {
+      "who": "Card, Henderson, Khandelwal, Jia, Mahowald, Jurafsky",
+      "title": "With Little Power Comes Great Responsibility",
+      "year": "2020",
+      "url": "https://arxiv.org/abs/2010.06595",
+      "what_it_says": "Underpowered comparisons on small test sets are common and mislead.",
+      "opened": true
+     },
+     {
+      "who": "Evan Miller",
+      "title": "Adding Error Bars to Evals: A Statistical Approach to Language Model Evaluations",
+      "year": "2024",
+      "url": "https://arxiv.org/abs/2411.00640",
+      "what_it_says": "Recipes for confidence intervals, clustered standard errors, paired differences and power analysis for evals.",
+      "opened": true
+     },
+     {
+      "who": "Recht, Roelofs, Schmidt, Shankar",
+      "title": "Do ImageNet Classifiers Generalize to ImageNet?",
+      "year": "2019",
+      "url": "https://arxiv.org/abs/1902.10811",
+      "what_it_says": "New test sets cut accuracy by 11 to 14% but preserved model rankings.",
+      "opened": true
+     },
+     {
+      "who": "David J. Hand",
+      "title": "Classifier Technology and the Illusion of Progress",
+      "year": "2006",
+      "url": "https://arxiv.org/abs/math/0606441",
+      "what_it_says": "Small measured gains are often swamped by real-world uncertainties that the standard setup leaves out.",
+      "opened": true
+     }
+    ]
+   },
+   {
+    "id": "P8",
+    "name": "Ask what gaming the exam breaks",
+    "plain": "Goodhart's law and consequential validity: before publishing a score, write how a tool could raise it without getting better at the real job, and what that tool would then get worse at.",
+    "how_to_check": "Is there one written paragraph per eval that names the cheapest way to game it? If that way is easy (restrict the candidate list to the known chemical system; always pick the most common polymorph; always or never abstain), is there a guard or a narrower claim? Yes or no.",
+    "why_it_matters_here": "Weighed-mixture exams reward closed candidate lists. gaps.md G21 to G23 already record that fit residual is hackable and that closed-list classifiers at about 93% fail on open multiphase patterns. D1 allows 'cannot tell' in the key; good, but the scorer must not let always-abstain win, which ties to the user's own calibrated-abstention project. For TE, published values are public, so adversarial gaming is free and any TE benchmark is a practice exam.",
+    "sources": [
+     {
+      "who": "David Manheim, Scott Garrabrant",
+      "title": "Categorizing Variants of Goodhart's Law",
+      "year": "2018",
+      "url": "https://arxiv.org/abs/1803.04585",
+      "what_it_says": "Four ways a proxy fails under optimisation: regressional, extremal, causal, adversarial.",
+      "opened": true
+     },
+     {
+      "who": "Samuel Messick",
+      "title": "Validity of psychological assessment (American Psychologist 50(9), 741-749)",
+      "year": "1995",
+      "url": "https://doi.org/10.1037/0003-066X.50.9.741",
+      "what_it_says": "From memory, not opened; DOI also from memory, verify. Validity includes the consequences of using a score, not only its meaning.",
+      "opened": false
+     }
+    ]
+   },
+   {
+    "id": "P9",
+    "name": "One outside adopter before any build",
+    "plain": "An eval with no user outside its author is a private unit test. Get one named outside role to say 'I would use this' before building past the test stage.",
+    "how_to_check": "Has one role outside this chat (a maintainer of the open phase-ID tool, one diffraction specialist, or one benchmark maintainer) been shown the 40-row result and replied? Yes or no. Today: no.",
+    "why_it_matters_here": "gaps.md G34 records a well-run materials benchmark that drew 3 submissions against 6,044 downloads. Adopted benchmarks come mostly from a few elite institutions, so a newcomer cannot assume uptake. The smallest path is one message with the 40-row table attached, to the tool's maintainers or to one specialist. It needs the user's yes and the user sends it. If nobody replies after a fair wait, that is a result: stop the marking-kit line.",
+    "sources": [
+     {
+      "who": "Kiri L. Wagstaff",
+      "title": "Machine Learning that Matters",
+      "year": "2012",
+      "url": "https://arxiv.org/abs/1206.4656",
+      "what_it_says": "ML evaluation drifted away from domain problems; datasets lack relevance, metrics miss impact, and results are not carried back to domain users.",
+      "opened": true
+     },
+     {
+      "who": "Koch, Denton, Hanna, Foster",
+      "title": "Reduced, Reused and Recycled: The Life of a Dataset in Machine Learning Research",
+      "year": "2021",
+      "url": "https://arxiv.org/abs/2112.01716",
+      "what_it_says": "Research concentrates on fewer datasets over time, and those come from a small number of elite institutions.",
+      "opened": true
+     },
+     {
+      "who": "George Heilmeier / DARPA",
+      "title": "The Heilmeier Catechism",
+      "year": "1970s (DARPA page, current)",
+      "url": "https://www.darpa.mil/about/heilmeier-catechism",
+      "what_it_says": "Who cares? If you succeed, what difference will it make?",
+      "opened": true
+     }
+    ]
+   },
+   {
+    "id": "P10",
+    "name": "Evaluation data over evaluation commentary",
+    "plain": "The scarce thing is trusted measured test items, not more opinions about benchmarks. Prefer work that adds or repairs records someone else can load.",
+    "how_to_check": "For each item: does it end with new or corrected measured records (rows, labels, provenance) that a stranger can load? Or only with a function or a note about evals? Count each kind. If functions and notes outnumber record-producing items in the first month, fail.",
+    "why_it_matters_here": "The user's stated focus is curating imperfect experimental data. D2 (499-file real-or-simulated match table), N6 (TE suspect list), D5 (corrections) and D3's frozen DOI list are curation and sit at 'courtesy' rank. N5, a four-question note, overlaps a 32-question standard (REFORMS), a 46-practice checklist (BetterBench) and a 2025 materials-ML evaluation review with 'evaluation cards', all from established groups. A newcomer's note adds little there.",
+    "sources": [
+     {
+      "who": "Alampara, Schilling-Wilhelmi, Jablonka",
+      "title": "Lessons from the trenches on evaluating machine-learning systems in materials science",
+      "year": "2025",
+      "url": "https://arxiv.org/abs/2503.10837",
+      "what_it_says": "Reviews materials-ML evaluation through measurement theory: construct validity, data quality, metric design, benchmark upkeep. Proposes evaluation cards.",
+      "opened": true
+     },
+     {
+      "who": "Kapoor, Cantrell, Peng and co-authors",
+      "title": "REFORMS: Reporting Standards for Machine Learning Based Science",
+      "year": "2023",
+      "url": "https://arxiv.org/abs/2308.07832",
+      "what_it_says": "A 32-question checklist for authors, reviewers and editors, built by 19 researchers.",
+      "opened": true
+     },
+     {
+      "who": "Sambasivan, Kapania, Highfill, Akrong, Paritosh, Aroyo",
+      "title": "Everyone wants to do the model work, not the data work: Data Cascades in High-Stakes AI (CHI 2021)",
+      "year": "2021",
+      "url": "https://dl.acm.org/doi/10.1145/3411764.3445518",
+      "what_it_says": "From a search snippet only, not opened: data work is undervalued and data problems compound downstream; 92% of 53 practitioners reported at least one such cascade.",
+      "opened": false
+     }
+    ]
+   },
+   {
+    "id": "P11",
+    "name": "Newcomer claims must be checkable",
+    "plain": "A newcomer's critique is believed only if a stranger can re-run it from public files, every headline is scoped to what was measured, and one domain person has checked the domain calls.",
+    "how_to_check": "Three yes/no tests. (a) Can a stranger reproduce every headline number from public inputs with one command? (b) Does every headline sentence carry 'on these N scans in our set-up'? (c) Has one specialist checked the domain verdicts, marking blind first?",
+    "why_it_matters_here": "The plan already shrank both headlines and bans 'field-wide finding'. Good. But the 12/17/32 table depends on the user's private project folders, D1's key is AI-drafted and unreviewed, and part of the swing was a stale results file in the user's own project. Publishing that as a critique of the field would backfire. The leakage audits that did land earned trust through reproducible checks of named papers plus a simple disclosure sheet.",
+    "sources": [
+     {
+      "who": "Sayash Kapoor, Arvind Narayanan",
+      "title": "Leakage and the Reproducibility Crisis in ML-based Science",
+      "year": "2022",
+      "url": "https://arxiv.org/abs/2207.07048",
+      "what_it_says": "Surveys leakage across 17 fields and 329 papers; offers model info sheets as a disclosure tool.",
+      "opened": true
+     },
+     {
+      "who": "Koch, Denton, Hanna, Foster",
+      "title": "Reduced, Reused and Recycled: The Life of a Dataset in Machine Learning Research",
+      "year": "2021",
+      "url": "https://arxiv.org/abs/2112.01716",
+      "what_it_says": "Benchmark influence is concentrated in a few elite institutions, so outsiders start with a credibility deficit.",
+      "opened": true
+     }
+    ]
+   },
+   {
+    "id": "P12",
+    "name": "Search prior art before each build",
+    "plain": "Spend one to two hours searching before each build. Then shrink the item to the gap that is left.",
+    "how_to_check": "Does each build item name its closest existing tool or paper and give one sentence on what that tool does not do? Items failing today: N1, N2, N4, N5, D4.",
+    "why_it_matters_here": "Plan corrections 8 and 21 admit searches were skipped ('no installable grader exists' unsupported; nobody searched for a TE leakage audit). This run found in a few hours: an open tool with graded crystal-structure similarity (N1); a noise-ceiling package (N4); a 32-question standard and a materials-ML evaluation review (N5); leave-one-cluster-out validation and a Starrydata paper that already groups by reduced formula (D3/N2); standard eval statistics (D4). None are in plan.md or gaps.md.",
+    "sources": [
+     {
+      "who": "Hicks, Toher, Ford and co-authors",
+      "title": "AFLOW-XtalFinder: a reliable choice to identify crystalline prototypes (npj Comput. Mater. 7, 30)",
+      "year": "2021",
+      "url": "https://arxiv.org/abs/2010.04222",
+      "what_it_says": "Open-source tool, Python and command line, that compares crystal structures at several similarity levels. Whether it cites the 1990 classification was not confirmed.",
+      "opened": true
+     },
+     {
+      "who": "Sun, Li, Imamura, Ohishi, Wolverton, Kurosaki",
+      "title": "Lattice-to-Total Thermal Conductivity Ratio: A Phonon-Glass Electron-Crystal Descriptor for Data-Driven Thermoelectric Design",
+      "year": "2025 (rev. 2026)",
+      "url": "https://arxiv.org/abs/2511.21213",
+      "what_it_says": "Uses Starrydata with a group-based split so entries sharing a reduced formula stay in one set. Groups by formula, not by source paper. No random-vs-group comparison reported.",
+      "opened": true
+     },
+     {
+      "who": "Meredig, Antono, Church and co-authors",
+      "title": "Can machine learning identify the next high-temperature superconductor? Examining extrapolation performance for materials discovery",
+      "year": "2018",
+      "url": "https://citrine.io/can-machine-learning-identify-the-next-high-temperature-superconductor-examining-extrapolation-performance-for-materials-discovery/",
+      "what_it_says": "Random cross-validation overstates performance in materials; proposes leave-one-cluster-out validation and a nearest-neighbour baseline.",
+      "opened": true
+     },
+     {
+      "who": "Crusius, Cipcigan, Biggin",
+      "title": "Are we fitting data or noise? Analysing the predictive power of commonly used datasets in drug-, materials-, and molecular-discovery (Faraday Discussions)",
+      "year": "2025",
+      "url": "https://pubs.rsc.org/en/content/articlelanding/2025/fd/d4fd00091a",
+      "what_it_says": "From a search snippet only (page returned 403): derives performance bounds from experimental error for nine datasets; ships a Python package called NoiseEstimator.",
+      "opened": false
+     }
+    ]
+   },
+   {
+    "id": "P13",
+    "name": "Do the fork-deciding step first",
+    "plain": "Order work by uncertainty removed per day. Run slow, decisive asks in parallel from day one. Give every item a written kill result.",
+    "how_to_check": "Is the step that decides the fork (will one diffraction specialist engage) scheduled before, or in parallel with, the desk builds that depend on it? Yes or no. Does every item have one sentence: 'if we see X, we stop'? Yes or no.",
+    "why_it_matters_here": "The plan calls the specialist question 'the one question only you can answer', then places it after about two weeks of desk work. Replies take weeks, so waiting costs calendar time. The 40-row test (1 to 2 days) is correctly first: it is a test, not a build, and its table is the natural thing to show a specialist. Add one cheap column to it: scan time, since the best tool's headroom is only in the 2-minute scans. glossary_usermodel.md notes only 3 of 188 past action items had a done test; kill results fix that.",
+    "sources": [
+     {
+      "who": "George Heilmeier / DARPA",
+      "title": "The Heilmeier Catechism",
+      "year": "1970s (DARPA page, current)",
+      "url": "https://www.darpa.mil/about/heilmeier-catechism",
+      "what_it_says": "What are the risks? What are the mid-term and final exams to check for success?",
+      "opened": true
+     }
+    ]
+   },
+   {
+    "id": "P14",
+    "name": "Hidden exam needs a standing referee",
+    "plain": "A real benchmark needs three things: sequestered test data, a referee who scores submissions, and enrolled competitors. Without all three, call it a practice exam and promise nothing more.",
+    "how_to_check": "Does the plan name who will hold the hidden answers, score entries, and keep doing so for years? If no, is every output labelled 'practice exam' or 'one-off blind check'? Fail if neither.",
+    "why_it_matters_here": "L2 needs roughly 385 powders for plus or minus 5 points (470 to 780 if paired), one partner lab and a long-lived referee. The plan itself says this 'may be out of our reach'. Under this lens that is the dominant bottleneck, and it may indeed be out of reach for a small outside team. The Reynolds Cup shows what it takes: a society, a volunteer organiser each round, about 100 sample sets, 20+ years. The honest reachable version is a one-off blind check with one lab. TE values are public, so TE can never be hidden.",
+    "sources": [
+     {
+      "who": "David Donoho",
+      "title": "50 Years of Data Science (J. Computational and Graphical Statistics 26(4))",
+      "year": "2017",
+      "url": "https://www.tandfonline.com/doi/full/10.1080/10618600.2017.1384734",
+      "what_it_says": "From a search snippet and memory, not opened: the Common Task Framework (public training data, enrolled competitors, a referee scoring against sequestered test data) is the 'secret sauce' behind progress in predictive modelling.",
+      "opened": false
+     },
+     {
+      "who": "The Clay Minerals Society",
+      "title": "The Reynolds Cup (contest page)",
+      "year": "current page, contest since 2002",
+      "url": "https://www.clays.org/reynolds/",
+      "what_it_says": "Biennial, free, about 100 sample sets per round, one entry per organisation, blind scoring by the organisers.",
+      "opened": true
+     }
+    ]
+   }
+  ],
+  "prior_art": [
+   {
+    "name": "Dara paper's own benchmark (Fei et al. 2025, arXiv 2510.19667)",
+    "what_it_is": "The open phase-ID tool's own test: 10 binary + 10 ternary weighed precursor mixtures at 2-minute and 8-minute scans (Dara 18/20 and 20/20; commercial tool 16/20 and 18/20), plus 20 reaction products scored as 'all peaks indexed' against one expert who used the tool's suggestions.",
+    "overlaps_which_item": "D1 (40-row marking test), N1, N3, L1; also the '20 reaction products' numbers in plan correction 2",
+    "opened": true,
+    "url": "https://arxiv.org/html/2510.19667",
+    "already_in_notes": true,
+    "what_is_left_open": "Notes know the tool and the 16/15/7 scores but NOT that the 8-minute set is at ceiling, that 'correct' on mixtures means all phases and no spurious ones, or that the reaction-product key was made with the tool's suggestions. No independent, blind answer key for reaction products exists. No scoring script was confirmed (not checked this run)."
+   },
+   {
+    "name": "AFLOW-XtalFinder (Hicks et al. 2021)",
+    "what_it_is": "Open-source Python and command-line tool that decides whether two crystal structures are the same at several similarity levels (same symmetry skeleton; same skeleton and similar geometry), with a numeric misfit.",
+    "overlaps_which_item": "N1 tiered marking function; D1 tricky-pairs verdicts",
+    "opened": true,
+    "url": "https://arxiv.org/abs/2010.04222",
+    "already_in_notes": false,
+    "what_is_left_open": "It compares structures, not phase-ID answers. It does not clean formula text, has no 'cannot tell' verdict, and does not map a tool's answer list to a per-scan mark. Whether its levels equal the 1990 classification tiers was not confirmed. N1 could shrink to a thin wrapper plus the verdict table."
+   },
+   {
+    "name": "pymatgen StructureMatcher",
+    "what_it_is": "Widely used open Python routine that tests whether two crystal structures match within tolerances.",
+    "overlaps_which_item": "N1, D1",
+    "opened": false,
+    "url": "https://pymatgen.org",
+    "already_in_notes": true,
+    "what_is_left_open": "From memory, docs not opened this run. Gives match or no-match, not graded tiers tied to a decision. Same gap as above."
+   },
+   {
+    "name": "Alampara, Schilling-Wilhelmi, Jablonka 2025, 'Lessons from the trenches on evaluating machine-learning systems in materials science'",
+    "what_it_is": "A review of materials-ML evaluation through measurement theory (construct validity, data quality, metrics, benchmark upkeep). Proposes 'evaluation cards'.",
+    "overlaps_which_item": "N5 'four questions' note; the whole framing of this review",
+    "opened": true,
+    "url": "https://arxiv.org/abs/2503.10837",
+    "already_in_notes": false,
+    "what_is_left_open": "General to materials ML. Abstract shows no worked powder-XRD phase-ID example with numbers. The 40-row table could serve as one worked example of their point, which is a smaller and more credible contribution than a new note."
+   },
+   {
+    "name": "REFORMS (Kapoor et al. 2023)",
+    "what_it_is": "A 32-question reporting checklist for ML-based science, built by 19 researchers for authors, reviewers and editors.",
+    "overlaps_which_item": "N5",
+    "opened": true,
+    "url": "https://arxiv.org/abs/2308.07832",
+    "already_in_notes": false,
+    "what_is_left_open": "Not materials-specific and says nothing about answer-key marking rules. N5 should cite it and add at most the one or two questions it lacks."
+   },
+   {
+    "name": "BetterBench (Reuel et al. 2024)",
+    "what_it_is": "46 best practices for benchmarks, applied to 24 AI benchmarks; finds most do not report statistical significance or allow easy replication. Ships a checklist and a living site.",
+    "overlaps_which_item": "N5, D4",
+    "opened": true,
+    "url": "https://arxiv.org/abs/2411.12990",
+    "already_in_notes": false,
+    "what_is_left_open": "No materials benchmarks assessed, as far as the abstract shows. Applying its checklist to one or two XRD benchmarks is a possible small item, but it is still commentary."
+   },
+   {
+    "name": "Kapoor and Narayanan 2022, 'Leakage and the Reproducibility Crisis in ML-based Science'",
+    "what_it_is": "A survey of train-test leakage across 17 fields and 329 papers, with a taxonomy and model info sheets.",
+    "overlaps_which_item": "D3, N2 (TE split audit)",
+    "opened": true,
+    "url": "https://arxiv.org/abs/2207.07048",
+    "already_in_notes": false,
+    "what_is_left_open": "Unknown whether thermoelectrics or Starrydata appears in their list; I did not check. It is the template for how an outsider audit earns trust: named papers, reproducible code."
+   },
+   {
+    "name": "Meredig et al. 2018, leave-one-cluster-out cross-validation (LOCO-CV)",
+    "what_it_is": "Shows random cross-validation overstates materials-ML performance; proposes holding out whole chemical clusters and a nearest-neighbour baseline.",
+    "overlaps_which_item": "D3, N2",
+    "opened": true,
+    "url": "https://citrine.io/can-machine-learning-identify-the-next-high-temperature-superconductor-examining-extrapolation-performance-for-materials-discovery/",
+    "already_in_notes": false,
+    "what_is_left_open": "Clusters by chemistry, not by source paper. Paper-level (DOI-grouped) leakage on TE data is still open, but plan correction 17 says it is the smaller effect (24.8% to 29.4%)."
+   },
+   {
+    "name": "Sun et al. 2025, Starrydata thermoelectric model with formula-grouped split (arXiv 2511.21213)",
+    "what_it_is": "A TE machine-learning paper on Starrydata (about 72 thousand entries) that keeps all entries of one reduced formula on the same side of the split.",
+    "overlaps_which_item": "D3, N2",
+    "opened": true,
+    "url": "https://arxiv.org/abs/2511.21213",
+    "already_in_notes": false,
+    "what_is_left_open": "Groups by formula, not by paper. Reports no random-vs-grouped comparison. No frozen DOI list. It weakens N2's premise that TE papers split at random; what is left is the paper-level residual and a reusable frozen split."
+   },
+   {
+    "name": "Two 2026 TE machine-learning papers using GroupShuffleSplit by formula (ScienceDirect)",
+    "what_it_is": "Search results indicate two further TE papers that group the split by chemical formula.",
+    "overlaps_which_item": "N2",
+    "opened": false,
+    "url": "https://www.sciencedirect.com/science/article/pii/S0264127526011068 ; https://www.sciencedirect.com/science/article/pii/S2667022426000952",
+    "already_in_notes": false,
+    "what_is_left_open": "Seen in search snippets only; not opened, details unverified. If confirmed, formula-grouped splitting is becoming normal in TE and N2 shrinks further."
+   },
+   {
+    "name": "Crusius, Cipcigan, Biggin 2025, NoiseEstimator",
+    "what_it_is": "A paper and Python package that derive the best achievable model score from experimental error, applied to nine drug, materials and molecular datasets.",
+    "overlaps_which_item": "N4 noise ladder",
+    "opened": false,
+    "url": "https://pubs.rsc.org/en/content/articlelanding/2025/fd/d4fd00091a",
+    "already_in_notes": false,
+    "what_is_left_open": "Snippet only (page returned 403). Unknown whether any TE or Starrydata set is covered. The separate rungs in N4 (re-reading noise 0.48%, within-paper 12.9%, across-paper 32.7%) may still be new data; the method is not."
+   },
+   {
+    "name": "Miller 2024 'Adding Error Bars to Evals' and Card et al. 2020 'With Little Power Comes Great Responsibility'",
+    "what_it_is": "Standard recipes for intervals, paired differences, clustered errors and power analysis in ML evals; evidence that small test sets mislead.",
+    "overlaps_which_item": "D4 tie function; L2 sample-size sums",
+    "opened": true,
+    "url": "https://arxiv.org/abs/2411.00640 ; https://arxiv.org/abs/2010.06595",
+    "already_in_notes": false,
+    "what_is_left_open": "Nothing methodological. D4 is a convenience wrapper over textbook statistics. Its value is only in being switched on by default in the user's own scripts."
+   },
+   {
+    "name": "sacreBLEU (Post 2018)",
+    "what_it_is": "A shared scorer that ended configuration-driven spread (up to 1.8 points) in a translation metric.",
+    "overlaps_which_item": "D1, N1 (the 'standard marker' idea)",
+    "opened": true,
+    "url": "https://arxiv.org/abs/1804.08771",
+    "already_in_notes": false,
+    "what_is_left_open": "Mentioned on the big-picture page but not in plan.md or gaps.md. Caution on the analogy: sacreBLEU worked because many groups already reported the same metric. For XRD phase ID there is no shared metric community yet, so a scorer alone has no one to standardise."
+   },
+   {
+    "name": "Reynolds Cup (Clay Minerals Society) and its 12-year review (Raven and Self 2017)",
+    "what_it_is": "Biennial blind contest on weighed realistic mineral mixtures, about 100 sample sets, human analysts, any method, scored by summed absolute weight error.",
+    "overlaps_which_item": "D6, N3, L2",
+    "opened": true,
+    "url": "https://www.clays.org/reynolds/",
+    "already_in_notes": true,
+    "what_is_left_open": "Contest is in gaps.md (G20); the 2017 review paper is not (snippet only, not opened). It is minerals, human-run, and scores amounts, not machine phase naming on synthesis products. The page did not confirm the price of past samples quoted in the notes. Left open: a machine-scored test on real reaction products."
+   },
+   {
+    "name": "Matbench Discovery (Riebesell et al.)",
+    "what_it_is": "A materials benchmark that aligns its metric with the discovery decision and argues for prospective testing.",
+    "overlaps_which_item": "P6 precedent; N5; any future leaderboard idea",
+    "opened": true,
+    "url": "https://arxiv.org/abs/2308.14920",
+    "already_in_notes": true,
+    "what_is_left_open": "It is about computed stability, not measured data. It is the pattern to copy for 'metric follows decision', not a competitor."
+   },
+   {
+    "name": "Leeman et al. 2024 critique of an autonomous lab's phase analysis (PRX Energy)",
+    "what_it_is": "Re-analysis arguing two thirds of claimed new compounds were likely known disordered phases, and that automated whole-pattern fitting is not yet reliable.",
+    "overlaps_which_item": "P2 construct; L2; content coverage for D1/N3",
+    "opened": true,
+    "url": "https://collaborate.princeton.edu/en/publications/challenges-in-high-throughput-inorganic-materials-prediction-and-/",
+    "already_in_notes": true,
+    "what_is_left_open": "In gaps.md but not connected to the plan's test content. It says the consequential failure mode is disorder and solid solutions. No planned test item contains that."
+   },
+   {
+    "name": "Harder public measured mixture sets already listed in gaps.md G20 (IUCr quantitative round robins 2001/2002, a 2023 set of 240 two-phase mixtures, others)",
+    "what_it_is": "Public weighed-mixture XRD sets with more phases or harder conditions than the 40 scans.",
+    "overlaps_which_item": "D6, N3",
+    "opened": false,
+    "url": "see gaps.md G20 (not re-opened this run)",
+    "already_in_notes": true,
+    "what_is_left_open": "Not re-verified this run. Under this lens they are the cheapest route to a second independent test set (P4) and should move ahead of N1, N4 and N5. They are still known powders, so they do not fix P2 or P3."
+   }
+  ]
+ },
+ "materials-ml-evals": {
+  "lens": "Evaluation work that already exists inside materials ML and autonomous labs: Matbench and Matbench Discovery, leave-one-cluster-out validation, MatFold, redundancy/leakage papers (MD-HIT), how thermoelectric (TE) ML papers split Starrydata, how automated powder-XRD phase identification is scored (Dara, XRD-AutoAnalyzer, opXRD, RADAR-PD, XRDBench, GALAXI, Reynolds Cup), and the Leeman 2024 dispute plus the 2026 author correction.",
+  "principles": [
+   {
+    "id": "P1",
+    "name": "Split by the unit that leaks",
+    "plain": "Rows that share a hidden cause must sit on the same side of the split. In TE data the hidden causes are the paper (same lab, same sample batch), the formula (one compound measured at many temperatures) and the chemical family. Always print a nearest-neighbour baseline beside the model.",
+    "how_to_check": "Does the results table show random, by-formula, by-paper and by-chemical-system scores side by side, each with a 1-nearest-neighbour row? Yes or no.",
+    "why_it_matters_here": "D3 already does this (25.5 / 42.2 / 46.6 percent error; 1-NN at 21.4 percent). That part is on-principle. But grouping by formula is NOT new in TE: a 2026 ACS Omega paper uses GroupKFold by composition on Starrydata, and Na and Chang 2022 test on unseen material groups. What I did not find anywhere: grouping by paper (DOI). So the claim must shrink from 'TE papers split at random' to 'nobody groups by paper'. Plan correction 21 still stands: name the papers. Parse 2024 is a candidate but I could not confirm its split.",
+    "sources": [
+     {
+      "who": "Meredig, Antono, Church, Hutchinson, Ling, Paradiso, Blaiszik, Foster, Gibbons, Hattrick-Simpers, Mehta, Ward",
+      "year": "2018",
+      "title": "Can machine learning identify the next high-temperature superconductor? Examining extrapolation performance for materials discovery (Mol. Syst. Des. Eng.)",
+      "url": "https://citrine.io/can-machine-learning-identify-the-next-high-temperature-superconductor-examining-extrapolation-performance-for-materials-discovery/",
+      "opened": true,
+      "what_it_says": "Ordinary cross-validation overstates skill on clustered materials data. Introduces leave-one-cluster-out validation and a simple nearest-neighbour baseline. Opened the Citrine summary page; the journal page returned 403."
+     },
+     {
+      "who": "Li, Fu, Omee, Hu",
+      "year": "2024",
+      "title": "MD-HIT: Machine learning for material property prediction with dataset redundancy control (npj Comput. Mater. 10, 245)",
+      "url": "https://arxiv.org/abs/2307.04351",
+      "opened": true,
+      "what_it_says": "Near-duplicate materials plus a random split inflate scores. Gives a tool to thin out near-duplicates before splitting."
+     },
+     {
+      "who": "Kapoor, Narayanan",
+      "year": "2022",
+      "title": "Leakage and the Reproducibility Crisis in ML-based Science",
+      "url": "https://arxiv.org/abs/2207.07048",
+      "opened": true,
+      "what_it_says": "Leakage found in 17 fields and 329 papers. Lists 8 leakage types, including non-independent train and test rows. Proposes model info sheets."
+     },
+     {
+      "who": "Barua, Salla, Kleinke",
+      "year": "2026",
+      "title": "A Machine Learning Web Application for Real-Time Thermoelectric Property Predictions (ACS Omega, doi 10.1021/acsomega.6c01225)",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13470758/",
+      "opened": true,
+      "what_it_says": "Trains on Starrydata. Switched from random 5-fold to GroupKFold so one composition at several temperatures stays in one fold. Groups by composition only, not by paper."
+     },
+     {
+      "who": "Na, Chang",
+      "year": "2022",
+      "title": "A public database of thermoelectric materials and system-identified material representation (npj Comput. Mater., doi 10.1038/s41524-022-00897-2); read via the SIMD code README",
+      "url": "https://github.com/KRICT-DATA/SIMD",
+      "opened": true,
+      "what_it_says": "README reports a test on completely unseen material groups (R2 0.13 to 0.71). Opened the README only, not the paper."
+     }
+    ]
+   },
+   {
+    "id": "P2",
+    "name": "Add a split by publication year",
+    "plain": "A forward-in-time split is the closest thing to real use. Train on what was known at a date. Test on what was published later.",
+    "how_to_check": "Does D3 include one split where every test paper is published after every training paper? Yes or no.",
+    "why_it_matters_here": "The plan has random, by-paper and by-chemical-system splits. A search of plan.md and gaps.md finds no time split. Starrydata rows carry a DOI, so the year is cheap to get. A year split also gives a test list that grows on its own, which is the natural base for L5. Caveat: later papers re-measure old compounds, so report it together with the seen/unseen-formula flag.",
+    "sources": [
+     {
+      "who": "Riebesell, Goodall, Benner, Chiang, Deng, Ceder, Asta, Lee, Jain, Persson",
+      "year": "2025",
+      "title": "Matbench Discovery: a framework to evaluate machine learning crystal stability predictions (Nat. Mach. Intell. 7, 836)",
+      "url": "https://arxiv.org/abs/2308.14920",
+      "opened": true,
+      "what_it_says": "Names prospective benchmarking as design principle one: the test set comes from a later discovery campaign than the training set, and is larger than it."
+     },
+     {
+      "who": "Li, DeCost, Choudhary, Greenwood, Hattrick-Simpers",
+      "year": "2023",
+      "title": "A critical examination of robustness and generalizability of machine learning prediction of materials properties",
+      "url": "https://arxiv.org/abs/2210.13597",
+      "opened": true,
+      "what_it_says": "Models trained on the 2018 Materials Project snapshot degrade badly on compounds added by 2021. A version or time shift exposes what a random split hides."
+     }
+    ]
+   },
+   {
+    "id": "P3",
+    "name": "Do not call grouped splits out-of-distribution",
+    "plain": "Holding out a group does not prove the test rows are far from training. Most 'out-of-distribution' splits in materials turn out to be interpolation. Measure the overlap and print it.",
+    "how_to_check": "For each held-out split, is there a number for how many test rows still have a near twin in training (same formula, same paper, or a stated distance cut-off)? Yes or no.",
+    "why_it_matters_here": "The plan already found this about itself: holding out by chemical system still leaves the test paper in training 52.4 percent of the time, and most of the 25.5-to-42.2 jump is unseen formulas. That is exactly the check. Keep those numbers in the headline table. Do not use the words 'extrapolation' or 'OOD' in N2.",
+    "sources": [
+     {
+      "who": "Li, K., Rubungo, Lei, Persaud, Choudhary, DeCost, Dieng, Hattrick-Simpers",
+      "year": "2025",
+      "title": "Probing out-of-distribution generalization in machine learning for materials (Commun. Mater. 6, 9)",
+      "url": "https://arxiv.org/abs/2406.06489",
+      "opened": true,
+      "what_it_says": "Over 700 held-out tasks. Most heuristic OOD tests sit inside the training domain, so they overstate generalisation and the benefit of scale."
+     },
+     {
+      "who": "Omee, Fu, Dong, Hu, Hu",
+      "year": "2024",
+      "title": "Structure-based out-of-distribution materials property prediction: a benchmark study (npj Comput. Mater.)",
+      "url": "https://www.nature.com/articles/s41524-024-01316-4",
+      "opened": false,
+      "what_it_says": "From memory and a search snippet only; the page redirected to a sign-in flow and I did not follow. Benchmarks graph models under several OOD splits and finds large drops."
+     }
+    ]
+   },
+   {
+    "id": "P4",
+    "name": "Freeze, clean and fence the test list",
+    "plain": "Publish three things: the exact test list, the rule that removes test items duplicating training items (with counts), and the rule for what training data is allowed. Without all three, two people's scores cannot be compared.",
+    "how_to_check": "Is there (a) a versioned file of test IDs, (b) a written de-duplication rule with the number removed, (c) a one-line allowed-training-data rule? Yes or no on each.",
+    "why_it_matters_here": "D3's frozen DOI list gives (a). For (b): D2 found 499 files identical across two XRD archives, so any XRD split that spans RRUFF and opXRD leaks unless de-duplicated first. For (c): ESTM is a subset of Starrydata, so a model pre-trained on ESTM is not a clean entrant on a Starrydata test list. Matbench Discovery removed about 11,000 test structures that matched training prototypes and still had a later leak through a third dataset.",
+    "sources": [
+     {
+      "who": "Riebesell et al.",
+      "year": "2025",
+      "title": "Matbench Discovery (full text, v3)",
+      "url": "https://arxiv.org/html/2308.14920v3",
+      "opened": true,
+      "what_it_says": "Test set cut from 257,487 to 215,488 after removing structures matching a training prototype, pathological entries and duplicates. Models count as compliant only if trained on the named training snapshot or earlier."
+     },
+     {
+      "who": "Barroso-Luque et al. (Meta FAIR)",
+      "year": "2024",
+      "title": "Open Materials 2024 (OMat24) Inorganic Materials Dataset and Models",
+      "url": "https://arxiv.org/abs/2410.12771",
+      "opened": false,
+      "what_it_says": "Search snippet only: a popular extra training set shares many structure prototypes with the Matbench Discovery test set, so models trained on it are flagged."
+     }
+    ]
+   },
+   {
+    "id": "P5",
+    "name": "Pick the metric that matches the decision",
+    "plain": "Low average error does not mean good decisions. Report the number that matches the use: false-positive rate for screening, sign and size for a signed quantity, hit rate for discovery.",
+    "how_to_check": "Does each headline number come with one sentence naming the decision it supports, and is at least one decision-level metric reported (false-positive rate, sign accuracy, top-k hit rate)? Yes or no.",
+    "why_it_matters_here": "Seebeck coefficient is signed (negative for electron carriers, positive for hole carriers) and passes through zero, so percent error blows up there. The plan already adds absolute error and sign accuracy. Good. For XRD the decision is 'did the synthesis make the target', so a spurious phase must cost as much as a missed one.",
+    "sources": [
+     {
+      "who": "Riebesell et al.",
+      "year": "2025",
+      "title": "Matbench Discovery",
+      "url": "https://arxiv.org/abs/2308.14920",
+      "opened": true,
+      "what_it_says": "Accurate regressors can still give many false positives near the stable/unstable boundary. Ranks models by classification metrics, not regression error."
+     },
+     {
+      "who": "Borg, Muckley, Saal, Meredig and co-authors",
+      "year": "2023",
+      "title": "Quantifying the performance of machine learning models in materials discovery",
+      "url": "https://arxiv.org/abs/2210.13587",
+      "opened": true,
+      "what_it_says": "RMSE has no clear link to discovery success. Proposes Discovery Yield and Discovery Probability."
+     }
+    ]
+   },
+   {
+    "id": "P6",
+    "name": "Reproduce the published marks before re-marking",
+    "plain": "Before proposing a new marking rule, reproduce the original authors' marks pattern by pattern under their own rule. Otherwise the gap may come from your harness, not from the field.",
+    "how_to_check": "Is there a table lining up the Dara paper's per-pattern verdicts (its published benchmark spreadsheets) against the local run, with every mismatch tagged as library, settings or marking? Yes or no.",
+    "why_it_matters_here": "The Dara paper states its rule: a pattern is right only if every weighed-in ingredient is found and no spurious phase is reported. It is marked per pattern, and summaries are published as two spreadsheets. The plan's 12 / 17 / 32 of 40 spread comes from the user's own formula-string marker plus a different reference library (open COD capped at 80 candidates, versus licensed ICSD in the paper). A reviewer will call the marking-rule finding a harness artefact until D1 lines up with that spreadsheet. Move N1's 'does Dara ship its own marking script' check into week 1. I saw no scoring script on the repository landing page. That is not proof of absence.",
+    "sources": [
+     {
+      "who": "Fei, McDermott, Rom, Wang, Ceder",
+      "year": "2025",
+      "title": "Dara: Automated multiple-hypothesis phase identification and refinement from powder X-ray diffraction",
+      "url": "https://arxiv.org/html/2510.19667v2",
+      "opened": true,
+      "what_it_says": "40 weighed precursor-mixture scans: 20 of 20 on 8-minute scans, 90 percent on 2-minute scans. 20 reaction products: tool 15, human 16, commercial search-match 7. Correctness is per pattern and penalises spurious phases. ICSD references."
+     },
+     {
+      "who": "Dara repository",
+      "year": "2025",
+      "title": "idocx/dara (MIT licence)",
+      "url": "https://github.com/idocx/dara",
+      "opened": true,
+      "what_it_says": "Has src, notebooks, scripts and dataset folders. Landing page shows no obvious marking script."
+     }
+    ]
+   },
+   {
+    "id": "P7",
+    "name": "Score phases, not only whole patterns",
+    "plain": "Per-pattern exact match hides whether errors are misses or false alarms. Also report per-phase precision, recall and F1. When the recipe weights are known, report weight error too.",
+    "how_to_check": "Does the marker output per-phase true positives, false positives and false negatives (micro-F1) beside the per-pattern score, and a weight-error score for weighed mixtures? Yes or no.",
+    "why_it_matters_here": "These are the rulers the community already uses. GALAXI (Sept 2026) reports micro-F1 0.935 on curated measured patterns. The Reynolds Cup (a mineral-analysis contest with known mixtures) ranks entrants by summed deviation from true weight percent. The 2001 crystallography-union round robin used a Kullback-Leibler-type distance. A search of gaps.md finds no per-phase precision or recall. If N1 prints these, its numbers can sit beside published ones.",
+    "sources": [
+     {
+      "who": "Tong, Jin, Xu, Rao, Jiang, Szymanski",
+      "year": "2026",
+      "title": "Scalable machine learning framework for multiphase identification from powder X-ray diffraction (GALAXI)",
+      "url": "https://arxiv.org/abs/2609.06908",
+      "opened": true,
+      "what_it_says": "Abstract only. One-versus-all classifiers plus Rietveld checking. Micro-F1 0.935 on curated experimental patterns. Trained on 64,594 COD structures. Abstract does not give test-set size or the phase-matching rule."
+     },
+     {
+      "who": "Raven, Self",
+      "year": "2017",
+      "title": "Outcomes of 12 Years of the Reynolds Cup Quantitative Mineral Analysis Round Robin (Clays and Clay Minerals 65)",
+      "url": "https://www.cambridge.org/core/product/identifier/S0009860400039410/type/journal_article",
+      "opened": true,
+      "what_it_says": "Known mixtures sent blind to entrants. Score is the sum of deviations from true weight percent. Some entrants reported implausible minor phases taken from automated search programs."
+     },
+     {
+      "who": "Madsen, Scarlett, Cranswick, Lwin",
+      "year": "2001",
+      "title": "Outcomes of the IUCr Commission on Powder Diffraction round robin on quantitative phase analysis: samples 1a to 1h (J. Appl. Cryst. 34, 409)",
+      "url": "https://journals.iucr.org/j/issues/2001/04/00/hw0085/",
+      "opened": false,
+      "what_it_says": "Page returned 403. From a search snippet and memory: entrants scored with a concentration-weighted Kullback-Leibler distance."
+     }
+    ]
+   },
+   {
+    "id": "P8",
+    "name": "Make the same-phase rule deterministic and versioned",
+    "plain": "Whether two database entries count as 'the same phase' must be a written rule that a script applies identically every time. An LLM judge or a human eye is not reproducible.",
+    "how_to_check": "Can a stranger re-run the marker on the same results file and get identical marks, and is there a test file of tricky pairs with expected verdicts? Yes or no.",
+    "why_it_matters_here": "RADAR-PD decides equivalence with a second GPT-4 prompt built to tolerate supercells, hydration differences and lower-symmetry variants. That proves the problem is real and unsolved. Leeman's core complaint is ordered versus disordered versions of one compound (atoms on fixed sites versus randomly mixed sites). D1's 25-pair CSV plus N1's tiers is this gap. I found nobody shipping a deterministic rule. This item is open and well aimed. The risk is that tier boundaries are a materials judgement, hence L1.",
+    "sources": [
+     {
+      "who": "RADAR-PD authors",
+      "year": "2026",
+      "title": "Automated multiphase identification and refinement in powder diffraction using mismatch-tolerant machine learning (APL Mach. Learn. 4, 036114)",
+      "url": "https://arxiv.org/html/2605.12478",
+      "opened": true,
+      "what_it_says": "232 of 291 versus Dara 187 of 291 on single-phase mineral samples. Correctness judged by a GPT-4 prompt. No intervals or significance tests."
+     },
+     {
+      "who": "Leeman, Hoelzel, Gibbons, Ferrenti, Shevlin, Schoop and co-authors",
+      "year": "2024",
+      "title": "Challenges in High-Throughput Inorganic Materials Prediction and Autonomous Synthesis (PRX Energy 3, 011002)",
+      "url": "https://journals.aps.org/prxenergy/abstract/10.1103/PRXEnergy.3.011002",
+      "opened": true,
+      "what_it_says": "Four shortfalls: weak automated Rietveld analysis, ignored site disorder, known phases taken as new, solid solutions mishandled. Argues about two-thirds of claimed successes are known disordered variants."
+     }
+    ]
+   },
+   {
+    "id": "P9",
+    "name": "The answer key must stand without the tool",
+    "plain": "Ground truth should come from something independent of the method under test: a weighed recipe, a second measurement technique, or specialist agreement. A key drafted by a fitting tool or an LLM inherits their blind spots.",
+    "how_to_check": "Does every benchmark row record its truth source as one of {weighed recipe, independent measurement, specialist-agreed, tool- or AI-drafted}, and are tool- or AI-drafted rows kept out of headline numbers? Yes or no.",
+    "why_it_matters_here": "Weighed mixtures (Dara's 40, Reynolds Cup, the crystallography-union sets) pass. RADAR-PD's labels were built by GPT-4 selection plus a fit-quality filter, so they do not. The A-Lab correction conceded that 4 of 40 identifications cannot be settled by diffraction alone, so an XRD-only key has a ceiling. For the plan: the tricky-pairs CSV is AI-drafted until L1 happens. Fine for private use. Do not publish it as a key before a specialist signs.",
+    "sources": [
+     {
+      "who": "Szymanski, Rendy, Fei, Ceder and co-authors",
+      "year": "2026",
+      "title": "Author Correction: An autonomous laboratory for the accelerated synthesis of inorganic materials (Nature 650, E1)",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12872444/",
+      "opened": true,
+      "what_it_says": "After manual re-analysis, 36 of 40 held and 4 were inconclusive from XRD alone. One compound was removed because it was in the training data. The authors now say the targets were novel relative to their prediction platform, which is weaker than new to science."
+     },
+     {
+      "who": "Leeman et al.",
+      "year": "2024",
+      "title": "Challenges in High-Throughput Inorganic Materials Prediction and Autonomous Synthesis",
+      "url": "https://journals.aps.org/prxenergy/abstract/10.1103/PRXEnergy.3.011002",
+      "opened": true,
+      "what_it_says": "The original challenge to tool-generated identifications."
+     },
+     {
+      "who": "RADAR-PD authors",
+      "year": "2026",
+      "title": "Automated multiphase identification and refinement in powder diffraction using mismatch-tolerant machine learning",
+      "url": "https://arxiv.org/html/2605.12478",
+      "opened": true,
+      "what_it_says": "Reference labels were chosen by GPT-4 and kept if a Rietveld fit passed loose quality cut-offs."
+     }
+    ]
+   },
+   {
+    "id": "P10",
+    "name": "State the candidate library and its coverage",
+    "plain": "A phase-ID tool can only name phases that are in its reference library. Scores from different libraries are not comparable. Say which library, which version, how candidates were shortlisted, and whether the true phases were in the pool.",
+    "how_to_check": "Does every score row carry library name and version, the candidate-pool rule, and a per-scan flag 'all true phases were in the pool'? Yes or no.",
+    "why_it_matters_here": "Dara's paper used ICSD (licensed). The local run uses COD (open) capped at 80 candidates. GALAXI trains on COD. RADAR-PD ran both tools over a combined COD plus Materials Project pool and does not say whether that is Dara's native set-up. Much of the 38-versus-32 of 40 gap is this. N3 already has the flag. D1 needs it too, or the week-1 result is confounded.",
+    "sources": [
+     {
+      "who": "Fei et al.",
+      "year": "2025",
+      "title": "Dara",
+      "url": "https://arxiv.org/html/2510.19667v2",
+      "opened": true,
+      "what_it_says": "Benchmark run against ICSD reference structures."
+     },
+     {
+      "who": "RADAR-PD authors",
+      "year": "2026",
+      "title": "RADAR-PD",
+      "url": "https://arxiv.org/html/2605.12478",
+      "opened": true,
+      "what_it_says": "Both tools searched a merged COD plus MP candidate space."
+     },
+     {
+      "who": "Tong et al.",
+      "year": "2026",
+      "title": "GALAXI",
+      "url": "https://arxiv.org/abs/2609.06908",
+      "opened": true,
+      "what_it_says": "Trained on 64,594 COD structures."
+     }
+    ]
+   },
+   {
+    "id": "P11",
+    "name": "Count independent units and show intervals",
+    "plain": "n is the number of independent things, not the number of rows. Compare two tools on the same items with a paired method. Put an interval on every score.",
+    "how_to_check": "Does D4 resample by cluster (mixture for XRD, paper for TE) and use a paired comparison when both tools ran on the same scans? Yes or no.",
+    "why_it_matters_here": "Dara's 40 scans are 20 mixtures at two scan times, so about 20 independent units. D4's test case (38 versus 35 of 40 gives 'tie') treats 40 as independent and unpaired. The verdict likely survives, but the interval is wider than printed. RADAR-PD and Dara print no intervals, so the field norm here is weak. This is a place to be better than the field, cheaply. builds.md already records the rule 'count clusters (papers, runs)'. D4 should implement it, not just state it.",
+    "sources": [
+     {
+      "who": "RADAR-PD authors",
+      "year": "2026",
+      "title": "RADAR-PD",
+      "url": "https://arxiv.org/html/2605.12478",
+      "opened": true,
+      "what_it_says": "Headline 79.7 versus 64.3 percent with no interval or test."
+     },
+     {
+      "who": "Fei et al.",
+      "year": "2025",
+      "title": "Dara",
+      "url": "https://arxiv.org/html/2510.19667v2",
+      "opened": true,
+      "what_it_says": "Same mixtures scanned at 2 and 8 minutes. Counts reported without intervals."
+     },
+     {
+      "who": "Miller",
+      "year": "2024",
+      "title": "Adding Error Bars to Evals: A Statistical Approach to Language Model Evaluations",
+      "url": "https://arxiv.org/abs/2411.00640",
+      "opened": false,
+      "what_it_says": "From memory, not opened this run, and outside the materials lens: clustered standard errors and paired differences for benchmark scores."
+     }
+    ]
+   },
+   {
+    "id": "P12",
+    "name": "Test on measured data; label simulated data",
+    "plain": "Models trained on computed patterns lose accuracy on measured ones. A benchmark must say, per file, measured or computed, and report the two apart.",
+    "how_to_check": "Does every test file carry a verified measured/computed flag, and are headline scores on measured files only? Yes or no.",
+    "why_it_matters_here": "The opXRD paper itself reports the simulated-to-measured gap and defines no evaluation protocol or split. D2's finding (414 of 499 files in one folder are computed patterns while the flag reads measured) is a direct hit on this principle. It is on-aim and cheap. The notes also record five papers using five different RRUFF subset sizes as 'experimental', so the flag matters for any cross-paper comparison.",
+    "sources": [
+     {
+      "who": "Hollarek, Schopmans, Friederich and co-authors",
+      "year": "2025",
+      "title": "opXRD: Open Experimental Powder X-ray Diffraction Database",
+      "url": "https://arxiv.org/abs/2503.05577",
+      "opened": true,
+      "what_it_says": "92,552 patterns, 2,179 labelled. Models trained on simulated patterns generalise poorly to measured ones. No benchmark protocol is defined."
+     },
+     {
+      "who": "Szymanski, Bartel, Zeng, Tu, Ceder",
+      "year": "2021",
+      "title": "A probabilistic deep learning approach to automate the interpretation of multi-phase diffraction spectra (XRD-AutoAnalyzer)",
+      "url": "https://arxiv.org/abs/2103.16664",
+      "opened": true,
+      "what_it_says": "Trained on simulated spectra, benchmarked separately on simulated and measured spectra. Abstract gives no numbers."
+     }
+    ]
+   },
+   {
+    "id": "P13",
+    "name": "Report the noise ceiling",
+    "plain": "Labels carry measurement error. No model can beat the disagreement between repeat measurements. Print that floor beside the model error so nobody chases noise.",
+    "how_to_check": "Is there a label-noise number (repeat-measurement or across-paper spread) beside each model error, and is every claimed gain larger than it? Yes or no.",
+    "why_it_matters_here": "The plan already has this for TE: a lookup allowed to see the answers still misses by 15.0 percent, and one formula differs across papers by a median 32.7 percent. That is the strongest part of the TE story. Crusius and co-authors did the same for nine chemistry and materials datasets and ship a tool. N4 (noise ladder) overlaps it: cite it and check whether it can be reused before building. I could not open it (403).",
+    "sources": [
+     {
+      "who": "Crusius, Cipcigan, Biggin",
+      "year": "2025",
+      "title": "Are we fitting data or noise? Analysing the predictive power of commonly used datasets in drug-, materials-, and molecular-discovery (Faraday Discuss. 256, 304)",
+      "url": "https://pubs.rsc.org/en/content/articlelanding/2025/fd/d4fd00091a",
+      "opened": false,
+      "what_it_says": "Search snippet only. Derives best-possible scores from stated experimental error for nine datasets; four are already at or past the bound. Ships a NoiseEstimator package."
+     },
+     {
+      "who": "Ryu and co-authors",
+      "year": "2025",
+      "title": "teMatDb: a high-quality thermoelectric material database with self-consistent ZT filtering",
+      "url": "https://arxiv.org/abs/2505.19150",
+      "opened": true,
+      "what_it_says": "Filters digitised TE records by checking that the reported figure of merit matches the one recomputed from its parts. No ML split is described."
+     }
+    ]
+   },
+   {
+    "id": "P14",
+    "name": "Say what the score claims to measure",
+    "plain": "Write down the real-world ability the benchmark stands for and why the task is a fair proxy. Ship that as a short card with the benchmark.",
+    "how_to_check": "Is there a one-page card per benchmark with: the claimed ability, data source, known label problems, split rule, metric, and what a high score does NOT mean? Yes or no.",
+    "why_it_matters_here": "The likeliest reviewer attack on the TE work: predicting Seebeck from the formula alone is a weak construct. Doping level and sample processing drive the value, and the formula string hides them. N2 already asks a TE specialist to sign off the task definition. Keep that as a gate, not a nicety. N5 ('four questions before trusting a materials leaderboard') overlaps evaluation cards and model info sheets. Position N5 as a worked materials example that cites them, not as a new framework.",
+    "sources": [
+     {
+      "who": "Alampara, Schilling-Wilhelmi, Jablonka",
+      "year": "2025",
+      "title": "Lessons from the trenches on evaluating machine-learning systems in materials science (Comput. Mater. Sci. 259, 114041)",
+      "url": "https://arxiv.org/abs/2503.10837",
+      "opened": true,
+      "what_it_says": "Treats evaluation as measurement. Four problems: construct validity, data quality, metric design, benchmark upkeep. Proposes evaluation cards."
+     },
+     {
+      "who": "Kapoor, Narayanan",
+      "year": "2022",
+      "title": "Leakage and the Reproducibility Crisis in ML-based Science",
+      "url": "https://arxiv.org/abs/2207.07048",
+      "opened": true,
+      "what_it_says": "Model info sheets: a checklist that makes authors justify the absence of each leakage type."
+     },
+     {
+      "who": "Choudhary and co-authors",
+      "year": "2023",
+      "title": "JARVIS-Leaderboard: a large scale benchmark of materials design methods",
+      "url": "https://arxiv.org/abs/2306.11688",
+      "opened": true,
+      "what_it_says": "274 benchmarks with a separate experimental category that uses an inter-laboratory approach."
+     }
+    ]
+   }
+  ],
+  "prior_art": [
+   {
+    "name": "Dara paper benchmark, correctness rule and published spreadsheets",
+    "what_it_is": "The original 40 weighed-mixture scans plus 20 reaction products, marked per pattern: all weighed-in phases found and no spurious phase. Summaries released as two spreadsheets.",
+    "overlaps_which_item": "D1, N1",
+    "opened": true,
+    "url": "https://arxiv.org/html/2510.19667v2",
+    "already_in_notes": false,
+    "what_is_left_open": "The notes know the 38-of-40 figure and the ICSD/COD difference, but not the stated rule or the spreadsheets. Open: a rule for when two database entries are the same phase. The paper does not give one. It cites Leeman without engaging with the disorder point."
+   },
+   {
+    "name": "RADAR-PD GPT-4 equivalence judge",
+    "what_it_is": "A 2026 phase-ID paper that lets a GPT-4 prompt decide if a predicted phase equals the label, tolerating supercells, hydration and symmetry variants. Labels were also LLM-selected.",
+    "overlaps_which_item": "D1 tricky-pairs CSV, N1 tiered marker",
+    "opened": true,
+    "url": "https://arxiv.org/html/2605.12478",
+    "already_in_notes": true,
+    "what_is_left_open": "A deterministic, versioned rule with a test file. No intervals. Dara was run on a merged COD plus MP pool, so the head-to-head is not clean."
+   },
+   {
+    "name": "GALAXI (arXiv 2609.06908)",
+    "what_it_is": "Sept 2026 multi-phase identifier scored by micro-F1 on curated measured patterns; claims to beat search-match and earlier deep models.",
+    "overlaps_which_item": "N1 (metric choice), N3 (practice exam)",
+    "opened": true,
+    "url": "https://arxiv.org/abs/2609.06908",
+    "already_in_notes": false,
+    "what_is_left_open": "I read the abstract only. Test-set size, phase-matching rule and whether the curated patterns are public are unknown. Worth a 30-minute read before N1."
+   },
+   {
+    "name": "Reynolds Cup",
+    "what_it_is": "A recurring blind contest: organisers mix known minerals, entrants report weight percents, score is summed deviation from truth. 448 entrants over 12 years.",
+    "overlaps_which_item": "D6, N3, L2 (it is a working model of a hidden exam)",
+    "opened": true,
+    "url": "https://www.cambridge.org/core/product/identifier/S0009860400039410/type/journal_article",
+    "already_in_notes": true,
+    "what_is_left_open": "Notes list it as a dataset. They miss that it is already a hidden exam with a scoring rule, run by humans with any tool. Open: nobody has run automated tools on it as entrants, as far as I found. Whether raw scans are obtainable is unknown."
+   },
+   {
+    "name": "IUCr powder-diffraction round robin on quantitative phase analysis (Madsen 2001, Scarlett 2002)",
+    "what_it_is": "Known mixtures sent to many labs; entrants scored by a Kullback-Leibler-type distance on weight fractions.",
+    "overlaps_which_item": "D6, N3",
+    "opened": false,
+    "url": "https://journals.iucr.org/j/issues/2001/04/00/hw0085/",
+    "already_in_notes": true,
+    "what_is_left_open": "Page returned 403; scoring detail is from a snippet. Notes have the dataset, not the scoring rule."
+   },
+   {
+    "name": "XRD-AutoAnalyzer (Szymanski et al. 2021)",
+    "what_it_is": "Deep-learning phase identifier trained on simulated patterns, tested on simulated and measured ones separately.",
+    "overlaps_which_item": "N3, D2",
+    "opened": true,
+    "url": "https://arxiv.org/abs/2103.16664",
+    "already_in_notes": false,
+    "what_is_left_open": "The name does not appear in plan or synth files, though the same group's 2023 240-mixture set does. Its measured test set is small and single-lab. No shared marking rule."
+   },
+   {
+    "name": "opXRD",
+    "what_it_is": "Pooled open collection of 92,552 XRD patterns from several labs; 2,179 labelled. States the simulated-to-measured gap. No benchmark protocol.",
+    "overlaps_which_item": "D2, L4, N3",
+    "opened": true,
+    "url": "https://arxiv.org/abs/2503.05577",
+    "already_in_notes": true,
+    "what_is_left_open": "No split, no metric, no measured/computed audit. D2 fills a real hole."
+   },
+   {
+    "name": "SimXRD-4M",
+    "what_it_is": "Large simulated XRD set that uses 3,002 RRUFF patterns as its 'experimental' test.",
+    "overlaps_which_item": "D2",
+    "opened": false,
+    "url": "https://arxiv.org/html/2406.15469v2",
+    "already_in_notes": false,
+    "what_is_left_open": "Not opened this run; known only from plan/verify_K2_prior-art.md, not from plan.md or gaps.md. No ID list for the RRUFF subset, so computed entries cannot be excluded by readers."
+   },
+   {
+    "name": "AutoXRD / XRDBench (arXiv 2609.00070)",
+    "what_it_is": "Aug 2026 agent benchmark: 100 question tasks plus 34 end-to-end XRD tasks.",
+    "overlaps_which_item": "L2, N3",
+    "opened": true,
+    "url": "https://arxiv.org/abs/2609.00070",
+    "already_in_notes": true,
+    "what_is_left_open": "Abstract does not say how answers are scored or whether they are public. Notes say answers are public, so it cannot serve as a hidden exam."
+   },
+   {
+    "name": "Matbench Discovery design principles",
+    "what_it_is": "The best-known materials benchmark redesign: prospective test set, relevant target, decision metrics, de-duplication, compliant-training rule.",
+    "overlaps_which_item": "D3, L5, N5",
+    "opened": true,
+    "url": "https://arxiv.org/abs/2308.14920",
+    "already_in_notes": true,
+    "what_is_left_open": "gaps.md cites its scores only. Its design rules are the template a reviewer will hold the plan to. It is for computed stability, not measured properties. Nothing like it exists for TE or XRD."
+   },
+   {
+    "name": "Meredig 2018 leave-one-cluster-out validation",
+    "what_it_is": "The paper that made grouped validation and a nearest-neighbour baseline standard advice in materials ML.",
+    "overlaps_which_item": "D3, N2",
+    "opened": true,
+    "url": "https://citrine.io/can-machine-learning-identify-the-next-high-temperature-superconductor-examining-extrapolation-performance-for-materials-discovery/",
+    "already_in_notes": false,
+    "what_is_left_open": "Clusters are in feature space, not by paper. Must be cited in N2 or a reviewer will ask why not."
+   },
+   {
+    "name": "MD-HIT",
+    "what_it_is": "Tool and paper on thinning near-duplicate materials before splitting.",
+    "overlaps_which_item": "D3, D2",
+    "opened": true,
+    "url": "https://arxiv.org/abs/2307.04351",
+    "already_in_notes": false,
+    "what_is_left_open": "Works on computed-structure datasets by composition or structure similarity. Does not handle 'same paper' or 'same sample at many temperatures'."
+   },
+   {
+    "name": "MatFold",
+    "what_it_is": "Open library of standard grouped splits for materials (by composition, chemical system, elements, symmetry and more), saved as JSON.",
+    "overlaps_which_item": "N2",
+    "opened": true,
+    "url": "https://github.com/d2r2group/MatFold",
+    "already_in_notes": true,
+    "what_is_left_open": "README lists no split by paper or arbitrary user group. That reading comes from a summary of the README, so treat as uncertain. The plan already dropped the pull-request idea."
+   },
+   {
+    "name": "Li et al. 2025 on out-of-distribution tests",
+    "what_it_is": "Shows most held-out-group tests in materials are interpolation.",
+    "overlaps_which_item": "D3, N2 wording",
+    "opened": true,
+    "url": "https://arxiv.org/abs/2406.06489",
+    "already_in_notes": false,
+    "what_is_left_open": "On computed datasets. The plan's 52.4 percent paper-overlap number is the same idea on measured TE data and appears to be new."
+   },
+   {
+    "name": "Li et al. 2023 version-shift study",
+    "what_it_is": "Models trained on an older database snapshot fail on newer entries.",
+    "overlaps_which_item": "D3 (time split)",
+    "opened": true,
+    "url": "https://arxiv.org/abs/2210.13597",
+    "already_in_notes": true,
+    "what_is_left_open": "Computed data only. No one has done a publication-year split on Starrydata that I could find."
+   },
+   {
+    "name": "Borg et al. discovery metrics",
+    "what_it_is": "Argues regression error does not predict discovery success; offers two discovery-level metrics.",
+    "overlaps_which_item": "N2, N5",
+    "opened": true,
+    "url": "https://arxiv.org/abs/2210.13587",
+    "already_in_notes": false,
+    "what_is_left_open": "Simulated discovery campaigns on existing datasets. Not applied to TE."
+   },
+   {
+    "name": "Kapoor and Narayanan leakage taxonomy and model info sheets",
+    "what_it_is": "Cross-field survey of leakage with a fill-in checklist.",
+    "overlaps_which_item": "N5, D5",
+    "opened": true,
+    "url": "https://arxiv.org/abs/2207.07048",
+    "already_in_notes": false,
+    "what_is_left_open": "No materials examples. N5 can be the materials instance."
+   },
+   {
+    "name": "Alampara, Schilling-Wilhelmi, Jablonka evaluation cards",
+    "what_it_is": "2025 materials-specific paper on evaluation validity, with a documentation template.",
+    "overlaps_which_item": "N5",
+    "opened": true,
+    "url": "https://arxiv.org/abs/2503.10837",
+    "already_in_notes": false,
+    "what_is_left_open": "General guidance. It has no worked XRD or TE case and no numbers like 12 / 17 / 32 of 40. N5 should cite it and fill one card."
+   },
+   {
+    "name": "Crusius et al. NoiseEstimator",
+    "what_it_is": "Computes the best score a dataset's label noise allows; ships a package.",
+    "overlaps_which_item": "N4, N2",
+    "opened": false,
+    "url": "https://pubs.rsc.org/en/content/articlelanding/2025/fd/d4fd00091a",
+    "already_in_notes": false,
+    "what_is_left_open": "Not opened (403). It assumes a stated error per dataset. The plan measures across-paper spread directly, which may be stronger. Check reuse before building N4."
+   },
+   {
+    "name": "Barua, Salla, Kleinke 2026 (ACS Omega) GroupKFold on Starrydata",
+    "what_it_is": "TE property predictor that switched to composition-grouped folds to stop one compound at many temperatures straddling the split; tests on three outside sets.",
+    "overlaps_which_item": "D3, N2, correction 21",
+    "opened": true,
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13470758/",
+    "already_in_notes": false,
+    "what_is_left_open": "Groups by composition only. No by-paper grouping, no random-versus-grouped numbers side by side, no frozen list, no noise ceiling."
+   },
+   {
+    "name": "Na and Chang 2022, ESTM dataset and unseen-group test",
+    "what_it_is": "Curated TE table (5,205 rows) with a test on material groups absent from training.",
+    "overlaps_which_item": "D3, N2",
+    "opened": true,
+    "url": "https://github.com/KRICT-DATA/SIMD",
+    "already_in_notes": true,
+    "what_is_left_open": "Notes know ESTM as a dataset (and its spreadsheet-formula problem), not its unseen-group evaluation. README only; paper not opened. No licence stated."
+   },
+   {
+    "name": "Parse et al. 2024, Predicting High-Performance Thermoelectric Materials With StarryData2",
+    "what_it_is": "Gradient-boosted model on 18,126 Starrydata rows, 5-fold validation, R2 about 0.8.",
+    "overlaps_which_item": "N2, correction 21 (candidate named example of a random split)",
+    "opened": false,
+    "url": "https://onlinelibrary.wiley.com/doi/full/10.1002/adts.202400308",
+    "already_in_notes": false,
+    "what_is_left_open": "Page returned 403. Split type NOT confirmed. Do not cite as a random-split example until the methods section is read."
+   },
+   {
+    "name": "Composition-grouped TE classifier with SHAP (2026, ScienceDirect S2667022426000952)",
+    "what_it_is": "Search snippet says it uses composition-grouped validation with the formula as the group key.",
+    "overlaps_which_item": "N2, correction 21",
+    "opened": false,
+    "url": "https://www.sciencedirect.com/science/article/pii/S2667022426000952",
+    "already_in_notes": false,
+    "what_is_left_open": "Not opened (403). Second sign that formula grouping is already practised in TE."
+   },
+   {
+    "name": "Katsura et al. 2022, data bias in Starrydata-based discovery",
+    "what_it_is": "Paper by Starrydata's own group on how biased coverage distorts ML screening; uses clustering and an applicability-domain check.",
+    "overlaps_which_item": "N2, N6",
+    "opened": false,
+    "url": "https://www.tandfonline.com/doi/full/10.1080/27660400.2022.2109447",
+    "already_in_notes": false,
+    "what_is_left_open": "Not opened (403). Closest thing found to an existing TE evaluation audit. Must be read before N2 claims novelty."
+   },
+   {
+    "name": "IOP review of AI for thermoelectrics (J. Phys. Energy, 10.1088/2515-7655/adba87)",
+    "what_it_is": "2025 review of TE ML.",
+    "overlaps_which_item": "N2",
+    "opened": true,
+    "url": "https://iopscience.iop.org/article/10.1088/2515-7655/adba87",
+    "already_in_notes": false,
+    "what_is_left_open": "Warns about tuning on the test set and poor extrapolation. Says nothing about grouped splits or same-compound temperature points. Supports the view that a by-paper audit is open."
+   },
+   {
+    "name": "teMatDb self-consistency filter",
+    "what_it_is": "TE database that flags records whose figure of merit disagrees with the value recomputed from its parts.",
+    "overlaps_which_item": "N6",
+    "opened": true,
+    "url": "https://arxiv.org/abs/2505.19150",
+    "already_in_notes": true,
+    "what_is_left_open": "Covers 262 papers, not all of Starrydata. N6's power-of-ten and spreadsheet-formula detectors are not in it."
+   },
+   {
+    "name": "JARVIS-Leaderboard experimental category",
+    "what_it_is": "Large community leaderboard with an experimental track built on inter-laboratory comparison.",
+    "overlaps_which_item": "L2, L5, N5",
+    "opened": true,
+    "url": "https://arxiv.org/abs/2306.11688",
+    "already_in_notes": true,
+    "what_is_left_open": "Notes record that it has no experimental TE task. They do not record that an inter-lab experimental track already exists as a host. A hidden XRD or TE exam could be proposed there instead of built alone."
+   },
+   {
+    "name": "Leeman 2024 and the 2026 Nature author correction",
+    "what_it_is": "The public dispute over tool-generated XRD identifications in an autonomous lab, and the authors' correction after manual re-analysis.",
+    "overlaps_which_item": "D5, L3, L1, N1",
+    "opened": true,
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12872444/",
+    "already_in_notes": false,
+    "what_is_left_open": "Leeman is in gaps.md. The correction's content is in storyline.md but not in plan.md or gaps.md. Left open by both sides: a shared, written marking rule for ordered versus disordered variants."
+   }
+  ],
+  "notes": "VERDICT FOR THIS LENS. Yes, this is evaluation work, and most of it is aimed right. Against the 14 checks, the plan already passes or nearly passes P1 (grouped splits plus 1-NN), P3 (overlap measured), P5 (sign and absolute error), P12 (D2), P13 (noise floor). It fails or is silent on P2 (no time split), P6 (own marks not yet lined up with the paper's spreadsheet), P7 (no per-phase precision/recall or weight error), P11 (D4 is unpaired and unclustered), P14 (no card; N5 overlaps existing work). P4, P8, P9, P10 are partly met and cheap to finish.\n\nWHERE A MATERIALS-ML REVIEWER WOULD SAY IT IS MIS-AIMED.\n1. Field-wide claims from 40 scans (about 20 independent mixtures, one lab, one chemistry space). The plan admits this; keep the claim local.\n2. The 12 / 17 / 32 of 40 spread may be an artefact of the user's own formula-string marker and a different library. The community marks by reference entry or by eye. D1 is the right test. Do not state the finding before D1 lines up with Dara's spreadsheet.\n3. 'TE papers split at random' is partly wrong. Formula-grouped validation already exists (one paper opened, one seen in a snippet, plus an unseen-group test from 2022). The open part is grouping by paper, a year split, a frozen list and the noise floor. Katsura 2022 must be read first; I could not open it.\n4. Seebeck-from-formula is a weak construct because doping and processing drive the value. Keep the specialist sign-off in N2 as a gate.\n5. Hidden exams are not new in this field. Reynolds Cup and the JARVIS experimental track are working models. Cite and copy their logistics for L2 and L5.\n6. N4 overlaps NoiseEstimator. N5 overlaps evaluation cards and model info sheets. Both should shrink to 'cite and apply'.\nOPEN AND WORTH DOING: a deterministic same-phase rule with a test file (P8); by-paper and by-year TE splits with a frozen list; the measured/computed audit (D2).\n\nHONESTY NOTES. Could not open (403, 406 or sign-in redirect): Crusius 2025, Madsen 2001, Parse 2024, the SHAP TE paper, Katsura 2022, Omee 2024, OMat24 full text, the C&EN news piece. Each is marked opened=false. Miller 2024 is from memory and outside the lens. GALAXI, AutoXRD, MD-HIT, Borg, Li 2023, Li 2025, Kapoor, Alampara, JARVIS, opXRD, teMatDb, Szymanski 2021: abstract pages only. MatFold and Na and Chang: README only. Meredig: the Citrine summary page, not the journal page. Matbench (Dunn 2020) was opened at abstract level but is not cited above because the nested-CV detail I wanted was not on the page. 'No scoring script in the Dara repo' and 'no by-paper TE audit' are negative searches, not proof of absence. gaps.md ends at a NEXT7 marker, so Theme 7 (G42 to G50) was not available to me. already_in_notes means plan.md or gaps.md; where another notes file knows the item I say so.\n\nSECURITY NOTE. One fetched web page returned text styled as a system reminder about git commit attribution. It came from a tool result, not from the user. I ignored it; no commits were made and no files were written.\n\nFiles read (read-only): <session-scratchpad> and .../scratchpad/synth/gaps.md; builds.md, glossary_usermodel.md, storyline.md and plan/verify_K2_prior-art.md were searched by keyword only."
+ },
+ "measurement-science": {
+  "lens": "How analytical chemistry, crystallography and metrology already test a measurement or analysis method: round robins, proficiency testing and its scoring (ISO 13528, ISO/IEC 17043, IUPAC protocol), certified reference materials, blind weighed-mixture contests (Reynolds Cup, IUCr CPD QPA round robin, the 2002 search-match round robin), detection limits, and the physical reasons a weighed mixture is not a perfect answer key.",
+  "principles": [
+   {
+    "id": "P1",
+    "name": "Say exactly what is being measured",
+    "plain": "A test is only valid for a stated task and range. Naming the phases (identification) and giving their amounts (quantification) are different tasks, and the old contests kept them apart on purpose.",
+    "how_to_check": "Does the eval card state, one line each: task (name phases only, or name plus amounts), naming level required, wt% range covered, sample type (weighed mixture or real product), and instrument or radiation? If any line is blank, fail.",
+    "why_it_matters_here": "D6 and N3 plan to re-use scans from the IUCr quantification round robin as a phase-naming practice exam. In the original test the organisers told every entrant which phases were present. Re-using the scans for naming is fine, but it is a new use that the original key was never validated for. Say so on the card. The Reynolds Cup gives no phase list, so it is the closer precedent for a naming exam.",
+    "sources": [
+     {
+      "who": "IUCr Commission on Powder Diffraction",
+      "title": "Quantitative Phase Analysis Round Robin: letter to participants",
+      "year": "1998",
+      "url": "https://www.iucr.org/resources/commissions/powder-diffraction/projects/qarr/data/letter",
+      "what_it_says": "Phase identities and full structure data were supplied to every entrant because the aim was to test quantification, not identification. Goals listed include accuracy, precision and lower limits of detection.",
+      "opened": true
+     },
+     {
+      "who": "Clay Minerals Society",
+      "title": "The Reynolds Cup (rules and guidelines page)",
+      "year": "2026 (page as read)",
+      "url": "https://www.clays.org/reynolds/",
+      "what_it_says": "Rule 1: no qualitative information is given, so entrants must both identify and quantify. Rule 2: any method is allowed.",
+      "opened": true
+     },
+     {
+      "who": "Eurachem",
+      "title": "The Fitness for Purpose of Analytical Methods: a laboratory guide to method validation, 2nd ed.",
+      "year": "2014",
+      "url": "https://www.eurachem.org/index.php/publications/guides/mv",
+      "what_it_says": "From memory, not opened in this run: validation starts from a stated measurand, scope and working range; results outside the scope are not covered.",
+      "opened": false
+     }
+    ]
+   },
+   {
+    "id": "P2",
+    "name": "The answer key needs its own check",
+    "plain": "A weighed recipe is a claim, not the truth. Each ingredient must be checked for purity, and the mixed recipe must be confirmed by an independent measurement, with an error bar on every weight fraction.",
+    "how_to_check": "For every mixture, is there (a) a scan of each pure ingredient showing no second phase above a stated limit, (b) one independent check of the mix (bulk chemistry such as XRF, or a second analysis method), and (c) a stated uncertainty on each wt%? Three yes answers, or fail.",
+    "why_it_matters_here": "L2 (hidden exam with a partner lab, about 385 powders) says nothing about ingredient purity. If a bought chemical holds 3% of a second phase, that phase is really in the scan and a correct tool gets marked as a false positive. Even the NIST purity standard is only about 99% crystalline, because every grain has a thin non-crystalline skin. So weighed fraction and crystalline fraction differ by up to a few percent in fine powders. The notes already found hydrated chemicals stored under dry formulas in the user's own data, which is the same failure.",
+    "sources": [
+     {
+      "who": "Madsen, Scarlett, Cranswick, Lwin",
+      "title": "Outcomes of the IUCr CPD Round Robin on Quantitative Phase Analysis: samples 1a to 1h (J. Appl. Cryst. 34, 409-426)",
+      "year": "2001",
+      "url": "https://journals.iucr.org/paper?S0021889801007476",
+      "what_it_says": "Weighed values were cross-checked by XRF on three randomly chosen portions plus three in-house analysis methods. Spread was typically under about 0.5% relative, rising to 3-4% relative at the 1 wt% level.",
+      "opened": true
+     },
+     {
+      "who": "Clay Minerals Society",
+      "title": "The Reynolds Cup (rules and guidelines page)",
+      "year": "2026 (page as read)",
+      "url": "https://www.clays.org/reynolds/",
+      "what_it_says": "Organiser guidelines: purity of the minerals used is known within 1 wt%; a repeatable splitting procedure is used; splits are verified by XRD and XRF before shipping.",
+      "opened": true
+     },
+     {
+      "who": "Cline, Von Dreele, Winburn, Stephens, Filliben (NIST)",
+      "title": "Addressing the amorphous content issue in quantitative phase analysis: the certification of NIST SRM 676a",
+      "year": "2011",
+      "url": "https://www.nist.gov/publications/addressing-amorphous-content-issue-quantitative-phase-analysis-certification-nist-srm",
+      "what_it_says": "The certified alumina standard has a phase purity of 99.02% +/- 1.11%. A non-diffracting surface layer exists on any crystal and can be several percent of the mass in a fine powder.",
+      "opened": true
+     }
+    ]
+   },
+   {
+    "id": "P3",
+    "name": "No ranking inside the key's error",
+    "plain": "If two entrants differ by less than the uncertainty of the answer key (plus sampling error), call it a tie. Proficiency-test statistics widen the score when the key itself is uncertain.",
+    "how_to_check": "Does the tie function take two inputs, sampling error from the number of items AND a stated key error rate? Does any 'A beats B' sentence in the write-up survive both? If the key error is not stated, fail.",
+    "why_it_matters_here": "D4 (38/40 vs 35/40 returns tie) handles sampling error only. The 25-row tricky-pairs key is AI-drafted and unchecked until L1, so its own error rate is unknown and probably larger than the gap between tools. The Reynolds Cup does the same thing by rule: entries inside the mixtures' uncertainty are not separated on the main score. This supports D4 and tells you to add the second input.",
+    "sources": [
+     {
+      "who": "Clay Minerals Society",
+      "title": "The Reynolds Cup (rules and guidelines page)",
+      "year": "2026 (page as read)",
+      "url": "https://www.clays.org/reynolds/",
+      "what_it_says": "Rule 6: winner is the smallest sum of absolute errors; if several entries fall within the established uncertainties of the mixture compositions, stricter tie-break criteria are applied (clay bias, relative errors, count of missed or misidentified phases).",
+      "opened": true
+     },
+     {
+      "who": "ISO",
+      "title": "ISO 13528:2022 Statistical methods for use in proficiency testing by interlaboratory comparison",
+      "year": "2022",
+      "url": "https://www.iso.org/standard/78879.html",
+      "what_it_says": "From memory, not opened (ISO site blocked the fetcher; URL from memory): the uncertainty of the assigned value should be below about 0.3 of the scoring standard deviation; otherwise use the z-prime score, which adds the key's uncertainty to the denominator.",
+      "opened": false
+     },
+     {
+      "who": "Thompson, Ellison, Wood (IUPAC)",
+      "title": "The International Harmonized Protocol for the proficiency testing of analytical chemistry laboratories (Pure Appl. Chem. 78, 145-196)",
+      "year": "2006",
+      "url": "https://doi.org/10.1351/pac200678010145",
+      "what_it_says": "Search result and memory only (publisher page showed a bot wall): the scoring spread should be set by fitness for purpose, not by the spread of the entrants, and the assigned value's uncertainty must be reported.",
+      "opened": false
+     }
+    ]
+   },
+   {
+    "id": "P4",
+    "name": "Prove the test items are uniform and stable",
+    "plain": "Before items are used, show that splits of the same powder agree with each other and that the powder does not change between mixing and scanning.",
+    "how_to_check": "Is there a written homogeneity check (re-scan or re-split a random subset, compare against a preset limit) and a stability rule (date mixed, date scanned, air-sensitive or water-absorbing ingredients flagged)? Yes or no.",
+    "why_it_matters_here": "L2 asks a partner lab to hand-mix hundreds of small powders. Two physical problems hit small samples. First, a 1 wt% ingredient in a few hundred milligrams may be only a handful of grains in the beam, so its peaks are a lottery (particle statistics). Second, many oxide, hydroxide and carbonate ingredients take up water or CO2 from air, so the recipe drifts. The standard criterion is simple: between-sample spread at most 0.3 of the scoring tolerance.",
+    "sources": [
+     {
+      "who": "Shapypro (secondary explainer of ISO 13528 Annex B)",
+      "title": "ISO 13528 homogeneity and stability",
+      "year": "undated web page",
+      "url": "https://shapypro.com/iso-13528-homogeneity-stability/",
+      "what_it_says": "Homogeneity passes if between-sample SD is at most 0.3 of the scoring SD; stability passes if the before/after difference is at most 0.3 of the scoring SD. If it fails, fold the extra spread into the score or use z-prime. Secondary source; the ISO text itself was not opened.",
+      "opened": true
+     },
+     {
+      "who": "Clay Minerals Society",
+      "title": "The Reynolds Cup (rules and guidelines page)",
+      "year": "2026 (page as read)",
+      "url": "https://www.clays.org/reynolds/",
+      "what_it_says": "About 100 sample sets per round are produced with a repeatable splitting procedure and the splits are verified for consistency by XRD and XRF before distribution.",
+      "opened": true
+     },
+     {
+      "who": "Madsen, Scarlett, Cranswick, Lwin",
+      "title": "Outcomes of the IUCr CPD Round Robin on QPA: samples 1a to 1h",
+      "year": "2001",
+      "url": "https://journals.iucr.org/paper?S0021889801007476",
+      "what_it_says": "Three randomly selected portions of each mixture were analysed to confirm the weighed values before results were judged.",
+      "opened": true
+     }
+    ]
+   },
+   {
+    "id": "P5",
+    "name": "Separate reading a scan from making one",
+    "plain": "Test the analysis step on fixed, supplied scans, and test sample preparation plus measurement separately. One instrument gives repeatability only; it says nothing about other instruments.",
+    "how_to_check": "Does every headline number carry the label 'fixed scans, one instrument'? Is there a named, sized second-instrument subset planned before any claim that a tool 'works on lab XRD'? If the claim is general and the data is one instrument, fail.",
+    "why_it_matters_here": "An ML phase-naming tool only does the analysis half, so the right old analogue is the round robin's supplied-data arm, not the whole contest. The plan already calls L2 a one-instrument exam, which is correct. Correction 29 (one lab is enough is reasoning, not a measured fact) is exactly the repeatability versus reproducibility distinction. The round robin showed the two arms give different scores on the same sample.",
+    "sources": [
+     {
+      "who": "IUCr Commission on Powder Diffraction",
+      "title": "Quantitative Phase Analysis Round Robin: letter to participants",
+      "year": "1998",
+      "url": "https://www.iucr.org/resources/commissions/powder-diffraction/projects/qarr/data/letter",
+      "what_it_says": "Three levels of participation: analyse CPD-supplied scans only; measure supplied prepared samples; prepare and measure unprepared samples. Instrument settings were left to each participant.",
+      "opened": true
+     },
+     {
+      "who": "Scarlett, Madsen, Cranswick, Lwin, Groleau, Stephenson, Aylmore, Agron-Olshina",
+      "title": "Outcomes of the IUCr CPD Round Robin on QPA: samples 2, 3, 4, synthetic bauxite, natural granodiorite and pharmaceuticals (J. Appl. Cryst. 35, 383-400)",
+      "year": "2002",
+      "url": "https://journals.iucr.org/paper?S0021889802008798",
+      "what_it_says": "For the microabsorption sample, the error score with supplied scans differed clearly from the score with participants' own scans, and from neutron data. So the measurement step and the analysis step contribute separately.",
+      "opened": true
+     },
+     {
+      "who": "Eurachem",
+      "title": "The Fitness for Purpose of Analytical Methods, 2nd ed.",
+      "year": "2014",
+      "url": "https://www.eurachem.org/index.php/publications/guides/mv",
+      "what_it_says": "From memory, not opened: repeatability (same lab, same kit, short time) and reproducibility (different labs) are distinct precision measures and must not be swapped.",
+      "opened": false
+     }
+    ]
+   },
+   {
+    "id": "P6",
+    "name": "Put known physical traps in on purpose",
+    "plain": "The field knows which physical effects break powder XRD. A credible test includes items built to trigger each one, labels them, and reports results per label.",
+    "how_to_check": "Does each item carry tags for: strong absorption contrast between ingredients, plate- or needle-shaped ingredient, non-crystalline ingredient, poorly crystalline ingredient, grain size known? Is there at least one item per tag, and a per-tag score? If the only difficulty axis is counting noise, fail.",
+    "why_it_matters_here": "N4 (noise ladder) varies random noise only. A diffraction person will say random noise is the smallest problem. The real ones are systematic: microabsorption (grains of a heavy phase shade themselves, so their peaks come out weak), preferred orientation (flat or needle grains lie down, so some peaks are too strong), non-crystalline content (no sharp peaks at all), and peak overlap. The 1998 round robin built one sample per effect. G20 already notes summed scans are about 5 points off from absorption; this principle turns that note into a design rule.",
+    "sources": [
+     {
+      "who": "IUCr Commission on Powder Diffraction",
+      "title": "Quantitative Phase Analysis Round Robin: letter to participants",
+      "year": "1998",
+      "url": "https://www.iucr.org/resources/commissions/powder-diffraction/projects/qarr/data/letter",
+      "what_it_says": "Sample 1 is the easy baseline. Sample 2 adds a platy phase (preferred orientation). Sample 3 adds silica glass (non-crystalline content). Sample 4 mixes phases of very different absorption with known grain sizes (microabsorption). A 7-phase synthetic bauxite, a natural rock and two drug mixtures follow.",
+      "opened": true
+     },
+     {
+      "who": "Scarlett et al.",
+      "title": "Outcomes of the IUCr CPD Round Robin on QPA: samples 2, 3, 4, synthetic bauxite, natural granodiorite and pharmaceuticals",
+      "year": "2002",
+      "url": "https://journals.iucr.org/paper?S0021889802008798",
+      "what_it_says": "The two main obstacles were microabsorption, which may be insurmountable with X-rays for some material suites, and operator error. The standard absorption correction helped in some cases and was over-applied in others.",
+      "opened": true
+     },
+     {
+      "who": "Brindley",
+      "title": "The effect of grain or particle size on X-ray reflections from mixed powders and alloys (Phil. Mag. 36, 347-369)",
+      "year": "1945",
+      "url": "https://doi.org/10.1080/14786444508520918",
+      "what_it_says": "From memory, not opened (DOI from memory): the classic microabsorption model; the correction depends on grain size and absorption contrast, both of which must be known.",
+      "opened": false
+     }
+    ]
+   },
+   {
+    "id": "P7",
+    "name": "Report detection by amount, with a floor",
+    "plain": "Give the hit rate as a curve against how much of the phase is present, in bands fixed in advance. Mark the band below the instrument's physical floor as 'not expected to be visible', not as a tool failure.",
+    "how_to_check": "Are wt% bands fixed before running, does each band show item count and an interval, and is there a declared floor (with its source) below which misses are not counted against the tool? Three yes answers, or fail.",
+    "why_it_matters_here": "N3 already fixes bands in advance, which is right. What it lacks is the floor. A very careful lab study put the detection limit near 0.2 wt% for a well-crystallised phase on a copper-source instrument, with useful accuracy only above 1 wt%. Fast routine scans are worse. That same public set (León-Reina, 0.12 to 4.0 wt%) sits largely near the floor, so a low score there says little about the tool. G28 in the notes already says 'not found' needs a bound; this gives the number.",
+    "sources": [
+     {
+      "who": "León-Reina, García-Maté, Álvarez-Pinazo, Santacruz, Vallcorba, De la Torre, Aranda",
+      "title": "Accuracy in Rietveld quantitative phase analysis: a comparative study of strictly monochromatic Mo and Cu radiations (J. Appl. Cryst. 49)",
+      "year": "2016",
+      "url": "https://journals.iucr.org/j/issues/2016/03/00/kc5030/index.html",
+      "what_it_says": "Abstract: 78 analyses. Detection limit about 0.2 wt% (Cu) and 0.3 wt% (Mo). Quantification limit near 0.10 wt% but with relative error near 100%. Only above 1.0 wt% was relative error under 20%.",
+      "opened": true
+     },
+     {
+      "who": "Madsen, Scarlett, Cranswick, Lwin",
+      "title": "Outcomes of the IUCr CPD Round Robin on QPA: samples 1a to 1h",
+      "year": "2001",
+      "url": "https://journals.iucr.org/paper?S0021889801007476",
+      "what_it_says": "A 10% relative error at 1 wt% is not the same as at 90 wt%, so the organisers used a concentration-weighted Kullback-Leibler distance as the single error score rather than averaging relative errors.",
+      "opened": true
+     }
+    ]
+   },
+   {
+    "id": "P8",
+    "name": "Wrong extra phases cost as much as misses",
+    "plain": "Automated search tools over-report. The contest community found that naming phases that are not there is the largest single error source, so the score must punish it directly.",
+    "how_to_check": "Does the score sheet show a separate false-positive count per scan (not only recall or a blended F1)? Does the exam include single-phase items and items where the right answer is a short list? If precision is not reported on its own, fail.",
+    "why_it_matters_here": "N3 and L2 score lists of named phases. Fit-driven tools can always lower the misfit by adding another phase (G23 already flags the fit residual as a hackable reward). The contest page calls misidentified phases \"THE biggest source of bias\". A 2019 automatic tool had to cap its list because it kept adding plausible phases near 1%. Trap items with one phase are the cheapest defence.",
+    "sources": [
+     {
+      "who": "Clay Minerals Society",
+      "title": "The Reynolds Cup (rules and guidelines page)",
+      "year": "2026 (page as read)",
+      "url": "https://www.clays.org/reynolds/",
+      "what_it_says": "Advice to entrants: do not rely solely on automated search/match; misidentifying absent phases is the biggest bias source; cross-check against bulk chemistry. Tie-breaks count non-identified and misidentified phases.",
+      "opened": true
+     },
+     {
+      "who": "Raven and Self",
+      "title": "Outcomes of 12 years of the Reynolds Cup quantitative mineral analysis round robin (Clays and Clay Minerals 65, 122-134)",
+      "year": "2017",
+      "url": "https://link.springer.com/article/10.1346/CCMN.2017.064054",
+      "what_it_says": "Abstract: 448 participants, about 14,000 analyses, 21 samples. Top entrants found all or most phases. Poor entries missed or misnamed phases; long lists of exotic minor phases likely came from automated search-match and were implausible.",
+      "opened": true
+     },
+     {
+      "who": "Lutterotti, Pillière, Fontugne, Boullay, Chateigner",
+      "title": "Full-profile search-match by the Rietveld method (J. Appl. Cryst. 52, 587-598)",
+      "year": "2019",
+      "url": "https://journals.iucr.org/j/issues/2019/03/00/nb5231/",
+      "what_it_says": "A plain fit-quality index was not good enough to rank candidate phases, so penalties were added. Without a cap the tool adds several extra phases near 1% that cannot be checked.",
+      "opened": true
+     }
+    ]
+   },
+   {
+    "id": "P9",
+    "name": "Publish naming levels before the test",
+    "plain": "Decide in advance which answers count as the same (same family, same series, same structure type), with a number for every tolerance. Also list what a powder scan cannot distinguish at all.",
+    "how_to_check": "Is there a grouping table, frozen before any scoring, with a numeric tolerance per tier, plus a list of pair types declared unanswerable from a lab powder scan? If grading choices are made after seeing answers, fail.",
+    "why_it_matters_here": "This is D1 and N1. The plan's 'cannot tell' verdict and guard rows are the right instinct and have precedent: the Reynolds Cup ships a spreadsheet of minimum naming levels, and the 2002 search-match round robin accepted a neighbouring series member as correct. Two things a specialist would add. First, the 1990 tier names come with no tolerances; the report itself notes the verdict flips depending on where the similarity limit is set. ICSD structure types are a worked, rule-based version. Second, 'cannot tell' depends on scan quality, not only on the pair: mirror-image pairs are always identical in powder data, but ordered versus disordered differs by weak extra peaks that only a long scan shows.",
+    "sources": [
+     {
+      "who": "Clay Minerals Society",
+      "title": "The Reynolds Cup (rules and guidelines page)",
+      "year": "2026 (page as read)",
+      "url": "https://www.clays.org/reynolds/",
+      "what_it_says": "Rule 5: minerals are grouped for judging, and a spreadsheet given to entrants states the minimum categorisation level required.",
+      "opened": true
+     },
+     {
+      "who": "Le Meins, Cranswick, Le Bail",
+      "title": "Search-Match Round Robin 2002: results page (paper: Powder Diffraction 18, 106-113, 2003)",
+      "year": "2002",
+      "url": "https://www.cristal.org/smrr/results/",
+      "what_it_says": "Four real samples. Grading was lenient and human-judged: a member of the same mineral series, or a magnesium-bearing carbonate in place of the iron one, was accepted. Only one entrant found all ten phases.",
+      "opened": true
+     },
+     {
+      "who": "Lima-de-Faria, Hellner, Liebau, Makovicky, Parthé (IUCr nomenclature report)",
+      "title": "Nomenclature of inorganic structure types (Acta Cryst. A46, 1-11)",
+      "year": "1990",
+      "url": "https://www.iucr.org/resources/commissions/crystallographic-nomenclature/inorganic",
+      "what_it_says": "Defines four similarity tiers (isopointal, isoconfigurational, crystal-chemically isotypic, homeotypic). Mirror-image space-group pairs count as the same type. A footnote notes that whether two structures with axis ratios 30% apart are the same type depends on the chosen limit.",
+      "opened": true
+     },
+     {
+      "who": "Allmann and Hinek",
+      "title": "The introduction of structure types into the Inorganic Crystal Structure Database ICSD (Acta Cryst. A63, 412-417)",
+      "year": "2007",
+      "url": "https://journals.iucr.org/a/issues/2007/05/00/sh0188/index.html",
+      "what_it_says": "Abstract: structure types are assigned by stepwise rules: space group, Wyckoff sequence, Pearson symbol, then axis-ratio and angle ranges, formula type, and required or forbidden elements.",
+      "opened": true
+     }
+    ]
+   },
+   {
+    "id": "P10",
+    "name": "Fix and log what the entrant was given",
+    "plain": "Results depend heavily on the reference database version and on hints such as which elements are present. Record both for every run and never pool results across them.",
+    "how_to_check": "Does each result row record: reference database name and date, whether the element list was given, and whether every true phase was in the candidate list? Are scores reported separately for each setting? If any of the three is missing, fail.",
+    "why_it_matters_here": "N3's 'truth in candidate list' flag is exactly this and should stay. Add the hint level. In the 2002 round robin about 16% of entrants failed one sample only because their database was too old, and one phase was missing from the database entirely. In 2019 an automatic tool could not finish the same sample because the structure was not in the open database. In real synthesis work the elements are always known, so an exam without them tests a harder and less relevant task. Pick one and state it.",
+    "sources": [
+     {
+      "who": "Le Meins, Cranswick, Le Bail",
+      "title": "Search-Match Round Robin 2002: results page",
+      "year": "2002",
+      "url": "https://www.cristal.org/smrr/results/",
+      "what_it_says": "Two steps: scans with a vague origin, then scans plus chemistry. About 16% could not identify one sample because their database release was too old. One polymorph was absent from the database. Conclusion: software, expert hands and a current database are all needed.",
+      "opened": true
+     },
+     {
+      "who": "Lutterotti, Pillière, Fontugne, Boullay, Chateigner",
+      "title": "Full-profile search-match by the Rietveld method",
+      "year": "2019",
+      "url": "https://journals.iucr.org/j/issues/2019/03/00/nb5231/",
+      "what_it_says": "Result quality depends mainly on whether the sought phase is in the structure database. One round-robin sample could not be completed for that reason. Runs were reported both with and without element restrictions.",
+      "opened": true
+     },
+     {
+      "who": "IUCr Commission on Powder Diffraction",
+      "title": "Quantitative Phase Analysis Round Robin: letter to participants",
+      "year": "1998",
+      "url": "https://www.iucr.org/resources/commissions/powder-diffraction/projects/qarr/data/letter",
+      "what_it_says": "Entrants were given the phase list and crystal-structure data, and the letter states this explicitly as part of the test definition.",
+      "opened": true
+     }
+    ]
+   },
+   {
+    "id": "P11",
+    "name": "Freeze settings; the operator is a variable",
+    "plain": "Round robins found that who runs the software, and with what settings, moves the result more than which method is used. A tool's score is really the score of tool plus settings plus operator.",
+    "how_to_check": "Is each tool run from a frozen, published configuration with no per-scan human adjustment, and is the configuration recorded with the score? Is it flagged when the tool's authors could have tuned on the same public scans? If a human touched individual scans, fail.",
+    "why_it_matters_here": "N3 runs Dara on public sets and reports whether they are still too easy. That sentence is only true for one configuration. Public round-robin scans have been used as development examples by tool authors (the 2019 paper did), so a good score may be partly memorised. The old finding cuts both ways: on the easy sample, a locked-down automatic run beat the average human entrant, because the restrictions prevented operator mistakes.",
+    "sources": [
+     {
+      "who": "Madsen, Scarlett, Cranswick, Lwin",
+      "title": "Outcomes of the IUCr CPD Round Robin on QPA: samples 1a to 1h",
+      "year": "2001",
+      "url": "https://journals.iucr.org/paper?S0021889801007476",
+      "what_it_says": "Even on a sample designed to avoid physical problems, and even on identical supplied scans, results varied widely. Causes: wrong reference ratios, software misuse, poor crystallographic understanding, over-correction. Many gave no error estimate.",
+      "opened": true
+     },
+     {
+      "who": "Scarlett et al.",
+      "title": "Outcomes of the IUCr CPD Round Robin on QPA: samples 2, 3, 4, synthetic bauxite, natural granodiorite and pharmaceuticals",
+      "year": "2002",
+      "url": "https://journals.iucr.org/paper?S0021889802008798",
+      "what_it_says": "Recommends standard strategies and checklists, but warns against reducing the analysis to a black box.",
+      "opened": true
+     },
+     {
+      "who": "Lutterotti, Pillière, Fontugne, Boullay, Chateigner",
+      "title": "Full-profile search-match by the Rietveld method",
+      "year": "2019",
+      "url": "https://journals.iucr.org/j/issues/2019/03/00/nb5231/",
+      "what_it_says": "A fully automatic, heavily restricted run on round-robin sample 1h landed within 2% absolute of the weighed values, tighter than the spread of the human entrants. The authors credit the restrictions.",
+      "opened": true
+     }
+    ]
+   },
+   {
+    "id": "P12",
+    "name": "Reproduce a certified answer before building anything",
+    "plain": "Run the whole pipeline first on an item whose answer was certified or contest-verified by someone else. If it cannot reproduce that answer, nothing built on top can be trusted.",
+    "how_to_check": "Has the marker-plus-tool pipeline been run on at least one externally verified item (for example the round robin's supplied scans of the three-phase sample, or a scan of a certified reference mixture) and returned the known phases? Yes or no.",
+    "why_it_matters_here": "This is a cheap positive control the plan lacks, and it fits D6 (web-only check of public weighed sets). The round robin's supplied scans are small text files with weighed values public since 1999; the 2019 paper used them as its first test. In cement, a lab must qualify against NIST reference clinkers under ASTM C1365, within per-phase limits, before its numbers count. Any download still needs the user's yes.",
+    "sources": [
+     {
+      "who": "NIST",
+      "title": "Cement characteristics: direct phase assessment (programme page)",
+      "year": "page as read 2026",
+      "url": "https://www.nist.gov/programs-projects/cement-characteristics-direct-phase-assessment",
+      "what_it_says": "ASTM C1365 is the standardised XRD method for cement and clinker phases. Reference clinkers SRM 2686, 2687, 2688 and 2686a were certified using XRD and microscopy.",
+      "opened": true
+     },
+     {
+      "who": "Instrument vendor application note hosted by AZoM",
+      "title": "Clinker phase analysis checked against ASTM C1365 limits",
+      "year": "undated web page",
+      "url": "https://www.azom.com/article.aspx?ArticleID=23379",
+      "what_it_says": "21 repeat analyses of the NIST clinkers compared with C1365 per-phase precision limits (about 0.2 to 0.7 wt% at one sigma, depending on phase). Vendor source; used only to show how qualification works.",
+      "opened": true
+     },
+     {
+      "who": "Lutterotti, Pillière, Fontugne, Boullay, Chateigner",
+      "title": "Full-profile search-match by the Rietveld method",
+      "year": "2019",
+      "url": "https://journals.iucr.org/j/issues/2019/03/00/nb5231/",
+      "what_it_says": "First test of the new tool was round-robin data set 1h from the IUCr CPD site, compared against the weighed values and the entrants' spread.",
+      "opened": true
+     },
+     {
+      "who": "Cline, Von Dreele, Winburn, Stephens, Filliben (NIST)",
+      "title": "Certification of NIST SRM 676a",
+      "year": "2011",
+      "url": "https://www.nist.gov/publications/addressing-amorphous-content-issue-quantitative-phase-analysis-certification-nist-srm",
+      "what_it_says": "A certified alumina powder exists specifically to anchor quantitative powder diffraction, with a stated purity and uncertainty.",
+      "opened": true
+     }
+    ]
+   },
+   {
+    "id": "P13",
+    "name": "Weighed mixtures are the easy case",
+    "plain": "Real reaction products contain mixed-composition phases, unknown phases and poorly crystalline material that no weighed mixture has. Accuracy on weighed mixtures is an upper bound, and keys for real samples need an appeal path.",
+    "how_to_check": "Does the write-up call weighed-mixture accuracy an upper bound in plain words? Is there a planned second arm on real products, scored against expert consensus, with a written way to challenge and revise the key? If the weighed exam is presented as 'real-world accuracy', fail.",
+    "why_it_matters_here": "The long-term aim (L2) is weighed mixtures only. The round robin's natural rock had no known answer at all. The 2002 search-match samples were real, with admittedly inexact solutions. In 2019 an automatic tool disagreed with the organisers' key on one phase, and a manual refinement put that phase near zero. So published keys can be wrong and were revised by later work. G19 (no multi-rater truth) already points here; this adds the appeal rule.",
+    "sources": [
+     {
+      "who": "Scarlett et al.",
+      "title": "Outcomes of the IUCr CPD Round Robin on QPA: samples 2, 3, 4, synthetic bauxite, natural granodiorite and pharmaceuticals",
+      "year": "2002",
+      "url": "https://journals.iucr.org/paper?S0021889802008798",
+      "what_it_says": "For the natural rock the correct answer is unknown: minor phases may be present that diffraction does not easily detect, and each phase's real composition may differ from its nominal formula.",
+      "opened": true
+     },
+     {
+      "who": "Le Meins, Cranswick, Le Bail",
+      "title": "Search-Match Round Robin 2002: results page",
+      "year": "2002",
+      "url": "https://www.cristal.org/smrr/results/",
+      "what_it_says": "Samples were real-life materials, not weighed mixtures, and the organisers state the database does not always hold exact solutions.",
+      "opened": true
+     },
+     {
+      "who": "Lutterotti, Pillière, Fontugne, Boullay, Chateigner",
+      "title": "Full-profile search-match by the Rietveld method",
+      "year": "2019",
+      "url": "https://journals.iucr.org/j/issues/2019/03/00/nb5231/",
+      "what_it_says": "On one round-robin sample the tool did not find a phase the organisers listed; a manual refinement with that phase forced in gave an amount close to zero. It also found a second polymorph that no 2002 entrant had found.",
+      "opened": true
+     }
+    ]
+   },
+   {
+    "id": "P14",
+    "name": "Fresh items each round, key holder stays out",
+    "plain": "Standing schemes stay honest by making new items every round, releasing the truth only after closing, limiting entries, hiding entrant identities, and keeping the person who holds the key out of the contest.",
+    "how_to_check": "Is there a written rule for each of: item retirement once truth is released; who holds the key and that they do not enter; entries allowed per entrant per round; entrant codes instead of names; nothing in file names or metadata that leaks the recipe? Any missing rule, fail.",
+    "why_it_matters_here": "L2 is a hidden exam, and the plan already noticed file names spell out the recipe. The human contest allows one entry per organisation every two years. A machine exam that re-uses the same hidden items and accepts repeated submissions leaks its key through the scores. The metrology fix is new physical items each round, which has a real cost in powders and instrument time. That cost should be in the L2 sizing.",
+    "sources": [
+     {
+      "who": "Clay Minerals Society",
+      "title": "The Reynolds Cup (rules and guidelines page)",
+      "year": "2026 (page as read)",
+      "url": "https://www.clays.org/reynolds/",
+      "what_it_says": "Biennial. New mixtures each round, made and judged by the previous winner, who therefore does not compete. One entry per organisation. True compositions released after all entries are in. Anonymous ranking; only the top three are named.",
+      "opened": true
+     },
+     {
+      "who": "ISO/IEC",
+      "title": "ISO/IEC 17043:2023 Conformity assessment: general requirements for the competence of proficiency testing providers",
+      "year": "2023",
+      "url": "https://www.iso.org/standard/80864.html",
+      "what_it_says": "From memory, not opened (ISO site blocked the fetcher; URL from memory): requires confidentiality of participant identity, measures against collusion and falsification, and documented item preparation, homogeneity and stability.",
+      "opened": false
+     },
+     {
+      "who": "Thompson, Ellison, Wood (IUPAC)",
+      "title": "The International Harmonized Protocol for the proficiency testing of analytical chemistry laboratories",
+      "year": "2006",
+      "url": "https://doi.org/10.1351/pac200678010145",
+      "what_it_says": "Search result and memory only: rounds are repeated with fresh materials; assigned values are disclosed after the deadline; participants are identified by code.",
+      "opened": false
+     }
+    ]
+   }
+  ],
+  "prior_art": [
+   {
+    "name": "Reynolds Cup (Clay Minerals Society)",
+    "what_it_is": "A free, biennial, blind contest since 2002. Three weighed mineral mixtures per round, about 100 sample sets, no phase list given, any method allowed. Score is the sum of absolute wt% errors; ties inside the key's uncertainty go to tie-breaks that count missed and wrongly named phases. Truth released after closing. 448 participants and about 14,000 analyses over 2002-2014.",
+    "overlaps_which_item": "L2 (hidden-recipe exam on weighed mixtures); D4 (tie rule); N1/D1 (grouping levels fixed in advance); G17/G20 in gaps.md",
+    "opened": true,
+    "url": "https://www.clays.org/reynolds/",
+    "already_in_notes": true,
+    "what_is_left_open": "It is for human analysts, on clay-bearing rocks, three items every two years, one entry per organisation. No machine-facing submission or public scoring code was seen. Not inorganic-synthesis chemistry. New to the notes: the rules detail (purity within 1 wt%, XRD+XRF split checks, published grouping spreadsheet, tie-break inside key uncertainty, organiser does not compete)."
+   },
+   {
+    "name": "Past Reynolds Cup mixtures on sale",
+    "what_it_is": "The society's store lists past contest reference mixtures at $250 per unit, 2-4 g each, limit of 4 units, several past rounds listed.",
+    "overlaps_which_item": "plan.md DON'T DO row (buying past contest powders on one unverified price); G20",
+    "opened": true,
+    "url": "https://cms.clays.org/source-clay/",
+    "already_in_notes": true,
+    "what_is_left_open": "The price is now verified on the seller's own page, so 'unverified' can be dropped. The don't-buy call still stands for a different reason: few items, clay-heavy, and their compositions were released to entrants after each round, so they are not hidden. Whether full keys are posted publicly was not checked."
+   },
+   {
+    "name": "Butler and Hillier 2021, automated full-pattern summation (R package powdR) scored on Reynolds Cup samples",
+    "what_it_is": "An automatic algorithm that picks the phases itself from a 201-pattern library, run on 27 samples from nine past contests. Mean absolute error 0.57 wt% for non-clay minerals, 2.37 for clays, 4.43 for non-crystalline phases. Would have placed in the top three in all nine contests.",
+    "overlaps_which_item": "L2 novelty claim (machine-scored on blind-contest weighed mixtures); N3 (practice exam); G20 conclusion",
+    "opened": true,
+    "url": "https://link.springer.com/article/10.1007/s42860-020-00105-6",
+    "already_in_notes": false,
+    "what_is_left_open": "Abstract only was read. It is a one-off, run by the tool's authors after the truth was public, with their own library, on minerals, scored on amounts not on naming. It shows 'a machine scored against contest weighed mixtures' already exists. It does not give a standing, hidden, third-party exam."
+   },
+   {
+    "name": "Lutterotti et al. 2019, full-profile search-match (FPSM) tested on round-robin scans",
+    "what_it_is": "A fully automatic phase-naming and quantifying tool with a public web form, tested on IUCr round-robin data set 1h (within 2% absolute of weighed values) and on all four samples of the 2002 search-match round robin. One sample failed because the structure was not in the open database; on another the tool disagreed with the organisers' key.",
+    "overlaps_which_item": "N3 and D6 (re-using public round-robin scans as a machine practice exam); P12 positive control; G14/G17",
+    "opened": true,
+    "url": "https://journals.iucr.org/j/issues/2019/03/00/nb5231/",
+    "already_in_notes": false,
+    "what_is_left_open": "Five scans, authors' own run, no written marking rule, no repeat. Confirms the round-robin scans were publicly downloadable from the IUCr site in 2019 and have already been used as development examples, so they are contaminated as an unseen test."
+   },
+   {
+    "name": "IUCr CPD round robin on quantitative phase analysis (Madsen 2001; Scarlett 2002)",
+    "what_it_is": "1998-2002 interlaboratory test. Eight three-phase weighed mixtures plus samples built to trigger preferred orientation, non-crystalline content and microabsorption, a 7-phase synthetic bauxite, a natural rock with no key, and two drug mixtures. Key cross-checked by XRF. Separate arms for supplied scans and own scans. Scored with a concentration-weighted Kullback-Leibler distance.",
+    "overlaps_which_item": "D6 and N3 (harder public weighed sets); G20; L2 design",
+    "opened": true,
+    "url": "https://journals.iucr.org/paper?S0021889801007476",
+    "already_in_notes": true,
+    "what_is_left_open": "New to the notes: phase identities were GIVEN to entrants, so it never tested naming; weighed values have been public since 1999; only the supplied-data arm is a fixed scan set; roughly 20 scans in total. Usable as a positive control and a small practice set, not as a hidden exam."
+   },
+   {
+    "name": "Search-Match Round Robin 2002 (Le Meins, Cranswick, Le Bail)",
+    "what_it_is": "The only phase-NAMING round robin found. Four real samples, two steps (without and with chemistry), about 25-30 entrants, nine software packages. One entrant found all ten phases. Grading was lenient and done by hand: same-series members were accepted.",
+    "overlaps_which_item": "D1 and N1 (marking rule, 'same family' tier); G14",
+    "opened": true,
+    "url": "https://www.cristal.org/smrr/results/",
+    "already_in_notes": true,
+    "what_is_left_open": "New detail: database age alone failed about 16% of entrants on one sample; one phase was missing from the database; the key was later challenged (see FPSM 2019). No written rule card, four items, and no repeat round was found (one search; absence not proven)."
+   },
+   {
+    "name": "León-Reina et al. 2016 spiking series and its Zenodo record",
+    "what_it_is": "78 careful analyses of mixtures spiked with 0.12 to 4.0 wt% of a minor phase (inorganic, organic and glass series), lab Cu and Mo sources plus synchrotron. Record is CC BY 4.0, about 4.8 MB, raw scans in vendor formats (.raw, .xrdml) and .XY.",
+    "overlaps_which_item": "D6 (one of the three harder public sets); N3 wt% bands; G20; G28",
+    "opened": true,
+    "url": "https://zenodo.org/records/1291900",
+    "already_in_notes": true,
+    "what_is_left_open": "Landing page and paper abstract only; nothing downloaded. Licence and size are now verified. Much of the range sits near the physical detection floor (about 0.2 wt%; good accuracy only above 1 wt%), and phase identities are known by design, so it measures a detection curve, not open naming. Vendor formats need conversion."
+   },
+   {
+    "name": "Szymanski et al. 2023, 240 two-phase mixtures",
+    "what_it_is": "Measured two-phase mixtures from eight compounds in two lithium oxide chemical families, minority phase 2 to 20 wt%, from an adaptive-scanning paper in npj Computational Materials.",
+    "overlaps_which_item": "D6; N3 (only its under-10 wt% band counts as harder)",
+    "opened": false,
+    "url": "https://www.nature.com/articles/s41524-023-00984-y",
+    "already_in_notes": true,
+    "what_is_left_open": "Search-result snippet only in this run; the article page redirects to a sign-in flow for the fetcher and was not followed. Where the raw scans live, their size and licence were not confirmed here. Correction 26 in plan.md (public raw scans supported for one of three sets) still stands."
+   },
+   {
+    "name": "NIST reference materials and ASTM C1365 qualification",
+    "what_it_is": "SRM 676a is a certified alumina powder (99.02% +/- 1.11% crystalline) for anchoring quantitative powder XRD. SRM 2686, 2687, 2688 and 2686a are certified cement clinkers. ASTM C1365 makes a lab qualify its method against them within per-phase precision limits.",
+    "overlaps_which_item": "L2 (how a partner lab and method get qualified); P12 positive control; builds.md mention of SRM 2686a",
+    "opened": true,
+    "url": "https://www.nist.gov/programs-projects/cement-characteristics-direct-phase-assessment",
+    "already_in_notes": false,
+    "what_is_left_open": "SRM 2686a is in the notes; SRM 676a and ASTM C1365 are not. Cement only, amounts only, human labs. The ASTM text itself was not opened (paywalled). Shows the qualify-against-a-certified-item pattern; does not cover naming or ML tools."
+   },
+   {
+    "name": "ISO 13528, ISO/IEC 17043 and the IUPAC Harmonized Protocol",
+    "what_it_is": "The standard rule books for proficiency tests: how to set the assigned value and its uncertainty, homogeneity and stability limits (0.3 of the scoring SD), z and z-prime scores, confidentiality, anti-collusion.",
+    "overlaps_which_item": "D4 (tie function); L2 design; G18 (the notes already apply z-prime to the thermoelectric side)",
+    "opened": false,
+    "url": "https://doi.org/10.1351/pac200678010145",
+    "already_in_notes": true,
+    "what_is_left_open": "Standards were not opened (ISO and IUPAC pages blocked the fetcher); a secondary explainer of the homogeneity rule was opened. The notes use these for thermoelectric numbers only, not for XRD. They are written for numeric results. From memory, ISO 13528 has a short clause on qualitative results, but I know of no standard score for a multi-label phase list. That scoring rule is genuinely open."
+   },
+   {
+    "name": "Lima-de-Faria et al. 1990 tiers, and Allmann and Hinek 2007 ICSD structure types",
+    "what_it_is": "1990: the IUCr definitions of four structure-similarity tiers. 2007: the stepwise, rule-based procedure ICSD uses to assign entries to structure types (space group, Wyckoff sequence, Pearson symbol, axis-ratio and angle ranges, formula type, required or forbidden elements).",
+    "overlaps_which_item": "N1 (tiered marker); D1 (tricky pairs and guard rows); G14",
+    "opened": true,
+    "url": "https://journals.iucr.org/a/issues/2007/05/00/sh0188/index.html",
+    "already_in_notes": false,
+    "what_is_left_open": "The 1990 paper is in the notes; the 2007 ICSD procedure is not. The 1990 text leaves tolerances to the user and says so. The 2007 rules are published but the assignments live inside a licensed database; whether an open implementation exists is unknown to me. A free, installable marker with declared tolerances still looks open."
+   },
+   {
+    "name": "GALAXI (arXiv 2609.06908, Sept 2026)",
+    "what_it_is": "A new ML phase-naming system: one yes/no classifier per structure for 64,594 open-database structures, followed by refinement. Reports micro-F1 0.935 on a curated set of measured scans and a public web interface.",
+    "overlaps_which_item": "N3 (another tool to run beside Dara); L2 (a likely entrant); G20 (are known-answer sets too easy)",
+    "opened": true,
+    "url": "https://arxiv.org/abs/2609.06908",
+    "already_in_notes": false,
+    "what_is_left_open": "Abstract only; the HTML full text returned 404. The abstract does not say where the test scans came from, how many there are, or what counted as a correct phase. That is the exact gap a published marking rule would fill. Read the full paper before citing the number."
+   },
+   {
+    "name": "León-Reina et al. 2009 round robin on Rietveld analysis of Portland cements",
+    "what_it_is": "A domain-specific interlaboratory test of quantitative XRD on cements (J. Appl. Cryst. 42).",
+    "overlaps_which_item": "L2 (shows domain round robins exist beyond clays and the IUCr set)",
+    "opened": false,
+    "url": "https://journals.iucr.org/paper?S0021889809028374",
+    "already_in_notes": false,
+    "what_is_left_open": "Seen as a search result and recalled from memory only; details not verified. Listed so stage 2 can check it. Human labs, amounts only."
+   }
+  ],
+  "notes": "ANSWER TO THE USER'S QUESTION, THIS LENS ONLY. Yes, this is eval work, and an older field has done the physical version of it for 25 years. The plan already matches that practice in five places: a tie rule (D4), a 'cannot tell' verdict with guard rows (D1), wt% bands fixed in advance and a 'truth in candidate list' flag (N3), calling public-answer sets a practice exam, and labelling L2 a one-instrument exam. Keep all five.\n\nWHAT A PRACTISING DIFFRACTION PERSON WOULD FIND NAIVE (ranked). (1) Treating the weighed recipe as truth with no ingredient-purity scan, no independent chemistry check and no error bar (P2). (2) A noise ladder as the main difficulty axis; the real breakers are systematic: grain shading (microabsorption), grains lying flat (preferred orientation), peak overlap, poor crystallinity, mixed-composition phases (P6). (3) Re-using the IUCr quantification scans as a naming exam without saying the original entrants were told the phases (P1). (4) Treating misses below about 1 wt% as tool failures (P7). (5) Treating 'cannot tell' as a property of the pair only; it also depends on scan quality (P9). (6) Assuming a published key is final; one 2002 key was contradicted in 2019 (P13). (7) Reading 'one lab' results as general (P5). (8) Hand-mixing hundreds of small powders with no homogeneity or stability check (P4). (9) A standing hidden exam on the same items with unlimited machine submissions (P14). (10) Not stating whether the element list is given, when in real use it always is (P10).\n\nHOW MUCH OF THE LONG-TERM AIM ALREADY EXISTS. Existing pieces: a blind weighed-mixture contest with fresh items and released truth (Reynolds Cup, human, minerals); a public verified weighed scan set (IUCr CPD, truth public since 1999, identities given); one naming round robin (2002, four real samples, hand-graded); machines already scored post hoc on both contest sets (FPSM 2019; powdR 2021, top-three in nine contests); the statistics rule books (ISO 13528, IUPAC). Not found: a standing, hidden, machine-facing, naming-first exam on inorganic-synthesis mixtures with a published marking rule and a multi-label score. Two web searches found none; that is absence of evidence, not proof. So G20's 'novelty is narrow' is right and should be narrowed one step further: 'machine scored on contest weighed mixtures' is NOT new; 'standing + hidden + third-party + naming-first + synthesis chemistry + written marking rule' still appears open. Out of our reach without a lab: fresh physical items each round, XRF checks, second-instrument subset.\n\nCHEAPEST NEW ACTIONS THIS LENS SUGGESTS (all web-only or tiny, each download needs the user's yes): run the pipeline once on IUCr sample 1 supplied scans as a positive control (P12); add a key-error input to the tie function (P3); add false-positive count and single-phase trap items (P8); write the grouping table with numeric tolerances before scoring the 40 rows (P9).\n\nCORRECTIONS TO THE NOTES. The $250 Reynolds Cup unit price is now verified on the seller's page. Not in gaps.md or plan.md before this run: Butler and Hillier 2021, Lutterotti 2019, Allmann and Hinek 2007, SRM 676a, ASTM C1365, GALAXI, the fact that the IUCr round robin supplied phase identities, its XRF-verified key, its supplied-data arm and its Kullback-Leibler score. In the notes but not re-opened here: XRDBench, Codabench, RADAR-PD, Doebelin 2020, AIF. XMatcher (arXiv 2607.17162, abstract read) is a tool with no test set or marking rule, so it is not prior art for the eval.\n\nSOURCE HONESTY. opened=true means I loaded that URL in this run and it says what I state; for Springer and two IUCr items only the abstract was readable. opened=false items (ISO 13528, ISO/IEC 17043, IUPAC protocol, Eurachem guide, Brindley 1945, Szymanski 2023, León-Reina 2009) rest on memory or search snippets; the two ISO URLs and the Brindley DOI are from memory and unverified. Publisher bot walls (Wiley, IUPAC, ISO, PMC) were not bypassed. For the Cline 2011 paper I give the NIST page and do not assert the journal. One short quotation is used (Reynolds Cup page, in P8).\n\nDISCLOSURE. One fetch of a PDF URL (an accreditation body's homogeneity guidance) was auto-saved by the fetch tool as a 186 KB file in this session's tool-results folder. That conflicts with the no-PDF-to-disk rule. I did not read, move or delete it, did not use it as a source, and avoided all PDF URLs afterwards. No other files were written. Nothing was added to any cart, no forms, no sign-ins, no terms accepted.\n\nLOCAL FILES READ (read-only): <session-scratchpad> and .../scratchpad/synth/gaps.md (full or targeted reads); builds.md, storyline.md, glossary_usermodel.md and the plan/verify_*.md files by grep only."
+ }
+}

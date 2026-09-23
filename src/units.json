@@ -1,0 +1,306 @@
+[
+ {
+  "id": "C01-1of3",
+  "kind": "conversation",
+  "files": [
+   "convos/C01_data-landscape_TRUNK__part1of3.md"
+  ],
+  "name": "C01_data-landscape_TRUNK__part1of3.md",
+  "bytes": 229780
+ },
+ {
+  "id": "C01-2of3",
+  "kind": "conversation",
+  "files": [
+   "convos/C01_data-landscape_TRUNK__part2of3.md"
+  ],
+  "name": "C01_data-landscape_TRUNK__part2of3.md",
+  "bytes": 205747
+ },
+ {
+  "id": "C01-3of3",
+  "kind": "conversation",
+  "files": [
+   "convos/C01_data-landscape_TRUNK__part3of3.md"
+  ],
+  "name": "C01_data-landscape_TRUNK__part3of3.md",
+  "bytes": 123316
+ },
+ {
+  "id": "C02-1of2",
+  "kind": "conversation",
+  "files": [
+   "convos/C02_data-landscape_branch-periodic-labs-report__part1of2.md"
+  ],
+  "name": "C02_data-landscape_branch-periodic-labs-report__part1of2.md",
+  "bytes": 223473
+ },
+ {
+  "id": "C02-2of2",
+  "kind": "conversation",
+  "files": [
+   "convos/C02_data-landscape_branch-periodic-labs-report__part2of2.md"
+  ],
+  "name": "C02_data-landscape_branch-periodic-labs-report__part2of2.md",
+  "bytes": 108531
+ },
+ {
+  "id": "C03-1of3",
+  "kind": "conversation",
+  "files": [
+   "convos/C03_data-landscape_branch-main__part1of3.md"
+  ],
+  "name": "C03_data-landscape_branch-main__part1of3.md",
+  "bytes": 227062
+ },
+ {
+  "id": "C03-2of3",
+  "kind": "conversation",
+  "files": [
+   "convos/C03_data-landscape_branch-main__part2of3.md"
+  ],
+  "name": "C03_data-landscape_branch-main__part2of3.md",
+  "bytes": 229252
+ },
+ {
+  "id": "C03-3of3",
+  "kind": "conversation",
+  "files": [
+   "convos/C03_data-landscape_branch-main__part3of3.md"
+  ],
+  "name": "C03_data-landscape_branch-main__part3of3.md",
+  "bytes": 125029
+ },
+ {
+  "id": "C04-1of2",
+  "kind": "conversation",
+  "files": [
+   "convos/C04_data-landscape_branch-data-curation__part1of2.md"
+  ],
+  "name": "C04_data-landscape_branch-data-curation__part1of2.md",
+  "bytes": 215904
+ },
+ {
+  "id": "C04-2of2",
+  "kind": "conversation",
+  "files": [
+   "convos/C04_data-landscape_branch-data-curation__part2of2.md"
+  ],
+  "name": "C04_data-landscape_branch-data-curation__part2of2.md",
+  "bytes": 135449
+ },
+ {
+  "id": "C05-1of1",
+  "kind": "conversation",
+  "files": [
+   "convos/C05_discovered-materials-experimental-data-bottlenecks__part1of1.md"
+  ],
+  "name": "C05_discovered-materials-experimental-data-bottlenecks__part1of1.md",
+  "bytes": 160006
+ },
+ {
+  "id": "C06-1of2",
+  "kind": "conversation",
+  "files": [
+   "convos/C06_periodic-labs-experimental-data-bottlenecks__part1of2.md"
+  ],
+  "name": "C06_periodic-labs-experimental-data-bottlenecks__part1of2.md",
+  "bytes": 222913
+ },
+ {
+  "id": "C06-2of2",
+  "kind": "conversation",
+  "files": [
+   "convos/C06_periodic-labs-experimental-data-bottlenecks__part2of2.md"
+  ],
+  "name": "C06_periodic-labs-experimental-data-bottlenecks__part2of2.md",
+  "bytes": 18057
+ },
+ {
+  "id": "C08-1of1",
+  "kind": "conversation",
+  "files": [
+   "convos/C08_rruff-data-and-dft-comparison__part1of1.md"
+  ],
+  "name": "C08_rruff-data-and-dft-comparison__part1of1.md",
+  "bytes": 107047
+ },
+ {
+  "id": "C09-1of1",
+  "kind": "conversation",
+  "files": [
+   "convos/C09_data-absence-patterns-analysis__part1of1.md"
+  ],
+  "name": "C09_data-absence-patterns-analysis__part1of1.md",
+  "bytes": 113769
+ },
+ {
+  "id": "C10-1of3",
+  "kind": "conversation",
+  "files": [
+   "convos/C10_recursive-intelligence-in-materials-ai__part1of3.md"
+  ],
+  "name": "C10_recursive-intelligence-in-materials-ai__part1of3.md",
+  "bytes": 224127
+ },
+ {
+  "id": "C10-2of3",
+  "kind": "conversation",
+  "files": [
+   "convos/C10_recursive-intelligence-in-materials-ai__part2of3.md"
+  ],
+  "name": "C10_recursive-intelligence-in-materials-ai__part2of3.md",
+  "bytes": 182789
+ },
+ {
+  "id": "C10-3of3",
+  "kind": "conversation",
+  "files": [
+   "convos/C10_recursive-intelligence-in-materials-ai__part3of3.md"
+  ],
+  "name": "C10_recursive-intelligence-in-materials-ai__part3of3.md",
+  "bytes": 198539
+ },
+ {
+  "id": "C11-1of1",
+  "kind": "conversation",
+  "files": [
+   "convos/C11_periodic-lab-xrd-research-analysis__part1of1.md"
+  ],
+  "name": "C11_periodic-lab-xrd-research-analysis__part1of1.md",
+  "bytes": 42743
+ },
+ {
+  "id": "C07-12-13-14",
+  "kind": "conversation",
+  "files": [
+   "convos/C07_untitled-early-session-a75db7__part1of1.md",
+   "convos/C12_xrd-molecule-neural-net-distillation__part1of1.md",
+   "convos/C13_xrd-vs-complementary-characterization__part1of1.md",
+   "convos/C14_four-tiny-sessions__part1of1.md"
+  ],
+  "name": "four small sessions (early untitled, XRD-molecule distillation, XRD vs complementary techniques, tiny sessions)",
+  "bytes": 53740
+ },
+ {
+  "id": "R01",
+  "kind": "report",
+  "files": [
+   "reports/R01_materials-record-wall.txt"
+  ],
+  "name": "R01_materials-record-wall.txt",
+  "bytes": 328637
+ },
+ {
+  "id": "R02",
+  "kind": "report",
+  "files": [
+   "reports/R02_record-wall-debrief.txt"
+  ],
+  "name": "R02_record-wall-debrief.txt",
+  "bytes": 30046
+ },
+ {
+  "id": "R03",
+  "kind": "report",
+  "files": [
+   "reports/R03_toward-a-materials-imagenet.txt"
+  ],
+  "name": "R03_toward-a-materials-imagenet.txt",
+  "bytes": 47063
+ },
+ {
+  "id": "R04",
+  "kind": "report",
+  "files": [
+   "reports/R04_materials-imagenet-debrief.txt"
+  ],
+  "name": "R04_materials-imagenet-debrief.txt",
+  "bytes": 82343
+ },
+ {
+  "id": "R05",
+  "kind": "report",
+  "files": [
+   "reports/R05_discovered-materials-data-gaps.txt"
+  ],
+  "name": "R05_discovered-materials-data-gaps.txt",
+  "bytes": 36189
+ },
+ {
+  "id": "R06",
+  "kind": "report",
+  "files": [
+   "reports/R06_discovered-materials-debrief.txt"
+  ],
+  "name": "R06_discovered-materials-debrief.txt",
+  "bytes": 45946
+ },
+ {
+  "id": "R07",
+  "kind": "report",
+  "files": [
+   "reports/R07_thermoelectric-benchmark-spec.txt"
+  ],
+  "name": "R07_thermoelectric-benchmark-spec.txt",
+  "bytes": 37346
+ },
+ {
+  "id": "R08",
+  "kind": "report",
+  "files": [
+   "reports/R08_dft-vs-experiment-debrief.txt"
+  ],
+  "name": "R08_dft-vs-experiment-debrief.txt",
+  "bytes": 24701
+ },
+ {
+  "id": "R09",
+  "kind": "report",
+  "files": [
+   "reports/R09_recursion-in-materials-ai.txt"
+  ],
+  "name": "R09_recursion-in-materials-ai.txt",
+  "bytes": 174839
+ },
+ {
+  "id": "R10",
+  "kind": "report",
+  "files": [
+   "reports/R10_xrd-curation-experiments.txt"
+  ],
+  "name": "R10_xrd-curation-experiments.txt",
+  "bytes": 13378
+ },
+ {
+  "id": "N00",
+  "kind": "notes",
+  "files": [
+   "notes/FILE_build-list.md",
+   "notes/FILE_learning-curve-answer-corrected.md",
+   "notes/mem_387821_MEMORY.md",
+   "notes/mem_387821_dft-experiment-debrief-artifact.md",
+   "notes/mem_387821_rruff-coverage-artifact.md",
+   "notes/mem_387821_user-materials-science-newcomer.md",
+   "notes/mem_7feddc_MEMORY.md",
+   "notes/mem_7feddc_user-ai-materials-interest.md",
+   "notes/mem_84cb7d_MEMORY.md",
+   "notes/mem_84cb7d_curation-experiments-r1-verdicts.md",
+   "notes/mem_84cb7d_curation-experiments-r2-verdicts.md",
+   "notes/mem_84cb7d_curation-experiments-r3-verdicts.md",
+   "notes/mem_84cb7d_curation-experiments-r4-verdicts.md",
+   "notes/mem_84cb7d_experimental-data-focus.md",
+   "notes/mem_84cb7d_inventory-inputs-before-independence-claims.md",
+   "notes/mem_84cb7d_materials-artifact-urls.md",
+   "notes/mem_84cb7d_materials-atlas-working-style.md",
+   "notes/mem_84cb7d_materials-build-list.md",
+   "notes/mem_84cb7d_materials-imagenet-goal.md",
+   "notes/mem_84cb7d_mp-api-access.md",
+   "notes/mem_84cb7d_te-benchmark-spec-status.md",
+   "notes/mem_84cb7d_xrd-h6-handedness-verdict.md",
+   "notes/mem_84cb7d_xrd-open-datasets.md"
+  ],
+  "name": "memory notes + ranked build-list file + learning-curve answer",
+  "bytes": 84654
+ }
+]

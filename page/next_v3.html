@@ -1,0 +1,269 @@
+  <div class="reco">
+    <div class="kicker">the recommendation · after adversarial checking</div>
+    <h3>Start with a one-day test, not a build: is the X-ray marking problem real, or a bug in one marker?</h3>
+    <p>One 40-row table answers it. The answer decides whether the “fair marking kit” is a tool other people need, or a fix and a test file for your own project. Both outcomes are useful and both are cheap.</p>
+    <ul>
+      <li><b>It is the smallest step that decides the most.</b> The famous swing from 12 to 32 of 40 turned out to have three causes, and only one is a marking rule. Nobody has counted what is left once formula spelling is cleaned up.</li>
+      <li><b>It has a sure first user: you.</b> Your project’s pilot numbers move from 0.309 to 0.745 (55 scans) with the marking rule alone.</li>
+      <li><b>No download, no model, no lab, no message to anyone.</b> The 40 scans and stored results already sit in your own project folders.</li>
+    </ul>
+  </div>
+
+  <div class="tbl" style="margin-bottom:8px"><table>
+    <thead><tr><th style="width:20%">Headline so far</th><th style="width:34%">What we said</th><th>What the checkers found</th></tr></thead>
+    <tbody>
+      <tr><td class="term">X-ray marking</td><td>“The marking rule moves the score from <span class="num">12 to 32 of 40</span>.”</td><td>Three causes: the rule (<span class="num">12 vs 32</span>), out-of-date stored marks (<span class="num">17 vs 32</span>), a different reference library (<span class="num">32 vs 38</span>). On a second set of 20 scans the rule moves scores by only <span class="num">1–3 of 20</span>, while the tools differ by <span class="num">11–13</span>.</td></tr>
+      <tr><td class="term">Thermoelectric leak</td><td>“Hold out whole papers and the error nearly doubles, <span class="num">25.5% → 42.2%</span>. Models memorise papers.”</td><td>Mostly “new formulas are hard”: <span class="num">48.1%</span> error on the 8,629 test rows whose formula was never seen. Where the formula was seen (3,593 rows), holding out the paper costs only <span class="num">24.8% → 29.4%</span>.</td></tr>
+      <tr><td class="term">Simulated X-ray files</td><td>“Calculated files filed as measured inflate test scores.”</td><td>The 499 matching files carry no answer label, so they cannot inflate a score. The harm is a contaminated “measured” pool. Smaller, still real.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note" style="margin:0 0 18px"><b style="color:var(--ink)">What survives, and ties every thread together:</b> in each set-up we measured, how the exam is set and marked moved the score at least as much as the contestants differed (X-ray: 38 vs 35 of 40 is a tie; thermoelectrics: a lookup table at 22.9% beats the model at 29.4%; a 134-item company test has ±4.3 points of noise against a 2-point lead). It is a pattern in our own measurements, not yet a field-wide fact.</p>
+
+  <div class="steps">
+    <div class="step"><div class="when">day 0 · half a day</div><div class="t">Rescue the working files</div><div class="d">Finished lists and scripts sit in temporary areas that can vanish. You name a folder; they are copied there with checksums.</div></div>
+    <div class="step"><div class="when">days 1–2</div><div class="t">The 40-row marking test</div><div class="d">Ends with one written line: “worth building a reusable marker” or “bug-fix and a test file for my project”.</div></div>
+    <div class="step"><div class="when">rest of week 1</div><div class="t">Four small desk pieces</div><div class="d">Tricky-pairs table, the 499-file match table, the “tie or not?” function, a web-only look at harder public test sets.</div></div>
+    <div class="step"><div class="when">week 2</div><div class="t">Thermoelectrics, small and private</div><div class="d">Re-run, print the seen/unseen breakdown, freeze one test list. Trim the two error notes and hold them.</div></div>
+    <div class="step"><div class="when">end of week 2</div><div class="t">One sitting: you decide</div><div class="d">Item by item, yes or no. Nothing is sent, published or downloaded before that.</div></div>
+    <div class="step"><div class="when">weeks 3–8</div><div class="t">Only what earned it</div><div class="d">Marker function, thermoelectric note, practice exam, then one short note that tells the whole story.</div></div>
+  </div>
+
+  <p class="note" style="margin:0 0 18px"><b style="color:var(--ink)">Thermoelectrics or X-ray?</b> For two weeks there is nothing to choose: the small desk steps of both lines are cheap and share the same first move. At the one-to-two-month fork the lean is X-ray, in shrunken form, because a lab with a balance can make test items whose answer nobody has to trust an analyst for. Thermoelectric values are all published already, so that line can only ever be a practice exam. The lean depends on one thing only you know; see the amber box below.</p>
+
+  <div class="filters" role="group" aria-label="Filter actions">
+    <button data-f="all" aria-pressed="true">everything</button>
+    <button data-f="free" aria-pressed="false">needs nothing from you</button>
+    <button data-f="days" aria-pressed="false">takes days</button>
+    <button data-f="lhf" aria-pressed="false">low-hanging fruit</button>
+  </div>
+
+  <div class="bucket">Do now · two weeks or less, at a desk, data already on disk</div>
+
+  <details class="act" data-f="days lhf">
+    <summary><div><div class="name">Rescue the working files</div><div class="plain">Copy every finished list, draft and script out of other sessions’ temporary areas into one folder you choose, with a checksum file.</div></div>
+      <div class="tags"><span class="chip">half a day</span><span class="chip yes">needs a folder name</span><span class="chip go">low-hanging</span></div></summary>
+    <div class="more">
+      <div><b>Why first</b>If those areas vanish, the X-ray file list, the tricky-pairs script and all thermoelectric work stop being quick. The thermoelectric data would need a fresh download approval.</div>
+      <div><b>Done when</b>One folder holds the 21-pair script, the X-ray file list with its seven checker scripts, the five-item corrections draft, and the thermoelectric data and scripts, each with a checksum.</div>
+      <div><b>Who does it</b>This session cannot reach those areas. You, or the sessions that own the files, do the copy. Whether the files still exist is unknown.</div>
+    </div>
+  </details>
+
+  <details class="act" data-f="days lhf" open>
+    <summary><div><div class="name">The 40-row marking test</div><div class="plain">One table: the true formulas, the program’s formulas, and three marks per scan. Every row where the marks differ is hand-sorted into “spelling artifact” or “real chemistry disagreement”.</div></div>
+      <div class="tags"><span class="chip xrd">X-ray</span><span class="chip">1–2 days</span><span class="chip go">data on disk</span><span class="chip yes">needs read-only OK</span><span class="chip go">low-hanging</span></div></summary>
+    <div class="more">
+      <div><b>The three marks</b>Strict as stored, lenient as stored, lenient recomputed. The table should reproduce 12, 17 and 32 of 40. About 15 stale rows are expected in a 56-row results file; they get listed, not silently fixed.</div>
+      <div><b>Done when</b>Every differing row is sorted, the scan-file count is settled (the notes say 40, 41, 60, 61 and 70), and one written line gives the verdict.</div>
+      <div><b>If it says “mostly spelling”</b>You fix your own marker, keep a small test file, and the main effort moves to the thermoelectric and cross-cutting pieces. That is a cheap, informative failure.</div>
+      <div><b>Needs your yes</b>Read-only access to your two project folders, outputs written elsewhere. No change to your project. Changing its marker later means a dated amendment to your frozen plan, with old and new numbers side by side.</div>
+    </div>
+  </details>
+
+  <details class="act" data-f="days lhf">
+    <summary><div><div class="name">Tricky-pairs table with a draft answer key</div><div class="plain">One CSV of about 25 pairs (program’s answer, true answer), each with an expected verdict and a one-line reason. The ML twin is a unit-test file for a metric, as sacreBLEU was for translation scores.</div></div>
+      <div class="tags"><span class="chip xrd">X-ray</span><span class="chip">a few days</span><span class="chip go">low-hanging</span></div></summary>
+    <div class="more">
+      <div><b>The number</b>On 18 hand-built pairs the strict rule disagrees with the draft key 8 times, the lenient rule 13 times. The key was drafted by an AI checker and no specialist has reviewed it, so “disagrees”, not “wrong”.</div>
+      <div><b>Why no threshold can work</b>NiO and “Ni1.875O2” are the same compound, 0.0323 apart. Nb2O5 and Nb12O29 are different compounds, 0.0139 apart. So a formula-only marker must be allowed to answer “cannot tell”.</div>
+      <div><b>Guard rows to add</b>A mirror-image pair that must be “same”. An ordered vs disordered pair marked “specialists disagree”. YFeO3 vs Y3Fe5O12, which sits exactly on the lenient rule’s 0.10 line.</div>
+      <div><b>Honest limits</b>The ideas are old (a 1990 crystallography classification; a 2002 contest with lenient human marking). “No runnable marker exists” rests on one unchecked search. The only certain user is your own project.</div>
+    </div>
+  </details>
+
+  <details class="act" data-f="days lhf">
+    <summary><div><div class="name">“Real or simulated?” match table, small version</div><div class="plain">A script of about 50 lines that reads the two archives already in your project data, read only, and reproduces the 499-file match. Then it runs on your own 1,554-row file list.</div></div>
+      <div class="tags"><span class="chip xrd">X-ray</span><span class="chip">1–2 days</span><span class="chip go">data on disk</span><span class="chip yes">needs read-only OK</span><span class="chip go">low-hanging</span></div></summary>
+    <div class="more">
+      <div><b>Should reproduce</b>499 of 499 files in one opXRD folder have intensity values identical to RRUFF files. 414 are calculated while the “is simulated” field reads False. 124 of 2,680 opXRD files are exact copies, in 61 groups.</div>
+      <div><b>The one check that matters to you</b>Does any duplicate pair sit on both sides of your calibration/test split? Expected on your list: 8 suspect rows of 200, 0 rows from the matching folder, 8 duplicate pairs.</div>
+      <div><b>Wording</b>“Identical to”, never “copied from”. The opXRD paper does not name RRUFF and does not say any of these patterns are calculated; that is all we can state.</div>
+      <div><b>Honest size</b>A side deliverable, not the contribution. It barely changes your own results. One group already counted calculated files in its own test set (59 of 734) and kept them.</div>
+    </div>
+  </details>
+
+  <details class="act" data-f="free days lhf">
+    <summary><div><div class="name">“Is this difference real?” function</div><div class="plain">A small function that prints an interval and “tie / not a tie” beside any score. Both scorers call it by default.</div></div>
+      <div class="tags"><span class="chip">both lines</span><span class="chip">half a day</span><span class="chip go">nothing needed</span><span class="chip go">low-hanging</span></div></summary>
+    <div class="more">
+      <div><b>The number</b>38 vs 35 of 40 is a 7.5-point gap with an interval of 0.0 to 15.0: a tie. The 40 scans are really 20 powders, each scanned twice. A 134-item test cannot separate 55% from 53%.</div>
+      <div><b>Done when</b>The 38-vs-35 example returns “tie”.</div>
+      <div><b>Checked?</b>Not by the skeptical checkers. It is plain statistics.</div>
+    </div>
+  </details>
+
+  <details class="act" data-f="free days lhf">
+    <summary><div><div class="name">Web-only look at three harder public test sets</div><div class="plain">Harder weighed mixtures may already be public. Open the landing pages only, no download, and fill one row each: raw scans? weighed answers? licence? how many separate powders? format? size?</div></div>
+      <div class="tags"><span class="chip xrd">X-ray</span><span class="chip">half a day</span><span class="chip go">nothing needed</span><span class="chip go">low-hanging</span></div></summary>
+    <div class="more">
+      <div><b>Why check first</b>The notes support “raw scans and answers are public” for only one of the three, from a single checker.</div>
+      <div><b>Also read</b>The X-ray session’s round-5 folder may already hold a dated protocol for the same 40 scans. Extend that one; do not write a second.</div>
+      <div><b>Say up front</b>If the hard bands hold far fewer than about 385 separate powders, the practice exam can describe difficulty but cannot rank tools.</div>
+    </div>
+  </details>
+
+  <details class="act" data-f="days">
+    <summary><div><div class="name">Thermoelectrics: “the exam is too easy”, small private version</div><div class="plain">Re-run the saved scripts, print the seen/unseen breakdown beside the headline, freeze one list of test papers, and write one honest private page.</div></div>
+      <div class="tags"><span class="chip te">thermoelectrics</span><span class="chip">2–3 days</span><span class="chip">data in a temp area</span><span class="chip yes">after the rescue</span></div></summary>
+    <div class="more">
+      <div style="grid-column:1/-1"><b>The breakdown a reviewer will ask for (median error, whole papers held out)</b>
+        <div class="bars">
+          <div class="bar"><span class="lab">all 12,222 test rows</span><span class="trk"><i style="width:87.7%"></i></span><span class="v">42.2%</span></div>
+          <div class="bar"><span class="lab">formula also in a training paper · 3,593</span><span class="trk"><i style="width:61.1%"></i></span><span class="v">29.4%</span></div>
+          <div class="bar"><span class="lab">formula never seen · 8,629</span><span class="trk"><i style="width:100%"></i></span><span class="v">48.1%</span></div>
+        </div></div>
+      <div><b>Done when</b>25.5 / 42.2 / 46.6 and 22.9 / 29.4 / 15.0 come back identical. The test list is a plain file of paper IDs with a checksum. A 30-line leak report prints “X% of test rows have a sibling in training”.</div>
+      <div><b>Settle before freezing</b>Which data snapshot is on disk (the notes disagree) and which table to freeze (12,222 rows or a cleaner 2,839-specimen set). Paper IDs only; no rows from the unlicensed database.</div>
+      <div><b>If the folder is gone</b>Stop. A re-download needs your yes, and its size is not written down anywhere.</div>
+    </div>
+  </details>
+
+  <details class="act" data-f="days">
+    <summary><div><div class="name">Trim the two error notes, and hold them</div><div class="plain">A courtesy and a door-opener, not the contribution. Cut to the certain items. Send nothing.</div></div>
+      <div class="tags"><span class="chip">both lines</span><span class="chip">2 days at most</span><span class="chip yes">after the rescue</span></div></summary>
+    <div class="more">
+      <div><b>The numbers</b>Recipe-plus-scan release: 5 certain items; about 30 of 1,035 samples hold a truly wrong value. Four drafted claims are withdrawn first.</div>
+      <div><b>Tag each item</b>The file contradicts itself / the file contradicts the paper / a question.</div>
+      <div><b>Care needed</b>That paper is still under review, so the note goes privately to its authors, never as a public issue. Sending is yours, one yes per message.</div>
+    </div>
+  </details>
+
+  <div class="bucket">Next · weeks to two months, no partner needed</div>
+
+  <details class="act" data-f="">
+    <summary><div><div class="name">X-ray marking function and runner</div><div class="plain">Only if the 40-row test says “worth building”. Returns a tier instead of yes/no, and re-marks a results file under every rule side by side, like top-1 and top-5.</div></div>
+      <div class="tags"><span class="chip xrd">X-ray</span><span class="chip">2–3 weeks</span><span class="chip yes">yes to change your project</span></div></summary>
+    <div class="more">
+      <div><b>The tiers</b>Same / same compound spelled differently / same family, different crystal form / different / cannot tell / specialists disagree. Names borrowed from the 1990 classification.</div>
+      <div><b>A catch</b>Your stored results keep only formulas; the reference file the program chose was thrown away. Structure-level checks need a re-run with that choice logged, through a wrapper outside your project.</div>
+      <div><b>Worth checking</b>Whether the installed program already ships its paper’s own marking script. If so it is the natural sixth rule.</div>
+      <div><b>Ship</b>A CSV plus one Python file. Not a package, a site or a leaderboard.</div>
+    </div>
+  </details>
+
+  <details class="act" data-f="">
+    <summary><div><div class="name">Thermoelectric note, full version</div><div class="plain">About four pages: the split table, the seen/unseen breakdown, one strong standard baseline, the frozen test list.</div></div>
+      <div class="tags"><span class="chip te">thermoelectrics</span><span class="chip">2–3 weeks part-time</span><span class="chip yes">yes to install · publish</span></div></summary>
+    <div class="more">
+      <div><b>First, 1–2 hours on the web</b>Does a thermoelectric leakage audit already exist? Do 3–5 named papers really split at random? Nobody checked. If an audit exists, shrink to the frozen list.</div>
+      <div><b>Report</b>Absolute error and sign accuracy beside relative error: the property flips sign in 3,881 of 21,856 same-formula paper pairs (17.8%).</div>
+      <div><b>Dropped</b>The contribution to an existing split tool. “Hold out whole papers” is already one line of scikit-learn.</div>
+    </div>
+  </details>
+
+  <details class="act" data-f="">
+    <summary><div><div class="name">Practice exam on the harder public weighed sets</div><div class="plain">Only if the web look shows the sets are real and usable. Accuracy by how small the minor ingredient is, with counts and intervals.</div></div>
+      <div class="tags"><span class="chip xrd">X-ray</span><span class="chip">1–2 weeks (a guess)</span><span class="chip yes">one yes per download</span></div></summary>
+    <div class="more">
+      <div><b>The question it answers</b>“Is it still too easy, by band?” Not a ranking of tools: only one program is available locally.</div>
+      <div><b>A flag it needs</b>Per scan: were all true ingredients in the candidate list? Otherwise the exam measures the reference library, not the difficulty.</div>
+      <div><b>Limit</b>The answers are public, so this is a practice exam, never a hidden one. One archive is 1.87 GB; the other sizes are not stated.</div>
+    </div>
+  </details>
+
+  <details class="act" data-f="free days">
+    <summary><div><div class="name">The noise ladder: “what is the best score anyone could get?”</div><div class="plain">Duplicates are usually deleted as a nuisance. Here they are free repeat measurements. One script turns them into a ceiling line. Rides with the thermoelectric note.</div></div>
+      <div class="tags"><span class="chip">both lines</span><span class="chip">days</span><span class="chip go">numbers already measured</span></div></summary>
+    <div class="more">
+      <div style="grid-column:1/-1"><b>The ladder for the Seebeck coefficient (median difference)</b>
+        <div class="bars">
+          <div class="bar"><span class="lab">two readings of the same plot</span><span class="trk"><i style="width:1.2%"></i></span><span class="v">0.48%</span></div>
+          <div class="bar"><span class="lab">same formula, same paper</span><span class="trk"><i style="width:30.6%"></i></span><span class="v">12.9%</span></div>
+          <div class="bar"><span class="lab">lookup allowed to see the answers</span><span class="trk"><i style="width:35.5%"></i></span><span class="v">15.0%</span></div>
+          <div class="bar"><span class="lab">same formula, different papers</span><span class="trk"><i style="width:77.5%"></i></span><span class="v">32.7%</span></div>
+          <div class="bar"><span class="lab">model, whole papers held out</span><span class="trk"><i style="width:100%"></i></span><span class="v">42.2%</span></div>
+        </div></div>
+      <div><b>What it says</b>Cleaner plot-reading would buy almost nothing. What is missing is a description of the sample.</div>
+      <div><b>Honest limits</b>The across-paper rung includes real differences between samples, not only noise. The 15.0% rung covers the 3,593 seen-formula rows and formula-only models. Each rung needs an “includes / excludes” line.</div>
+    </div>
+  </details>
+
+  <details class="act" data-f="">
+    <summary><div><div class="name">One short note that tells the whole story</div><div class="plain">“Four questions to ask before trusting a materials leaderboard.” Six pages or fewer. Packaging for the pieces above, not a framework.</div></div>
+      <div class="tags"><span class="chip">both lines</span><span class="chip">1–2 weeks, after the two halves hold</span><span class="chip yes">yes to publish</span></div></summary>
+    <div class="more">
+      <div><b>The four questions</b>Is the exam leaky? Is the marking rule stable? What is the best achievable score? Is the data what its label says?</div>
+      <div><b>Rule</b>Do not start it before the marker result and the thermoelectric note both hold up.</div>
+    </div>
+  </details>
+
+  <details class="act" data-f="">
+    <summary><div><div class="name">Thermoelectric suspect list: flags, never fixes</div><div class="plain">Lowest priority here. A flag-only command, a detector for spreadsheet formulas stored as measurements, and the 633-row review list.</div></div>
+      <div class="tags"><span class="chip te">thermoelectrics</span><span class="chip">1–2 weeks, narrow</span></div></summary>
+    <div class="more">
+      <div><b>The number</b>646 of 13,702 checkable samples are off by more than 50%; 266 of those by a clean power of ten.</div>
+      <div><b>Why low</b>Another database already publishes the same kind of filter (kept 10,840 of 15,532), and the check reaches only 13,702 of 55,422 samples.</div>
+    </div>
+  </details>
+
+  <div class="bucket">Later · needs a lab, a specialist or a partner</div>
+
+  <details class="act" data-f="">
+    <summary><div><div class="name">One diffraction specialist checks the 25 rows</div><div class="plain">“Here are 25 rows. Where am I wrong?” The smallest credible ask a newcomer can make. Needed before publishing the marker, not before using it yourself.</div></div>
+      <div class="tags"><span class="chip xrd">X-ray</span><span class="chip yes">your yes · you send it</span></div></summary>
+    <div class="more"><div><b>Limit</b>One specialist cannot settle every tier: specialists publicly disagree on ordered vs disordered versions of a compound.</div><div><b>Also ask for</b>About 10 unseen pairs, as a held-out check that the rule was not tuned to the table.</div></div>
+  </details>
+
+  <details class="act" data-f="">
+    <summary><div><div class="name">A small hidden weighed exam with one partner lab</div><div class="plain">The real missing ingredient: fresh test items whose answer comes from a balance, not from an analyst.</div></div>
+      <div class="tags"><span class="chip xrd">X-ray</span><span class="chip">3–12 months</span><span class="chip yes">needs a lab</span></div></summary>
+    <div class="more">
+      <div><b>The size</b>About 385 separate powders for ±5 points near 50% accuracy. About 470–780 paired powders to separate two tools 5 points apart.</div>
+      <div><b>Desk step first</b>A one-page request a lab can say yes or no to: how many powders, pilot size, file names that do not spell out the recipe, who holds the answers. Draft only.</div>
+      <div><b>Honest limits</b>One lab gives certain answers but a one-instrument exam. No lab is secured. You named lab relationships and Mandarin-speaking connections as assets; this is where they would count. The honest outcome may be “out of our reach”.</div>
+    </div>
+  </details>
+
+  <details class="act" data-f="">
+    <summary><div><div class="name">Send the notes and the neutral notice</div><div class="plain">The two error notes (recipe-plus-scan authors first, privately) and a neutral notice about the 499 matching files.</div></div>
+      <div class="tags"><span class="chip">both lines</span><span class="chip yes">one yes per message · you send</span></div></summary>
+    <div class="more"><div><b>Before the notice</b>Check whether “is simulated = False” is just a default value, and read the journal version of the opXRD paper.</div></div>
+  </details>
+
+  <details class="act" data-f="">
+    <summary><div><div class="name">A hidden thermoelectric exam</div><div class="plain">Honestly out of reach for now.</div></div>
+      <div class="tags"><span class="chip te">thermoelectrics</span><span class="chip no">needs 3+ labs, months to years</span></div></summary>
+    <div class="more"><div><b>Why</b>It needs new hidden measurements from at least three labs. The draft rulebook still lacks 17 rules and has 22 major issues open.</div></div>
+  </details>
+
+  <div class="bucket keep">Tempting, but do not</div>
+  <div class="tbl"><table>
+    <tbody>
+      <tr><td style="width:40%">Selling the 12-to-32 swing as a field-wide finding</td><td>It is one local set-up, and part of it is stale marks and text handling.</td></tr>
+      <tr><td>A 1–2 month thermoelectric benchmark on public labels</td><td>Every value is already published, so it cannot be hidden, and the 15.0% floor caps what a formula-only model can show.</td></tr>
+      <tr><td>A split-making program, or a contribution to one</td><td>Holding out whole papers is one line of scikit-learn. Ship the finding and a frozen list.</td></tr>
+      <tr><td>Automatic unit fixing</td><td>Tested and refuted: 85 of 266 fixable, and some of those fixes wrong. Flag, never fix.</td></tr>
+      <tr><td>A default structure-comparison setting, or “same symmetry group”, as the marker</td><td>Defaults merge two different forms of quartz; the symmetry rule is wrong in at least 3 cases.</td></tr>
+      <tr><td>Announcing “56% of RRUFF raw files are calculated” as a discovery</td><td>Their own headers say so. The new part is the 499-file match.</td></tr>
+      <tr><td>Expert re-labelling, or a test built on “the human overruled the program”</td><td>About 1,000 expert-hours; and random guessing scores 20.1% against 21.8% for a perfect method. Nothing to win.</td></tr>
+      <tr><td>Schemas, standards, a table linter, a platform, a leaderboard, a dashboard</td><td>No user, no lab behind it. Your own guardrail.</td></tr>
+      <tr><td>A fifth, sixth, seventh round of experiments</td><td>Of 188 action items in the reports, 3 had the basics. The shortage is shipped things, not findings.</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="ask">
+    <h3>What I need from you</h3>
+    <p><b>The one question only you can answer.</b> Are you willing and able to approach <b>one</b> practising diffraction person or lab in the next few weeks? First with “please check these 25 rows”, later with a one-page “weigh and scan N powders” request.</p>
+    <div class="fork" style="margin:8px 0 12px">
+      <div class="lane x"><div class="q">If yes</div><div class="a">X-ray is the main line: marker, practice exam, then the lab request. Thermoelectrics ships once, as a note and a frozen list.</div></div>
+      <div class="lane"><div class="q">If no, or nobody replies in about two weeks, or the test says “mostly spelling”</div><div class="a">Keep the X-ray pieces as fixes inside your own project. Move the main effort to the thermoelectric note, the tie function and the noise ladder. Accept a fair practice exam, never a hidden one.</div></div>
+    </div>
+    <p><b>Two approvals to start.</b></p>
+    <ul>
+      <li>A folder name, and a yes to copying the at-risk files there.</li>
+      <li>A yes to a working session reading your two project folders, read only, with outputs written elsewhere.</li>
+    </ul>
+    <p style="margin-top:10px"><b>A smaller call, also yours.</b> Your project’s pre-set rule says: if confidence scoring ships in Dara, shrink to the evaluation harness. A trust score built on top of Dara (called AIF) appeared this year, but the notes say it comes from a different research group, and “built on top of” is not “ships in”. So the rule is not triggered for certain.</p>
+    <p><b>Everything else, one yes at a time:</b> each download or install, each message, each thing published, and any change inside your project.</p>
+  </div>
+
+  <div class="tbl" style="margin-top:16px"><table>
+    <thead><tr><th style="width:30%">How far to trust this plan</th><th>Plainly</th></tr></thead>
+    <tbody>
+      <tr><td class="term">Five planners agreed</td><td>They all read the same notes, so the agreement is less independent than it sounds.</td></tr>
+      <tr><td class="term">Adversarial checks</td><td><span class="num">8 of 24</span> finished; 16 stalled. All 8 said “holds, with changes”, and those changes are on this page. Checked: the marking work, the file table, the thermoelectric note, the practice exam. Not checked: the tie function, the error notes, the noise ladder, the one short note, the suspect list. Most web searches for prior work did not run.</td></tr>
+      <tr><td class="term">Uneven scrutiny</td><td>The X-ray shortlist had already been attacked by nine checkers in its own session. The thermoelectric recommendation never got the same attack.</td></tr>
+      <tr><td class="term">Second-hand numbers</td><td>This session never opened your project folders or another session’s temporary area. Every count about your project comes from the X-ray session’s notes. The 32 of 40 was quoted, not recounted.</td></tr>
+      <tr><td class="term">Still pending elsewhere</td><td>The fifth experiment round in the main session, and the X-ray session’s own final write-up.</td></tr>
+    </tbody>
+  </table></div>
