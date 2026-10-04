@@ -1,0 +1,2 @@
+# Keep publisher source copies local; fetch_source.py restores the pinned packet.
+/sources/

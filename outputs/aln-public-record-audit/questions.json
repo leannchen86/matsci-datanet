@@ -1,0 +1,36 @@
+{
+  "version": "0.1",
+  "frozen_date": "2026-10-03",
+  "study": "Stanford AlN public record audit",
+  "source_doi": "10.1002/adfm.202402662",
+  "scope": "The 18-page Stanford-hosted article and accompanying supplement only.",
+  "disclosure": "The researchers drafting these questions had already read this source. This freeze precedes the structured extraction and any model comparison, not prior knowledge of the paper. This is a purposively chosen information-location audit, not a blinded experiment or formal preregistration.",
+  "rules": [
+    "Preserve main-article evidence and supplement evidence separately.",
+    "Explicit means the requested information is stated at the requested object level; partial means some required information is missing.",
+    "For absence, report not found in these sources; do not infer that the lab lacks the records.",
+    "Never attach campaign or group ranges to a particular specimen without an explicit link.",
+    "Only explicit information counts as fully recoverable; partial, inferred, absent and ambiguous information remain separate.",
+    "Not found can be an appropriate answer, but is not recovery of the missing experimental information.",
+    "No model scoring until each scored reference answer is human-checked. Human review of selected rows does not verify other rows.",
+    "Amendments require a new version and a reason; preserve this file."
+  ],
+  "questions": [
+    {"id":"Q01","question":"Which deposition technique was used for the AlN films?","object":"campaign","required":"Technique including sputtering excitation and reactive operation."},
+    {"id":"Q02","question":"What manufacturer and model identify the AlN deposition instrument?","object":"campaign equipment","required":"Manufacturer and model; a generic technique alone is insufficient."},
+    {"id":"Q03","question":"What substrate stack was used for the standard cross-plane AlN specimens?","object":"cross-plane specimen family","required":"Underlying substrate, intervening material and its thickness; do not substitute the in-plane membrane stack."},
+    {"id":"Q04","question":"Was the substrate actively heated or cooled during AlN deposition?","object":"deposition thermal control","required":"Explicit thermal-control mode; a temperature bound alone is insufficient."},
+    {"id":"Q05","question":"What typical stabilized substrate-temperature range is described during deposition?","object":"campaign thermal state","required":"A typical stabilized range with its qualifier, not merely an upper bound or a heater setpoint; do not imply a per-run temperature trace."},
+    {"id":"Q06","question":"What nitrogen fraction of the argon-plus-nitrogen gas mixture was explored?","object":"campaign parameter range","required":"Definition of fraction and numerical explored range, not only the favorable subset."},
+    {"id":"Q07","question":"What chamber-pressure range was explored for deposition?","object":"campaign parameter range","required":"Full explored numerical range and unit, not only favorable conditions."},
+    {"id":"Q08","question":"What DC sputtering-power range was explored?","object":"campaign parameter range","required":"Full explored numerical range and unit, not only favorable conditions."},
+    {"id":"Q09","question":"What target-to-substrate distance range was explored?","object":"campaign parameter range","required":"Full explored numerical range and unit, not only favorable conditions."},
+    {"id":"Q10","question":"Which measurement methods were used to determine AlN film thickness?","object":"film metrology","required":"Explicit identification of the thickness measurement methods; a thickness value alone is insufficient."},
+    {"id":"Q11","question":"What metal and thickness describe the TDTR transducer?","object":"cross-plane measurement stack","required":"Both transducer material and nominal thickness; do not substitute the in-plane heater."},
+    {"id":"Q12","question":"What maximum cross-plane thermal conductivity and accompanying uncertainty are explicitly reported?","object":"reported best cross-plane result","required":"Value, stated uncertainty and units; preserve the uncertainty notation without inventing a confidence level."},
+    {"id":"Q13","question":"How many spatial locations were measured by TDTR per sample, and how were their variations handled?","object":"within-sample measurement repetition","required":"Number of locations and stated treatment of variation; these are not independent depositions."},
+    {"id":"Q14","question":"How many independent deposition repeats at the recipe associated with the maximum cross-plane conductivity are identified?","object":"best-recipe deposition repetition","required":"Count explicitly linked to that recipe; campaign size, multiple spots or thickness variation across nominal repeats do not supply this count."},
+    {"id":"Q15","question":"What exact nitrogen fraction, pressure, power and target distance are linked to the specimen producing the maximum cross-plane conductivity?","object":"best-result recipe-to-specimen link","required":"All four exact settings and an explicit link to the identified result. A favorable multi-parameter window is insufficient."},
+    {"id":"Q16","question":"Can a complete deposition-by-deposition recipe-to-specimen-to-thermal-result table be recovered for the reported campaign?","object":"campaign record linkage","required":"Inspect all tables, figures, captions and text for explicit run identifiers and linked records. A deposition count or aggregate trend is insufficient; state that any absence conclusion is bounded to this source packet."}
+  ]
+}

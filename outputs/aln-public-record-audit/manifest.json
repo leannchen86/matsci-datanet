@@ -1,0 +1,49 @@
+{
+  "title": "AlN: An Engineered Thermal Material for 3D Integrated Circuits",
+  "doi": "10.1002/adfm.202402662",
+  "source_url": "https://poplab.stanford.edu/pdfs/Vaziri-AlNthermalMaterial3DICs-afm25.pdf",
+  "url_reopened_utc_date": "2026-10-03",
+  "local_preservation_date": "2026-10-03",
+  "acquisition_note": "Preserved the source PDF downloaded in an earlier turn; local file timestamp was 2026-10-02. Reopened the Stanford URL during this audit. No new download or byte-comparison against the reopened web copy is claimed.",
+  "pdf_path": "sources/stanford-aln.pdf",
+  "pdf_sha256": "5cebe10f0d164ff3b4913928849b820f72551a60c10758ee985df9320cca5f4a",
+  "page_count": 18,
+  "page_map": {
+    "main_article": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "supplement_cover": [
+      9
+    ],
+    "supplement_content": [
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18
+    ]
+  },
+  "page_numbering": "All page numbers in this package are 1-based physical PDF pages. Main printed page numbers match 1–8; SI has section anchors, not printed page numbers.",
+  "text_extraction": {
+    "command": "pdftotext -layout sources/stanford-aln.pdf sources/stanford-aln.txt",
+    "version": "pdftotext version 26.06.0",
+    "sha256": "44f9da0a22ea4483ba1a551d4c81d32f670157f2783e57f28d511c9fd93235f4",
+    "limitation": "Figure labels may be omitted; verify the rendered original."
+  },
+  "question_file": "questions.json",
+  "question_sha256": "9b010c0ece8c9fcaea4fb360d126559d93cb01bc75299bf5961cd6b4cccdf09d",
+  "review_status": "AI checked; human review pending",
+  "out_of_scope": "References cited by the article, other papers, repositories and author records were not searched for answers in this bounded pass.",
+  "rights_note": "Original PDF and extracted text are local analysis copies, excluded from Git. The derived audit is prepared for Git on 2026-10-04; publisher source files can be restored from the original URL with fetch_source.py and verified against these hashes. No redistribution permission for publisher content is implied."
+}

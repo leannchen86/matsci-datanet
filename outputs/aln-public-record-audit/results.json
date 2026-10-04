@@ -1,0 +1,44 @@
+{
+  "status": "AI checked; human review pending",
+  "question_sha256": "9b010c0ece8c9fcaea4fb360d126559d93cb01bc75299bf5961cd6b4cccdf09d",
+  "evidence_sha256": "0db94753167508a6ebd05e88a17c5e1c4f0d324073394d665cd8ab0dccd75d4b",
+  "main_explicit": {
+    "count": 6,
+    "ids": [
+      "Q01",
+      "Q03",
+      "Q06",
+      "Q08",
+      "Q11",
+      "Q12"
+    ]
+  },
+  "newly_explicit_with_supplement": {
+    "count": 7,
+    "ids": [
+      "Q02",
+      "Q04",
+      "Q05",
+      "Q07",
+      "Q09",
+      "Q10",
+      "Q13"
+    ]
+  },
+  "combined_explicit_count": 13,
+  "still_unresolved": {
+    "count": 3,
+    "ids": [
+      "Q14",
+      "Q15",
+      "Q16"
+    ]
+  },
+  "combined_classifications": {
+    "explicit": 13,
+    "not_found": 3
+  },
+  "human_reviewed_count": 0,
+  "model_comparison": "not_run",
+  "interpretation": "Counts of information recoverable for 16 selected questions, not accuracy, experimental reproducibility, information value, or equal-weight scientific importance."
+}

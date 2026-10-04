@@ -1,0 +1,170 @@
+<div id="aln-solo-pilot">
+  <style>
+    #aln-solo-pilot { color:var(--foreground); }
+    #aln-solo-pilot .intro { padding-right:90px; }
+    #aln-solo-pilot .board { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; margin-top:16px; }
+    #aln-solo-pilot .note { min-width:0; align-self:start; }
+    #aln-solo-pilot summary { font-weight:500; overflow-wrap:anywhere; }
+    #aln-solo-pilot .meta { color:var(--muted-foreground); margin:8px 0; }
+    #aln-solo-pilot dt { font-weight:500; margin-top:12px; }
+    #aln-solo-pilot dd { margin:4px 0 0; overflow-wrap:anywhere; }
+    #aln-solo-pilot .note .form-check { margin-top:12px; }
+    #aln-solo-pilot .note[data-done="true"] summary { text-decoration:line-through; }
+    #aln-solo-pilot .phase { margin-bottom:8px; }
+    #aln-solo-pilot .panel { padding-top:16px; }
+    #aln-solo-pilot .gap { margin-top:16px; }
+    #aln-solo-pilot .draft { white-space:pre-wrap; overflow-wrap:anywhere; font-family:inherit; }
+    @media(max-width:650px) { #aln-solo-pilot .board { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+    @media(max-width:430px) { #aln-solo-pilot .board { grid-template-columns:1fr; } #aln-solo-pilot .intro { padding-right:0; } }
+  </style>
+  <div class="intro">
+    <h2>Solo first: produce evidence worth showing</h2>
+    <p>One independent researcher + AI assistance. First deliverable: a source-checked reconstruction of one AlN study, a reproducible analysis of what additional public records contribute, and a short findings note.</p>
+    <p class="text-small">Steps 01–04 complete · 3 October 2026 · Evidence table and reproducible counts prepared. Human review is next; no model comparison has run.</p>
+  </div>
+  <div class="viz-row"><span id="solo-progress" class="tabular-nums" aria-live="polite"></span><span class="text-small">Open notes for actions, responsibilities and completion tests.</span></div>
+  <div class="nav nav-pills gap" role="tablist" aria-label="Solo research plan">
+    <button type="button" class="nav-link" id="solo-tasks-tab" role="tab" aria-controls="solo-tasks" aria-selected="false">Tasks</button>
+    <button type="button" class="nav-link" id="solo-resources-tab" role="tab" aria-controls="solo-resources" aria-selected="false">Resources</button>
+    <button type="button" class="nav-link active" id="solo-test-tab" role="tab" aria-controls="solo-test" aria-selected="true">Protocol</button>
+    <button type="button" class="nav-link" id="solo-later-tab" role="tab" aria-controls="solo-later" aria-selected="false">Later</button>
+  </div>
+  <div id="solo-tasks" class="panel" role="tabpanel" aria-labelledby="solo-tasks-tab" hidden>
+    <div class="board">
+      <article class="card note" data-task="question"><div class="phase text-small">SOLO · 01</div><details><summary>Freeze one answerable question</summary><div class="meta text-small">Protocol v0.1 frozen · Open the Protocol tab</div><dl><dt>Question</dt><dd>Which experimental details and recipe-to-result links can we recover from the Stanford AlN main paper, what does its supplement add, and which links remain unresolved?</dd><dt>Completed work</dt><dd>The protocol fixes sources, unit of analysis, evidence rules, deliverables, stopping rule and limits. It is our working baseline; any later changes will be recorded.</dd><dt>Boundary</dt><dd>This first case does not establish the value of unpublished failures, training data or physical reproduction.</dd></dl></details><label class="form-check"><input type="checkbox" class="form-check-input" data-complete="question" checked><span class="form-check-label">Complete</span></label></article>
+
+      <article class="card note" data-task="sources"><div class="phase text-small">SOLO · 02</div><details><summary>Preserve the source packet</summary><div class="meta text-small">Complete · Exact source and page map saved</div><dl><dt>Source</dt><dd>The Stanford–TSMC paper with its appended supplement, linked in Resources. UCSD and NTU remain later comparisons.</dd><dt>Completed work</dt><dd>Preserved the 18-page PDF, its checksum and page-level text. Main article: pages 1–8. Supplement cover: 9. Supplement content: 10–18.</dd><dt>Visual check</dt><dd>Figure labels were inspected separately. One main-article answer was missed by text extraction.</dd></dl></details><label class="form-check"><input type="checkbox" class="form-check-input" data-complete="sources" checked><span class="form-check-label">Complete</span></label></article>
+
+      <article class="card note" data-task="questions"><div class="phase text-small">SOLO · 03</div><details><summary>Freeze 16 checkable questions</summary><div class="meta text-small">Complete · Question set v0.1</div><dl><dt>Completed work</dt><dd>Sixteen questions define the requested object and required information: campaign settings, specimen family, metrology, uncertainty and recipe-to-result linkage. Wording and checksum are saved.</dd><dt>Prior knowledge</dt><dd>We had already read the paper. The freeze preceded structured extraction and any model comparison; it is not a blinded preregistration.</dd><dt>Important case</dt><dd>A favorable parameter range does not answer an exact specimen-recipe question.</dd></dl></details><label class="form-check"><input type="checkbox" class="form-check-input" data-complete="questions" checked><span class="form-check-label">Complete</span></label></article>
+
+      <article class="card note" data-task="ledger"><div class="phase text-small">SOLO · 04</div><details><summary>Build the evidence table</summary><div class="meta text-small">Complete · AI-checked candidate table</div><dl><dt>Completed work</dt><dd>All 16 rows have separate main and supplement evidence, page anchors, value types and interpretation limits. Original source text is preserved separately.</dd><dt>Provisional result</dt><dd>6 answers already in the main article; 7 added by the supplement; 3 unresolved. The script reproduces these counts.</dd><dt>Do not invent records</dt><dd>This is a claim and field ledger, not 90 reconstructed experimental runs. All human-review fields remain pending.</dd></dl></details><label class="form-check"><input type="checkbox" class="form-check-input" data-complete="ledger" checked><span class="form-check-label">Complete</span></label></article>
+
+      <article class="card note" data-task="verify"><div class="phase text-small">SOLO · 05</div><details open><summary>Verify the reference answers</summary><div class="meta text-small">Your input now · Three short source checks</div><dl><dt>Next action</dt><dd>Check A, B and C in the Protocol tab: a figure label, heating versus temperature, and spatial points versus deposition repeats.</dd><dt>Already done</dt><dd>Separate AI passes checked numerical details and searched for counterevidence. Model agreement is not human verification.</dd><dt>Completion limit</dt><dd>Reviewing three examples does not verify the whole table. Every answer used in a later scored model test needs its own human check. Uncertain rows remain unscored.</dd></dl></details><label class="form-check"><input type="checkbox" class="form-check-input" data-complete="verify"><span class="form-check-label">Complete</span></label></article>
+
+      <article class="card note" data-task="reconstruct"><div class="phase text-small">SOLO · 06</div><details><summary>Map the supported reconstruction</summary><div class="meta text-small">AI organizes; you check interpretation · Needs 05</div><dl><dt>Action</dt><dd>Assemble a process outline linking documented conditions, specimen descriptions and outcomes. Leave explicit gaps. Separate what is published from what a person transferring the process would still need to establish.</dd><dt>Done when</dt><dd>A reader can inspect the reconstruction and its limits without rereading the whole paper.</dd><dt>Use precise language</dt><dd>“Not recoverable from these sources” does not mean “the lab did not record it.” Missing publication details are not evidence of poor research.</dd></dl></details><label class="form-check"><input type="checkbox" class="form-check-input" data-complete="reconstruct"><span class="form-check-label">Complete</span></label></article>
+
+      <article class="card note" data-task="compare"><div class="phase text-small">SOLO · 07</div><details><summary>Test what the supplement adds</summary><div class="meta text-small">AI helps run and preserve the test · Needs 03, 05</div><dl><dt>Action</dt><dd>Use identical questions, model version, prompt and output format in separate fresh contexts: main paper only versus main paper plus supplement. Disable browsing, require support inside supplied documents, and save inputs, outputs and settings.</dd><dt>Done when</dt><dd>Both conditions have reproducible records. If controlled model access is unavailable, complete the evidence audit and label this test unexecuted.</dd><dt>Limit</dt><dd>The model may have encountered these documents during pretraining. This tests source-supported reconstruction under supplied contexts, not whether it has never known the supplement.</dd></dl></details><label class="form-check"><input type="checkbox" class="form-check-input" data-complete="compare"><span class="form-check-label">Complete</span></label></article>
+
+      <article class="card note" data-task="score"><div class="phase text-small">SOLO · 08</div><details><summary>Measure gains and invented links</summary><div class="meta text-small">AI calculates; you audit classifications · Needs 07</div><dl><dt>Action</dt><dd>Count correct supported answers, justified abstentions, wrong/unsupported answers and invented recipe–sample–measurement links. Score factual correctness separately from source support.</dd><dt>Done when</dt><dd>Every count has a question-level explanation. Retain all outputs; if using stochastic repetitions, predeclare and retain all of them.</dd><dt>Limit</dt><dd>A small one-paper case study cannot establish general model quality or accelerated experimentation.</dd></dl></details><label class="form-check"><input type="checkbox" class="form-check-input" data-complete="score"><span class="form-check-label">Complete</span></label></article>
+
+      <article class="card note" data-task="challenge"><div class="phase text-small">SOLO · 09</div><details><summary>Try to disprove our finding</summary><div class="meta text-small">AI challenges; you resolve with evidence · Needs 06, 08</div><dl><dt>Action</dt><dd>Check ambiguity, unequal instructions, parser errors, context limits and facts already present in the main paper. Determine whether an apparent insight simply repeats the authors’ conclusion.</dd><dt>Done when</dt><dd>The report states its strongest alternative explanation and unresolved disagreements.</dd><dt>If the difference disappears</dt><dd>Report the limited result. Do not manufacture novelty or change the evaluation to obtain a win.</dd></dl></details><label class="form-check"><input type="checkbox" class="form-check-input" data-complete="challenge"><span class="form-check-label">Complete</span></label></article>
+
+      <article class="card note" data-task="package"><div class="phase text-small">SOLO · 10</div><details><summary>Package the proof of work</summary><div class="meta text-small">AI drafts/code; you approve · Needs 09</div><dl><dt>Deliver</dt><dd>A source-linked evidence table; reproducible script/notebook; saved inputs/outputs if the model test ran; and a two-page findings note with one or two concrete examples.</dd><dt>Done when</dt><dd>A reader can reproduce the counts and inspect the evidence. Do not imply access to private records or physical experiments.</dd><dt>Effort boundary</dt><dd>Aim for several focused working sessions. Finish one case before expanding the corpus or building a product.</dd></dl></details><label class="form-check"><input type="checkbox" class="form-check-input" data-complete="package"><span class="form-check-label">Complete</span></label></article>
+
+      <article class="card note" data-task="outreach"><div class="phase text-small">AFTER PROOF · 11</div><details><summary>Show a finding; ask one question</summary><div class="meta text-small">You choose recipient · Needs 10</div><dl><dt>Action</dt><dd>Share the compact result with an appropriate author. Explain one supported finding and one unresolved link; ask whether the interpretation is correct and the context matters to a real decision.</dd><dt>Done when</dt><dd>A response, correction or lack of response is recorded. Discuss collaboration after evidence of interest.</dd><dt>Boundary</dt><dd>The assistant sends only when explicitly instructed. Useful work does not guarantee a response.</dd></dl></details><label class="form-check"><input type="checkbox" class="form-check-input" data-complete="outreach"><span class="form-check-label">Complete</span></label></article>
+
+      <article class="card note" data-task="archive"><div class="phase text-small">AFTER PROOF · 12</div><details><summary>Qualify a small real archive</summary><div class="meta text-small">You + willing custodian · Needs 11</div><dl><dt>Action</dt><dd>If a real decision emerges, establish allowed use and inspect an inventory plus roughly 10–15 consecutive runs in existing formats. Test linkage and measure recovery cost.</dd><dt>Done when</dt><dd>We know whether a permitted, useful subset exists. This audit size is not a promised sufficient training population.</dd><dt>New hypothesis</dt><dd>This later stage addresses unpublished histories. Keep it separate from the public-context case study.</dd></dl></details><label class="form-check"><input type="checkbox" class="form-check-input" data-complete="archive"><span class="form-check-label">Complete</span></label></article>
+
+      <article class="card note" data-task="physical"><div class="phase text-small">IF NEEDED · 13</div><details><summary>Buy the smallest physical test</summary><div class="meta text-small">You + qualified provider · Needs reviewed question + quote</div><dl><dt>Action</dt><dd>Prefer testing traceable retained films. Add deposition only if a falsifiable question requires it. Get expert review of the stack, measurement sensitivity, controls, repeats and interpretation before spending.</dd><dt>Done when</dt><dd>The provider accepts the exact work, raw-data deliverables, cost ceiling and schedule; you approve the defined purchase.</dd><dt>Role boundary</dt><dd>AI assists design and analysis. Qualified people handle physical operation and safety. You can own the research without personally operating unfamiliar equipment.</dd></dl></details><label class="form-check"><input type="checkbox" class="form-check-input" data-complete="physical"><span class="form-check-label">Complete</span></label></article>
+
+      <article class="card note" data-task="value"><div class="phase text-small">LATER · 14</div><details><summary>Test decision or training value</summary><div class="meta text-small">You + AI + eventual partner · Needs usable records</div><dl><dt>Action</dt><dd>Compare public guidance and expanded history on unseen or new outcomes with matched candidate information and budgets. Use only inputs available at decision time; keep runs/batches/repeats together.</dd><dt>Done when</dt><dd>Evidence supports better decisions, lower effort, a narrower use, or stopping. Training value requires authorized training use, adequate independent labels and a defensible evaluation.</dd><dt>Separate claims</dt><dd>Useful context, useful training data, faster experiments and willingness to pay are distinct hypotheses.</dd></dl></details><label class="form-check"><input type="checkbox" class="form-check-input" data-complete="value"><span class="form-check-label">Complete</span></label></article>
+    </div>
+  </div>
+  <div id="solo-resources" class="panel" role="tabpanel" aria-labelledby="solo-resources-tab" hidden>
+    <h3>What we need now</h3>
+    <div class="viz-grid">
+      <section><h3>Public evidence</h3><p><a href="https://poplab.stanford.edu/pdfs/Vaziri-AlNthermalMaterial3DICs-afm25.pdf" target="_blank" rel="noopener noreferrer">Stanford AlN paper + supplement</a>. Start here; expand to cited sources only when needed and record the change.</p></section>
+      <section><h3>A working table</h3><p>Question/field ID; source condition; value/unit; evidence type; specimen/group; page/section; support; reviewer note. Keep inferences separate.</p></section>
+      <section><h3>Analysis environment</h3><p>Local files, a simple script/notebook and saved outputs. No lab account or model training is needed. Any paid model/API use needs an agreed budget.</p></section>
+      <section><h3>Your role</h3><p>Choose the question, verify key source passages, challenge interpretations and approve claims. We can work through unfamiliar methods together.</p></section>
+      <section><h3>AI’s role</h3><p>Find primary evidence, extract candidate records, explain methods, write analyses, propose controls, challenge conclusions and draft the report. These outputs remain claims to check.</p></section>
+      <section><h3>Completion standard</h3><p>A traceable table, reproducible analysis and short note. Scientific findings, model outputs and hypotheses are labeled separately.</p></section>
+    </div>
+    <h3>Concrete cases to investigate</h3>
+    <p>The supplement describes deposition without active substrate heating/cooling, with temperatures mostly reaching 90–130°C. An observed temperature history is not a heater setpoint. It also describes about 90 depositions and favorable process ranges; those ranges must not be silently combined into a particular specimen’s exact recipe. These are starting audit cases, not new experimental discoveries. <a href="https://poplab.stanford.edu/pdfs/Vaziri-AlNthermalMaterial3DICs-afm25.pdf" target="_blank" rel="noopener noreferrer">Source: supplement S1</a>.</p>
+  </div>
+  <div id="solo-test" class="panel" role="tabpanel" aria-labelledby="solo-test-tab">
+    <h3>Step 05 · Three source checks</h3>
+    <table class="table"><thead><tr><th>Check</th><th>Candidate reading</th></tr></thead><tbody>
+      <tr><th>A · <a href="https://poplab.stanford.edu/pdfs/Vaziri-AlNthermalMaterial3DICs-afm25.pdf#page=3" target="_blank" rel="noopener noreferrer">PDF p3</a></th><td>Figure 2a inset labels the top layer Al, 80 nm. This detail is already in the main article.</td></tr>
+      <tr><th>B · <a href="https://poplab.stanford.edu/pdfs/Vaziri-AlNthermalMaterial3DICs-afm25.pdf#page=10" target="_blank" rel="noopener noreferrer">PDF p10</a></th><td>S1 opening paragraph describes no active heating/cooling and temperatures saturating mostly at 90–130°C. Control mode and observed temperature belong in separate fields.</td></tr>
+      <tr><th>C · <a href="https://poplab.stanford.edu/pdfs/Vaziri-AlNthermalMaterial3DICs-afm25.pdf#page=11" target="_blank" rel="noopener noreferrer">PDF p11</a></th><td>S1 second paragraph describes three TDTR points within each sample, not three independent deposition runs.</td></tr>
+    </tbody></table>
+    <p class="text-small">Human review pending for all three. These checks cover selected source claims; they do not establish the absence of other information throughout the paper.</p>
+    <h3>Working protocol v0.1</h3>
+    <p><strong>Research question:</strong> Which experimental details and recipe-to-result relationships are recoverable from the Stanford AlN main article, what does its supplement add, and which links remain unsupported?</p>
+    <table class="table"><tbody>
+      <tr><th>Purpose</th><td>Produce a checkable reconstruction that shows what an experimental-data system can recover faithfully and what it must leave unknown.</td></tr>
+      <tr><th>Sources</th><td>One fixed version of <a href="https://poplab.stanford.edu/pdfs/Vaziri-AlNthermalMaterial3DICs-afm25.pdf" target="_blank" rel="noopener noreferrer">the public article and its appended supplement</a>, including figures/captions. No other papers, private records or outside knowledge may fill an answer in this first pass.</td></tr>
+      <tr><th>Unit</th><td>One question about one identified object: a campaign, condition group, specimen or measurement. A campaign pressure range and a particular specimen’s pressure are different questions.</td></tr>
+      <tr><th>Question set</th><td>16 questions frozen in version 0.1 before structured extraction and any model scoring. They cover deposition, substrate, temperature, thickness, characterization, uncertainty and recipe–result links. This is a purposive case study, not a representative sample of all research.</td></tr>
+      <tr><th>Procedure</th><td>Build a main-article evidence column first, then add supplement evidence without overwriting it. Attach page/section/figure, units and object identity to each answer. We have already read both sources; this is an information-location audit, not a blinded human experiment.</td></tr>
+      <tr><th>Evidence</th><td>Explicit; partial; inferred; not found within these sources; or conflicting/ambiguous. Label exact values, ranges and figure estimates separately. Never join conditions to outcomes merely because their values look similar.</td></tr>
+      <tr><th>Outputs</th><td>Source-linked evidence table; map of supported recipe → specimen → measurement → result links; short findings note. Use a script for reproducible counts if useful.</td></tr>
+      <tr><th>Assessment</th><td>Count questions supported by the main article, newly resolved by the supplement, and still unresolved. Report ambiguities separately and name unsupported links. Every count must be inspectable at question level.</td></tr>
+      <tr><th>Stop</th><td>Complete the fixed table and a verification pass. Little added information or incomplete run-level reconstruction is a valid result. Do not expand sources or questions simply to obtain a stronger finding.</td></tr>
+      <tr><th>Claim</th><td>What can be recovered from these particular public sources. No claim yet about unpublished archives, training gains, faster experiments, laboratory reproducibility or demand.</td></tr>
+    </tbody></table>
+    <h3>Division of work</h3>
+    <p><strong>AI:</strong> prepare the 16 questions, extract candidate answers, preserve source locations, check units and relationships, flag ambiguities, calculate counts and draft the note.</p>
+    <p><strong>You:</strong> once evidence exists, review two or three pivotal claims beside their exact passages. Check whether the wording supports the claim; no specialist judgment is assumed. I will flag the rest as AI-reviewed until independently checked. Any reference table used to score a model requires verification of every scored answer.</p>
+    <p><strong>Needed now:</strong> your review of A, B and C above. The source packet, fixed questions, evidence table, descriptive counts and draft findings note are saved. The table remains AI-checked until human review is recorded.</p>
+    <h3>Optional later model comparison</h3>
+    <p>The scientific evidence audit is the primary deliverable. After the reference answers are verified, this secondary test can ask whether additional supplied context improves reconstruction.</p>
+    <table class="table"><tbody>
+      <tr><th>Task</th><td>Recover experimental fields and their evidence, including when a requested linkage is not disclosed.</td></tr>
+      <tr><th>A</th><td>Main paper supplied to the model.</td></tr>
+      <tr><th>B</th><td>The same paper plus supplement, with identical questions and instructions.</td></tr>
+      <tr><th>Controls</th><td>Same model/settings/format; fresh contexts; browsing disabled; questions frozen before runs; all outputs retained.</td></tr>
+      <tr><th>Reference</th><td>Human-checked evidence table with exact locations. Ambiguous questions remain explicitly unscored.</td></tr>
+      <tr><th>Measures</th><td>Supported correct answers, justified abstentions, wrong/unsupported answers and invented links. Correctness and support are separate.</td></tr>
+      <tr><th>Result</th><td>Descriptive counts plus source-checkable examples; no predetermined winner.</td></tr>
+      <tr><th>Limit</th><td>Supplied-context reconstruction, not model training or faster science. Prior model knowledge remains possible.</td></tr>
+    </tbody></table>
+    <h3>Stop or revise when</h3>
+    <ul><li>No run-level records are recoverable: produce a claim/field ledger instead of inventing rows.</li><li>Parsing errors or unequal instructions drive the result: repair and disclose the rerun.</li><li>A finding restates the paper: call it reconstruction, not discovery.</li><li>Extra context gives no useful improvement: report that result and finish the case.</li><li>A correct answer lacks support in the supplied source: score the support failure separately.</li><li>Human verification remains uncertain: retain the ambiguity; AI agreement is not resolution.</li></ul>
+    <p>This can demonstrate careful reading, provenance and reproducible analysis. Whether authors find it useful or want to collaborate remains unverified.</p>
+  </div>
+  <div id="solo-later" class="panel" role="tabpanel" aria-labelledby="solo-later-tab" hidden>
+    <h3>Outreach after the proof of work</h3>
+    <div class="draft">Subject: Source-linked AlN reconstruction — one interpretation question
+
+Hello [name],
+
+I am independently studying how experimental records can be recovered and reused. We reconstructed [specific part of your paper] and prepared a source-linked table and reproducible analysis: [link].
+
+Our limited finding is [verified finding and scope]. We could not establish [specific recipe/sample/measurement link] from the public sources inspected. We may have missed a source or misunderstood the relationship.
+
+Would you be willing to correct that interpretation? If this context matters in practice, I would be interested in a small follow-up useful to your team.
+
+[Name and relevant background]</div>
+    <h3>Paid services remain available</h3>
+    <p>After a physical test is justified, investigate <a href="https://nanolabs.stanford.edu/access/consultants" target="_blank" rel="noopener noreferrer">Stanford’s consultant list</a>, <a href="https://nanolabs.stanford.edu/access/external" target="_blank" rel="noopener noreferrer">external facility access</a>, or <a href="https://microsanj.com/advanced-packaging-3dhi/" target="_blank" rel="noopener noreferrer">Microsanj thermal testing</a>. Relevant expertise, exact equipment compatibility and specimen acceptance require confirmation.</p>
+    <p>Before booking: reviewed scope, raw-data deliverables, uncertainty treatment, qualified operator, actual quote and approved spend. Prefer existing specimens if they answer the question. Fundraising is optional until a priced stage exists.</p>
+    <h3>Keep later hypotheses separate</h3>
+    <ul><li>Public context improves reconstruction.</li><li>Unpublished histories improve a research decision.</li><li>Records improve a trained model on unseen outcomes.</li><li>The benefit justifies collection and recovery costs.</li><li>Someone will pay for that benefit.</li></ul>
+    <p class="text-small">No outreach, application, purchase or reservation has occurred. The evidence table and draft findings are prepared; the optional controlled model comparison has not run.</p>
+  </div>
+  <script>
+    (function () {
+      const root = document.getElementById('aln-solo-pilot');
+      const boxes = Array.from(root.querySelectorAll('[data-complete]'));
+      function render() {
+        root.querySelector('#solo-progress').textContent = boxes.filter(box => box.checked).length + ' / ' + boxes.length + ' actions complete';
+        boxes.forEach(box => { box.closest('[data-task]').dataset.done = String(box.checked); });
+      }
+      function apply(saved) {
+        const content = saved && saved.modelContent;
+        const completedNow = ['question', 'sources', 'questions', 'ledger'];
+        let ids = completedNow;
+        if (content && Array.isArray(content.completed)) {
+          if (content.plan === 'aln-solo-v4') ids = content.completed;
+          else if (content.plan === 'aln-solo-v3' || content.plan === 'aln-solo-v2') ids = Array.from(new Set(content.completed.concat(completedNow)));
+        }
+        boxes.forEach(box => { box.checked = ids.includes(box.dataset.complete); });
+        render();
+      }
+      root.addEventListener('change', event => {
+        if (!event.target.matches('[data-complete]')) return;
+        render();
+        if (window.openai && typeof window.openai.setWidgetState === 'function') {
+          window.openai.setWidgetState({modelContent:{plan:'aln-solo-v4',completed:boxes.filter(box => box.checked).map(box => box.dataset.complete)},privateContent:null}).catch(() => {});
+        }
+      });
+      window.addEventListener('openai:set_globals', event => {
+        if (event.detail && event.detail.globals && Object.prototype.hasOwnProperty.call(event.detail.globals,'widgetState')) apply(event.detail.globals.widgetState);
+      });
+      apply(window.openai && window.openai.widgetState);
+    })();
+  </script>
+</div>
