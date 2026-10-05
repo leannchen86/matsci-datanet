@@ -1,0 +1,97 @@
+{
+  "template_version": "0.1",
+  "record_status": "template_only_no_experiment_performed",
+  "instructions": "Copy for an actual run. Null means not yet supplied, not zero. Distinguish planned setpoints, logged measurements, estimates and unavailable records. Store real records privately until sharing is cleared.",
+  "run_id": null,
+  "start_time_with_timezone": null,
+  "end_time_with_timezone": null,
+  "facility": null,
+  "tool_model_and_identifier": null,
+  "operator_identifier": null,
+  "recipe_version": null,
+  "scope_approval_reference": null,
+  "samples": [
+    {
+      "sample_id": null,
+      "role": null,
+      "same_deposition_run_id": null,
+      "carrier_position": null,
+      "dimensions_mm": null,
+      "substrate_supplier_lot": null,
+      "substrate_material_orientation": null,
+      "substrate_thickness_um": null,
+      "substrate_doping_resistivity": null,
+      "oxide_growth_and_sides": null,
+      "oxide_thickness_nm": null,
+      "oxide_thickness_evidence_file": null,
+      "preparation_and_mounting": null,
+      "current_holder_location": null,
+      "condition_photos": [],
+      "measurement_ids": []
+    }
+  ],
+  "process": {
+    "sputtering_mode": null,
+    "target_material_and_recorded_condition": null,
+    "base_pressure_with_unit": null,
+    "gas_identities_and_purity": null,
+    "gas_flows_setpoint_sccm": null,
+    "gas_flows_actual_sccm": null,
+    "pressure_setpoint_mTorr": null,
+    "pressure_actual_mTorr": null,
+    "power_setpoint_W": null,
+    "power_actual_W": null,
+    "target_substrate_geometry_cm": null,
+    "bias_and_rotation": null,
+    "conditioning_and_presputter": null,
+    "deposition_duration_s": null,
+    "temperature_setpoint_C": null,
+    "substrate_temperature_evidence": null,
+    "temperature_evidence_type_measured_estimated_unavailable": null,
+    "native_recipe_and_log_files": [],
+    "unavailable_fields_and_reasons": [],
+    "deviations_alarms_and_notes": []
+  },
+  "measurements": [
+    {
+      "measurement_id": null,
+      "sample_id": null,
+      "technique": null,
+      "provider_and_instrument": null,
+      "time_with_timezone": null,
+      "position_on_sample": null,
+      "specimen_stack_at_measurement": null,
+      "settings_file": null,
+      "raw_native_files": [],
+      "numerical_export_files_with_units": [],
+      "analysis_model_version": null,
+      "fixed_parameters_with_sources_file": null,
+      "fitted_parameters_bounds_results_file": null,
+      "uncertainty_method_and_interpretation": null,
+      "fit_prediction_and_residual_files": [],
+      "limitations_and_rejected_acquisitions": [],
+      "reported_quantity_value_unit": null
+    }
+  ],
+  "transducer": {
+    "sample_id": null,
+    "preparation_provider_method_date": null,
+    "material_and_any_extra_layers": null,
+    "nominal_thickness_nm": null,
+    "measured_thickness_nm": null,
+    "thickness_uncertainty_and_evidence": null,
+    "reference_sample_and_coating_link_if_required": null
+  },
+  "outcome": {
+    "class": null,
+    "allowed_classes": ["valid_measured", "fabrication_execution_failure", "measurement_failure", "inconclusive", "not_executed"],
+    "basis": null,
+    "missing_records": [],
+    "next_decision": null,
+    "scope_changes_and_cost_reference": null,
+    "remaining_sample_disposition": null
+  },
+  "file_manifest": [
+    {"path": null, "sha256": null, "sample_or_run_id": null, "origin": null, "sharing_permission": "not_yet_determined"}
+  ]
+}

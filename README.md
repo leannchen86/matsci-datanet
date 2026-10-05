@@ -8,6 +8,10 @@ The short answer the work arrived at: you need two things, and the field is miss
 
 ## Start here
 
+For the **October 2026 AlN pilot**, start with the [preparation plan](outputs/aln-first-cycle-preparation/README.md). It indexes materials sourcing, Stanford registration, budget and schedule, experiment scope, inquiry drafts, and record templates. The earlier [Stanford public-record audit](outputs/aln-public-record-audit/README.md) provides the desk-research baseline. Real working records and private administration files are excluded from Git.
+
+For the earlier materials-data research archive:
+
 Open `page/big-picture.html` in a browser. It consolidates 16 research sessions and 10 earlier reports into one page and is the entry point to everything else.
 
 Note: that file is at local Version 5. The published copy is still at Version 4.
@@ -33,6 +37,8 @@ Ten earlier reports fed the big-picture page. They live as published pages on cl
 
 | Directory | What it holds |
 |---|---|
+| [`outputs/aln-first-cycle-preparation/`](outputs/aln-first-cycle-preparation/README.md) | Current AlN pilot preparation: sourcing, access, scope, schedule, budget, inquiry drafts and blank record templates |
+| [`outputs/aln-public-record-audit/`](outputs/aln-public-record-audit/README.md) | Reproducible audit of information in the Stanford AlN paper and supplement; human source review remains pending |
 | `page/` | The consolidated big-picture page, its three earlier versions, and the Python scripts that edited it |
 | `research/digests/` | 33 files compressing 16 research sessions (C01 to C16) and the 10 reports (R01 to R10) into a uniform template |
 | `research/plan/` | The decision layer. Five independent proposal lenses, a merged shortlist, and eight adversarial checks against it |
