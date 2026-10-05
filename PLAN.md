@@ -49,7 +49,7 @@ Order now: about $1,430, or about $1,090 without the drill press and boron nitri
 | # | Action | Done when |
 |---|---|---|
 | 1 | Phone three thermal labs the same day (LongWin in Livermore, Thermal Engineering Associates in Santa Clara, Analysis Tech by mail): earliest date, price, three thicknesses per paste, raw files, permission to publish. The first to confirm all of these is the reference lab; the next is the second lab | Each has given a date and a price, or a named person and a callback time |
-| 2 | Place the order-now list to your own address | Every order has a confirmation and a delivery date |
+| 2 | Place the order-now list, shipped to your own address | Every order has a confirmation and a delivery date |
 | 3 | Decide who drills and faces the two aluminium blocks: makerspace, friend, or buy the drill press | Route chosen |
 | 4 | Rehearse the loop with `trajectory/traj.py` on any quick physical measurement, three runs across two sessions | `verify` passes: predictions logged first, one repeat in a different session |
 | 5 | Arrange the checks only a person can do: respirator fit, heater wiring review, the boron nitride ventilation question, and telling the disposal route about the zinc oxide reference paste | Each has a named person and a date |
