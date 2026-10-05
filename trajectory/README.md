@@ -33,6 +33,7 @@ Use `note` for anything else, including corrections to earlier entries.
 10. **A redo is a new run.** Never reuse a run id. Give the retry its own id and `--data _retry_of=R07`; the original stays in the log.
 11. **Two kinds of run, never mixed.** Exploration runs are chosen as you go. Evaluation runs come from a randomised schedule written and anchored before the first of them is made. Only evaluation runs may be scored or released as a test.
 12. **Split by session, never by row.** Anything held back is held back as whole sessions. Count independent sessions and conditions, not records.
+13. **Held-back outcomes never go to a model.** Mark held-back runs with `--data _split=test` on the plan entry and build every prompt with `show --hide-test`. A leaked answer cannot be un-leaked.
 
 ## Lessons already paid for
 

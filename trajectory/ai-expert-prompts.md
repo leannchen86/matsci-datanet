@@ -9,7 +9,9 @@ A model's reasoning is not the valuable part of the record. The valuable parts a
 Ask twice, in two fresh conversations, with the same prompt:
 
 - **Cold:** leave the campaign log out and write "none" in its place. The model sees only the planned run.
-- **Warm:** paste the output of `traj.py show <campaign>`. Do not include anything from the run being predicted.
+- **Warm:** paste the output of `traj.py show <campaign> --hide-test`. Do not include anything from the run being predicted.
+
+**Held-back outcomes never go to a model.** Anything pasted into a model may end up in training data, and a leaked answer cannot be un-leaked. Mark every held-back run with `--data _split=test` on its plan entry and always use `--hide-test` when building a prompt. For the same reason, do not ask a model to interpret a held-back run; write that interpretation yourself.
 
 Warm error minus cold error, on runs from sessions the log does not yet contain, is the measured value of the trajectory. If warm is no better than cold, the history is not helping and that is a finding. Score exact repeats separately: on a repeat the warm model has already seen the answer.
 

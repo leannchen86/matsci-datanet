@@ -212,8 +212,13 @@ def cmd_verify(args):
 
 
 def cmd_show(args):
-    for e in load(args.root, args.campaign):
+    entries = load(args.root, args.campaign)
+    # Runs marked _split=test are held back: their outcomes must never be pasted into a model.
+    held_back = {e["run"] for e in entries if e.get("run") and (e.get("data") or {}).get("_split") == "test"}
+    for e in entries:
         if args.run and e.get("run") != args.run:
+            continue
+        if args.hide_test and e.get("run") in held_back:
             continue
         run = f" {e['run']}" if e.get("run") else ""
         flags = f" [{', '.join(e['flags'])}]" if e.get("flags") else ""
@@ -267,6 +272,7 @@ def main():
     s = sub.add_parser("show", help="print the log")
     s.add_argument("campaign")
     s.add_argument("--run")
+    s.add_argument("--hide-test", action="store_true", help="leave out every run marked _split=test; use this for anything pasted into a model")
     s.set_defaults(func=cmd_show)
 
     s = sub.add_parser("anchor", help="write the head hash to anchors.log for public timestamping")
