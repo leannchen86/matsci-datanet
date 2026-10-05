@@ -25,7 +25,7 @@ Changed 5 October 2026. Copper electroplating was the working choice for a few h
 
 **Fallback.** Copper electroplating. Nothing is bought for it now.
 
-Sourcing, safety limits and the day-by-day plan are in [outputs/thermal-paste-first-cycle/](outputs/thermal-paste-first-cycle/README.md).
+The step-by-step checklist is [outputs/thermal-paste-first-cycle/CHECKLIST.md](outputs/thermal-paste-first-cycle/CHECKLIST.md). Sourcing detail, safety notes and the day-by-day plan behind it are in [README.md](outputs/thermal-paste-first-cycle/README.md) in the same folder.
 
 ### Gates
 

@@ -2,6 +2,8 @@
 
 Prepared 5 October 2026. Nothing here has been ordered, booked or sent. Every vendor page was opened by a checker on 5 October unless a note says otherwise; prices marked as estimates are estimates. LongWin's fee is not published anywhere and has to be asked.
 
+**To act on this, use [CHECKLIST.md](CHECKLIST.md).** It is the step-by-step version: calls, orders, bench set-up, one batch from start to finish, and the gate. This file is the reference behind it. `recipe.py` gives the masses to weigh for any recipe and `thermal.py` does the two thermal calculations.
+
 ## What this is
 
 Hand-mixed thermal pastes: silicone oil plus ceramic powder (alumina first, boron nitride later), about 25 g per batch, mixed by spatula to a fixed, timed protocol. No acids, no solvents beyond alcohol on wipes, no liquid waste.
