@@ -10,7 +10,7 @@ Day one is paste orders and the LongWin call only. Two vendors are on Eastern ti
 
 ### 1.1 Thermal labs: three phone calls, same day
 
-Phone, do not use forms. Give your friend's company as the organisation: LongWin's forms require a company name and job title. Ask every lab the same six things: earliest date, price and whether a card is accepted, at least three thicknesses per paste, grams needed, whether the raw files are released, and whether you may publish naming the lab.
+Phone, do not use forms. Say plainly that you are an independent researcher; LongWin's forms ask for a company name and job title, so write "Independent researcher" there. Ask whether there is a rate for independent or open-data work. If a university student will genuinely take part, say so and ask what the lab would need from them; do not borrow someone's affiliation. Ask every lab the same six things: earliest date, price and whether a card is accepted, at least three thicknesses per paste, grams needed, whether the raw files are released, and whether you may publish naming the lab.
 
 - [ ] **LongWin / MyHeatSinks, Livermore** (the standard method, walk-in or drop-off). Call +1 925-493-7064 (LongWin's own line) and +1 925-393-3330 (MyHeatSinks sales, same address). Also ask: a self-run half day or engineer-run testing of four dropped-off pastes, whichever is sooner; whether a first-time visitor may run the tester; hot face at or below 80 °C; whether a paste containing zinc oxide is allowed. If nobody answers live by Tuesday, go in person: 3167 Independence Drive, Livermore, Monday to Friday 9 to 5.
 - [ ] **Thermal Engineering Associates, Santa Clara** (a different company with its own tester; samples can be hand-delivered). Call 650-961-5900. One question decides it: do you measure the thermal conductivity of a silicone grease for outside customers, at several thicknesses?
@@ -24,7 +24,7 @@ Other options, in the order found: PMIC in Corvallis OR ((541) 753-0607), Linsei
 
 **Done when:** each of the three labs has given a date and a price, or a named person and a callback time.
 
-### 1.2 Orders, shipped to the business address
+### 1.2 Orders, shipped to your own address
 
 - [ ] **Amazon, one cart.** Links and exact products are in README.md under "Order now".
   - Balance, 0.01 g, 1 kg capacity
@@ -42,7 +42,7 @@ Other options, in the order found: PMIC in Corvallis OR ((541) 753-0607), Linsei
   - Wet-and-dry paper (400 to 3000 grit) and polyimide tape
 - [ ] **Atlantic Equipment Engineers** (alumina). No cart button was found on the page, so phone (201) 828-9400. Order 2 lb of AL-602 (coarse) and 2 lb of AL-611 (fine). Ask for 2-day shipping, the AL-611 safety data sheet, and a particle-size certificate for both.
 - [ ] **ScienceKitStore** (silicone oil, 1000 cSt, quarter gallon). Web order. This is the slowest parcel: ask for an expedited option and for the safety data sheet. Adding the 350 cSt oil now saves a second shipment later.
-- [ ] **SkyGeek** (DOWSIL 340 reference paste, 142 g). Web order before 11 am Pacific for same-day dispatch, with a fast service. Ask whether its shipping class limits air freight.
+- [ ] **SkyGeek** (DOWSIL 340 reference paste, 142 g). Web order before 11 am Pacific for same-day dispatch, with a fast service. Ask whether its shipping class limits air freight or delivery to a home address.
 - [ ] **Newark** (Omega thermocouples, type K, 30 gauge, pack of 5). Confirm stock before paying.
 - [ ] **OnlineMetals** (1 inch square 6061 aluminium bar, 12 inch). Use the custom-cut option for two 40 mm pieces if someone else will face the ends.
 - [ ] **LittleMachineShop** (polyester shim assortment, part 4304).
@@ -241,7 +241,7 @@ If item 3 has not happened yet, the decision is "process labels pass, LongWin pe
 
 About 10 hours in total, spread over the week, and nothing bought. Copper is not bench work until the paste gate decision is logged. If pastes pass, copper stays a desk item until the 29 November review. If pastes fail twice, copper replaces them.
 
-- [ ] **C1 (1 h).** Ask your household, your own landlord and insurer, and your friend's company whether each would accept corrosive (shipping class 8) chemicals and this work. Get the answers in writing.
+- [ ] **C1 (1 h).** Ask your household and your own landlord and insurer whether each would accept corrosive (shipping class 8) chemicals and this work, and ask the acid supplier whether it delivers that class to your address. Get the answers in writing.
 - [ ] **C2 (1 h).** One disposal conversation covering both tracks. Describe the project truthfully and ask them to classify it. Paste track: solids containing zinc oxide, oily wipes. Copper track: about 25 L of liquid every two weeks, pH about 1, about 40 g/L copper.
 - [ ] **C3 (1 h).** Write the copper questions for a qualified person on one page and ask for a fee quote: is this room's ventilation adequate for stirred, unheated, covered 267 mL baths; do a faucet eyewash and a household shower meet the data sheets; which gloves and face protection; acid mist in an occupied home; storage. Send it after the paste questions, never bundled with them.
 - [ ] **C4 (2 h).** Open the published robot copper dataset (<https://zenodo.org/records/19520337>) and find out whether it holds a measured outcome for each run.

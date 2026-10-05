@@ -13,7 +13,7 @@ Updated 5 October 2026. This is the one live plan. The first target is hand-mixe
 
 ## First target: hand-mixed thermal pastes
 
-Changed 5 October 2026. Copper electroplating was the working choice for a few hours; it had been compared only against other copper plans. Once the home bench, a business delivery address and bookable time at the LongWin thermal laboratory were known, both routes were worked up in full and three independent reviewers all chose thermal pastes (about 40 against 30 out of 60). Their confidence is medium.
+Changed 5 October 2026. Copper electroplating was the working choice for a few hours; it had been compared only against other copper plans. Once the home bench and bookable time at the LongWin thermal laboratory were known, both routes were worked up in full and three independent reviewers all chose thermal pastes (about 40 against 30 out of 60). Their confidence is medium.
 
 **What gets made.** Silicone oil plus ceramic powder, about 25 g per batch, mixed by hand to a fixed, timed protocol. Alumina first; boron nitride later, once a person has cleared its data sheet.
 
@@ -49,7 +49,7 @@ Order now: about $1,430, or about $1,090 without the drill press and boron nitri
 | # | Action | Done when |
 |---|---|---|
 | 1 | Phone three thermal labs the same day (LongWin in Livermore, Thermal Engineering Associates in Santa Clara, Analysis Tech by mail): earliest date, price, three thicknesses per paste, raw files, permission to publish. The first to confirm all of these is the reference lab; the next is the second lab | Each has given a date and a price, or a named person and a callback time |
-| 2 | Place the order-now list to the business address | Every order has a confirmation and a delivery date |
+| 2 | Place the order-now list to your own address | Every order has a confirmation and a delivery date |
 | 3 | Decide who drills and faces the two aluminium blocks: makerspace, friend, or buy the drill press | Route chosen |
 | 4 | Rehearse the loop with `trajectory/traj.py` on any quick physical measurement, three runs across two sessions | `verify` passes: predictions logged first, one repeat in a different session |
 | 5 | Arrange the checks only a person can do: respirator fit, heater wiring review, the boron nitride ventilation question, and telling the disposal route about the zinc oxide reference paste | Each has a named person and a date |

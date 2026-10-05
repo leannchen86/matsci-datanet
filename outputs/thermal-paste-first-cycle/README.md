@@ -312,7 +312,7 @@ About $1,430 including tax (about $1,060 from listed prices, the rest estimated 
 ### Tue 6 Oct
 
 1. Phone LongWin (+1 925-393-3330) and send the enquiry form. Ask: half-day and full-day fee for an unaffiliated person; earliest slot in 12-16 Oct; opening hours; whether you may run the tester on a first visit; grease quantity per test; fixture thicknesses and pressures; single-thickness runs; hot face at 80 C or below; whether a zinc-oxide paste is allowed; raw Excel files; permission to publish naming the lab. Decline above $1,000.
-2. Place the order-now list to the business address. Ask Atlantic Equipment Engineers for 2-day shipping and the AL-611 data sheet and size certificate. Ask ScienceKitStore for an expedited option and the oil data sheet. Order DOWSIL 340 from SkyGeek before 2 pm Eastern with a fast service.
+2. Place the order-now list to your own address. Ask Atlantic Equipment Engineers for 2-day shipping and the AL-611 data sheet and size certificate. Ask ScienceKitStore for an expedited option and the oil data sheet. Order DOWSIL 340 from SkyGeek before 2 pm Eastern with a fast service.
 3. Decide who drills and faces the two aluminium blocks: makerspace, friend, or buy the drill press.
 4. Save the data sheets already available: alumina (AL-602), boron nitride, DOWSIL 340.
 5. traj.py rehearsal, session 1: two runs of any quick measurement, prediction logged before each.
