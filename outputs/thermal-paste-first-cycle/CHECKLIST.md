@@ -90,7 +90,7 @@ python3 trajectory/traj.py verify rehearsal-001
 
   **Done when:** 45 predictions are saved and one table shows each model's error where a published value exists.
 
-- [ ] **Outside contact, sent by you.** Once that table exists (about 12 to 13 October), send one short question, with the task card and the table, to each group that builds tests for models in chemistry and materials. One message per group.
+- [ ] **Outside contact, sent by you.** Once that table exists (about 12 to 13 October), send one short message, with the task card and the table, to each group that builds tests for models in chemistry and materials. One message per group. Say it is a proof of concept and ask two things: would you use this if it were ten times larger, and what would it have to contain? A specific answer to the second question is the signal that someone wants more.
 
 - [ ] **Write the one-page task card:** what is given (the recipe fields), what must be predicted (mixing class, density, spread diameter; thermal impedance later), and how a prediction is scored against the scatter between repeats.
 - [ ] **Check the thermal calculation** returns LongWin's published example:
