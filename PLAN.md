@@ -5,7 +5,7 @@ Updated 5 October 2026. This is the one live plan. [outputs/aln-first-cycle-prep
 ## Decided
 
 - **Goal.** Produce experimental materials data that people who train models would actually want: complete, checkable, with the failures left in.
-- **Unit of data.** A trajectory, not a row: goal, plan, what was done, raw readings, interpretation, next decision, dead ends. Format and rules are in [trajectory/](trajectory/README.md). That a trajectory is worth more than the row is a hypothesis, not a result: the earlier `materials-event-modeling` project tested it three times on public data and it did not survive a held-out batch. Every run here tests it again with a cold and a warm prediction.
+- **Unit of data.** A trajectory, not a row: goal, plan, what was done, raw readings, interpretation, next decision, dead ends. Format and rules are in [trajectory/](trajectory/README.md). Each run also records a model prediction made without the campaign history and one made with it, so the release can show how much the history helps a model.
 - **Expert.** For now an AI model is the expert. It writes a prediction before every run; the measured outcome scores it. A human expert comes later, when there is money and time.
 - **Method.** By hand, full time. Speed and learning come before automation or scale.
 - **Budget.** About $15,000 for this first step.
@@ -54,7 +54,7 @@ Acid bought pre-diluted, never stronger than the procedure states. No heating, n
 | 4 | Write the one-page task card and try it on five example items with three models | Card and replies saved; shown to scientist contacts with the question "what number would change what you do?" |
 | 5 | Decide whether this repository stays public, and review the two untracked folders under `outputs/` before committing them | Decision written here |
 
-The rehearsal is first on purpose. The earlier project spent four months on tooling and documents without one physical measurement; the first real record matters more than any further desk work.
+The rehearsal is first on purpose: the first real record matters more than any further desk work.
 
 ## Weekly review
 

@@ -35,14 +35,12 @@ Use `note` for anything else, including corrections to earlier entries.
 12. **Split by session, never by row.** Anything held back is held back as whole sessions. Count independent sessions and conditions, not records.
 13. **Held-back outcomes never go to a model.** Mark held-back runs with `--data _split=test` on the plan entry and build every prompt with `show --hide-test`. A leaked answer cannot be un-leaked.
 
-## Lessons already paid for
+## What makes a score believable
 
-These come from an earlier project of the same author (`materials-event-modeling`), which tested the idea that a richer record beats a summary on public data three times. It lost to a clock-and-interpolation baseline, tied, and won only until a whole batch was held out (ranking accuracy 0.756 inside the data, 0.522 on an unseen batch). So here:
-
-- "A trajectory is worth more than the row" is a hypothesis, tested in every run by the cold and warm predictions in [ai-expert-prompts.md](ai-expert-prompts.md).
-- Every score is reported next to cheap baselines: the mean so far, the nearest earlier run, and a guess from run order alone. A model that cannot beat those is not showing expertise.
+- Every score is reported next to cheap baselines: the mean so far, the nearest earlier run, and a guess from run order alone.
 - The task, the metric and how the scored number is computed from the raw file are fixed and anchored before the first evaluation run.
 - A value that could not be measured is not a failure, and a failure is not a zero.
+- Each run carries two model predictions, one made without the campaign history and one made with it. The difference shows how much the trajectory helps a model.
 
 ## Signal-to-noise checklist for one run (v0)
 

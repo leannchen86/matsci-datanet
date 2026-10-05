@@ -13,7 +13,7 @@ Ask twice, in two fresh conversations, with the same prompt:
 
 **Held-back outcomes never go to a model.** Anything pasted into a model may end up in training data, and a leaked answer cannot be un-leaked. Mark every held-back run with `--data _split=test` on its plan entry and always use `--hide-test` when building a prompt. For the same reason, do not ask a model to interpret a held-back run; write that interpretation yourself.
 
-Warm error minus cold error, on runs from sessions the log does not yet contain, is the measured value of the trajectory. If warm is no better than cold, the history is not helping and that is a finding. Score exact repeats separately: on a repeat the warm model has already seen the answer.
+How much lower the warm error is than the cold error shows how much the trajectory helps a model, which is the number a model builder will ask for. Score exact repeats separately: on a repeat the warm model has already seen the answer.
 
 Log each with `--data _context=cold` or `--data _context=warm`.
 
