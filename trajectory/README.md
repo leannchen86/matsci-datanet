@@ -26,14 +26,27 @@ Use `note` for anything else, including corrections to earlier entries.
 3. **Never edit.** A mistake is corrected with a new `note` entry. Raw files go in the campaign's `raw/` folder and are not touched after logging; `verify` detects any change.
 4. **Save AI output verbatim**, with the model name and version as the author (`--author ai:<model>`). Do not tidy it.
 5. **Every failure gets a cause.** Start the entry with one of: `process` (the conditions produced a bad result: informative), `measurement`, `handling`, `equipment`, `unknown`. Only `process` failures teach anything about the material; the rest measure how noisy we are.
-6. **Repeat on purpose.** At least one run in five repeats an earlier condition exactly. Without repeats the noise is unknown and no single result means anything.
-7. **Measure something known.** Each measurement session includes a reference with a published value, so a wrong instrument or method shows up as a wrong reference.
+6. **Repeat on purpose, on a different day.** At least one run in five repeats an earlier condition exactly, with freshly prepared material in a different session. A same-day repeat only measures the instrument and understates the real noise several-fold.
+7. **Measure something known, and make something known.** Each session measures a reference with a published value (checks the instrument) and makes one fixed control recipe fresh (measures day-to-day drift in the process).
 8. **AI is the expert for now, not the safety authority.** Safety comes from the safety data sheet and the people who run the facility or sell the material. No AI prediction is a reason to skip either.
+9. **Record settings and context as fields, not prose.** Put every setting on the plan entry with `--data key=value`. Context keys start with an underscore: `_session` (one bath make-up, one mixing batch, one day), `_lot`, `_chosen_by` (`schedule`, `human` or `ai`), `_status` on outcomes (`observed`, `out_of_range`, `not_measured`, `failed`). Free text cannot be counted, compared or scored.
+10. **A redo is a new run.** Never reuse a run id. Give the retry its own id and `--data _retry_of=R07`; the original stays in the log.
+11. **Two kinds of run, never mixed.** Exploration runs are chosen as you go. Evaluation runs come from a randomised schedule written and anchored before the first of them is made. Only evaluation runs may be scored or released as a test.
+12. **Split by session, never by row.** Anything held back is held back as whole sessions. Count independent sessions and conditions, not records.
+
+## Lessons already paid for
+
+These come from an earlier project of the same author (`materials-event-modeling`), which tested the idea that a richer record beats a summary on public data three times. It lost to a clock-and-interpolation baseline, tied, and won only until a whole batch was held out (ranking accuracy 0.756 inside the data, 0.522 on an unseen batch). So here:
+
+- "A trajectory is worth more than the row" is a hypothesis, tested in every run by the cold and warm predictions in [ai-expert-prompts.md](ai-expert-prompts.md).
+- Every score is reported next to cheap baselines: the mean so far, the nearest earlier run, and a guess from run order alone. A model that cannot beat those is not showing expertise.
+- The task, the metric and how the scored number is computed from the raw file are fixed and anchored before the first evaluation run.
+- A value that could not be measured is not a failure, and a failure is not a zero.
 
 ## Signal-to-noise checklist for one run (v0)
 
-- [ ] Plan and prediction were logged before the run.
-- [ ] Every setting that could be changed is recorded, including the ones left alone.
+- [ ] Plan and both predictions (cold and warm) were logged before the run.
+- [ ] Every setting is on the plan entry as a `--data` field, including the ones left alone, with `_session` and `_chosen_by`.
 - [ ] Raw files are attached, not just the number read off them.
 - [ ] The reference measured in the same session is within its expected range.
 - [ ] If the run failed, the cause class is stated.
@@ -43,7 +56,8 @@ Use `note` for anything else, including corrections to earlier entries.
 
 ```sh
 python3 trajectory/traj.py init <campaign> --text "the goal"
-python3 trajectory/traj.py add <campaign> plan --run R01 --text "..."
+python3 trajectory/traj.py add <campaign> plan --run R01 --text "..." \
+    --data additive_ppm=20 --data current_A=2 --data _session=S03 --data _chosen_by=schedule
 python3 trajectory/traj.py add <campaign> prediction --run R01 --author ai:<model> < prediction.md
 python3 trajectory/traj.py add <campaign> action --run R01 --text "..."
 python3 trajectory/traj.py add <campaign> observation --run R01 --file raw/R01.csv --text "..."
@@ -54,7 +68,7 @@ python3 trajectory/traj.py show <campaign> --run R01
 python3 trajectory/traj.py anchor <campaign>
 ```
 
-`verify` checks the chain, the attached files, and how many runs had a prediction logged before the outcome.
+`verify` checks the chain, the attached files, how many runs had a prediction logged before the outcome, and how many exact repeats exist and how many of those crossed a session. `--at` records when something actually happened if you are logging it late.
 
 ## What is public and what is not
 

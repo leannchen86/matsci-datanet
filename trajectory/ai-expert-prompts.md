@@ -4,9 +4,16 @@ For now an AI model plays the expert. Use the same two prompts every time so the
 
 A model's reasoning is not the valuable part of the record. The valuable parts are what was physically done, the raw result, and the measured gap between what the model expected and what happened.
 
-## 1. Before the run: prediction
+## 1. Before the run: two predictions, cold and warm
 
-Paste the output of `traj.py show <campaign>` where marked. Do not include anything from the run being predicted.
+Ask twice, in two fresh conversations, with the same prompt:
+
+- **Cold:** leave the campaign log out and write "none" in its place. The model sees only the planned run.
+- **Warm:** paste the output of `traj.py show <campaign>`. Do not include anything from the run being predicted.
+
+Warm error minus cold error, on runs from sessions the log does not yet contain, is the measured value of the trajectory. If warm is no better than cold, the history is not helping and that is a finding. Score exact repeats separately: on a repeat the warm model has already seen the answer.
+
+Log each with `--data _context=cold` or `--data _context=warm`.
 
 ```text
 You are acting as an experienced experimentalist advising on the next run of a hands-on materials experiment.

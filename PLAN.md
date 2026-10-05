@@ -5,7 +5,7 @@ Updated 5 October 2026. This is the one live plan. [outputs/aln-first-cycle-prep
 ## Decided
 
 - **Goal.** Produce experimental materials data that people who train models would actually want: complete, checkable, with the failures left in.
-- **Unit of data.** A trajectory, not a row: goal, plan, what was done, raw readings, interpretation, next decision, dead ends. Format and rules are in [trajectory/](trajectory/README.md).
+- **Unit of data.** A trajectory, not a row: goal, plan, what was done, raw readings, interpretation, next decision, dead ends. Format and rules are in [trajectory/](trajectory/README.md). That a trajectory is worth more than the row is a hypothesis, not a result: the earlier `materials-event-modeling` project tested it three times on public data and it did not survive a held-out batch. Every run here tests it again with a cold and a warm prediction.
 - **Expert.** For now an AI model is the expert. It writes a prediction before every run; the measured outcome scores it. A human expert comes later, when there is money and time.
 - **Method.** By hand, full time. Speed and learning come before automation or scale.
 - **Budget.** About $15,000 for this first step.
@@ -27,12 +27,13 @@ The paused plan (one sputtered AlN film, thermal measurement by an outside lab) 
 
 | # | Action | Done when |
 |---|---|---|
-| 1 | Answer the three source checks in [human-review.md](outputs/aln-public-record-audit/human-review.md) | A, B and C each marked supported, needs correction or unsure |
-| 2 | Ask each scientist contact three questions: what prediction they wish their model could make; what each record would need to contain; how they would know the model got better | Answers written down, kept out of this public repository |
-| 3 | Rehearse the loop once with `trajectory/traj.py` on any quick measurement, marked as a rehearsal | `verify` passes with a prediction logged before the outcome |
-| 4 | Transcribe the tables of Perez et al. (ACS Nano 2023) and run the 16 frozen audit questions on them as a positive control | Counts recorded next to the Stanford/TSMC result |
-| 5 | Decide whether this repository stays public, and review the two untracked folders under `outputs/` before committing them | Decision written here |
+| 1 | Rehearse the loop with `trajectory/traj.py` on any quick physical measurement (kitchen scale, multimeter), three runs across two sessions, marked as a rehearsal | `verify` passes: predictions logged first, one repeat in a different session |
+| 2 | Decide whether this repository stays public, and review the two untracked folders under `outputs/` before committing them | Decision written here |
+| 3 | Show scientist contacts one concrete task card (input, output, metric) for the chosen target and ask what number would change what they do | Answers written down, kept out of this public repository |
+| 4 | Answer the three source checks in [human-review.md](outputs/aln-public-record-audit/human-review.md) | A, B and C each marked supported, needs correction or unsure |
+
+The rehearsal is first on purpose. The earlier project spent four months on tooling and documents without one physical measurement; the first real record matters more than any further desk work. Transcribing more published tables is dropped for the same reason.
 
 ## Weekly review
 
-Every Monday, five numbers: runs completed, runs with a prediction logged before the outcome, exact repeats, dollars spent, and reactions from anyone outside the project.
+Every Monday, seven numbers: runs completed, independent sessions, runs with a prediction logged before the outcome, exact repeats in a different session, spread between those repeats, dollars spent, and reactions from anyone outside the project. Runs completed is the one that must go up.

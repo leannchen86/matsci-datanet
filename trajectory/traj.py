@@ -78,7 +78,26 @@ def hash_files(root, name, paths):
     return out
 
 
-def new_entry(entries, kind, author, text, run=None, files=None, flags=None):
+def parse_data(pairs):
+    data = {}
+    for pair in pairs or []:
+        if "=" not in pair:
+            sys.exit(f"--data needs key=value, got: {pair}")
+        key, value = pair.split("=", 1)
+        try:
+            data[key.strip()] = json.loads(value)
+        except json.JSONDecodeError:
+            data[key.strip()] = value.strip()
+    return data
+
+
+def settings_signature(data):
+    """Settings only: keys starting with '_' describe context (session, lot), not the recipe."""
+    settings = {k: v for k, v in (data or {}).items() if not k.startswith("_")}
+    return json.dumps(settings, sort_keys=True) if settings else None
+
+
+def new_entry(entries, kind, author, text, run=None, files=None, flags=None, data=None, at=None):
     entry = {
         "seq": len(entries) + 1,
         "ts": datetime.now(timezone.utc).isoformat(timespec="seconds"),
@@ -93,6 +112,10 @@ def new_entry(entries, kind, author, text, run=None, files=None, flags=None):
         entry["files"] = files
     if flags:
         entry["flags"] = flags
+    if data:
+        entry["data"] = data
+    if at:
+        entry["at"] = at
     entry["hash"] = entry_hash(entry)
     return entry
 
@@ -125,7 +148,8 @@ def cmd_add(args):
                 sys.exit(f"Run {args.run} already has an observation. A prediction now is hindsight; use --force to log it as such.")
             flags.append("after_outcome")
     files = hash_files(args.root, args.campaign, args.file or [])
-    entry = new_entry(entries, args.type, args.author, read_text(args), args.run, files, flags)
+    entry = new_entry(entries, args.type, args.author, read_text(args), args.run, files, flags,
+                      parse_data(args.data), args.at)
     append(args.root, args.campaign, entry)
     note = f" [{', '.join(flags)}]" if flags else ""
     print(f"Entry {entry['seq']} ({args.type}) added{note}. Head {entry['hash'][:12]}.")
@@ -160,8 +184,23 @@ def cmd_verify(args):
             clean += 1
     flagged = [e for e in entries if e.get("flags")]
 
+    # Exact repeats: a later run whose plan settings match an earlier run's.
+    seen = {}
+    repeats = cross_session = 0
+    for e in entries:
+        sig = settings_signature(e.get("data")) if e["type"] == "plan" and e.get("run") else None
+        if not sig:
+            continue
+        session = e["data"].get("_session")
+        if sig in seen:
+            repeats += 1
+            if session is not None and any(session != s for s in seen[sig]):
+                cross_session += 1
+        seen.setdefault(sig, []).append(session)
+
     print(f"{args.campaign}: {len(entries)} entries, {len(runs)} runs.")
     print(f"Runs with a prediction logged before the outcome: {clean} of {len(runs)}.")
+    print(f"Exact repeats of an earlier plan: {repeats}, of which in a different session: {cross_session}.")
     for e in flagged:
         print(f"Flagged entry {e['seq']} (run {e.get('run')}): {', '.join(e['flags'])}")
     if problems:
@@ -180,6 +219,10 @@ def cmd_show(args):
         flags = f" [{', '.join(e['flags'])}]" if e.get("flags") else ""
         print(f"#{e['seq']} {e['ts']} {e['type']}{run} by {e['author']}{flags}")
         print("    " + e["text"].replace("\n", "\n    "))
+        if e.get("data"):
+            print("    data: " + json.dumps(e["data"], sort_keys=True))
+        if e.get("at"):
+            print(f"    happened at: {e['at']}")
         for f in e.get("files", []):
             print(f"    file: {f['path']} ({f['sha256'][:12]})")
 
@@ -211,6 +254,9 @@ def main():
     s.add_argument("--author", default="human", help="'human' or 'ai:<model name and version>'")
     s.add_argument("--text")
     s.add_argument("--file", action="append", help="raw file inside the campaign folder; repeatable")
+    s.add_argument("--data", action="append", metavar="KEY=VALUE",
+                   help="structured field; repeatable. Plain keys are settings; keys starting with '_' are context, e.g. _session, _lot, _chosen_by, _status")
+    s.add_argument("--at", help="when it actually happened, if not now (ISO time)")
     s.add_argument("--force", action="store_true", help="log an out-of-order entry and flag it")
     s.set_defaults(func=cmd_add)
 
