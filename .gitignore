@@ -4,6 +4,9 @@ research/raw-conversations/
 research/corpus/
 late2.txt
 
+# Real trajectory records stay local until the public / held-back split is decided.
+/trajectory/campaigns/
+
 # Secrets
 .env
 *.pem

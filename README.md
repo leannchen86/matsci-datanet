@@ -8,6 +8,8 @@ The short answer the work arrived at: you need two things, and the field is miss
 
 ## Start here
 
+**The current plan is in [PLAN.md](PLAN.md)** (updated 5 Oct 2026). The unit of data is now a whole experimental trajectory, logged with the tool in [trajectory/](trajectory/README.md). The AlN pilot below is paused background.
+
 For the **October 2026 AlN pilot**, start with the [preparation plan](outputs/aln-first-cycle-preparation/README.md). It indexes materials sourcing, Stanford registration, budget and schedule, experiment scope, inquiry drafts, and record templates. The earlier [Stanford public-record audit](outputs/aln-public-record-audit/README.md) provides the desk-research baseline. Real working records and private administration files are excluded from Git.
 
 For the earlier materials-data research archive:
