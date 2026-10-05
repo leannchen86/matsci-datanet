@@ -48,7 +48,7 @@ Order now: about $1,430, or about $1,090 without the drill press and boron nitri
 
 | # | Action | Done when |
 |---|---|---|
-| 1 | Phone LongWin and send the enquiry form: fee for a half day and a full day, earliest slot in 12 to 16 October, whether a first-time visitor may run the tester, sample quantity, raw files, permission to publish | Answers written down, or a named person and a callback time |
+| 1 | Phone three thermal labs the same day (LongWin in Livermore, Thermal Engineering Associates in Santa Clara, Analysis Tech by mail): earliest date, price, three thicknesses per paste, raw files, permission to publish. The first to confirm all of these is the reference lab; the next is the second lab | Each has given a date and a price, or a named person and a callback time |
 | 2 | Place the order-now list to the business address | Every order has a confirmation and a delivery date |
 | 3 | Decide who drills and faces the two aluminium blocks: makerspace, friend, or buy the drill press | Route chosen |
 | 4 | Rehearse the loop with `trajectory/traj.py` on any quick physical measurement, three runs across two sessions | `verify` passes: predictions logged first, one repeat in a different session |

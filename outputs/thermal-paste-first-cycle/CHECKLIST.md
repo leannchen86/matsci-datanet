@@ -8,19 +8,21 @@ Commands are run from the repository root.
 
 Day one is paste orders and the LongWin call only. Two vendors are on Eastern time, so finish them before 11 am Pacific. Nothing for copper until every paste order has a confirmation.
 
-### 1.1 LongWin thermal lab
+### 1.1 Thermal labs: three phone calls, same day
 
-- [ ] Phone +1 925-393-3330 and also send the enquiry form at <https://longwinusa.com/contact/service-request/> (service type: TIM Test). Ask:
-  - Fee for a half day and for a full day on the LW-9389 tester, for an individual with no university affiliation.
-  - Earliest slot between 12 and 16 October, and opening hours.
-  - Whether a first-time visitor may run the tester, or an engineer must.
-  - How much paste one test needs, and whether single-thickness runs are allowed.
-  - Which thicknesses and pressures the fixtures give. Ask for a hot face at or below 80 °C.
-  - Whether a paste that contains zinc oxide (the reference paste) is allowed on the tester.
-  - Whether you leave with the raw Excel files, and whether you may publish the results naming the lab.
-- [ ] Decline if the first session costs more than $1,000.
+Phone, do not use forms. Give your friend's company as the organisation: LongWin's forms require a company name and job title. Ask every lab the same six things: earliest date, price and whether a card is accepted, at least three thicknesses per paste, grams needed, whether the raw files are released, and whether you may publish naming the lab.
 
-**Done when:** the answers are written down, or you have a named person and a callback time.
+- [ ] **LongWin / MyHeatSinks, Livermore** (the standard method, walk-in or drop-off). Call +1 925-493-7064 (LongWin's own line) and +1 925-393-3330 (MyHeatSinks sales, same address). Also ask: a self-run half day or engineer-run testing of four dropped-off pastes, whichever is sooner; whether a first-time visitor may run the tester; hot face at or below 80 °C; whether a paste containing zinc oxide is allowed. If nobody answers live by Tuesday, go in person: 3167 Independence Drive, Livermore, Monday to Friday 9 to 5.
+- [ ] **Thermal Engineering Associates, Santa Clara** (a different company with its own tester; samples can be hand-delivered). Call 650-961-5900. One question decides it: do you measure the thermal conductivity of a silicone grease for outside customers, at several thicknesses?
+- [ ] **Analysis Tech, Wakefield MA** (mail-in; the tester's maker runs customer samples; published turnaround 1 to 2 weeks). Call (781) 245-7825 before about 1 pm Pacific. Get a quote moving now, in parallel with the local answers.
+
+**Choosing.** The primary is whichever lab first confirms a date, three or more thicknesses, raw data, permission to publish and a price under $1,000 for the first session. The second lab is the next one to confirm the same things. Two labs measuring the same material is worth having: agreement between two instruments is evidence the numbers can be trusted.
+
+**48-hour rule.** If neither local lab has given a date by the end of Wednesday 7 October, ship to Analysis Tech and ask Thermal Analysis Labs in Canada (+1 877-827-7623, closes 1 pm Pacific) for an expedited quote.
+
+Other options, in the order found: PMIC in Corvallis OR ((541) 753-0607), Linseis in New Jersey (from 250 EUR per measurement, 2 to 3 weeks), Barnett Technical in Elk Grove CA (a different method; ask whether the instrument is on site). Stanford's shared labs have no thermal conductivity instrument and need about 15 business days of paperwork, so they are not an option for this.
+
+**Done when:** each of the three labs has given a date and a price, or a named person and a callback time.
 
 ### 1.2 Orders, shipped to the business address
 
@@ -213,7 +215,10 @@ python3 outputs/thermal-paste-first-cycle/thermal.py mount --hot 52.0 49.6 --col
 
 At about 10 W the temperature difference along each bar is only about 2 °C, so thermocouple offsets matter. If the two bars' heat flows differ by more than about 15%, check insulation and thermocouple seating before trusting the number.
 
-## 7. LongWin day
+## 7. Reference lab day
+
+**One lot for every lab.** So that two labs measure the same material, make a transfer lot separate from the campaign batches: mix three control batches on one day by the frozen protocol, combine them and fold for a further 3 minutes (about 75 g). Log it as its own lot. Split it by alternating scoops into capped syringes with little headspace: about 30 g for the primary lab, 15 g for the second lab, 10 g for the home rig, 10 g kept sealed. Measure density three times on each portion before anything leaves; they should agree within about 1%. Label by id only, send reference paste from the same tube to every lab, and tell neither lab the other's result or any expected value.
+
 
 - [ ] Before leaving, log model predictions for every number LongWin will measure.
 - [ ] Take: the reference paste, two control cups from different days, one extreme, at least 30 g of each, labelled by run id only. Also spatulas, wipes, gloves, a USB stick and this list of questions.

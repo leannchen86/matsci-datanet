@@ -19,6 +19,10 @@ The LongWin laboratory in Livermore is the trusted reference, not the loop. Its 
 
 Copper electroplating stays the named fallback. Nothing is bought for it now.
 
+## Reference labs
+
+LongWin is the fastest local route but not the only one. Checked on 5 October: Thermal Engineering Associates in Santa Clara lists thermal interface material characterisation as a service (650-961-5900); Analysis Tech in Massachusetts runs customer samples on its own tester with a published 1 to 2 week turnaround ((781) 245-7825); Thermal Analysis Labs in Canada publishes US$350 to $1,500 per sample and a paid expedite of a few days. LongWin's own line is +1 925-493-7064; the +1 925-393-3330 number elsewhere in this file is the MyHeatSinks sales line at the same address. No lab publishes a price for this test on a grease except Linseis, and none publishes a policy on individuals or card payment. Stanford's shared labs have no thermal conductivity instrument. Who to call and in what order is in section 1.1 of the checklist.
+
 ## Order now
 
 About $1,430 including tax (about $1,060 from listed prices, the rest estimated shipping and small local items). Leaving out the drill press and the boron nitride brings it to about $1,090. With one LongWin day at the $1,000 cap, money at risk before the first gate is about $2,100 to $2,450.
