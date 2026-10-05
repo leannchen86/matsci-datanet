@@ -2,25 +2,27 @@
 
 Work down the list in order. Tick a box only when its "done when" is true. Details, links and safety notes for every item are in [README.md](README.md). Nothing here has been ordered, booked or sent.
 
+For the first calls and purchases, use [CALLS_AND_ORDERS.md](CALLS_AND_ORDERS.md): it contains the scripts, likely questions, current prices, and sample-allocation rules. The smaller density measure and 0.001 g balance below replace the earlier 5 mL measure and 0.01 g purchasing recommendation; validate the method during shakedown.
+
 Commands are run from the repository root.
 
 ## 1. Calls and orders (day one)
 
-Day one is paste orders and the LongWin call only. Two vendors are on Eastern time, so finish them before 11 am Pacific. Nothing for copper until every paste order has a confirmation.
+Day one is the three thermal-lab quote requests, paste materials and the density/spread kit. Make East Coast supplier calls before 11 am Pacific. Copper remains desk work only.
 
 ### 1.1 Thermal labs: three phone calls, same day
 
 Phone, do not use forms. You are an independent researcher with no company: say so plainly. LongWin's web forms require a company name and job title, which is one more reason to phone. Ask every lab the same six things: earliest date, price and whether a card is accepted, at least three thicknesses per paste, grams needed, whether the raw files are released, and whether you may publish naming the lab.
 
-- [ ] **LongWin / MyHeatSinks, Livermore** (the standard method, walk-in or drop-off). Call +1 925-493-7064 (LongWin's own line) and +1 925-393-3330 (MyHeatSinks sales, same address). Also ask: a self-run half day or engineer-run testing of four dropped-off pastes, whichever is sooner; whether a first-time visitor may run the tester; hot face at or below 80 °C; whether a paste containing zinc oxide is allowed. If nobody answers live by Tuesday, go in person: 3167 Independence Drive, Livermore, Monday to Friday 9 to 5.
+- [ ] **LongWin / MyHeatSinks, Livermore.** Call +1 925-493-7064; +1 925-393-3330 is the alternate MyHeatSinks contact for the same lab. Ask first for engineer-run testing of a commercial comparator and two independent control batches, with an extreme formulation priced separately. Ask about individual eligibility, quantities, multiple thicknesses, raw data and publication. Agree the temperature and keep the hot face at or below 80 °C. Arrange any visit/drop-off; published Monday–Friday 9–5 hours do not establish walk-in acceptance.
 - [ ] **Thermal Engineering Associates, Santa Clara** (a different company with its own tester; samples can be hand-delivered). Call 650-961-5900. One question decides it: do you measure the thermal conductivity of a silicone grease for outside customers, at several thicknesses?
 - [ ] **Analysis Tech, Wakefield MA** (mail-in; the tester's maker runs customer samples; published turnaround 1 to 2 weeks). Call (781) 245-7825 before about 1 pm Pacific. Get a quote moving now, in parallel with the local answers.
 
-**Choosing.** The primary is whichever lab first confirms a date, three or more thicknesses, raw data, permission to publish and a price under $1,000 for the first session. The second lab is the next one to confirm the same things. Two labs measuring the same material is worth having: agreement between two instruments is evidence the numbers can be trusted.
+**Choosing.** Select a lab that confirms suitable grease testing, individual eligibility, scope, required quantities, data/publication terms and a date. Ask for the full itemized quote and, if it exceeds the initial $1,000 target, a useful reduced scope. A second lab is an optional separately priced cross-check under comparable conditions; it does not replace independent-batch repeatability.
 
-**48-hour rule.** If neither local lab has given a date by the end of Wednesday 7 October, ship to Analysis Tech and ask Thermal Analysis Labs in Canada (+1 877-827-7623, closes 1 pm Pacific) for an expedited quote.
+**48-hour rule.** If neither local lab has given a date by the end of Wednesday 7 October, pursue the Analysis Tech booking and an expedited backup quote. Ship only after the lab has accepted the job and the samples are ready. October 15 sample readiness and October 23 results are targets, conditional on deliveries and preparation; obtain the lab's required receipt date.
 
-Other options, in the order found: PMIC in Corvallis OR ((541) 753-0607), Linseis in New Jersey (from 250 EUR per measurement, 2 to 3 weeks), Barnett Technical in Elk Grove CA (a different method; ask whether the instrument is on site). Stanford's shared labs have no thermal conductivity instrument and need about 15 business days of paperwork, so they are not an option for this.
+Other options to investigate if needed: PMIC in Corvallis OR, Linseis, Thermal Analysis Labs, and Barnett Technical in Elk Grove CA. No suitable bookable grease-conductivity service at Stanford has been confirmed for this deadline.
 
 **Done when:** each of the three labs has given a date and a price, or a named person and a callback time.
 
@@ -28,26 +30,18 @@ Other options, in the order found: PMIC in Corvallis OR ((541) 753-0607), Linsei
 
 Ask each non-Amazon vendor on the call or at checkout whether they ship to a residential address.
 
-- [ ] **Amazon, one cart.** Links and exact products are in README.md under "Order now".
-  - Balance, 0.01 g, 1 kg capacity
+- [ ] **Density/spread kit.** Current supplier links and prices are in CALLS_AND_ORDERS.md.
+  - U.S. Solid JFDBS00057-500G balance, 0.001 g readability, 500 g capacity
   - 2 oz cups with lids, stainless micro scoops, 10 mL syringes
   - 4 inch square glass plates (5 pack)
   - 500 g calibration weight
   - Lint-free wipes
-  - Half-mask respirator, P100 filters, safety glasses, nitrile gloves
+  - Safety glasses and nitrile gloves; selected respirator/filter/size after handling and fit review
   - Room thermometer-hygrometer, 6 inch digital caliper
-  - Thermocouple board, hub and cable (three items)
-  - Cartridge heaters, 24 V 40 W, 6 mm
-  - Bench power supply, 30 V 5 A
-  - 120 mm liquid cooler and its 12 V power adapter
-  - Digital micrometer, 0.001 mm
-  - Wet-and-dry paper (400 to 3000 grit) and polyimide tape
-- [ ] **Atlantic Equipment Engineers** (alumina). No cart button was found on the page, so phone (201) 828-9400. Order 2 lb of AL-602 (coarse) and 2 lb of AL-611 (fine). Ask for 2-day shipping, the AL-611 safety data sheet, and a particle-size certificate for both.
-- [ ] **ScienceKitStore** (silicone oil, 1000 cSt, quarter gallon). Web order. This is the slowest parcel: ask for an expedited option and for the safety data sheet. Adding the 350 cSt oil now saves a second shipment later.
-- [ ] **SkyGeek** (DOWSIL 340 reference paste, 142 g). Web order before 11 am Pacific for same-day dispatch, with a fast service. Ask whether its shipping class limits air freight.
-- [ ] **Newark** (Omega thermocouples, type K, 30 gauge, pack of 5). Confirm stock before paying.
-- [ ] **OnlineMetals** (1 inch square 6061 aluminium bar, 12 inch). Use the custom-cut option for two 40 mm pieces if someone else will face the ends.
-- [ ] **LittleMachineShop** (polyester shim assortment, part 4304).
+- [ ] **Atlantic Equipment Engineers** (alumina). Phone (201) 828-9400. Order 2 lb of AL-602 (coarse) and 2 lb of AL-611 (fine). Confirm expedited delivery and request applicable SDSs, COAs and existing lot particle-size distributions. Ask for any extra testing/document fee before agreeing to it.
+- [ ] **ScienceKitStore** (silicone oil, 1000 cSt, quarter gallon). Confirm expedited arrival, lot and applicable SDS before the web order. Extra viscosities can wait.
+- [ ] **SkyGeek** (DOWSIL 340 reference paste, 142 g). Confirm physical stock and the permitted delivery service. Guaranteed same-day dispatch before 11 am Pacific is an optional $25 add-on, not automatic free dispatch. Order online.
+- [ ] **Thermal rig purchase decision.** First review mechanical mounting, electrical isolation, connectors and thermal cutoff. Then finalize the parts and machining order; the candidate parts in README.md are not a verified complete assembly.
 - [ ] Boron nitride can wait. It ships from Canada and is not used before the first gate.
 
 **Done when:** every order has a confirmation and a delivery date. Write down any parcel with no date before Saturday 10 October.
@@ -55,19 +49,19 @@ Ask each non-Amazon vendor on the call or at checkout whether they ship to a res
 ### 1.3 Pick up locally
 
 - [ ] 99% isopropyl alcohol (read its label and data sheet)
-- [ ] A rigid stainless 1-teaspoon measure with a flat rim (the density cup)
-- [ ] 100 g check weight
+- [ ] A rigid stainless 1/4-teaspoon measure (nominally about 1.25 mL), with support and a straightedge; calibrate its real volume
+- [ ] Check weights near 1 g, 10 g and 100 g with stated tolerances
+- [ ] Distilled water for volume calibration
 - [ ] Rimmed tray large enough for balance, cup and powder bag
 - [ ] Two lidded waste tubs, airtight tubs and desiccant for opened powder, a closed metal or lidded container for oily wipes
 - [ ] Labels and marker, zip bags, phone stand, printed millimetre grid, timer
-- [ ] Ceramic tile (base for the rig), melamine foam sponges (insulation), 12 inch square of 1/4 inch float glass (lapping surface)
-- [ ] Lever-nut connectors or a terminal block, a basic multimeter, a USB-C cable
-- [ ] Insulated mug and stirrer (for comparing thermocouples)
+
+Rig-only supplies (base, insulation, lapping glass, connectors, multimeter, USB cable and thermocouple comparison bath) belong to the later reviewed rig order.
 
 ### 1.4 Decisions and people
 
-- [ ] Decide who drills and faces the two aluminium blocks: a makerspace, a friend with a shop, or buy the drill press and vise ($147). Put that work on a named day.
-- [ ] Send the paste safety questions to a qualified person on their own: respirator type and fit, handling 25 g of alumina over a tray in this room, and vapour from the rig at or below 80 °C. Ask for an answer before powder is first opened. Whether to open powder without it is your decision with the data sheets in hand. The fine alumina stays closed until its own data sheet arrives.
+- [ ] Obtain a machining plan and quote for drilling and facing the two aluminium blocks after the drawing and rig design are reviewed. Confirm the route and day before purchasing machining tools.
+- [ ] Send the actual SDSs, room description and intended quantities to a qualified person for a dust-control, PPE and cleanup review before opening powder. Keep powders sealed while this is unresolved. The fine alumina also requires its own applicable SDS.
 - [ ] Book a respirator fit check with an occupational health provider.
 - [ ] Find someone with electronics experience to look over the heater wiring before it is first powered.
 - [ ] Tell your disposal route that the reference paste is 59 to 79% zinc oxide, and that its waste will be kept in a separate tub.
@@ -90,9 +84,9 @@ python3 trajectory/traj.py verify rehearsal-001
 - [ ] **Save and read the safety data sheets** for the alumina, the oil and the reference paste. Copy the hard limits from README.md onto one page and put it at the bench.
 - [ ] **Test whether models already know the answers.** Write 15 paste recipes from the table in section 4. For each, ask three models (fresh conversation each, prompt in `trajectory/ai-expert-prompts.md`, no campaign log) to predict density, mixing class and spread diameter. Save every reply verbatim with the model name and version.
 
-- [ ] Score those replies against what is already published: the reference paste at 0.67 W/mK and specific gravity 2.1, and the no-air densities in the recipe table. Three models agreeing with each other is not evidence that they are right.
+- [ ] Separate three tasks: an explicitly requested ideal no-air density calculation, knowledge of the commercial paste's typical published properties, and predictions of actual hand-mixed outcomes. Only the first two have desk-check references. Keep real-batch density, mixing and spread forecasts unscored until measured. Three models agreeing is not ground truth.
 
-  **Done when:** 45 predictions are saved and one table shows each model's error where a published value exists.
+  **Done when:** 45 experimental forecasts are saved without premature scores; any separately requested calculation/reference checks are labeled as such.
 
 - [ ] **Outside contact, sent by you.** Once that table exists (about 12 to 13 October), send one short message, with the task card and the table, to each group that builds tests for models in chemistry and materials. One message per group. Say it is a proof of concept and ask two things: would you use this if it were ten times larger, and what would it have to contain? A specific answer to the second question is the signal that someone wants more.
 
@@ -108,8 +102,8 @@ python3 outputs/thermal-paste-first-cycle/thermal.py fit 0.01:0.787 0.02:1.200 0
 ## 3. Bench set-up (the day the starter kit arrives)
 
 - [ ] Lay out the tray on a level, vibration-free surface with a cardboard draught shield round the balance.
-- [ ] Check the balance with the 100 g and 500 g weights, three times each. **Done when:** every reading is within 0.03 g.
-- [ ] Find the density cup's volume: tare the cup, fill it with water to the rim, strike it level, weigh. Repeat five times. Volume in mL is the water mass in grams divided by 0.998. **Done when:** the five volumes agree within 0.5%.
+- [ ] Calibrate the balance according to its manual, then check repeatability at the actual working masses using the small check weights. Compare errors with the weight tolerances and balance specifications. Do not put the plate plus the 500 g spread load on this 500 g-capacity balance.
+- [ ] Find the density measure's volume: tare it on a stable support, fill with distilled water to the rim, strike it level, weigh. Repeat five times and use water density at the measured temperature (about 0.998 g/mL near 20 °C). **Done when:** the five volumes agree within 0.5%; otherwise improve the fill/support method before paste measurements.
 - [ ] Weigh the top glass plate and write its mass down. The load in the spread test is that plus 500 g.
 - [ ] Set up the photo stand over the millimetre grid.
 - [ ] Label the two waste tubs: "reference paste (zinc oxide)" and "everything else".
@@ -122,6 +116,8 @@ python3 trajectory/traj.py init paste-001 --text "Find how filler loading and pa
 ## 4. One batch, step by step
 
 Recipes for a 25 g batch. For any other recipe run `python3 outputs/thermal-paste-first-cycle/recipe.py --filler 45 --fine-share 30`.
+
+These are starting shakedown quantities. Before freezing gate-batch size, budget three density fills, two spreads, losses, archive and the lab's confirmed requirement. If 25 g cannot supply them, rehearse a larger batch size before the gate; do not change size silently or promise 30 g from a 25 g batch.
 
 | Recipe | Oil | Coarse alumina | Fine alumina | Density with no air |
 |---|---|---|---|---|
@@ -158,7 +154,7 @@ python3 trajectory/traj.py add paste-001 prediction --run R001 --author ai:MODEL
 **Measure it**
 
 - [ ] **Mixing class.** Pick one: `flows` (levels on its own), `paste` (holds a peak, spreads easily), `stiff` (hard to spread), `will_not_wet` (dry clumps remain). The last is a result: log it and stop there.
-- [ ] **Density.** Press paste into the tared density cup with the spatula so no pockets remain, strike it level, wipe the outside, weigh. Do this three times from the same batch. Density is mass divided by the cup volume. Trapped air in percent is (1 − measured density ÷ density with no air) × 100.
+- [ ] **Density.** Fill the calibrated small measure by the frozen method, strike level, wipe the outside and weigh. Use three fresh portions from the batch; retain the raw fill masses and do not return tested portions to the archived sample. Density is mass divided by measured cup volume. The formula (1 − measured density ÷ calculated no-air density) × 100 estimates apparent void fraction under the stated constituent-density and volume-additivity assumptions.
 - [ ] **Spread.** Weigh 1.00 g of paste onto the centre of the lower glass plate. Lower the top plate flat, add the 500 g weight, start a 60 second timer. Photograph from above with the grid visible, then measure two diameters at right angles with the caliper. Do this twice.
 - [ ] Keep the rest of the batch in its lidded, labelled cup. It is the sample for LongWin.
 - [ ] Copy the photos into `trajectory/campaigns/paste-001/raw/` before logging them. Do not edit them afterwards.
@@ -219,13 +215,13 @@ At about 10 W the temperature difference along each bar is only about 2 °C, so 
 
 ## 7. Reference lab day
 
-**One lot for every lab.** So that two labs measure the same material, make a transfer lot separate from the campaign batches: mix three control batches on one day by the frozen protocol, combine them and fold for a further 3 minutes (about 75 g). Log it as its own lot. Split it by alternating scoops into capped syringes with little headspace: about 30 g for the primary lab, 15 g for the second lab, 10 g for the home rig, 10 g kept sealed. Measure density three times on each portion before anything leaves; they should agree within about 1%. Label by id only, send reference paste from the same tube to every lab, and tell neither lab the other's result or any expected value.
+**Optional transfer lot for two labs.** Obtain both labs' required masses and protocols first. Budget laboratory submissions, home testing, retained archive, dedicated density-QA portions and losses before choosing the total mass. Prepare and log a separate transfer lot, including all extra pooling/mixing and splitting. Check aliquot consistency using reserved QA material, then package the full agreed quantities. Do not consume the lab submissions during density checks. This pooled lot tests interlaboratory agreement; it does not replace the two independently prepared controls. Disclose composition/SDSs for acceptance while withholding predicted outcomes and the other lab's result.
 
 
-- [ ] Before leaving, log model predictions for every number LongWin will measure.
-- [ ] Take: the reference paste, two control cups from different days, one extreme, at least 30 g of each, labelled by run id only. Also spatulas, wipes, gloves, a USB stick and this list of questions.
+- [ ] Before submission, log model predictions for the selected reference lab's measurements.
+- [ ] Submit only the quoted specimens and quantities: initially the commercial comparator and two independent controls, with an extreme only if included. Use accepted containers and labels, provide SDSs, record preparation/storage/receipt times, and arrange any visit in advance.
 - [ ] Measure the reference paste first. Time each material.
-- [ ] Leave with the raw Excel files. Log them with `--file` and record the real fee and hours.
+- [ ] Receive and archive the numerical results and raw files agreed in the quote. Log files with `--file` and record the actual fee, test hours if supplied, and turnaround.
 
 ## 8. First gate, Sunday 18 October
 
@@ -233,11 +229,11 @@ At about 10 W the temperature difference along each bar is only about 2 °C, so 
 - [ ] Pass needs all four:
   1. Control batches across three days agree: density within 2%, spread within 7%.
   2. The extremes differ by at least 3 times that scatter on two labels.
-  3. LongWin reads the reference paste within 15% of 0.67 W/mK and the two control batches within 10% of each other.
+  3. The selected reference lab's QC and measurement uncertainty are documented, and the independent controls are compared under matched conditions against the proposed 10% repeatability threshold. Interpret the difference with measurement uncertainty. DOWSIL's typical 0.67 W/mK is context, not a certified calibration acceptance value.
   4. The models' predictions made without the campaign log miss by more than the scatter on at least one label.
 - [ ] Log the decision (pass, pending, one more week, or stop) and anchor it.
 
-If item 3 has not happened yet, the decision is "process labels pass, LongWin pending".
+If item 3 has not happened yet, the decision is "process labels pass, reference measurement pending".
 
 ## 9. Copper: desk work only
 

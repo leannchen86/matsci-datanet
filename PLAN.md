@@ -13,7 +13,7 @@ Updated 5 October 2026. This is the one live plan. The first target is hand-mixe
 
 ## First target: hand-mixed thermal pastes
 
-Changed 5 October 2026. Copper electroplating was the working choice for a few hours; it had been compared only against other copper plans. Once the home bench and bookable time at the LongWin thermal laboratory were known, both routes were worked up in full and three independent reviewers all chose thermal pastes (about 40 against 30 out of 60). Their confidence is medium.
+Changed 5 October 2026. Copper electroplating was the working choice for a few hours; it had been compared only against other copper plans. Once the home bench and LongWin's advertised testing service were identified, both routes were worked up in full and three independent reviewers all chose thermal pastes (about 40 against 30 out of 60). Their confidence is medium. No laboratory slot is confirmed.
 
 **What gets made.** Silicone oil plus ceramic powder, about 25 g per batch, mixed by hand to a fixed, timed protocol. Alumina first; boron nitride later, once a person has cleared its data sheet.
 
@@ -27,13 +27,13 @@ Changed 5 October 2026. Copper electroplating was the working choice for a few h
 
 **What this first cycle is for.** It is a proof of concept, not the dataset. It is small on purpose. It has to show two things: that records made this way are good (repeatable, checkable, complete), and that someone outside wants more of them. If both hold, the next step is to scale; the cost and hours per record measured here set the price of doing so. The likeliest first audience is people who build tests for frontier models.
 
-The step-by-step checklist is [outputs/thermal-paste-first-cycle/CHECKLIST.md](outputs/thermal-paste-first-cycle/CHECKLIST.md). Sourcing detail, safety notes and the day-by-day plan behind it are in [README.md](outputs/thermal-paste-first-cycle/README.md) in the same folder.
+Start calls and purchases with [CALLS_AND_ORDERS.md](outputs/thermal-paste-first-cycle/CALLS_AND_ORDERS.md). The bench checklist is [CHECKLIST.md](outputs/thermal-paste-first-cycle/CHECKLIST.md); [README.md](outputs/thermal-paste-first-cycle/README.md) contains the technical background and candidate equipment. The smaller density measure and 0.001 g balance require shakedown validation; final gate-batch size depends on the selected lab's sample requirement.
 
 ### Gates
 
 | When | Test | If it fails |
 |---|---|---|
-| **Sun 18 Oct** | Control batches made on three different days agree (density within 2%, spread within 7%); deliberately extreme batches differ by at least 3 times that scatter on two labels; LongWin reads the reference paste within 15% of its published value and two control batches within 10% of each other; model predictions made without the campaign history miss by more than the scatter on at least one label | One week on technique and re-test on 25 Oct; fail again and switch to copper |
+| **Sun 18 Oct** | Control batches made on three different days agree (density within 2%, spread within 7%); extremes differ by at least 3 times that scatter on two labels; the selected reference lab documents QC/uncertainty and measures two independent controls under matched conditions against the proposed 10% repeatability threshold; cold model error exceeds scatter on at least one label | Process gate can be recorded with reference measurement pending. Technique failure gets one week and a 25 Oct re-test; a second failure triggers the conditional copper review |
 | **Sun 25 Oct** | Home thermal rig: control scatter within 10% and the same ranking as LongWin | Rent a needle-probe instrument for a week; if that also fails, the thermal label comes only from LongWin |
 | **Fri 30 Oct** | Has anyone outside engaged with the task card? | If not, finish as a learning campaign and cap spending |
 | **Sun 29 Nov** | Continue, change target, or stop | |
@@ -42,14 +42,14 @@ After the 25 October gate: a designed set of about 36 conditions, a third of the
 
 ### Budget
 
-Order now: about $1,430, or about $1,090 without the drill press and boron nitride. At risk before the first gate, with one LongWin day at a $1,000 cap: about $2,100 to $2,450. Six weeks: about $4,500 to $5,000 plus LongWin, capped at $4,000, so under about $9,000 in total. LongWin's real fee is unknown until asked.
+First cart: approximately $569–698 for ingredients and the density/spread kit, before PPE, freight, tax, handling review and lab fees. The initial staffed-test quote target is $1,000; it is not a published fee or a confirmed package. Rig parts and an optional second lab need separate quotes/decisions. The overall first-step budget remains about $15,000; update the forecast from actual quotes before committing larger work.
 
 ## Do now
 
 | # | Action | Done when |
 |---|---|---|
-| 1 | Phone three thermal labs the same day (LongWin in Livermore, Thermal Engineering Associates in Santa Clara, Analysis Tech by mail): earliest date, price, three thicknesses per paste, raw files, permission to publish. The first to confirm all of these is the reference lab; the next is the second lab | Each has given a date and a price, or a named person and a callback time |
-| 2 | Place the order-now list, shipped to your own address | Every order has a confirmation and a delivery date |
+| 1 | Phone LongWin, Thermal Engineering Associates and Analysis Tech using the call guide. Confirm staffed scope, sample masses, eligibility, data/publication terms, receipt/result dates and price. A second lab is separately priced and optional | Each has given a quote or a named person and a callback time |
+| 2 | Order the four materials and density/spread kit, shipped to your own address; defer rig hardware until design review | Every order has a confirmation and delivery estimate |
 | 3 | Decide who drills and faces the two aluminium blocks: makerspace, friend, or buy the drill press | Route chosen |
 | 4 | Rehearse the loop with `trajectory/traj.py` on any quick physical measurement, three runs across two sessions | `verify` passes: predictions logged first, one repeat in a different session |
 | 5 | Arrange the checks only a person can do: respirator fit, heater wiring review, the boron nitride ventilation question, and telling the disposal route about the zinc oxide reference paste | Each has a named person and a date |

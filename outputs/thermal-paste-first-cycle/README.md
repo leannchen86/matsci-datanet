@@ -2,7 +2,7 @@
 
 Prepared 5 October 2026. Nothing here has been ordered, booked or sent. Every vendor page was opened by a checker on 5 October unless a note says otherwise; prices marked as estimates are estimates. LongWin's fee is not published anywhere and has to be asked.
 
-**To act on this, use [CHECKLIST.md](CHECKLIST.md).** It is the step-by-step version: calls, orders, bench set-up, one batch from start to finish, and the gate. This file is the reference behind it. `recipe.py` gives the masses to weigh for any recipe and `thermal.py` does the two thermal calculations.
+**For calls and first purchases, start with [CALLS_AND_ORDERS.md](CALLS_AND_ORDERS.md).** It contains the scripts, lab Q&A, current first cart and sample budget. Then use [CHECKLIST.md](CHECKLIST.md) for bench execution. The equipment catalogue and original calendar below provide background; dates depend on actual delivery, handling review and laboratory acceptance. `recipe.py` gives ingredient masses and `thermal.py` does the thermal calculations.
 
 ## What this is
 
@@ -15,24 +15,24 @@ Four things are measured on every batch at home, the same day:
 3. **Squeeze-spread.** A fixed mass of paste between two glass plates under a 500 g weight for 60 seconds; the diameter is read from a photo. This stands in for viscosity.
 4. **Thermal impedance** on a small home rig (two aluminium bars, a heater, a cooler, a fixed gap). This label comes second: it is built in parallel and judged a week after the others.
 
-The LongWin laboratory in Livermore is the trusted reference, not the loop. Its tester follows the standard method (ASTM D5470) and takes 2 to 4 hours per material, so a booked day measures two to four samples. One day inside the first two weeks checks a commercial paste with a published value and two control batches mixed on different days.
+The selected independent laboratory supplies the thermal reference measurements. LongWin in Livermore is the first quote request; its service lists ASTM D5470-based testing and about 2–4 hours per material. Obtain a quote for a commercial comparator and two separately mixed control batches; do not assume all three fit into one day. DOWSIL's published value is a typical property rather than a calibration certificate.
 
 Copper electroplating stays the named fallback. Nothing is bought for it now.
 
 ## Reference labs
 
-LongWin is the fastest local route but not the only one. Checked on 5 October: Thermal Engineering Associates in Santa Clara lists thermal interface material characterisation as a service (650-961-5900); Analysis Tech in Massachusetts runs customer samples on its own tester with a published 1 to 2 week turnaround ((781) 245-7825); Thermal Analysis Labs in Canada publishes US$350 to $1,500 per sample and a paid expedite of a few days. LongWin's own line is +1 925-493-7064; the +1 925-393-3330 number elsewhere in this file is the MyHeatSinks sales line at the same address. No lab publishes a price for this test on a grease except Linseis, and none publishes a policy on individuals or card payment. Stanford's shared labs have no thermal conductivity instrument. Who to call and in what order is in section 1.1 of the checklist.
+Call LongWin, Thermal Engineering Associates and Analysis Tech in parallel using the [call guide](CALLS_AND_ORDERS.md). MyHeatSinks is an alternate contact for the same Livermore lab, not a second independent laboratory. Prices, individual eligibility and October dates require direct confirmation. No suitable bookable grease-conductivity service at Stanford has been confirmed for this deadline.
 
-## Order now
+## Equipment catalogue
 
-About $1,430 including tax (about $1,060 from listed prices, the rest estimated shipping and small local items). Leaving out the drill press and the boron nitride brings it to about $1,090. With one LongWin day at the $1,000 cap, money at risk before the first gate is about $2,100 to $2,450.
+The first cart is specified in [CALLS_AND_ORDERS.md](CALLS_AND_ORDERS.md): about $569–698 for materials and the density/spread kit before PPE, freight, tax, consultation and testing. The older roughly $1,430 estimate covered candidate thermal-rig parts and other items as well; do not order this whole catalogue. Finalize the rig's mechanical and electrical design before purchasing its assembly.
 
 - **LongWin / MyHeatSinks session on the LW-9389 tester (reference only)**
   - Vendor: MyHeatSinks / LongWin North America Laboratory, 3167 Independence Drive, Livermore CA
   - Price: Not published. Reviewers' cap: decline above $1,000 for the first session (a cap, not a quote)
   - Lead time: Not published. Engineer-run turnaround 'typically one week' (https://longwinusa.com/services/thermal-interface-material-test/, opened)
   - Link: <https://myheatsinks.com/thermal-laboratory/>
-  - Note: Opened today: lab page (self-service full or half day, engineers can assist), TIM service page (ASTM D5470-06, plus or minus 5%, 4-50 kgf, 2-4 hours per material, Excel output), contact page (phone +1 925-393-3330, sales@myheatsinks.com). No opening hours on any page I opened; one judge's 'Mon-Fri 9-5' is unverified. No sample quantity, fee or beginner policy published. The repo's outreach log shows the 24 Sep email as 'awaiting response'; I did not read any mailbox. The person makes the enquiry; I contacted no one.
+  - Note: Engineer-run and self-service routes are listed. [Booking page](https://longwinusa.com/contact/booking/) lists Monday–Friday 9–5; that does not establish walk-in access. Sample quantity, fee and individual eligibility require confirmation. The repo's earlier outreach log shows a 24 Sep email awaiting response; this guide does not verify a mailbox or establish a booking.
 - **Alumina, coarse (AL-602, 360 grit, 12-40 micrometres, HP white fused), 2 lb**
   - Vendor: Atlantic Equipment Engineers (micronmetals.com), Upper Saddle River NJ
   - Price: $23.07/lb at 1-2 lb, so $46.14
@@ -56,19 +56,18 @@ About $1,430 including tax (about $1,060 from listed prices, the rest estimated 
   - Price: $42.00; shipping not shown (I budget $20, estimate)
   - Lead time: In stock; ships same day, but the vendor's policy says 3-10 business days to a US address (https://sciencekitstore.com/shipping-policy, opened). Expect about 13 Oct by ground (estimate)
   - Link: <https://sciencekitstore.com/silicone-fluid-1000-cst>
-  - Note: This is the schedule-critical item and an earlier draft listed it only as 'in stock'. Ask the vendor for an expedited option when ordering. No safety data sheet link and 'No COA provided' on the page: request the data sheet. About 6-8 g of oil per 25 g batch (my calculation), so a quarter gallon covers more than 100 batches.
+  - Note: Confirm expedited delivery, the applicable SDS and available lot/viscosity documentation. The current page does not establish a COA policy. About 6–8 g of oil per typical 25 g control batch is a calculation, not a measured dispensing result.
 - **Reference paste: DOWSIL 340 heat sink compound, 142 g tube**
   - Vendor: SkyGeek
   - Price: $59.43; shipping not shown (I budget $15, estimate)
-  - Lead time: In stock; same-day shipping if ordered 7 am-2 pm Eastern. Ships from the eastern US, so ground is about a week (estimate): choose a faster service
+  - Lead time: Physical stock and actual arrival must be confirmed. Guaranteed same-day dispatch during 7 am–2 pm Eastern is an optional $25 add-on; delivery is a separate service and charge.
   - Link: <https://skygeek.com/dow-corning-dc340-5oz-silicone-compound-5-oz.html>
   - Note: Opened. Replaces Ellsworth, which still shows 'on backorder' today at $68.34 (opened). SkyGeek lists it as UN3077 class 9; ask whether that limits air shipping. Other checks: Amazon listing 'currently unavailable' (opened); Aerospheres shows 18 in a California warehouse at $53.31 but also a 120-day lead time (opened, inconsistent); Aircraft Parts Supply shows $16.25 on sale with no stock status (opened, do not rely on it). Dow's own page gives 0.67 W/mK and specific gravity 2.1 (https://www.dow.com/en-us/pdp.dowsil-340-heat-sink-compound.01015443z.html, opened).
-- **Balance, 0.01 g**
-  - Vendor: Amazon: U.S. Solid precision balance 1 kg x 0.01 g with 500 g calibration weight (ASIN B09WZVKX5T)
-  - Price: $75.08
-  - Lead time: Product page: next day with Prime, 'Only 1 left in stock'
-  - Link: <https://www.amazon.com/dp/B09WZVKX5T>
-  - Note: Opened. Stated repeatability plus or minus 0.02 g, which is 0.2% of an 11 g density fill and 0.3% of the oil in a batch: enough for a 2% gate. 1 kg capacity also weighs the glass plates and the 500 g spread weight, which a 220 g balance cannot. Check it every session with a 100 g and a 500 g weight. Upgrade if it drifts: Ohaus Scout SPX222, $359.64 at ScalesGalore, in stock, ships today, free ground, calibration weight included (https://www.scalesgalore.com/product/Ohaus-Scout-SPX222-30253019-Portable-Balance-220-x-001g-px42653.cfm, opened); $384.95 on Amazon with delivery Wed 7 Oct (search listing).
+- **Balance, 0.001 g**
+  - Vendor: U.S. Solid, JFDBS00057-500G / USS-DBS57-5, 500 g capacity.
+  - Price: $184.99 advertised; confirm delivery.
+  - Link: <https://ussolid.com/products/u-s-solid-500-x-0-001g-analytical-balance-1-mg-digital-precision-balance-lab-scale-html>
+  - Note: Paired with the smaller density measure to preserve sample mass. Manufacturer specifies ±0.002 g repeatability; includes draft shield and 500 g calibration weight. Validate performance at actual working masses. Weigh the plate and spread load separately; their combined mass exceeds capacity.
 - **Mixing cups with lids, spatulas, syringes**
   - Vendor: Amazon
   - Price: 2 oz cups with lids, 50 count $3.00; 15 stainless micro scoops $9.99 (ASIN B07HHWCNB9); 10 mL luer-slip syringes, 20 pack $8.79 (ASIN B07MVWQVKF). Total $21.78
@@ -168,7 +167,7 @@ About $1,430 including tax (about $1,060 from listed prices, the rest estimated 
 
 ### Small things to pick up locally
 
-- A density cup of the right size. A 25 g batch is only about 11 mL (my calculation at 40-45 vol%), so the cup must hold about 5-7 mL; the 1.5 oz steel cups I found need about 100 g of paste. Use a rigid stainless 1-teaspoon or half-tablespoon measure with a flat rim from a kitchen shop (no page opened, about $8, estimate), find its volume from five fills of distilled water on the balance, and level each fill with a straight edge (a razor scraper).
+- A small density measure: the 1/4-teaspoon member of a Vollrath 47118 set is a nominal 1.25 mL candidate. Water-calibrate its actual volume and validate filling during shakedown; it is not a certified density cup. Three fresh fills preserve far more of a 25 g batch than the previous 5 mL measure. See the call guide for the complete mass budget.
 - A 100 g check weight (no page opened, about $8, estimate) in addition to the 500 g one, so the balance is checked at two loads at the start of every session, plus a cardboard draught shield and a level, vibration-free spot.
 - A fixed way to photograph the spread: phone stand, ruler or printed millimetre grid under the lower plate, and a timer for the 60 s hold.
 - Run-id labels and a marker, one lidded cup per batch, zip bags and a small box for carrying retained samples to Livermore.
@@ -183,7 +182,7 @@ About $1,430 including tax (about $1,060 from listed prices, the rest estimated 
 - An alignment guide so the two bars sit on one axis every time: a length of angle stock or a V-block lined with insulation (no page opened).
 - Tweezers and a scalpel for cutting 2 x 2 mm shim tabs; cut about 20 sets, because tabs get contaminated with paste.
 - An insulated mug and a stirrer for comparing all thermocouples in one water bath, at room temperature and again near 60 C.
-- For the LongWin visit: at least 30 g of each sample (my estimate; ask them), your own spatulas, wipes and gloves, a USB stick or laptop for the Excel files, and the list of questions on paper.
+- For laboratory submission: the lab's confirmed grams per specimen and accepted containers, with SDSs and preparation/storage records. Do not assume 30 g or attempt to retain that amount from a 25 g batch.
 - Shipping and sales tax. No vendor page I opened showed shipping to California; my total uses estimates for these.
 - A backup of trajectory/campaigns/. The README says that folder is ignored by Git and is not backed up.
 
@@ -311,8 +310,8 @@ About $1,430 including tax (about $1,060 from listed prices, the rest estimated 
 
 ### Tue 6 Oct
 
-1. Phone LongWin (+1 925-393-3330) and send the enquiry form. Ask: half-day and full-day fee for an unaffiliated person; earliest slot in 12-16 Oct; opening hours; whether you may run the tester on a first visit; grease quantity per test; fixture thicknesses and pressures; single-thickness runs; hot face at 80 C or below; whether a zinc-oxide paste is allowed; raw Excel files; permission to publish naming the lab. Decline above $1,000.
-2. Place the order-now list to your own address. Ask Atlantic Equipment Engineers for 2-day shipping and the AL-611 data sheet and size certificate. Ask ScienceKitStore for an expedited option and the oil data sheet. Order DOWSIL 340 from SkyGeek before 2 pm Eastern with a fast service.
+1. Make the three lab quote calls using CALLS_AND_ORDERS.md. Request staffed multiple-thickness testing, quantities and data/publication terms. Target sample readiness around 15 Oct and results by 23 Oct, conditional on preparation. Ask for both full scope and a useful reduced scope if the quote exceeds the initial $1,000 target.
+2. Place the first cart from CALLS_AND_ORDERS.md to your own address after delivery confirmation. Request applicable SDSs and existing lot records. Confirm SkyGeek stock and any dispatch surcharge. Defer the thermal-rig assembly until design review.
 3. Decide who drills and faces the two aluminium blocks: makerspace, friend, or buy the drill press.
 4. Save the data sheets already available: alumina (AL-602), boron nitride, DOWSIL 340.
 5. traj.py rehearsal, session 1: two runs of any quick measurement, prediction logged before each.
@@ -403,7 +402,7 @@ Analysis only. For density and spread: day-to-day scatter of the 12 controls; ra
 Decide and log. Pass needs all of:
 (a) control scatter across the three days at or below 2% for density and 7% for spread;
 (b) extremes differ by at least 3 times the repeat scatter on two labels;
-(c) LongWin reads DOWSIL 340 within 15% of 0.67 W/mK and the two controls within 10% of each other;
+(c) the selected reference lab's QC and uncertainty are documented, and the independent controls are assessed under matched conditions against the proposed 10% repeatability threshold; the datasheet's typical DOWSIL value is context, not a certified calibration threshold;
 (d) cold model error exceeds repeat scatter on at least one label.
 If (c) has not happened yet, the decision is 'process labels pass, anchor pending'. Fail on (a) or (b): one week on technique and re-test on 25 Oct; fail again: copper. The home thermal label is judged on 25 Oct, not today. Run `anchor`.
 
