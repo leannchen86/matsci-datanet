@@ -23,7 +23,9 @@ Changed 5 October 2026. Copper electroplating was the working choice for a few h
 
 **Known weaknesses.** More filler giving more conductivity is textbook, so models may already predict the thermal number; the test may have to rest on the mixing, air and spread results. Hand-mixed pastes sit below commercial ones, and the leading chip-to-lid interface is moving to metal. LongWin's fee is not published. The home rig is a beginner's build and unproven until it agrees with LongWin. No human expert is in the loop apart from the safety checks only a person can do.
 
-**Fallback.** Copper electroplating. Nothing is bought for it now.
+**Fallback, and why not both.** Copper electroplating. Running both at the bench was checked and rejected: there is no scenario in which both are run before the 29 November review inside the budget, and the constraint on copper is written sign-off from people (a qualified person on ventilation and eyewash, the disposal route, the premises), not hours. Until the paste gate decision is logged, copper is about 10 hours of desk work with nothing bought; the steps are in section 9 of the checklist.
+
+**Who would use it.** The only group with visible demand for this kind of item is people who build tests for frontier models, and for them a paste set and a copper set are about equally interesting and both far too small. Pastes are the better first set on cost, hazard and waste, not on market. Nobody is likely to pay for either; the method and a public, checkable record of the work are worth more than the numbers.
 
 The step-by-step checklist is [outputs/thermal-paste-first-cycle/CHECKLIST.md](outputs/thermal-paste-first-cycle/CHECKLIST.md). Sourcing detail, safety notes and the day-by-day plan behind it are in [README.md](outputs/thermal-paste-first-cycle/README.md) in the same folder.
 

@@ -6,6 +6,8 @@ Commands are run from the repository root.
 
 ## 1. Calls and orders (day one)
 
+Day one is paste orders and the LongWin call only. Two vendors are on Eastern time, so finish them before 11 am Pacific. Nothing for copper until every paste order has a confirmation.
+
 ### 1.1 LongWin thermal lab
 
 - [ ] Phone +1 925-393-3330 and also send the enquiry form at <https://longwinusa.com/contact/service-request/> (service type: TIM Test). Ask:
@@ -60,7 +62,8 @@ Commands are run from the repository root.
 
 ### 1.4 Decisions and people
 
-- [ ] Decide who drills and faces the two aluminium blocks: a makerspace, a friend with a shop, or buy the drill press and vise ($147).
+- [ ] Decide who drills and faces the two aluminium blocks: a makerspace, a friend with a shop, or buy the drill press and vise ($147). Put that work on a named day.
+- [ ] Send the paste safety questions to a qualified person on their own: respirator type and fit, handling 25 g of alumina over a tray in this room, and vapour from the rig at or below 80 °C. Ask for an answer before powder is first opened. Whether to open powder without it is your decision with the data sheets in hand. The fine alumina stays closed until its own data sheet arrives.
 - [ ] Book a respirator fit check with an occupational health provider.
 - [ ] Find someone with electronics experience to look over the heater wiring before it is first powered.
 - [ ] Tell your disposal route that the reference paste is 59 to 79% zinc oxide, and that its waste will be kept in a separate tub.
@@ -83,7 +86,11 @@ python3 trajectory/traj.py verify rehearsal-001
 - [ ] **Save and read the safety data sheets** for the alumina, the oil and the reference paste. Copy the hard limits from README.md onto one page and put it at the bench.
 - [ ] **Test whether models already know the answers.** Write 15 paste recipes from the table in section 4. For each, ask three models (fresh conversation each, prompt in `trajectory/ai-expert-prompts.md`, no campaign log) to predict density, mixing class and spread diameter. Save every reply verbatim with the model name and version.
 
-  **Done when:** 45 predictions are saved.
+- [ ] Score those replies against what is already published: the reference paste at 0.67 W/mK and specific gravity 2.1, and the no-air densities in the recipe table. Three models agreeing with each other is not evidence that they are right.
+
+  **Done when:** 45 predictions are saved and one table shows each model's error where a published value exists.
+
+- [ ] **Outside contact, sent by you.** Once that table exists (about 12 to 13 October), send one short question, with the task card and the table, to each group that builds tests for models in chemistry and materials. One message per group.
 
 - [ ] **Write the one-page task card:** what is given (the recipe fields), what must be predicted (mixing class, density, spread diameter; thermal impedance later), and how a prediction is scored against the scatter between repeats.
 - [ ] **Check the thermal calculation** returns LongWin's published example:
@@ -166,6 +173,7 @@ python3 trajectory/traj.py add paste-001 decision --text "what you will do next 
 - [ ] Wipe plates, spatula and cup with alcohol on a wipe. Damp wipes only for any stray powder; never sweep or blow.
 - [ ] Wipes that touched the reference paste go in its own tub. Oily wipes go in the closed container.
 - [ ] If a batch fails, start the observation text with the cause: `process`, `measurement`, `handling`, `equipment` or `unknown`.
+- [ ] At the end of every bench session run `python3 trajectory/traj.py verify paste-001` and write down the number of late or forced entries. It goes in Monday's numbers.
 
 ## 5. Shakedown, then the gate runs
 
@@ -223,3 +231,17 @@ At about 10 W the temperature difference along each bar is only about 2 °C, so 
 - [ ] Log the decision (pass, pending, one more week, or stop) and anchor it.
 
 If item 3 has not happened yet, the decision is "process labels pass, LongWin pending".
+
+## 9. Copper: desk work only
+
+About 10 hours in total, spread over the week, and nothing bought. Copper is not bench work until the paste gate decision is logged. If pastes pass, copper stays a desk item until the 29 November review. If pastes fail twice, copper replaces them.
+
+- [ ] **C1 (1 h).** Ask your household, your own landlord and insurer, and your friend's company whether each would accept corrosive (shipping class 8) chemicals and this work. Get the answers in writing.
+- [ ] **C2 (1 h).** One disposal conversation covering both tracks. Describe the project truthfully and ask them to classify it. Paste track: solids containing zinc oxide, oily wipes. Copper track: about 25 L of liquid every two weeks, pH about 1, about 40 g/L copper.
+- [ ] **C3 (1 h).** Write the copper questions for a qualified person on one page and ask for a fee quote: is this room's ventilation adequate for stirred, unheated, covered 267 mL baths; do a faucet eyewash and a household shower meet the data sheets; which gloves and face protection; acid mist in an occupied home; storage. Send it after the paste questions, never bundled with them.
+- [ ] **C4 (2 h).** Open the published robot copper dataset (<https://zenodo.org/records/19520337>) and find out whether it holds a measured outcome for each run.
+- [ ] **C5 (3 h).** Copper desk test with the same three models. Score it against that dataset if C4 says yes, otherwise against published thresholds. If nothing can be scored, log it as descriptive and draw no conclusion.
+- [ ] **C6 (1.5 h).** Copper task card on the same template as the paste card.
+- [ ] **C7 (1 h, the day after the paste gate decision).** Review: are C1 to C3 answered in writing, what is the quoted fee, does the fee plus about $3,300 fit a $4,200 ceiling, did C5 show that models get copper wrong. Write one decision.
+
+No acid or other copper chemical is ordered or opened until a qualified person who has seen the room has answered in writing, the disposal route has accepted the real volumes, and the people who own or share the premises have agreed.
