@@ -4,6 +4,8 @@ Updated Tuesday **6 October 2026**. Prepare samples by Thursday October 8 if fea
 
 Initial scope: **DOWSIL 340 plus two independently prepared batches of one alumina–silicone formulation**. This is a small preparation and measurement pilot.
 
+**Optional fourth specimen, priced separately: a blind duplicate.** A second container filled from batch A, under its own id, with the lab not told which two match. It shows how much the lab's own measurement varies. Without it, a difference between A and B cannot be assigned to the mixing or to the measurement.
+
 Follow the sections from top to bottom. Existing item IDs are preserved for tracking. Start enquiries now and continue independent tasks while replies are pending. Tick completed actions only; write “not needed” beside an unused fallback. Only item 01 is confirmed complete. Do not reorder anything already purchased.
 
 ## Today start the lab and preparation enquiries
@@ -11,7 +13,7 @@ Follow the sections from top to bottom. Existing item IDs are preserved for trac
 - [x] **01 — Call LongWin and obtain the scheduling contact.**
 - [ ] **02 — Review and send the brief LongWin email.** The Gmail draft remains unsent. Change “earlier this afternoon” to **“on October 5”** before sending today. Ask about availability from Friday October 9, price and sample requirements. Tick only after sending.
 - [ ] **15 — Arrange and complete the powder-handling review.** Start enquiries today with the actual SDSs and workspace description. Confirm dust control, PPE/fit if needed, cleanup and the waste route before opening powder. [Consultant directory](https://info.aiha.org/consultants-listing/); waste enquiries: **408-299-7300**. Continue no-powder preparation while awaiting the review.
-- [ ] **17 — Obtain the selected lab's written quote and appointment.** Start today; tick after agreement. Confirm three specimens, thickness series/repeats, test conditions, grams, containers/conditioning, total cost, data files/uncertainty, publication terms and receipt/result dates. Price staff operation and any observation/training option as needed.
+- [ ] **17 — Obtain the selected lab's written quote and appointment.** Start today; tick after agreement. Confirm three specimens and the price of the optional fourth (the blind duplicate), thickness series/repeats, test conditions, grams, containers/conditioning, total cost, data files/uncertainty, publication terms and receipt/result dates. Price staff operation and any observation/training option as needed.
 - [ ] **10 — Request the TEA backup quote: 650-961-5900.** Ask whether they accept outside-customer grease testing at multiple thicknesses; use the same three-specimen scope. Confirm a visit before driving. [Contact](https://thermengr.com/contact)
 - [ ] **11 — Request the Analysis Tech backup quote: 781-245-7825.** Call during East Coast business hours. Ask earliest testing/results dates, price, grams and shipping instructions. [Service](https://analysistech.com/thermal-material-testers/test-service/)
 
@@ -46,7 +48,7 @@ Confirm delivery dates before payment and ready-for-pickup status before driving
 ## Thursday October 8 finish preparation if ready
 
 - [ ] **23 — Prepare independent batch B.** Separately weigh and mix the same formulation using the recorded method; keep A and B separate. Log preparation time and deviations.
-- [ ] **24 — Pack three agreed specimens.** DOWSIL, A and B in accepted containers; check grams/labels. Include the manifest, composition/SDSs and preparation/storage/remixing instructions. Retain archive portions and save thermal predictions before results arrive.
+- [ ] **24 — Pack the agreed specimens.** DOWSIL, A and B in accepted containers, plus the blind duplicate of A if it was agreed; check grams/labels. Include the manifest, composition/SDSs and preparation/storage/remixing instructions. Retain archive portions and save thermal predictions before results arrive.
 - [ ] **28 — Fix the order of the record before specimens leave.** Log the forecasts for the lab's numbers under each specimen's own measurement id. Run `verify`, then `anchor` for the pilot and the registry; commit and push `trajectory/anchors.log`; timestamp that file with an outside service and keep the receipt; copy `trajectory/campaigns/` to a second disk. Send the lab the technical follow-up: date, time and order of each specimen's test, whether each thickness is a fresh loading, how thickness is measured, and written permission to publish naming the lab.
 
 ## Friday October 9 or the confirmed later appointment
