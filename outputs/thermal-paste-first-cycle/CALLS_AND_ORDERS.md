@@ -1,10 +1,30 @@
 # Thermal paste calls and first orders
 
-Updated 5 October 2026. Start with a quote for staffed thermal testing, the four materials below, and the density/spread bench kit. You are an independent individual paying personally. Prices are advertised USD prices checked on this date, before tax and delivery unless stated. No purchase, contact, booking or delivery is confirmed by this document.
+Track completed actions in [CHECKLIST.md](CHECKLIST.md). This document is the supplier and planning reference.
+
+Updated 5 October 2026. Start with a quote for staffed thermal testing, the four materials below, and the density/spread bench kit. Prices are advertised USD prices checked on this date, before tax and delivery unless stated. A LongWin phone referral was reported by the user; no purchase, appointment, sample acceptance or delivery is confirmed by this document.
+
+Lead supplier and laboratory conversations with the experimental goal. Provide affiliation and billing details when requested or needed to complete the transaction; they do not need to be in the opening pitch.
+
+## Accelerated first submission: Thursday 8 October
+
+**October 8 is a conditional sample-ready target for an initial pilot, not a promised testing/result date or completion of the full repeatability study.** Request a slot now, without waiting for samples to exist. The larger shakedown and gate study in README.md and BENCH_PROTOCOL.md still follows its own readiness criteria. Early pilot samples receive their own IDs and are not retrospectively counted as gate batches.
+
+| When | Action | Evidence needed to proceed |
+|---|---|---|
+| Monday 5 October evening | Send the goal-first scheduling draft to the contact supplied by LongWin. Ask for the earliest engineer-run slot and whether a cancellation slot is possible. Offer October 8 as tentative readiness and ask about drop-off. | A request is not a reservation. Obtain grams per specimen, accepted container, bulk paste versus prepared specimen, sample age/remixing requirements, preparation instructions and quote. |
+| Tuesday 6 October, early morning Pacific | Call AEE and the oil supplier; request Tuesday dispatch and Wednesday 7 October delivery. Reserve locally available supplies before driving. | Written dispatch/service/arrival confirmation and complete price. An in-stock page alone does not establish arrival. |
+| Tuesday 6 October, daytime | Obtain a suitable balance, containers and basic bench kit. Rehearse weighing, water-volume checks, labels and logging. Complete the planned handling review with actual SDSs and workspace details. | Working balance; repeatable measurement method if collecting home density/spread labels; suitable powder handling arrangements. Keep powder sealed until those arrangements are resolved. |
+| Wednesday 7 October | Check deliveries, identities, lots and documents. Confirm the lab's required mass; size each batch to include laboratory allocation, QA, archive and losses. Rehearse the intended mixing procedure, then prepare and log pilot control A if it works. | Enough accepted material, reproducible execution and a usable sample. Save poor outcomes too, but tell the lab what is being submitted. Confirm or revise Thursday readiness with LongWin. |
+| Thursday 8 October | Prepare independent pilot control B using the recorded procedure if feasible; document any change. Package the agreed commercial comparator and pilot batch(es), SDSs, composition and storage/preparation notes. Drive to Livermore only for an accepted drop-off. | Lab acceptance and appointment; sufficient grams; intact, labelled containers; actual sample ages and independent batch IDs. This may be sample delivery only. |
+
+The current oil–alumina recipe does not include a curing step; the lab must still confirm conditioning, storage and maximum sample age. Two batches from the same day test between-batch consistency, not between-day reproducibility. If they are made on Wednesday and Thursday, record that difference and their ages at testing.
+
+**Wednesday decision:** if ingredients, balance, handling arrangements or lab instructions are still missing, do not promise homemade samples for Thursday. Ask whether a commercial DOWSIL 340-only pilot is useful and can be priced separately, with homemade samples later. A commercial-only test can establish the testing workflow and file delivery; it does not test the value of expanded preparation histories. If only one homemade batch is ready, ask for a two-specimen scope (commercial plus homemade); it cannot establish between-batch consistency. Split submissions only if the lab agrees and the extra setup cost is acceptable. The full home thermal rig and the larger recipe survey are not prerequisites for this early external test.
 
 ## 1 Call the reference labs
 
-Call on Tuesday 6 October if Monday business hours have ended. Make the East Coast supplier calls before 11 am Pacific. Aim for samples ready around 15 October, conditional on supplies and preparation, and results by Friday 23 October. Ask each laboratory for its actual receipt deadline before promising these dates.
+Call on Tuesday 6 October if Monday business hours have ended. Make the East Coast supplier calls early in the Pacific morning; ask the actual dispatch cutoff. Target initial pilot samples as early as Thursday 8 October, conditional on the accelerated plan above. Keep results by Friday 23 October as the latest project target, while requesting the earliest available testing and results. Ask each laboratory for its actual receipt deadline before promising dates.
 
 | Call | Number | Purpose |
 |---|---|---|
@@ -15,11 +35,11 @@ Call on Tuesday 6 October if Monday business hours have ended. Make the East Coa
 
 ### Opening script
 
-> Hi, I'm [name], an independent, self-funded researcher with no company or university affiliation. I'm preparing a small alumina-and-silicone thermal-paste experiment. Do you accept individual customers, and could I speak with the engineer who quotes ASTM D5470 testing?
+> Hi, I'm [name]. I'm preparing a small experiment to measure the thermal conductivity and batch-to-batch consistency of alumina–silicone thermal pastes. Could I speak with the engineer who quotes ASTM D5470 testing?
 >
 > I'd prefer your engineer to run the first tests. Please quote three specimens: DOWSIL 340 commercial paste, and two independently mixed batches of the same alumina–silicone formulation. I want to measure batch consistency and apparent thermal conductivity while separating contact effects. Could you recommend an appropriate thickness series and test conditions?
 >
-> Samples may be ready around October 15, subject to preparation. I'm aiming for results by October 23. What sample-receipt date would you need?
+> I'm targeting sample readiness as early as Thursday October 8, subject to preparation and your sample requirements. What is your earliest engineer-run testing slot, and could I deliver the samples by appointment? I'd appreciate an earlier or cancellation slot if one becomes available. What result date would you expect?
 
 ### Questions to get answered
 
@@ -28,7 +48,7 @@ Call on Tuesday 6 October if Monday business hours have ended. Make the East Coa
 3. **Quantity:** How many grams per specimen cover loading losses, repeats and any reserve? Which containers and storage conditions do you require? Do you need fresh paste, a specified maximum sample age, or mixing immediately before testing?
 4. **Deliverables:** Request numerical thickness, impedance, temperature and load data, the conductivity fit and contact intercept, repeat results and uncertainty information. Ask separately which raw time-series/instrument files can be supplied; an Excel summary is not necessarily all raw data.
 5. **Dates and price:** Ask for an itemized quote and a committed result date. The first-package spending target is about **$1,000**, not a known market price. If the full scope costs more, request both the full quote and a scientifically useful smaller scope before deciding. Do not assume four pastes fit into one day: LongWin lists about 2–4 hours per material. [Method and service](https://longwinusa.com/services/thermal-interface-material-test/)
-6. **Administration:** Can they invoice an individual and accept a personal card? What deposit/cancellation terms apply? Can you publish the supplied measurements and name the lab? Can you observe the engineer if access permits?
+6. **Administration:** What billing details, payment methods and deposit/cancellation terms apply? Provide personal billing or affiliation details if requested. Can you publish the supplied measurements and name the lab? Can you observe the engineer if access permits?
 7. **Acceptance:** Which SDSs and composition details do they need? Is DOWSIL 340 acceptable? Arrange any visit or drop-off; published opening hours do not confirm walk-in acceptance.
 
 Close with: “Please email the scope, sample requirements, price and receipt/result dates. May I have your name and direct contact for the technical follow-up?”
@@ -40,6 +60,7 @@ If no local date is confirmed by Wednesday 7 October, pursue the mail-in booking
 | They ask | Answer |
 |---|---|
 | What is this project? | A small proof of concept studying reproducible paste preparation and complete experimental records. It is research, not product qualification or certification. |
+| Which company or university are you with? | I am conducting this independently and would pay personally. |
 | What exactly is in the homemade paste? | Nominal 1000 cSt PDMS silicone fluid plus coarse and fine fused alumina. No curing agent or intentionally added nanopowder. Provide the exact supplier documents and weighed recipe before acceptance. |
 | What is the starting formulation? | Proposed control: 40% filler by volume, with 30% of the alumina assigned to the fine grade. The current 25 g calculation is about 6.71 g oil, 12.81 g coarse alumina and 5.49 g fine alumina. Supplier density assumptions and actual weighed masses will be documented. |
 | Three different formulations? | No. One commercial comparator and two separately prepared batches of the same homemade formulation, preferably made on different days. |
@@ -47,8 +68,8 @@ If no local date is confirmed by Wednesday 7 October, pursue the mail-in booking
 | What is its viscosity? | The base oil is nominally 1000 cSt. The filled paste's viscosity has not been measured; oil viscosity is not paste viscosity. |
 | What thickness and pressure? | No application-specific requirement has been fixed. Please propose conditions suitable for this grease and particle size, and document measured thickness and applied load. |
 | How many grams will you send? | We will size the batches after you confirm the grams required. Current 25 g practice batches do not imply 25 g available for testing. |
-| Are samples ready? | Not yet. October 15 is a target, conditional on deliveries, protocol shakedown and the handling review. |
-| Are they confidential? | We intend to publish selected data. Please identify any contractual restrictions before we commission the test. No institutional affiliation or existing confidentiality agreement should be implied. |
+| Are samples ready? | Not yet. October 8 is a tentative initial-pilot target, conditional on deliveries, preparation, handling arrangements and your requirements. I can update the expected drop-off date on October 7; final readiness depends on completing both batches. |
+| Are they confidential? | We intend to publish selected data. Please identify any contractual restrictions before we commission the test. |
 | Can you operate the instrument? | I am a beginner with this instrument and prefer staffed testing first. I would be interested in observing or later training if available. |
 
 ## 2 Order the four materials
@@ -64,7 +85,7 @@ If no local date is confirmed by Wednesday 7 October, pursue the mail-in booking
 
 ### AEE script
 
-> I'd like two pounds each of AL-602 and AL-611 for a small independent materials experiment. Can you sell to an individual and ship to a residential California address? What is the delivered total and earliest arrival with expedited shipping?
+> I'd like two pounds each of AL-602 and AL-611 for an alumina–silicone materials experiment. What is the delivered total and earliest arrival with expedited shipping to my California ZIP?
 >
 > Please supply the current SDS and COA for each grade, with lot numbers. Is an existing particle-size distribution available for these lots, including the measurement method? Please confirm the true particle density separately from bulk or tapped density. Please quote any extra documentation or testing fee before adding it.
 
@@ -72,9 +93,9 @@ AEE says purchased materials come with a COA and SDS; particle-size analysis is 
 
 ### Silicone oil script
 
-> I'm ordering one quarter gallon of AK1000, nominal 1000 cSt. Can it arrive at my California ZIP by October 9 or 10? Please confirm dispatch date and expedited cost before I pay. Please send the SDS applicable to the shipped product and tell me the manufacturer, lot number, and viscosity specification or tolerance.
+> I'm ordering one quarter gallon of AK1000, nominal 1000 cSt. Can you dispatch Tuesday October 6 for arrival Wednesday October 7? Please confirm dispatch cutoff, available shipping service, arrival date and complete cost before I pay. Please send the SDS applicable to the shipped product and tell me the manufacturer, lot number, and viscosity specification or tolerance.
 
-The [contact page](https://sciencekitstore.com/index.php?rt=content/contact) lists **973-777-3113**; the [shipping policy](https://sciencekitstore.com/shipping-policy) instead lists **973-777-8667**. Try the contact-page number first. Its normal 3–10-business-day shipping window does not ensure arrival for the proposed shakedown. Supplier refusal of individual/residential orders is a reason to obtain an alternative quote, not to invent an employer.
+The [shipping policy](https://sciencekitstore.com/shipping-policy) gives **973-777-8667** specifically for urgent shipping; the [contact page](https://sciencekitstore.com/index.php?rt=content/contact) also lists **973-777-3113**. Use the urgent-shipping number first. It ships from New Jersey and says most orders ship the same day, but its normal 3–10-business-day delivery window does not support October 8 preparation. Contact the supplier before placing an expedited order. Supplier refusal of individual/residential orders is a reason to obtain an alternative quote, not to invent an employer.
 
 ### SkyGeek script
 
@@ -83,6 +104,28 @@ The [contact page](https://sciencekitstore.com/index.php?rt=content/contact) lis
 Call **888-759-4335** or **845-677-8185**, weekdays 9 am–5 pm Eastern. SkyGeek does not take credit-card orders over the phone; place the order online. [Contact policy](https://help.skygeek.com/hc/en-us/articles/360050789413--Contact-Us-Email-and-Phone-Number)
 
 Its product page offers guaranteed same-day dispatch for an additional **$25**, during 7 am–2 pm Eastern. This is dispatch, not same-day delivery. The listing's shipping classification may affect the available services. Do not buy the optional $15 manufacturer certification expecting a thermal calibration certificate; ask what it actually contains. [Dow typical properties](https://www.dow.com/en-us/pdp.dowsil-340-heat-sink-compound.01015443z.html)
+
+### Fast sourcing in the Bay Area
+
+Use **confirmed local pickup for supplies and any locally stocked oil/comparator, plus expedited shipping for the exact alumina grades**. No Bay Area pickup source for AL-602 and AL-611 has been verified. Online catalogue availability is not local shelf stock. Reserve and obtain a ready-for-pickup confirmation before driving; do not tour suppliers speculatively.
+
+| Priority / source | Ask for | Verified route and remaining uncertainty |
+|---|---|---|
+| **AEE: 201-828-9400** | Two pounds each of AL-602 and AL-611, same shipment, lot documents. | Both product pages list stock; its [homepage](https://micronmetals.com/) advertises same-day overnight shipping generally. [Supplier is in New Jersey](https://micronmetals.com/contact/). Request Tuesday October 6 dispatch / Wednesday October 7 arrival. No cutoff or commitment for this order is confirmed. Powder subtotal **$92.28** before tax/freight. |
+| **Lab Pro: 408-745-0222**, 1290 Anvilwood Ct, Sunnyvale | DOWSIL 340, 142 g tube; candidate Spectrum SI114 Silicone Fluid 1000; suitable balance, cups and utensils if stocked. | [Same-day will-call is advertised](https://labproinc.com/pages/our-story). [DOWSIL tube is listed at $62.45](https://labproinc.com/products/dow-dowsil-340-heat-sink-compound-lubricant-bearing-grease-white-142-g-tube-340-cmpd-142g-tube). Exact Sunnyvale stock, oil availability/sizes, pickup hours and price require a phone check. |
+| **Michelli: 800-903-8823**, 25352-A Cypress Ave, Hayward | Purchase or short rental of a 0.001 g readability balance, roughly 300–500 g capacity, draft shield and appropriate check weights. | [Hayward location provides balance sales and rental](https://www.michelli.com/our-locations/california/hayward-calibration-service-area). Suitable model, stock, price and pickup eligibility are unconfirmed. Use if Lab Pro cannot supply one promptly; get a quote before driving. |
+| **East Bay Restaurant Supply: 510-465-4300**, 49 4th St, Oakland | Norpro 3049 stainless measuring-spoon set, including 1/4 teaspoon. | [Listed at $7.99 with Oakland pickup, usually ready in 24 hours](https://eastbayrestaurantsupply.com/products/norp3049). Confirm ready status. Inspect shape and calibrate actual fill volume; it is not a certified density cup. |
+| **J&M Windows and Glass: 408-371-7255**, 745 E McGlincy Lane, Campbell | Four matching 4-inch-square clear glass plates, approximately 1/8-inch thick, with safe finished edges. | [Custom glass cutting](https://www.jandmglass.com/products-services/custom-glass-solutions/) and [local pickup contact](https://www.jandmglass.com/contact-us/) verified. Size feasibility, edge work, price and ready date require a quote. These are spread plates, not assumed D5470 substrates for LongWin. |
+| **CHEF'STORE**, San Jose: 1731 W San Carlos St, 408-971-2637; Oakland: 400 Oak St, 510-251-9345 | Cups, utensils, trays and storage containers meeting the agreed requirements. | [Public stores; no membership needed](https://www.chefstore.com/locations/CA/). Exact items need a stock check. A small walk-in basket avoids buying extra to meet a pickup-order minimum. |
+| **Grainger: 800-472-4643**, San Jose: 2261 Ringwood Ave; San Leandro: 444 Doolittle Dr | Selected PPE, trays and other bench consumables. | [Same-day pickup applies to locally available products](https://www.grainger.com/content/find-branch-location); reserve exact items first. |
+
+Lab Pro call:
+
+> I'm preparing an alumina–silicone thermal-paste experiment. Could you physically check your Sunnyvale stock for one 142 g tube of DOWSIL 340 and Spectrum SI114 Silicone Fluid 1000? What sizes are available, and can you reserve them for pickup? Please confirm price, pickup hours and available lot/SDS/COA information before I drive. Do you also have a 0.001 g balance with a draft shield and suitable check weights available to buy or rent?
+
+[Spectrum SI114](https://www.spectrumchemical.com/silicone-fluid-1000-si114) is a documented candidate alternative to AK1000, not an automatically identical material. Confirm the current specification, lot and SDS before selecting it; use one oil source/lot for the first comparison and record any change. The [manufacturer's listing](https://www.spectrumchemical.com/pdfdetails/pdf/index/productSku/SI114/) shows 100 g and 1 kg sizes at $110.10 and $340.30 respectively, not a Lab Pro quote. One hundred grams supports a small pilot but is insufficient for the original 12-shakedown/20-gate-batch campaign plus losses. Compare a local quote with expedited AK1000 rather than assuming pickup is cheaper.
+
+The online U.S. Solid balance remains a lower-price candidate, but the [manufacturer](https://ussolid.com/) says in-stock items ship within two business days from Ohio. Do not count it as arriving Wednesday without a specific expedited commitment. SkyGeek remains the shipped DOWSIL fallback. For all parcels, verify the complete delivery address and ZIP at checkout rather than using a location supplied only for route planning.
 
 ## 3 Buy the density and spread kit
 

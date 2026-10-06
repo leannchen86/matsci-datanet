@@ -27,7 +27,7 @@ Changed 5 October 2026. Copper electroplating was the working choice for a few h
 
 **What this first cycle is for.** It is a proof of concept, not the dataset. It is small on purpose. It has to show two things: that records made this way are good (repeatable, checkable, complete), and that someone outside wants more of them. If both hold, the next step is to scale; the cost and hours per record measured here set the price of doing so. The likeliest first audience is people who build tests for frontier models.
 
-Start calls and purchases with [CALLS_AND_ORDERS.md](outputs/thermal-paste-first-cycle/CALLS_AND_ORDERS.md). The bench checklist is [CHECKLIST.md](outputs/thermal-paste-first-cycle/CHECKLIST.md); [README.md](outputs/thermal-paste-first-cycle/README.md) contains the technical background and candidate equipment. The smaller density measure and 0.001 g balance require shakedown validation; final gate-batch size depends on the selected lab's sample requirement.
+Start with [CHECKLIST.md](outputs/thermal-paste-first-cycle/CHECKLIST.md), the single completion tracker for the first sample submission. [CALLS_AND_ORDERS.md](outputs/thermal-paste-first-cycle/CALLS_AND_ORDERS.md) contains supplier scripts and specifications; [BENCH_PROTOCOL.md](outputs/thermal-paste-first-cycle/BENCH_PROTOCOL.md) preserves detailed procedures and the later study. [README.md](outputs/thermal-paste-first-cycle/README.md) contains the technical background and candidate equipment. The smaller density measure and 0.001 g balance require shakedown validation; final gate-batch size depends on the selected lab's sample requirement.
 
 ### Gates
 

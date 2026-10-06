@@ -2,7 +2,7 @@
 
 Prepared 5 October 2026. Nothing here has been ordered, booked or sent. Every vendor page was opened by a checker on 5 October unless a note says otherwise; prices marked as estimates are estimates. LongWin's fee is not published anywhere and has to be asked.
 
-**For calls and first purchases, start with [CALLS_AND_ORDERS.md](CALLS_AND_ORDERS.md).** It contains the scripts, lab Q&A, current first cart and sample budget. Then use [CHECKLIST.md](CHECKLIST.md) for bench execution. The equipment catalogue and original calendar below provide background; dates depend on actual delivery, handling review and laboratory acceptance. `recipe.py` gives ingredient masses and `thermal.py` does the thermal calculations.
+**Start with [CHECKLIST.md](CHECKLIST.md), the single completion tracker for the first submission.** It lists the calls, purchases, preparation and handoff actions targeting readiness as early as **Thursday 8 October**. Consult [CALLS_AND_ORDERS.md](CALLS_AND_ORDERS.md) for supplier scripts and specifications, and [BENCH_PROTOCOL.md](BENCH_PROTOCOL.md) for detailed procedures and the later repeatability study. The equipment catalogue and original calendar below provide background; dates depend on actual delivery, handling review and laboratory acceptance. `recipe.py` gives ingredient masses and `thermal.py` does the thermal calculations.
 
 ## What this is
 
