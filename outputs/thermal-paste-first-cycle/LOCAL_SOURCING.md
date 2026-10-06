@@ -6,7 +6,7 @@ This file preserves supplier observations from October 5. Its displayed stock, p
 
 ## October 6 update: local oil and balance options
 
-**User phone report: Lab Pro has neither silicone oil nor a 0.001 g balance.** **October 6 purchase update:** user supplied confirmation of one each of McMaster 10405K83, 5092N124 and 5092N131, delivery shown October 7. No oil purchase, balance loan or pickup reservation is confirmed. The user is asking a friend to borrow a balance; dealer purchases/rentals below are fallbacks. The entries below supersede the older oil/balance routes in this file.
+**User phone report: Lab Pro has neither silicone oil nor a 0.001 g balance.** **October 6 email audit:** McMaster 10405K83, 5092N124 and 5092N131 have shipped, expected October 7 by 5 p.m. **One** Grainger 807HY9 oil bottle is ordered, pickup estimated October 7 after 9 a.m.; wait for its ready notice. The user also reports ordering the 0.001 g balance; its order details and arrival are not yet email-verified. Follow [CHECKLIST.md](CHECKLIST.md) for receipt and checks. The earlier two-bottle proposal and dealer/loan searches below are historical fallbacks, not additional purchases needed now.
 
 | Priority | Supplier and item | Evidence and next action |
 |---|---|---|

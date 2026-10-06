@@ -1,6 +1,6 @@
 # Thermal paste first cycle: sourcing and prep plan
 
-Prepared 5 October 2026. Nothing here has been ordered, booked or sent. Every vendor page was opened by a checker on 5 October unless a note says otherwise; prices marked as estimates are estimates. LongWin's fee is not published anywhere and has to be asked.
+Original plan prepared 5 October 2026; order status updated 6 October. McMaster ingredients and one Grainger oil bottle are ordered, the user reports ordering a balance, and LongWin has replied to the initial email. Receipt, balance checks, a completed service request, quote and appointment remain pending. See CHECKLIST.md for the current state. The older equipment catalogue and calendar below describe the broader study, not an additional shopping list for the first submission. Historical vendor checks and prices are dated; LongWin's fee still requires a quote.
 
 **Start with [CHECKLIST.md](CHECKLIST.md), the single completion tracker for the first submission.** It lists the calls, purchases, preparation and handoff actions targeting readiness as early as **Thursday 8 October**. Consult [CALLS_AND_ORDERS.md](CALLS_AND_ORDERS.md) for supplier scripts and specifications, and [BENCH_PROTOCOL.md](BENCH_PROTOCOL.md) for detailed procedures and the later repeatability study. The equipment catalogue and original calendar below provide background; dates depend on actual delivery, handling review and laboratory acceptance. `recipe.py` gives ingredient masses and `thermal.py` does the thermal calculations.
 
