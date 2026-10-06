@@ -2,13 +2,13 @@
 
 Checked Monday 5 October 2026, about 6:10 to 6:40 pm Pacific. Nothing was ordered, booked or phoned. Every stock and delivery figure is what a web page showed, not a guarantee: phone before driving and confirm dates at checkout with your own address.
 
-This file is reference material behind [CHECKLIST.md](CHECKLIST.md). Call scripts are in [CALLS_AND_ORDERS.md](CALLS_AND_ORDERS.md).
+This file preserves supplier observations from October 5. Its displayed stock, prices, hours and Tuesday delivery windows are historical, not current order commitments. Follow [CHECKLIST.md](CHECKLIST.md) for the active actions and fallback decisions. Call scripts are in [CALLS_AND_ORDERS.md](CALLS_AND_ORDERS.md).
 
 ## What being local changes
 
-The first practice batch can move from Thursday or Friday to Tuesday 6 October. Almost none of that comes from Bay Area shelves: nobody local was found stocking the planned alumina grades, and no documented 1000 cSt oil is confirmed on a shelf. It comes from next-day delivery and one hardware shop. Driving helps most with what parcels cannot do: a respirator fit test this week, the aluminium bar, and handing samples to a lab.
+Earlier practice depends on confirmed supplies and suitable handling arrangements. No local shelf stock of the planned alumina grades or documented 1000 cSt oil was established by this search. Driving is useful for reserved supplies, an arranged service or an accepted laboratory visit; confirm before travelling. Thermal-rig purchases remain deferred.
 
-## Order online tonight
+## Online options observed October 5
 
 | Item | Source | Price | Shown delivery | Same as planned? |
 |---|---|---|---|---|
@@ -32,7 +32,7 @@ Unverified: whether McMaster gives that delivery window to a first-time individu
 | Ferrules, terminal block, polyimide tape | Anchor Electronics, 2040 Walsh Ave, Santa Clara; (408) 727-3693; weekdays 7:30 am to 4 pm | Phone first |
 | Granite surface plate for lapping | Woodcraft, 40 El Camino Real, San Carlos; 650-631-9663 | $44.99 online; store stock unverified |
 
-A sensible Tuesday loop, about two hours with stops: Industrial Metal Supply, Grainger (5 minutes apart), Anchor Electronics, Lab Pro, home.
+The metal and electronics suppliers above are for the later thermal rig, not today's shopping route. For this pilot, drive only to confirmed preparation-supply pickups or arranged services.
 
 ## Still mail order
 
@@ -55,9 +55,9 @@ Either way, never mix sources inside the gate series, and decide before the prot
 
 Keep practice runs in their own campaign in the logging tool (for example `paste-practice`), not just under a different `_lot`. `verify` counts exact repeats from the recipe settings and ignores the lot.
 
-## Machining the rig blocks
+## Later reference for machining the rig blocks
 
-This is the one thing driving does not speed up much. A local machine shop's own site says about two weeks for prototype work. Fastest sensible route: buy the bar sawn to length on Tuesday, phone two or three shops with a one-page sketch and ask for the earliest day, and if nobody offers under a week, drill at home and lap by hand. Blocks made that way are recorded as "saw-cut, hand-lapped, flatness not measured" and are for shakedown only.
+Rig purchases and construction follow a completed design review and are not prerequisites for this submission. The earlier search found a shop advertising about two weeks for prototypes; obtain a current quote when the drawing is settled. Any later hand-finished blocks need their actual preparation and unmeasured flatness recorded before considering the results.
 
 ## Labs by distance
 
