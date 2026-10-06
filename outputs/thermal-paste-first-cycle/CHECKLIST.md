@@ -1,6 +1,6 @@
 # Thermal paste first submission checklist
 
-Target: samples ready for an agreed lab drop-off as early as **Thursday 8 October 2026**. Testing and results may follow later. Tick a box only when the action is complete; supplier stock, delivery dates and lab bookings still need confirmation.
+Target: samples ready by **Thursday 8 October 2026**, with a requested lab appointment as early as **Friday 9 October** or the earliest available date afterward. No appointment is confirmed; testing and results may follow later. Tick a box only when the action is complete; supplier stock, delivery dates and lab bookings still need confirmation.
 
 Initial scope: **three specimens — DOWSIL 340 plus two separately weighed and mixed batches of the same alumina–silicone formulation.** Lead conversations with this experimental goal.
 
@@ -9,7 +9,7 @@ Initial scope: **three specimens — DOWSIL 340 plus two separately weighed and 
 ## Tonight Monday 5 October
 
 - [x] **01 — Call LongWin and obtain a scheduling contact.** Completed, as reported in this chat.
-- [ ] **02 — Email that contact.** The goal-first Gmail draft is prepared for review as of October 5; **not sent**. Request the earliest engineer-run slot; say October 8 readiness is tentative and offer a progress update October 7. Ask for a quote, grams per specimen, containers, conditioning/sample-age requirements, and expected result date. Tick only after sending.
+- [ ] **02 — Email that contact.** Use the brief goal-first Gmail draft for review; **not sent**. Refer to the afternoon call and request an appointment as early as Friday October 9, or the earliest available date afterward. Keep October 8 as the tentative preparation target; confirm the quote and sample requirements in the technical follow-up. Tick only after sending.
 
 - [ ] **03 — Place one McMaster-Carr order.** [Dow Corning 340 tube, 10405K83](https://www.mcmaster.com/10405K83/), $69.83, the identical reference product; [fine alumina 5092N131](https://www.mcmaster.com/5092N131/), 5 lb, $22.44; [coarse alumina 5092N124](https://www.mcmaster.com/5092N124/), 5 lb, $22.26. The pages showed next-morning delivery on Monday evening: check the date at checkout and that they deliver to an individual at a home address. Download the three SDSs. The two powders are practice material, a different grade from the planned ones; see item 05.
 
@@ -40,10 +40,13 @@ Make the East Coast supplier calls early in the Pacific morning. Confirm stock a
 - [ ] **21 — Prepare pilot batch A if ready.** Record the plan, actual ingredient masses/lots, mixing steps, times, observations, home measurements and storage. Save any model forecasts before measuring the outcomes they predict. Reserve the agreed laboratory quantity in a labelled container.
 - [ ] **22 — Update LongWin on readiness.** Report what has arrived and been prepared, what remains, and the expected drop-off date. Confirm the appointment or request a revised date. Do not describe batch B as finished before it exists.
 
-## Thursday 8 October submission if ready
+## Thursday 8 October preparation if ready
 
 - [ ] **23 — Prepare independent pilot batch B.** Weigh and mix it separately using the recorded formulation and method; repeat the logging and checks. Keep A and B separate. Record their different preparation times and any deviations.
 - [ ] **24 — Pack the agreed three specimens.** DOWSIL 340, A and B in accepted containers. Verify available grams and labels; attach the sample manifest, composition/SDSs and preparation/storage/remixing instructions. Retain archive portions and save any thermal predictions before receiving results.
+
+## Friday 9 October or the confirmed later appointment
+
 - [ ] **25 — Deliver at the confirmed appointment.** Obtain confirmation of the received sample IDs, quantities and expected result date. For a mail-in lab, use its accepted shipping and receiving instructions.
 
 If materials, handling arrangements, lab acceptance or sample preparation are unresolved, update the lab and move the submission date. Ask about a smaller first submission only if useful and separately priced; record the agreed scope change.

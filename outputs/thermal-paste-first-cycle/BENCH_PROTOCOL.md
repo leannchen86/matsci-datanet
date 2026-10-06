@@ -2,7 +2,7 @@
 
 Use [CHECKLIST.md](CHECKLIST.md) as the single completion tracker. This reference preserves the detailed preparation, logging and later study procedures; supplier scripts and specifications are in [CALLS_AND_ORDERS.md](CALLS_AND_ORDERS.md).
 
-The initial October 8 submission is an exploratory pilot. Use separate pilot run IDs and record preparation changes. The larger shakedown, gate study and thermal rig below follow their own readiness criteria; their original dates are provisional and do not have to be completed before the early submission. Rig construction details are candidates pending the design review described in CALLS_AND_ORDERS.md.
+The initial exploratory pilot targets preparation by October 8 and an appointment from October 9 onward, subject to readiness and lab confirmation. Use separate pilot run IDs and record preparation changes. The larger shakedown, gate study and thermal rig below follow their own readiness criteria; their original dates are provisional and do not have to be completed before the early submission. Rig construction details are candidates pending the design review described in CALLS_AND_ORDERS.md.
 
 Commands are run from the repository root. Example measurements are illustrative, not collected results. Use the PPE and cleanup method selected for the actual materials and workspace.
 

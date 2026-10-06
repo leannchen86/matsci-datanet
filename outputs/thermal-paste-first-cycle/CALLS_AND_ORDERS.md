@@ -6,17 +6,18 @@ Updated 5 October 2026. Start with a quote for staffed thermal testing, the four
 
 Lead supplier and laboratory conversations with the experimental goal. Provide affiliation and billing details when requested or needed to complete the transaction; they do not need to be in the opening pitch.
 
-## Accelerated first submission: Thursday 8 October
+## Accelerated preparation: Thursday 8 October; appointment requested from Friday 9 October
 
-**October 8 is a conditional sample-ready target for an initial pilot, not a promised testing/result date or completion of the full repeatability study.** Request a slot now, without waiting for samples to exist. The larger shakedown and gate study in README.md and BENCH_PROTOCOL.md still follows its own readiness criteria. Early pilot samples receive their own IDs and are not retrospectively counted as gate batches.
+**October 8 is a conditional sample-ready target for an initial pilot. Request an appointment as early as Friday October 9, or the earliest available date afterward; none is confirmed.** Request a slot now, without waiting for samples to exist. Readiness does not promise a testing/result date or completion of the full repeatability study. The larger shakedown and gate study in README.md and BENCH_PROTOCOL.md still follows its own readiness criteria. Early pilot samples receive their own IDs and are not retrospectively counted as gate batches.
 
 | When | Action | Evidence needed to proceed |
 |---|---|---|
-| Monday 5 October evening | Send the goal-first scheduling draft to the contact supplied by LongWin. Ask for the earliest engineer-run slot and whether a cancellation slot is possible. Offer October 8 as tentative readiness and ask about drop-off. | A request is not a reservation. Obtain grams per specimen, accepted container, bulk paste versus prepared specimen, sample age/remixing requirements, preparation instructions and quote. |
+| Monday 5 October evening | Send the brief goal-first scheduling draft to the contact supplied by LongWin. Refer to the afternoon call and ask for an appointment as early as Friday October 9, or the earliest available date afterward. Keep October 8 as the tentative preparation target. | A request is not a reservation. In the technical follow-up, obtain grams per specimen, accepted container, bulk paste versus prepared specimen, sample age/remixing requirements, preparation instructions and quote. |
 | Tuesday 6 October, early morning Pacific | Call AEE and the oil supplier; request Tuesday dispatch and Wednesday 7 October delivery. Reserve locally available supplies before driving. | Written dispatch/service/arrival confirmation and complete price. An in-stock page alone does not establish arrival. |
 | Tuesday 6 October, daytime | Obtain a suitable balance, containers and basic bench kit. Rehearse weighing, water-volume checks, labels and logging. Complete the planned handling review with actual SDSs and workspace details. | Working balance; repeatable measurement method if collecting home density/spread labels; suitable powder handling arrangements. Keep powder sealed until those arrangements are resolved. |
 | Wednesday 7 October | Check deliveries, identities, lots and documents. Confirm the lab's required mass; size each batch to include laboratory allocation, QA, archive and losses. Rehearse the intended mixing procedure, then prepare and log pilot control A if it works. | Enough accepted material, reproducible execution and a usable sample. Save poor outcomes too, but tell the lab what is being submitted. Confirm or revise Thursday readiness with LongWin. |
-| Thursday 8 October | Prepare independent pilot control B using the recorded procedure if feasible; document any change. Package the agreed commercial comparator and pilot batch(es), SDSs, composition and storage/preparation notes. Drive to Livermore only for an accepted drop-off. | Lab acceptance and appointment; sufficient grams; intact, labelled containers; actual sample ages and independent batch IDs. This may be sample delivery only. |
+| Thursday 8 October | Prepare independent pilot control B using the recorded procedure if feasible; document any change. Package the agreed commercial comparator and pilot batch(es), SDSs, composition and storage/preparation notes. | Sufficient grams; intact, labelled containers; actual sample ages and independent batch IDs; storage and conditioning agreed with the lab. |
+| Friday 9 October or the confirmed later appointment | Drive to Livermore only for an accepted appointment or drop-off. | Lab acceptance and appointment confirmed; samples ready. This may be sample delivery only; testing and results may follow later. |
 
 The current oil–alumina recipe does not include a curing step; the lab must still confirm conditioning, storage and maximum sample age. Two batches from the same day test between-batch consistency, not between-day reproducibility. If they are made on Wednesday and Thursday, record that difference and their ages at testing.
 
@@ -24,7 +25,7 @@ The current oil–alumina recipe does not include a curing step; the lab must st
 
 ## 1 Call the reference labs
 
-Call on Tuesday 6 October if Monday business hours have ended. Make the East Coast supplier calls early in the Pacific morning; ask the actual dispatch cutoff. Target initial pilot samples as early as Thursday 8 October, conditional on the accelerated plan above. Keep results by Friday 23 October as the latest project target, while requesting the earliest available testing and results. Ask each laboratory for its actual receipt deadline before promising dates.
+Call on Tuesday 6 October if Monday business hours have ended. Make the East Coast supplier calls early in the Pacific morning; ask the actual dispatch cutoff. Target initial pilot samples ready by Thursday 8 October, conditional on the accelerated plan above, and request an appointment from Friday 9 October onward. Keep results by Friday 23 October as the latest project target, while requesting the earliest available testing and results. Ask each laboratory for its actual receipt deadline before promising dates.
 
 | Call | Number | Purpose |
 |---|---|---|
@@ -39,7 +40,7 @@ Call on Tuesday 6 October if Monday business hours have ended. Make the East Coa
 >
 > I'd prefer your engineer to run the first tests. Please quote three specimens: DOWSIL 340 commercial paste, and two independently mixed batches of the same alumina–silicone formulation. I want to measure batch consistency and apparent thermal conductivity while separating contact effects. Could you recommend an appropriate thickness series and test conditions?
 >
-> I'm targeting sample readiness as early as Thursday October 8, subject to preparation and your sample requirements. What is your earliest engineer-run testing slot, and could I deliver the samples by appointment? I'd appreciate an earlier or cancellation slot if one becomes available. What result date would you expect?
+> I'm targeting sample readiness by Thursday October 8, subject to preparation and your sample requirements. Would an engineer-run appointment be available as early as Friday October 9, or what is the earliest date afterward? Could I deliver the samples by appointment, and what result date would you expect?
 
 ### Questions to get answered
 
@@ -68,7 +69,7 @@ If no local date is confirmed by Wednesday 7 October, pursue the mail-in booking
 | What is its viscosity? | The base oil is nominally 1000 cSt. The filled paste's viscosity has not been measured; oil viscosity is not paste viscosity. |
 | What thickness and pressure? | No application-specific requirement has been fixed. Please propose conditions suitable for this grease and particle size, and document measured thickness and applied load. |
 | How many grams will you send? | We will size the batches after you confirm the grams required. Current 25 g practice batches do not imply 25 g available for testing. |
-| Are samples ready? | Not yet. October 8 is a tentative initial-pilot target, conditional on deliveries, preparation, handling arrangements and your requirements. I can update the expected drop-off date on October 7; final readiness depends on completing both batches. |
+| Are samples ready? | Not yet. October 8 is the tentative preparation target, conditional on deliveries, handling arrangements and your requirements. We are requesting an appointment from Friday October 9 onward; none is confirmed. I can update readiness on October 7; final readiness depends on completing both batches. |
 | Are they confidential? | We intend to publish selected data. Please identify any contractual restrictions before we commission the test. |
 | Can you operate the instrument? | I am a beginner with this instrument and prefer staffed testing first. I would be interested in observing or later training if available. |
 
