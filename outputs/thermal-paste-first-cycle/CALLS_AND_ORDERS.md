@@ -61,7 +61,7 @@ If no local date is confirmed by Wednesday 7 October, pursue the mail-in booking
 |---|---|
 | What is this project? | A small proof of concept studying reproducible paste preparation and complete experimental records. It is research, not product qualification or certification. |
 | Which company or university are you with? | I am conducting this independently and would pay personally. |
-| What exactly is in the homemade paste? | Nominal 1000 cSt PDMS silicone fluid plus coarse and fine fused alumina. No curing agent or intentionally added nanopowder. Provide the exact supplier documents and weighed recipe before acceptance. |
+| What exactly is in the homemade paste? | Nominal 1000 cSt PDMS silicone fluid plus coarse and fine alumina. The planned AEE grades are fused; the McMaster fallback's fused/calcined identity remains to be confirmed. Final grade and lot selection follows CHECKLIST item 05. No curing agent or intentionally added nanopowder. Provide the exact supplier documents and weighed recipe before acceptance. |
 | What is the starting formulation? | Proposed control: 40% filler by volume, with 30% of the alumina assigned to the fine grade. The current 25 g calculation is about 6.71 g oil, 12.81 g coarse alumina and 5.49 g fine alumina. Supplier density assumptions and actual weighed masses will be documented. |
 | Three different formulations? | No. One commercial comparator and two separately prepared batches of the same homemade formulation, preferably made on different days. |
 | What conductivity do you expect? | The homemade value is unknown. We want a measurement, including uncertainty. DOWSIL's published 0.67 W/m·K is a typical property, not a certified calibration value. |

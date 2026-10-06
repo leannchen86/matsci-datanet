@@ -9,7 +9,7 @@ Initial scope: **three specimens — DOWSIL 340 plus two separately weighed and 
 ## Tonight Monday 5 October
 
 - [x] **01 — Call LongWin and obtain a scheduling contact.** Completed, as reported in this chat.
-- [ ] **02 — Email that contact.** Use the local goal-first draft. Request the earliest engineer-run slot; say October 8 readiness is tentative and offer a progress update October 7. Ask for a quote, grams per specimen, containers, conditioning/sample-age requirements, and expected result date.
+- [ ] **02 — Email that contact.** The goal-first Gmail draft is prepared for review as of October 5; **not sent**. Request the earliest engineer-run slot; say October 8 readiness is tentative and offer a progress update October 7. Ask for a quote, grams per specimen, containers, conditioning/sample-age requirements, and expected result date. Tick only after sending.
 
 - [ ] **03 — Place one McMaster-Carr order.** [Dow Corning 340 tube, 10405K83](https://www.mcmaster.com/10405K83/), $69.83, the identical reference product; [fine alumina 5092N131](https://www.mcmaster.com/5092N131/), 5 lb, $22.44; [coarse alumina 5092N124](https://www.mcmaster.com/5092N124/), 5 lb, $22.26. The pages showed next-morning delivery on Monday evening: check the date at checkout and that they deliver to an individual at a home address. Download the three SDSs. The two powders are practice material, a different grade from the planned ones; see item 05.
 
