@@ -121,7 +121,7 @@ Use **confirmed local pickup for supplies and any locally stocked oil/comparator
 
 Lab Pro call:
 
-> I'm preparing an alumina–silicone thermal-paste experiment. Could you physically check your Sunnyvale stock for one 142 g tube of DOWSIL 340 and Spectrum SI114 Silicone Fluid 1000? What sizes are available, and can you reserve them for pickup? Please confirm price, pickup hours and available lot/SDS/COA information before I drive. Do you also have a 0.001 g balance with a draft shield and suitable check weights available to buy or rent?
+> I'm preparing an alumina–silicone thermal-paste experiment. Could you physically check your Sunnyvale stock for one 142 g tube of DOWSIL 340 and a documented 1000 cSt silicone fluid? Your site lists Dow XIAMETER PMX-200 1000 cs; Spectrum SI114 would also suit. What sizes are available, and can you reserve them for pickup? Please confirm price, pickup hours and available lot/SDS/COA information before I drive. Do you also have a 0.001 g balance with a draft shield and suitable check weights available to buy or rent?
 
 [Spectrum SI114](https://www.spectrumchemical.com/silicone-fluid-1000-si114) is a documented candidate alternative to AK1000, not an automatically identical material. Confirm the current specification, lot and SDS before selecting it; use one oil source/lot for the first comparison and record any change. The [manufacturer's listing](https://www.spectrumchemical.com/pdfdetails/pdf/index/productSku/SI114/) shows 100 g and 1 kg sizes at $110.10 and $340.30 respectively, not a Lab Pro quote. One hundred grams supports a small pilot but is insufficient for the original 12-shakedown/20-gate-batch campaign plus losses. Compare a local quote with expedited AK1000 rather than assuming pickup is cheaper.
 

@@ -2,7 +2,7 @@
 
 Checked Monday 5 October 2026, about 6:10 to 6:40 pm Pacific. Nothing was ordered, booked or phoned. Every stock and delivery figure is what a web page showed, not a guarantee: phone before driving and confirm dates at checkout with your own address.
 
-This file adds to [CALLS_AND_ORDERS.md](CALLS_AND_ORDERS.md) and does not replace it. Where the two differ, the difference is listed at the end.
+This file is reference material behind [CHECKLIST.md](CHECKLIST.md). Call scripts are in [CALLS_AND_ORDERS.md](CALLS_AND_ORDERS.md).
 
 ## What being local changes
 
@@ -71,9 +71,6 @@ Neither is a walk-in. Phone first and drive only for an agreed drop-off.
 - **Respirator fit test.** WellnessMart MD, 1901 Old Middlefield Way, Mountain View (also 1141 Ringwood Court, San Jose); 208-579-2266. Published prices: qualitative $65, quantitative $95, respirator clearance $47. Ask whether they will test a half-mask with P100 filters that you bring, and whether the clearance is needed first.
 - **Waste.** County of Santa Clara Household Hazardous Waste: (408) 299-7300. Free for residents, by appointment, up to 15 liquid gallons or 125 solid pounds per vehicle. A Sunnyvale event is listed for Saturday 17 October, 8 am to noon. Nothing published says whether waste from a hobby experiment, or a paste that is 59 to 79% zinc oxide, counts as household waste: ask exactly that.
 
-## Where this differs from CALLS_AND_ORDERS.md
+## Status
 
-- That file asks Lab Pro for Spectrum SI114 silicone fluid. No SI114 was found on Lab Pro's site; the oil it lists is Dow XIAMETER PMX-200 1000 cs. Ask for that.
-- That file treats the planned alumina grades as the only record lot. The McMaster powders are a documented alternative that arrives sooner; see the first decision above.
-- McMaster lists the identical Dow 340 tube for next-morning delivery, which may be faster than either Lab Pro will-call or SkyGeek.
-- Hobby shock oil and Home Depot glass are practice-only stand-ins that file does not list.
+The actions from this file are merged into [CHECKLIST.md](CHECKLIST.md), which is the one list to work from. This file stays as the reference for addresses, prices and what was and was not verified.
