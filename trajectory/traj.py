@@ -15,6 +15,7 @@ Standard library only. Typical use:
 import argparse
 import hashlib
 import json
+import re
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
@@ -74,6 +75,8 @@ def hash_files(root, name, paths):
             sys.exit(f"File not found: {p}")
         if base not in path.parents:
             sys.exit(f"{p} is outside the campaign folder. Move it under {base}/raw/ first.")
+        if path.name == "log.jsonl":
+            sys.exit("The log cannot be attached to itself: it changes with every entry.")
         out.append({"path": str(path.relative_to(base)), "sha256": sha256_bytes(path.read_bytes())})
     return out
 
@@ -85,9 +88,14 @@ def parse_data(pairs):
             sys.exit(f"--data needs key=value, got: {pair}")
         key, value = pair.split("=", 1)
         try:
-            data[key.strip()] = json.loads(value)
+            parsed = json.loads(value)
         except json.JSONDecodeError:
-            data[key.strip()] = value.strip()
+            parsed = value.strip()
+        # "1e5" or "12E3" is more likely a lot or serial number than a measurement: keep it as written.
+        is_number = isinstance(parsed, (int, float)) and not isinstance(parsed, bool)
+        if is_number and not re.fullmatch(r"-?\d+(\.\d+)?", value.strip()):
+            parsed = value.strip()
+        data[key.strip()] = parsed
     return data
 
 
@@ -147,6 +155,13 @@ def cmd_add(args):
             if not args.force:
                 sys.exit(f"Run {args.run} already has an observation. A prediction now is hindsight; use --force to log it as such.")
             flags.append("after_outcome")
+    if args.at:
+        try:
+            happened = datetime.fromisoformat(args.at)
+        except ValueError:
+            sys.exit(f"--at is not an ISO time: {args.at}")
+        if happened.tzinfo is None:
+            sys.exit("--at needs a UTC offset, for example 2026-10-08T14:03-07:00.")
     files = hash_files(args.root, args.campaign, args.file or [])
     entry = new_entry(entries, args.type, args.author, read_text(args), args.run, files, flags,
                       parse_data(args.data), args.at)
@@ -220,6 +235,8 @@ def cmd_show(args):
             continue
         if args.hide_test and e.get("run") in held_back:
             continue
+        if args.exclude_run and e.get("run") == args.exclude_run:
+            continue
         run = f" {e['run']}" if e.get("run") else ""
         flags = f" [{', '.join(e['flags'])}]" if e.get("flags") else ""
         print(f"#{e['seq']} {e['ts']} {e['type']}{run} by {e['author']}{flags}")
@@ -261,7 +278,7 @@ def main():
     s.add_argument("--file", action="append", help="raw file inside the campaign folder; repeatable")
     s.add_argument("--data", action="append", metavar="KEY=VALUE",
                    help="structured field; repeatable. Plain keys are settings; keys starting with '_' are context, e.g. _session, _lot, _chosen_by, _status")
-    s.add_argument("--at", help="when it actually happened, if not now (ISO time)")
+    s.add_argument("--at", help="when it actually happened, if not now (ISO time with UTC offset)")
     s.add_argument("--force", action="store_true", help="log an out-of-order entry and flag it")
     s.set_defaults(func=cmd_add)
 
@@ -273,6 +290,7 @@ def main():
     s.add_argument("campaign")
     s.add_argument("--run")
     s.add_argument("--hide-test", action="store_true", help="leave out every run marked _split=test; use this for anything pasted into a model")
+    s.add_argument("--exclude-run", help="leave out one run, so its own plan and first prediction stay out of its second prompt")
     s.set_defaults(func=cmd_show)
 
     s = sub.add_parser("anchor", help="write the head hash to anchors.log for public timestamping")

@@ -6,10 +6,12 @@ A model's reasoning is not the valuable part of the record. The valuable parts a
 
 ## 1. Before the run: two predictions, cold and warm
 
+Start every prediction prompt with the block in [prompt-preamble.md](prompt-preamble.md), unchanged. Use the first reply only, with memory and web search off, and save the prompt as sent.
+
 Ask twice, in two fresh conversations, with the same prompt:
 
 - **Cold:** leave the campaign log out and write "none" in its place. The model sees only the planned run.
-- **Warm:** paste the output of `traj.py show <campaign> --hide-test`. Do not include anything from the run being predicted.
+- **Warm:** paste the output of `traj.py show <campaign> --hide-test --exclude-run <this run>`. Do not include anything from the run being predicted.
 
 **Held-back outcomes never go to a model.** Anything pasted into a model may end up in training data, and a leaked answer cannot be un-leaked. Mark every held-back run with `--data _split=test` on its plan entry and always use `--hide-test` when building a prompt. For the same reason, do not ask a model to interpret a held-back run; write that interpretation yourself.
 

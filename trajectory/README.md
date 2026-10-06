@@ -1,5 +1,7 @@
 # Trajectory log
 
+**What every record must contain, the ids, and the rules that cannot be fixed afterwards are in [RECORD.md](RECORD.md).** The printable [batch sheet](batch-sheet.md) is the original record at the bench, and [prompt-preamble.md](prompt-preamble.md) is pasted into every prediction prompt.
+
 The unit of data in this project is a **trajectory**, not a row of numbers: a goal pursued through many runs, with the plan, what was actually done, the raw readings, the interpretation, the next decision and the dead ends, each written down at the time.
 
 `traj.py` keeps that record honest. It is an append-only log in which every entry carries the hash of the one before it, so nobody, including us, can later reorder or rewrite what was predicted and what was found. It uses only the Python standard library.
