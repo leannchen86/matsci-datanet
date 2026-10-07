@@ -1,66 +1,79 @@
-# Thermal paste first submission checklist
+# Thermal paste: what to do next
 
-Updated Tuesday **6 October 2026**. Prepare samples by Thursday October 8 if feasible; request a lab appointment from **Friday October 9** onward. No appointment is confirmed.
+Updated Tuesday 6 October 2026, late evening. This page is the whole plan. The long versions are in [BENCH_PROTOCOL.md](BENCH_PROTOCOL.md) (bench method, section 1) and [CALLS_AND_ORDERS.md](CALLS_AND_ORDERS.md) (scripts and the LongWin form guide). Numbers in brackets are the old item numbers those files refer to.
 
-Initial scope: **DOWSIL 340 plus two independently prepared batches of one alumina–silicone formulation**. This is a small preparation and measurement pilot.
+**Goal:** hand LongWin three samples: the bought reference paste, and two batches (A and B) of one home-mixed recipe, made separately.
 
-**At the bench:** follow the [first-submission hands-on run sheet](BENCH_PROTOCOL.md#1-hands-on-run-sheet-for-the-first-submission) and use one [batch sheet](../../trajectory/batch-sheet.md) per physical batch. The instructions do not mark any delivery, handling review, balance check, batch or appointment complete.
+## Where things stand
 
-**Optional fourth specimen, priced separately: a blind duplicate.** A second container filled from batch A, under a neutral external code, with the lab not told which two match. Keep the batch mapping privately. This is a consistency check spanning splitting, handling, loading and measurement; one pair does not isolate the lab's own measurement variance.
+- **Arriving Wednesday 7 October:** coarse alumina, fine alumina and the reference paste (McMaster, by 5 pm); silicone oil (Grainger San Jose, 2261 Ringwood Ave, pick up only after the ready notice); the 0.001 g balance (check your order for its date).
+- **LongWin:** wants its service form before quoting. Needs about 1 mL of each sample. About one week to test plus one week to report. No appointment yet.
+- **Do not buy:** more powder, more oil, another balance, or anything for the thermal rig.
 
-Follow the sections from top to bottom. Existing item IDs are preserved for tracking. Tick completed actions only; mark unused routes “not needed.” Items 01, 02, 03, 06, 07, 09 and 12 are complete. **McMaster has shipped** one each of **5092N124 (5 lb coarse alumina), 5092N131 (5 lb fine alumina), and 10405K83 (340 reference paste)**, with delivery expected **October 7 by 5 p.m.** **One 4 fl oz bottle of Grainger 807HY9 oil is ordered**, and the user confirms ordering a **0.001 g balance**. Receipt, balance qualification and the lab quote/appointment remain unconfirmed. The reference is listed as a 5 fl oz tube; record the actual net quantity from its label on arrival rather than assuming 142 g. Keep private correspondence, addresses, order/payment/tracking identifiers and screenshots out of this public repository. **Do not buy these ingredients or a balance again, place an AEE order, or buy a second oil bottle for the first controls.**
+## Three things that gate everything
 
-## Today start the lab and preparation enquiries
+- [ ] **G1. Powder handling [15].** Do not open either powder until your workspace, dust control and protective equipment are settled. Everything in "Set up" below can be done without powder.
+- [ ] **G2. LongWin form [17].** Fill it in and send it. Ask for: price, which container to use, a drop-off date, the measured data points as Excel, permission to publish naming the lab, and the price of an optional fourth sample.
+- [ ] **G3. Balance check [16].** It must pass (step S5) before you weigh a recipe.
 
-- [x] **01 — Call LongWin and obtain the scheduling contact.**
-- [x] **02 — Send the brief LongWin email.** Sent; LongWin replied October 6 requesting its service form before quoting. Follow-up work is tracked in item 17.
-- [ ] **15 — Arrange and complete the powder-handling review.** Start enquiries today with the actual SDSs and workspace description. Confirm dust control, PPE/fit if needed, cleanup and the waste route before opening powder. [Consultant directory](https://info.aiha.org/consultants-listing/); waste enquiries: **408-299-7300**. Continue no-powder preparation while awaiting the review.
-- [ ] **17 — Complete LongWin's service form and obtain the written quote and appointment.** The October 6 reply explicitly requests **about 1 cc (1 mL) of each paste specimen, including allowance for different thicknesses and issue-related retests**. Quantity has been answered for the described scope; container/conditioning instructions remain open. Proposed scope: thermal impedance plus conductivity for **DOWSIL 340, independent A and independent B**, with the optional fourth blind duplicate priced separately, at one common pressure and temperature. The engineer should propose suitable conditions and three thicknesses using the actual powder information; three thickness points are not three independent repeats. Confirm price/payment, uncertainty, accepted containers and receipt/drop-off date. Service is first come, first served for material drop-offs, with an indicative **one week for testing plus one week for the report**, subject to queue changes. A Friday October 9 receipt would put a two-week estimate around October 23, not guarantee a report before October 25. **Per-specimen, per-point Excel data and written permission to publish naming the lab remain pending.** The form is the immediate quoting step; no appointment or quote is confirmed. [Form field guide](CALLS_AND_ORDERS.md#longwin-service-form-next-action)
-- [ ] **10 — Request the TEA backup quote if needed: 650-961-5900.** Contingency if LongWin's scope, price or timing does not work; not a blocker while its booking progresses. Ask whether they accept outside-customer grease testing at multiple thicknesses; use the same three-specimen scope. Confirm a visit before driving. [Contact](https://thermengr.com/contact)
-- [ ] **11 — Request the Analysis Tech backup quote if needed: 781-245-7825.** Contingency on the same basis as item 10. Call during East Coast business hours. Ask earliest testing/results dates, price, grams and shipping instructions. [Service](https://analysistech.com/thermal-material-testers/test-service/)
+## Set up (no powder needed)
 
-## Today choose and order one set of materials
+- [ ] **S1.** Collect the oil and the parcels. Photograph every label and lot number before opening anything. [18]
+- [ ] **S2.** Read both powder certificates in full. The coarse one says 99.40% against 99.5% on the listing; write that down. [05]
+- [ ] **S3.** Gather the kit: about ten lidded 60 mL plastic cups, two powder scoops (one per powder, never swapped), one mixing spatula, one tool used only for the reference paste, labels, marker, wipes, a rimmed tray, two waste tubs, a timer. [13]
+- [ ] **S4.** Wash the cups and tools and dry them completely.
+- [ ] **S5.** Check the balance. Warm it up and level it as its manual says. With check weights of about 2 g, 5 g and 20 g, place and remove each one five times and write down all five readings. Do one more check with the empty cup on the pan. **Pass:** every reading is within 0.010 g of the weight, and the five readings are within 0.010 g of each other.
+- [ ] **S6.** Turn off location tagging on your phone camera. Print four [batch sheets](../../trajectory/batch-sheet.md). Fix the ids: **B001** practice, **B002** batch A, **B003** batch B. [27]
 
-Confirm delivery dates before payment and ready-for-pickup status before driving. Wednesday October 7 arrival is the target; advertised overnight service is not an order confirmation.
+## Make one batch
 
-- ~~**04 — Call/order AEE.**~~ **Not needed:** McMaster powders ordered for this first cycle.
-- [x] **03 — Order McMaster ingredients.** Confirmed and shipped October 6: **one 5092N124**, **one 5092N131**, **one 10405K83**. Item subtotal **$114.53**, excluding tax/shipping. Delivery expected October 7 by 5 p.m.; receipt remains item 18.
-- [ ] **05 — Document the selected McMaster powders before mixing.** Certificates for both grades have been received; only their text previews have been inspected, not the full PDFs. The coarse certificate states **99.40% Al2O3**, compared with **99.5%** in the listing. Inspect the complete documents and verify the shipped grade/lot and this discrepancy before freezing the material specification. Save current SDSs and lot certificates; record actual size/grade information and any unresolved fused/calcined identity. Supply the material information to the lab for acceptance. Use the same selected grade/lot pair for both A and B.
-- [x] **06 — Call Lab Pro about oil and a balance: 408-745-0222.** Called October 6; user reports **no silicone oil and no 0.001 g balance**. Use items 07 and 12 instead. Availability of weights, cups and DOWSIL remains unconfirmed. **1290 Anvilwood Ct, Sunnyvale.** [Supplier](https://labproinc.com/pages/our-story)
-- [x] **07 — Order one bottle of [Grainger 807HY9 / Super Lube 56404](https://www.grainger.com/product/SUPER-LUBE-Silicone-Oil-Silicone-Oil-807HY9).** **One 4 fl oz bottle (about 118 mL)** of nominal 1000 cSt silicone oil is ordered, with **San Jose pickup expected October 7 after 9 a.m.** Wait for the ready notice before driving; pickup remains item 18. One bottle is sufficient for the initial 25 g practice/control batches: each uses about **6.71 g (6.9 mL)** oil, or about **21 mL** for practice plus A and B, before losses. No second bottle is needed for this pilot. [Material reference](LOCAL_SOURCING.md#october-6-update-local-oil-and-balance-options)
-- [ ] **08 — Decide whether separate practice oil is needed.** Optional; skip if the documented oil is available. Hobby oil is excluded from lab-bound batches; unresolved material identity/handling documentation is not waived for practice. Existing candidate details are in LOCAL_SOURCING.md.
-- [x] **09 — Order one 340 reference-paste tube.** Included in the confirmed McMaster order, **10405K83**. Do not buy another. Verify the package label and save SDS/lot information on receipt (item 18).
+About 30 to 45 minutes. The same steps for the practice batch, A and B.
 
-## Today obtain the preparation equipment
+| Ingredient | Total | How it goes in |
+|---|---|---|
+| Silicone oil | 6.71 g | All at the start |
+| Coarse alumina | 12.81 g | 4.27 g in each of three rounds |
+| Fine alumina | 5.49 g | 1.83 g in each of three rounds |
 
-- [x] **12 — Order a 0.001 g balance.** User confirms ordering after the Bonvoisin 500 g × 0.001 g option was discussed; **exact model, capacity and arrival date still need verification**. Check the order/manual and what calibration/check weights and draft shield are included. Do not buy or arrange another balance routinely. Receipt and performance qualification remain item 16; **0.001 g readability does not establish 0.001 g accuracy**.
-- [ ] **13 — Collect the basic prep kit.** Suggested starter quantities: **about 10 lidded PP mixing/practice cups**, **two dedicated dry-powder scoops**, **one mixing spatula**, **one separate reference-paste transfer utensil**, labels/marker, wipes, one rimmed tray, secondary containment and suitable waste containers. Dispense oil directly or with a separate clean oil-only aid; never return a paste-covered tool to stock. Four tools require cleaning/drying the shared mixing tool between batches; identical clean spares for practice/A/B are easier if available. Use suitable existing supplies; cup size depends on final batch mass. Select PPE through item 15. **Wait for the lab's instructions before choosing submission containers:** three are planned, or four if the blind duplicate is agreed. Receipt of this kit remains unconfirmed. Supplier details remain in the reference documents.
-- [ ] **14 — Collect the home density/spread kit if taking these measurements.** Rigid **1/4-teaspoon measure**, support/straightedge, distilled water, matching **4-inch glass plates with safe edges**, separate **500 g spread weight**, thermometer/hygrometer, caliper, phone stand, grid and timer. Spoon enquiry: **East Bay Restaurant Supply, 510-465-4300**; glass enquiry: **J&M Campbell, 408-371-7255**. These additional measurements are not required by the lab merely to accept bulk paste; record any omission.
-- [ ] **16 — Receive and qualify the balance; rehearse weighing and logging.** Verify model/capacity, use the manual's warm-up and calibration procedure, and work on a stable surface with draft protection. Check repeatability and indication error with documented-tolerance reference weights across the actual additions and cumulative working range, using the actual vessel and representative tare/preload. The staged run sheet uses **1.83 g fine, 4.27 g coarse and 6.71 g oil additions**; practical check masses around **2 g, 5 g and 20 g**, including a check on a preloaded cup, cover this range. Documented combinations may be used with combined tolerance/uncertainty. Record five place/remove readings at each selected load and check for drift/static effects. **Proposed preparation criterion, not a validated accuracy standard:** each absolute indication error **plus the reference-weight tolerance/uncertainty** should be no more than **0.010 g**, and the repeated readings should span no more than **0.010 g** at each checked load. If this is not met, resolve the weighing method before preparing recipe batches. Documented M1 weights may fit this preparation budget; choose by stated tolerance, not class label alone, and do not automatically buy a $95 F1 set. Record actual ingredient masses. Label containers, set up photos and record a practice plan/action/result. **Home density qualification is separate:** if collecting it, check the actual small net loads around 1–3 g, calibrate the measure with five water fills at measured temperature and require the inferred volumes to agree within the proposed **0.5%** repeatability target; this does not establish volume or density accuracy. Keep practice runs in a separate campaign. [Procedures](BENCH_PROTOCOL.md)
-- [ ] **27 — Set up the record before the first batch.** About 3 hours, and none of it can be recovered later. Turn off location tagging on the phone camera and fix one photo format. Write the id sheet. Print ten [batch sheets](../../trajectory/batch-sheet.md). Fill in and save the [prediction preamble](../../trajectory/prompt-preamble.md). As each container arrives and before opening it, photograph the label and log its lot note (seller, manufacturer, lot or "none given", documents, date opened). Log the balance checks and the water calibration of the measure. After the practice batch, write the method as actually used as `BP-v1`. What each of these is and why is in [RECORD.md](../../trajectory/RECORD.md).
+1. Label the cup with the batch id. Fill in the top of a batch sheet. Save the model's forecast for this batch before you start (prompt in [prompt-preamble.md](../../trajectory/prompt-preamble.md)).
+2. Protective equipment on. Work on the tray.
+3. Put the empty cup on the balance, no lid, no tool. Write down its mass. Tare. Add **6.71 g** of oil. Write down the actual reading.
+4. Tare again. With the coarse scoop, held low over the cup, add **4.27 g** coarse powder. Write the actual reading. Close the pail.
+5. Tare again. With the fine scoop, add **1.83 g** fine powder. Write the actual reading. Close the pail.
+6. Take the cup off the balance. Fold and scrape for **60 seconds**: bottom, walls, back to the centre. Scrape the spatula clean into the cup and rest it on its own spot.
+7. Repeat steps 4 to 6 twice more. That is three rounds in all.
+8. Mix for **3 more minutes** the same way. Scrape the spatula into the cup. Put the lid on and rest it **2 minutes**.
+9. Open it, photograph it with its id, and write down what you see: does it level, hold a peak, feel stiff, or still show dry powder? Note any dry pockets, bubbles or oil separating.
+10. Close and store upright. Finish the batch sheet, photograph it, and type it into the log the same day.
 
-## Wednesday October 7 prepare and assess readiness
+**Rules while mixing**
 
-- [ ] **18 — Receive and inspect materials.** McMaster delivery is expected **October 7 by 5 p.m.** Collect the **one Grainger oil bottle only after the ready-for-pickup notice**; expected October 7 after 9 a.m., at the public San Jose branch, **2261 Ringwood Ave**, whose published hours are **7:30 a.m.–4 p.m.** Verify both alumina grades, oil and DOWSIL; save labels, lots and documents, including the item 05 certificate check. Record substitutions. Confirm handling readiness and budget the lab's stated **about 1 mL per specimen**, plus archive, any optional home tests and losses. Revisit the lab quantity only if the testing scope changes. Balance receipt/qualification is tracked in item 16.
-- [ ] **19 — Calculate each submission batch.** Starting recipe: **40 vol% total alumina, 30% fine grade within the filler**. Budget the lab quantity plus the home measurements actually planned, archive and losses. Recalculate for actual material specifications; 25 g is a practice size, not a promised submission quantity.
-- [ ] **20 — Make and log a practice batch.** Rehearse the intended batch size and establish a usable timed mixing procedure. Save difficulties, deviations and poor outcomes.
-- [ ] **21 — Prepare independent batch A if ready.** Record the plan, actual masses/lots, mixing steps/times, observations and storage. Save any predictions before measuring their target outcomes. Reserve the lab quantity.
-- [ ] **22 — Update LongWin.** Report actual progress and expected readiness; agree a Friday/later receipt or drop-off date through item 17, or revise it if readiness slips. No appointment is currently booked. Do not report batch B as complete before it exists.
+- Tare fresh before every addition. Never weigh with the spatula in the cup. Never mix on the balance.
+- Overshot an addition? Write the real number and carry on. Do not take any back out.
+- Spilled something? Stop and write it down. Do not sweep it back in.
+- Never put a used tool into the powder pails or the oil bottle.
+- Damp-wipe any stray powder. No sweeping, no blowing, no household vacuum. Nothing down the drain.
+- A batch that goes wrong keeps its id and its record. Start again under the next id.
 
-## Thursday October 8 finish preparation if ready
+## Order of batches
 
-- [ ] **23 — Prepare independent batch B.** Separately weigh and mix the same formulation using the recorded method; keep A and B separate. Log preparation time and deviations.
-- [ ] **24 — Pack the agreed specimens.** DOWSIL, A and B in accepted containers, plus the blind duplicate of A if it was agreed; check grams/labels. Include the manifest, composition/SDSs and preparation/storage/remixing instructions. Retain archive portions and save thermal predictions before results arrive.
-- [ ] **28 — Fix the order of the record before specimens leave.** Log the forecasts for the lab's numbers under each specimen's own measurement id. Run `verify`, then `anchor` for the pilot and the registry; commit and push `trajectory/anchors.log`; timestamp that file with an outside service and keep the receipt; copy `trajectory/campaigns/` to a second disk. Send the lab the technical follow-up: date, time and order of each specimen's test, whether each thickness is a fresh loading, how thickness is measured, and written permission to publish naming the lab.
+- [ ] **B1. Practice (B001) [20].** If you could weigh, wet all the powder and keep to the times, write down the method exactly as you did it. If not, practise again under a new id.
+- [ ] **B2. Batch A (B002) [21].** Fresh ingredients, the written method.
+- [ ] **B3. Batch B (B003) [23].** Clean and fully dry the spatula first. Fresh ingredients again, on a different day if you can. Never split A to make B.
 
-## Friday October 9 or the confirmed later appointment
+## Pack and hand over
 
-- [ ] **25 — Deliver at the agreed appointment.** Obtain receipt confirming sample IDs, quantities and expected results date. Follow accepted shipping instructions if using a mail-in lab.
+- [ ] **P1.** Use the container LongWin names. For each one, weigh the empty container with its lid, fill it, weigh it sealed, and write down the difference.
+- [ ] **P2.** Put about **5 g** of A in one container and about 5 g of B in another. LongWin needs about 1 mL, which is roughly 2.2 g. Label them **B002-L1** and **B003-L1**.
+- [ ] **P3.** Keep the rest of each batch sealed as an archive: **B002-A1**, **B003-A1**.
+- [ ] **P4.** Reference paste: photograph its label and lot. Add nothing to it. Move about 5 g into its own container with the reference-only tool. Label it **REF-L1**.
+- [ ] **P5.** Optional fourth sample, only if LongWin quoted it: a second container filled from A, under a neutral label.
+- [ ] **P6.** Before the samples leave: save the model's forecast of the lab's numbers, then run `verify` and `anchor`, push, and copy `trajectory/campaigns/` to a second disk. [28]
+- [ ] **P7.** Tell LongWin what is ready and agree the drop-off. [22]
+- [ ] **P8.** Deliver with the safety data sheets and a list of what each container holds. Get a receipt and a result date. [25]
 
-If delivery, handling readiness, lab acceptance or preparation slips, update the lab and move the appointment. A smaller first submission requires an agreed scope and price.
+## Afterwards
 
-## After testing
+- [ ] **A1.** Save LongWin's files unchanged. Compare A with B and write down what you decide next. [26]
 
-- [ ] **26 — Archive and review results.** Save original numerical/raw files, methods, uncertainty information and cost. Compare A and B and record the next decision. Keep this pilot separate from the later study.
-
-Thermal-rig parts, machining, a drill press, extra formulations and copper experiments remain deferred. [CALLS_AND_ORDERS.md](CALLS_AND_ORDERS.md) contains detailed scripts; [LOCAL_SOURCING.md](LOCAL_SOURCING.md) contains historical supplier research requiring stock/date confirmation. Keep completion status in this checklist.
+Later, not now: the thermal rig, the density and spread measurements, more recipes, backup labs ([10], [11]) unless LongWin falls through.
