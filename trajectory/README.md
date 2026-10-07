@@ -1,6 +1,6 @@
 # Trajectory log
 
-**What every record must contain, the ids, and the rules that cannot be fixed afterwards are in [RECORD.md](RECORD.md).** The printable [batch sheet](batch-sheet.md) is the original record at the bench, and [prompt-preamble.md](prompt-preamble.md) is pasted into every prediction prompt.
+**What every record must contain, the ids, and the rules that cannot be fixed afterwards are in [RECORD.md](RECORD.md).** The printable [batch sheet](batch-sheet.md) is the original record at the bench, and [prompt-preamble.md](prompt-preamble.md) is pasted into every per-batch prediction prompt (not the desk-test prompts, which are sent alone).
 
 The unit of data in this project is a **trajectory**, not a row of numbers: a goal pursued through many runs, with the plan, what was actually done, the raw readings, the interpretation, the next decision and the dead ends, each written down at the time.
 
@@ -69,7 +69,7 @@ python3 trajectory/traj.py show <campaign> --run R01
 python3 trajectory/traj.py anchor <campaign>
 ```
 
-`verify` checks the chain, the attached files, how many runs had a prediction logged before the outcome, and how many exact repeats exist and how many of those crossed a session. `--at` records when something actually happened if you are logging it late.
+`verify` checks the chain, the attached files, how many runs had a prediction logged before the outcome, and how many exact repeats exist and how many of those crossed a session. `--at` records when something actually happened if you are logging it late. `--answers raw/reply.md` reads the `ANSWER` lines of a saved model reply into fields, so forecast numbers are not retyped.
 
 ## What is public and what is not
 

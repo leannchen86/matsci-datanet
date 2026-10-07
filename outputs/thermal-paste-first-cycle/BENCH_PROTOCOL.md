@@ -2,7 +2,7 @@
 
 Use [CHECKLIST.md](CHECKLIST.md) as the single completion tracker. This reference preserves the detailed preparation, logging and later study procedures; supplier scripts and specifications are in [CALLS_AND_ORDERS.md](CALLS_AND_ORDERS.md).
 
-The initial exploratory pilot targets preparation by October 8 and an appointment from October 9 onward, subject to readiness and lab confirmation. Use separate pilot run IDs and record preparation changes. The larger shakedown, gate study and thermal rig below follow their own readiness criteria; their original dates are provisional and do not have to be completed before the early submission. Rig construction details are candidates pending the design review described in CALLS_AND_ORDERS.md.
+The initial exploratory pilot has no fixed date: batches A and B are made once the lab has named a container, any age limit and a drop-off date (see [CHECKLIST.md](CHECKLIST.md)); they take the next free batch numbers on the days they are made, which may not be B002 and B003. Use separate pilot run IDs and record preparation changes. The larger shakedown, gate study and thermal rig below follow their own readiness criteria; their original dates are provisional and do not have to be completed before the early submission. Rig construction details are candidates pending the design review described in CALLS_AND_ORDERS.md.
 
 Commands are run from the repository root. Example measurements are illustrative, not collected results. Use the PPE and cleanup method selected for the actual materials and workspace.
 
@@ -15,10 +15,10 @@ Commands are run from the repository root. Example measurements are illustrative
 ### 1A. Before opening materials
 
 1. Check the delivered labels: McMaster **5092N124** coarse alumina, **5092N131** fine alumina, **Super Lube 56404 / 1000 cSt** silicone oil and **DOWSIL 340**. Photograph product and lot labels without personal/order details. Match powder lots to the supplied certificates; document discrepancies instead of treating catalog particle sizes or purity as measured facts. Do not substitute a different oil or powder silently.
-2. Resolve checklist item 15, the already-planned workspace/dust-control and PPE review, using the supplied SDSs. The GNPGraystar [tabular alumina SDS](https://gnpgraystar.com/wp-content/uploads/2023/05/Tabular-Alumina-SDS-GNPGraystar-042723.pdf) and [calcined alumina SDS](https://gnpgraystar.com/wp-content/uploads/2020/10/Calcined-Alumina-2020.pdf) cover the manufacturer grade families indicated by the certificate previews; confirm applicability to the received products. They require dust prevention and adequate ventilation, with respiratory protection depending on conditions. They do not establish that an ordinary home worktop is suitable. A balance draft shield is not a powder-containment enclosure. Until arrangements are settled, do the closed-container, weighing-check and logging tasks only.
+2. Resolve checklist item 15 (G1 on the checklist, now split into G1a wet work and G1b powder), the already-planned workspace/dust-control and PPE review, using the supplied SDSs. The GNPGraystar [tabular alumina SDS](https://gnpgraystar.com/wp-content/uploads/2023/05/Tabular-Alumina-SDS-GNPGraystar-042723.pdf) and [calcined alumina SDS](https://gnpgraystar.com/wp-content/uploads/2020/10/Calcined-Alumina-2020.pdf) cover the manufacturer grade families indicated by the certificate previews; confirm applicability to the received products. They require dust prevention and adequate ventilation, with respiratory protection depending on conditions. They do not establish that an ordinary home worktop is suitable. A balance draft shield is not a powder-containment enclosure. Until the powder arrangements (checklist G1b) are settled, do the closed-container, weighing-check and logging tasks only. One exception, for the plate rig check (checklist N2) only: the reference paste and a new EXP oil bottle may be opened once the written G1a decision on the checklist says wet-work handling is enough and the balance check has passed. If G1a is not yet written, or says wait, the rig check waits with the powder. The first (LAB) oil bottle stays closed until the practice batch.
 3. Work in the selected cleanable preparation area, separate from food, children and pets. Use the selected eye protection, gloves, work clothing and respiratory protection if required. Keep the powder-handling arrangement effective while transferring and weighing; do not resolve balance drafts by disabling extraction. Do not use a household fan to blow across powder.
 4. Wash new reusable cups/tools, rinse thoroughly and dry completely before they contact material. Inspect for chips, burrs, loose coatings and residue. Do not heat, oven-dry or vacuum-treat the powders or pastes in this pilot. Use the same cup type and tool geometry for practice, A and B; any change must be recorded and rehearsed.
-5. LongWin's October 6 reply requests **about 1 cc (1 mL) of each paste specimen**, expressly including different thicknesses and possible issue-related retests. This answers the amount for the described scope; it does not specify an accepted container. Obtain container/conditioning instructions before making lab-bound aliquots. If those are pending, keep the entire prepared batch covered and labeled. For the homemade recipe, 1 mL corresponds to about 2.17 g using the assumed no-air density, not a measured mass-volume conversion. A proposed 5 g per-specimen allocation gives extra material and is practical to weigh; it is our allowance, not a lab-imposed requirement. State the intended net amount in the handoff, retain archives, and revisit quantity if the quoted scope expands.
+5. LongWin's October 6 reply requests **about 1 cc (1 mL) of each paste specimen**, expressly including different thicknesses and possible issue-related retests. This answers the amount for the described scope; it does not specify an accepted container. Obtain container, conditioning and sample-age instructions before making batches A and B. The practice batch does not wait for them; keep it whole, covered and labeled. For the homemade recipe, 1 mL corresponds to about 2.17 g using the assumed no-air density, not a measured mass-volume conversion. A proposed 5 g per-specimen allocation gives extra material and is practical to weigh; it is our allowance, not a lab-imposed requirement. State the intended net amount in the handoff, retain archives, and revisit quantity if the quoted scope expands.
 
 ### 1B. Lay out the bench and identify everything
 
@@ -68,7 +68,7 @@ Fresh taring before every addition avoids treating paste removed on the spatula 
 ### 1E. Decide whether the method is ready; prepare A and B
 
 1. Review the practice: could you weigh reliably, wet all the powder, scrape the entire vessel, and follow the timed method without uncontrolled dust, spills or tool damage? Record the answer and the difficulties. A smooth-looking paste does not prove uniform dispersion, low void fraction or good thermal performance.
-2. If the method needs adjustment, do another practice under a new ID. Preserve the earlier record. Once usable, write the exact procedure as **BP-pilot-v1**, including cup/tool type, addition order, timing, cleaning, ingredient targets/tolerances and storage. The times above are proposed starting settings, not an optimized method.
+2. If the method needs adjustment, do another practice under a new ID. Preserve the earlier record. Once usable, write the exact procedure as **BP-v1**, including cup/tool type, addition order, timing, cleaning, ingredient targets/tolerances and storage. The times above are proposed starting settings, not an optimized method.
 3. Prepare **A from fresh ingredients** using that method. Cover and label it. Clean/dry the shared mixing tool completely, or use an identical clean spare; leave dry-stock scoops dedicated to their own powders.
 4. Prepare **B from fresh ingredients** using the same recipe, lots, vessels and method. Do not split A to make B and do not pool them. Prefer a separate session/day if feasible; if made together, report that fact and do not call it a test of day-to-day repeatability. Record the different sample ages at lab receipt.
 5. If either counted batch needs a process change, retain it as a deviation/exploratory run. Rehearse the change and, if a matched A/B comparison is still wanted, prepare a new matched pair with new IDs. A poor-performing but valid batch is still useful evidence; no run disappears from the record.
@@ -120,6 +120,8 @@ python3 outputs/thermal-paste-first-cycle/thermal.py fit 0.01:0.787 0.02:1.200 0
 
 ## 3. Bench set-up (the day the starter kit arrives)
 
+> Superseded 7 October 2026. The six logs are started in [CHECKLIST.md](CHECKLIST.md) S6 (there is no `paste-001` campaign), the batch method is "Make one batch" on that page, and density and spread are not measured on batches. Kept for reference.
+
 - Lay out the tray on a level, vibration-free surface with a cardboard draught shield round the balance.
 - Calibrate the balance according to its manual, then check repeatability at the actual working masses using the small check weights. Compare errors with the weight tolerances and balance specifications. Do not put the plate plus the 500 g spread load on this 500 g-capacity balance.
 - Find the density measure's volume: tare it on a stable support, fill with distilled water to the rim, strike it level, weigh. Repeat five times and use water density at the measured temperature (about 0.998 g/mL near 20 °C). **Done when:** the five volumes agree within 0.5%; otherwise improve the fill/support method before paste measurements.
@@ -133,6 +135,8 @@ python3 trajectory/traj.py init paste-001 --text "Find how filler loading and pa
 ```
 
 ## 4. One batch, step by step
+
+> Superseded 7 October 2026. The six logs are started in [CHECKLIST.md](CHECKLIST.md) S6 (there is no `paste-001` campaign), the batch method is "Make one batch" on that page, and density and spread are not measured on batches. Kept for reference.
 
 Recipes for a 25 g batch. For any other recipe run `python3 outputs/thermal-paste-first-cycle/recipe.py --filler 45 --fine-share 30`.
 
@@ -196,7 +200,7 @@ python3 trajectory/traj.py add paste-001 decision --text "what you will do next 
 
 ## 5. Shakedown, then the gate runs
 
-> Superseded 7 October 2026. After the pilot, follow [EXPERIMENTS.md](EXPERIMENTS.md): commissioning and three experiments take the place of the shakedown and the gate schedule. Kept for reference.
+> Superseded 7 October 2026. For the experiments, follow [EXPERIMENTS.md](EXPERIMENTS.md): commissioning and three experiments take the place of the shakedown and the gate schedule. Kept for reference.
 
 - **Shakedown (not counted), about 12 batches.** Control, 30, 50 and 55 vol%. Time weighing, mixing, density and spread separately. Find where hand mixing stops wetting the powder. Adjust the spread dose until the control lands between 30 and 50 mm.
 
@@ -264,12 +268,12 @@ If item 3 has not happened yet, the decision is "process labels pass, reference 
 
 About 10 hours in total, spread over the week, and nothing bought. Copper is not bench work until the paste gate decision is logged. If pastes pass, copper stays a desk item until the 29 November review. If pastes fail twice, copper replaces them.
 
-- **C1 (1 h).** Ask your household and your own landlord and insurer whether each would accept corrosive (shipping class 8) chemicals and this work, and get the answers in writing. Check which suppliers will deliver corrosive chemicals to a residential address: at least one refuses apartments and multi-family buildings.
-- **C2 (1 h).** One disposal conversation covering both tracks. Describe the project truthfully and ask them to classify it. Paste track: solids containing zinc oxide, oily wipes. Copper track: about 25 L of liquid every two weeks, pH about 1, about 40 g/L copper.
-- **C3 (1 h).** Write the copper questions for a qualified person on one page and ask for a fee quote: is this room's ventilation adequate for stirred, unheated, covered 267 mL baths; do a faucet eyewash and a household shower meet the data sheets; which gloves and face protection; acid mist in an occupied home; storage. Send it after the paste questions, never bundled with them.
-- **C4 (2 h).** Open the published robot copper dataset (<https://zenodo.org/records/19520337>) and find out whether it holds a measured outcome for each run.
-- **C5 (3 h).** Copper desk test with the same three models. Score it against that dataset if C4 says yes, otherwise against published thresholds. If nothing can be scored, log it as descriptive and draw no conclusion.
-- **C6 (1.5 h).** Copper task card on the same template as the paste card.
-- **C7 (1 h, the day after the paste gate decision).** Review: are C1 to C3 answered in writing, what is the quoted fee, does the fee plus about $3,300 fit a $4,200 ceiling, did C5 show that models get copper wrong. Write one decision.
+- **Cu1 (1 h).** Ask your household and your own landlord and insurer whether each would accept corrosive (shipping class 8) chemicals and this work, and get the answers in writing. Check which suppliers will deliver corrosive chemicals to a residential address: at least one refuses apartments and multi-family buildings.
+- **Cu2 (1 h).** One disposal conversation covering both tracks. Describe the project truthfully and ask them to classify it. Paste track: solids containing zinc oxide, oily wipes. Copper track: about 25 L of liquid every two weeks, pH about 1, about 40 g/L copper.
+- **Cu3 (1 h).** Write the copper questions for a qualified person on one page and ask for a fee quote: is this room's ventilation adequate for stirred, unheated, covered 267 mL baths; do a faucet eyewash and a household shower meet the data sheets; which gloves and face protection; acid mist in an occupied home; storage. Send it after the paste questions, never bundled with them.
+- **Cu4 (2 h).** Open the published robot copper dataset (<https://zenodo.org/records/19520337>) and find out whether it holds a measured outcome for each run.
+- **Cu5 (3 h).** Copper desk test with the same three models. Score it against that dataset if Cu4 says yes, otherwise against published thresholds. If nothing can be scored, log it as descriptive and draw no conclusion.
+- **Cu6 (1.5 h).** Copper task card on the same template as the paste card.
+- **Cu7 (1 h, the day after the paste gate decision).** Review: are Cu1 to Cu3 answered in writing, what is the quoted fee, does the fee plus about $3,300 fit a $4,200 ceiling, did Cu5 show that models get copper wrong. Write one decision.
 
 No acid or other copper chemical is ordered or opened until a qualified person who has seen the room has answered in writing, the disposal route has accepted the real volumes, and the people who own or share the premises have agreed.

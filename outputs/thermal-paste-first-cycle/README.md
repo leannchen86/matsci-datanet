@@ -2,7 +2,7 @@
 
 Original plan prepared 5 October 2026; order status updated 6 October. McMaster ingredients and one Grainger oil bottle are ordered, the user reports ordering a balance, and LongWin has replied to the initial email. Receipt, balance checks, a completed service request, quote and appointment remain pending. See CHECKLIST.md for the current state. The older equipment catalogue and calendar below describe the broader study, not an additional shopping list for the first submission. Historical vendor checks and prices are dated; LongWin's fee still requires a quote.
 
-**Start with [CHECKLIST.md](CHECKLIST.md), the single completion tracker for the first submission.** It lists the calls, purchases, preparation and handoff actions targeting readiness as early as **Thursday 8 October**. Consult [CALLS_AND_ORDERS.md](CALLS_AND_ORDERS.md) for supplier scripts and specifications, and [BENCH_PROTOCOL.md](BENCH_PROTOCOL.md) for detailed procedures and the later repeatability study. The equipment catalogue and original calendar below provide background; dates depend on actual delivery, handling review and laboratory acceptance. `recipe.py` gives ingredient masses and `thermal.py` does the thermal calculations.
+**Start with [CHECKLIST.md](CHECKLIST.md), the single completion tracker for the first submission.** It lists the calls, purchases, preparation and handoff actions for the first submission, which has no fixed date, and the rules for running the experiments beside it. Consult [CALLS_AND_ORDERS.md](CALLS_AND_ORDERS.md) for supplier scripts and specifications, and [BENCH_PROTOCOL.md](BENCH_PROTOCOL.md) for detailed procedures and the later repeatability study. The equipment catalogue and original calendar below provide background; dates depend on actual delivery, handling review and laboratory acceptance. `recipe.py` gives ingredient masses and `thermal.py` does the thermal calculations.
 
 ## What this is
 
@@ -273,7 +273,7 @@ The first cart is specified in [CALLS_AND_ORDERS.md](CALLS_AND_ORDERS.md): about
 
 ## Hard limits
 
-- Open powder only over the tray with the respirator on. Spoon it into the oil; never pour from height. Clean up with damp wipes only.
+- Open powder only over the tray with the respirator on. Spoon it into the oil; never pour from height. Clean up with damp wipes only. Two steps in [EXPERIMENTS.md](EXPERIMENTS.md) depart from this: adding oil to dry powder, and pouring powder through a funnel into a cylinder. Neither is done unless the handling review (checklist G1b) gives a written yes to that step by name. This exception was proposed on 7 October 2026 and is not yet approved by the owner or a reviewer; until it is, the limit stands as written.
 - Boron nitride stays sealed until a person has cleared the ventilation line on its data sheet and the supplier has confirmed the particle size of the lot.
 - Nothing goes down a drain.
 - Everything that touched the reference paste (DOWSIL 340, which is 59 to 79% zinc oxide) goes in its own labelled tub.

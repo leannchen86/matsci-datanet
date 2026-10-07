@@ -6,7 +6,7 @@ A model's reasoning is not the valuable part of the record. The valuable parts a
 
 ## 1. Before the run: two predictions, cold and warm
 
-Start every prediction prompt with the block in [prompt-preamble.md](prompt-preamble.md), unchanged. Use the first reply only, with memory and web search off, and save the prompt as sent.
+Start every per-batch prediction prompt with the block in [prompt-preamble.md](prompt-preamble.md), unchanged. The desk-test prompts do not take it. Use the first reply only, with memory and web search off, and save the prompt as sent.
 
 Ask twice, in two fresh conversations, with the same prompt:
 

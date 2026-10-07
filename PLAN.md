@@ -17,13 +17,13 @@ Changed 5 October 2026. Copper electroplating was the working choice for a few h
 
 **What gets made.** Silicone oil plus ceramic powder, about 25 g per batch, mixed by hand to a fixed, timed protocol. Alumina first; boron nitride later, once a person has cleared its data sheet.
 
-**What gets measured.** On every batch, the same day: mixing class, density (which gives trapped air), and how far a fixed dose spreads under a weight. A home thermal rig is built in parallel and judged a week later. LongWin's tester is the trusted reference for a small subset, two to four samples per booked day. After the pilot, what is made and measured changes; see [Adopted direction](#adopted-direction-experiments-that-test-a-mental-model).
+**What gets measured.** On every batch, the same day: mixing class, density (which gives trapped air), and how far a fixed dose spreads under a weight. A home thermal rig is built in parallel and judged a week later. LongWin's tester is the trusted reference for a small subset, two to four samples per booked day. For the experiments, what is made and measured changes; see [Adopted direction](#adopted-direction-experiments-that-test-a-mental-model).
 
 **Why this over copper.** The answer can be checked by someone else: thermal impedance has a standard method and an outside instrument. It stays on heat removal. It needs no acid and makes no liquid waste; the acid data sheet for the copper route calls for a fume hood, eyewash and safety shower, which a home bench does not have. And each batch is a real choice with a trade-off (conductivity against spreadability against the loading where mixing fails), which suits a trajectory.
 
 **Known weaknesses.** More filler giving more conductivity is textbook, so models may already predict the thermal number; the test may have to rest on the mixing, air and spread results. Hand-mixed pastes sit below commercial ones, and the leading chip-to-lid interface is moving to metal. LongWin's fee is not published. The home rig is a beginner's build and unproven until it agrees with LongWin. No human expert is in the loop apart from the safety checks only a person can do.
 
-**Fallback, and why not both.** Copper electroplating. Running both at the bench was checked and rejected: there is no scenario in which both are run before the 29 November review inside the budget, and the constraint on copper is written sign-off from people (a qualified person on ventilation and eyewash, the disposal route, the premises), not hours. Until the paste gate decision is logged, copper is about 10 hours of desk work with nothing bought; the steps are in section 9 of the checklist.
+**Fallback, and why not both.** Copper electroplating. Running both at the bench was checked and rejected: there is no scenario in which both are run before the 29 November review inside the budget, and the constraint on copper is written sign-off from people (a qualified person on ventilation and eyewash, the disposal route, the premises), not hours. Until the paste gate decision is logged, copper is about 10 hours of desk work with nothing bought; the steps are in [section 9 of BENCH_PROTOCOL.md](outputs/thermal-paste-first-cycle/BENCH_PROTOCOL.md#9-copper-desk-work-only).
 
 **What this first cycle is for.** It is a proof of concept, not the dataset. It is small on purpose. It has to show two things: that records made this way are good (repeatable, checkable, complete), and that someone outside wants more of them. If both hold, the next step is to scale; the cost and hours per record measured here set the price of doing so. The likeliest first audience is people who build tests for frontier models.
 
@@ -33,13 +33,13 @@ Start with [CHECKLIST.md](outputs/thermal-paste-first-cycle/CHECKLIST.md), the s
 
 | When | Test | If it fails |
 |---|---|---|
-| **About a week after the pilot is packed** (was Sun 18 Oct) | Commissioning, a gate on measurement quality: balance check passed; plain oil spreads within 5% of the calculated curve; mixing-limit scatter 0.015 or less over 12 titrations; tapped powder density within 2% over three fills; a second person tells reference paste from reference crumb in coded photos. Model forecast error is reported as a number per target, not as pass or fail | Fix the method and repeat before any threshold is trusted. A second failure triggers the conditional copper review |
+| **About a week after commissioning day C1** (was Sun 18 Oct) | Commissioning, a gate on measurement quality: balance check passed; plain oil spreads within 5% of the calculated curve; mixing-limit scatter 0.015 or less over 12 titrations; tapped powder density within 2% over three fills; a second person tells reference paste from reference crumb in coded photos. Model forecast error is reported as a number per target, not as pass or fail | Fix the method and repeat before any threshold is trusted. A second failure triggers the conditional copper review |
 | **When the lab report arrives** | The reference lab documents QC/uncertainty and measures the two independent pilot batches under matched conditions against the proposed 10% repeatability threshold | Ask the lab about its repeatability on greases; decide whether a second lab is worth a quote |
 | **Paused** (was Sun 25 Oct) | Home thermal rig. The experiments below make no thermal claim and send nothing further to the lab | Revisit at the 29 November review |
 | **Fri 30 Oct** | Has anyone outside engaged with the task card? | If not, finish as a learning campaign and cap spending |
 | **Sun 29 Nov** | Continue, change target, or stop. Also decide whether to run a designed set of recipes, using what the three experiments show about where a recipe row is and is not enough | |
 
-The 18 October date could not be met as written: the balance has no arrival date and the handling review is open. If the pilot is packed later than about 23 October, the last settling readings fall after the 29 November review.
+The 18 October date could not be met as written: the balance has no arrival date and the handling review is open. If C1 starts later than about 23 October, the last settling readings fall after the 29 November review. On the lab's indicative two weeks, a drop-off after about 13 November puts its report after that review too (estimate).
 
 ### Budget
 
@@ -53,18 +53,22 @@ First cart: approximately $569–698 for ingredients and the density/spread kit,
 | 2 | Order the four materials and density/spread kit, shipped to your own address; defer rig hardware until design review | Every order has a confirmation and delivery estimate |
 | 3 | Paused with the home rig: decide who drills and faces the two aluminium blocks | Route chosen |
 | 4 | Rehearse the loop with `trajectory/traj.py` on any quick physical measurement, three runs across two sessions | `verify` passes: predictions logged first, one repeat in a different session |
-| 5 | Arrange the checks only a person can do: respirator fit, heater wiring review, the boron nitride ventilation question, and telling the disposal route about the zinc oxide reference paste | Each has a named person and a date |
+| 5 | Arrange the checks only a person can do: whether the oil and the reference paste may be opened for the rig check before the full handling review, respirator fit, heater wiring review, the boron nitride ventilation question, and telling the disposal route about the zinc oxide reference paste | Each has a named person and a date |
 | 6 | Decide whether this repository stays public, and review the two untracked folders under `outputs/` before committing them | Decision written here |
 
 ## Adopted direction: experiments that test a mental model
 
 Decided 7 October 2026 by the project owner and the new team member. The selected programme, with every step, is in [EXPERIMENTS.md](outputs/thermal-paste-first-cycle/EXPERIMENTS.md). Nothing in it has been run.
 
-**What changes.** After the pilot, the work is no longer a repeatability study followed by a grid of recipes. Each experiment starts from competing pictures of how the paste behaves, each committed in advance to a number the others contradict, with inputs measured separately first. An experiment whose outcome an expert or a model would state confidently beforehand is not worth running.
+**What changes.** Beyond the pilot, the work is no longer a repeatability study followed by a grid of recipes. Each experiment starts from competing pictures of how the paste behaves, each committed in advance to a number the others contradict, with inputs measured separately first. An experiment whose outcome an expert or a model would state confidently beforehand is not worth running.
 
 **What is being collected.** Outcomes that come out the same when repeated but that a forecast gets wrong. Noise is not that: it cannot be learned and scores zero.
 
-**What does not change.** The pilot goes first, exactly as on the one-page checklist. It proves the lab route and starts the lab's two-week clock; it is logistics, and nothing about it tests a model. Its two batches are not turned into two arms of a test. The trajectory stays the unit of data, with forecasts logged before outcomes.
+**What does not change.** The pilot's steps, exactly as on the one-page checklist. It proves the lab route and starts the lab's two-week clock; it is logistics, and nothing about it tests a model.
+
+**Order, changed later on 7 October 2026.** The experiments no longer wait for the pilot to be packed, because packing waits on the lab's reply and no experiment uses the lab samples. The two run side by side. The models' first forecasts come before any powder is opened. The practice batch is the first powder work for both. Batches A and B and the packing follow the lab's reply, and lab days go first when the two clash. The start conditions are in [EXPERIMENTS.md](outputs/thermal-paste-first-cycle/EXPERIMENTS.md#order-of-work).
+
+**Also unchanged.** Its two batches are not turned into two arms of a test. The trajectory stays the unit of data, with forecasts logged before outcomes.
 
 **The three experiments.** All sit at the mixing limit: the highest powder loading at which hand kneading still gives one glossy paste. Effects are largest there, and the result is a weighed amount found by adding one ingredient in small steps.
 
@@ -80,7 +84,7 @@ Decided 7 October 2026 by the project owner and the new team member. The selecte
 
 **Care with causes.** Randomised run order, repeats on three separate days, matched strokes between arms, photos read blind by a second person, and the threshold for "a real difference" fixed before the first run. A supportable claim is "the outcome depended on the route on this bench". A statement of why needs its own evidence. A picture that survives is "not rejected", not confirmed.
 
-**Cost.** About 14 bench days over four to five weeks from the day the pilot is packed. Three more bottles of oil from one lot and about $75 to $145 of small items (estimates). No lab fee.
+**Cost.** About 14 bench days over four to five weeks from commissioning day C1. Three more bottles of oil from one lot and about $75 to $145 of small items (estimates). No lab fee.
 
 **Limits.** All three could come back as the textbook answer or as "no difference larger than X"; that would be recorded as a bound, and the project would then say that on this bench a recipe row is enough for these labels. One operator, one lot of each ingredient. No thermal data comes out of this. That model builders want this kind of record is still a hypothesis to put to them directly.
 

@@ -9,7 +9,7 @@ The aim is a record that is small but complete: every part a company's batch rec
 A handful of folders, not a table.
 
 - `campaigns/registry/`: one log holding a note for every container of material, every piece of bench equipment, every calibration and every version of the method.
-- `campaigns/<name>/` for each campaign (practice, pilot, main, each goal-seeking campaign): one append-only `log.jsonl`, one JSON object per line, each carrying the hash of the line before it; and `raw/`, `docs/` and `prompts/` folders of untouched files, each pinned in the log by its hash.
+- `campaigns/<name>/` for each campaign (`paste-practice`, `paste-pilot`, `paste-commission`, `paste-limit`, `paste-settle`): one append-only `log.jsonl`, one JSON object per line, each carrying the hash of the line before it; and `raw/`, `docs/` and `prompts/` folders of untouched files, each pinned in the log by its hash.
 - `anchors.log`: one line per anchor, pushed publicly and timestamped.
 
 Tables for people who only want rows are rebuilt from the logs by script, never typed by hand. The file formats are deliberately ordinary.
@@ -60,13 +60,13 @@ Tables for people who only want rows are rebuilt from the logs by script, never 
 Fixed before the first entry, because an append-only log cannot rename them.
 
 - Sessions: `S01`, `S02`...
-- Batches: `B001`, `B002`... on one counter across practice, pilot and main. Never reused. The batch id is the run id for its same-day home measurements.
+- Batches: `B001`, `B002`... on one counter across practice, pilot and experiments. Never reused. Numbers are issued from one paper tally at the bench, because the tool checks ids only within one log. Pilot batches A and B take the next free numbers on the days they are made. The batch id is the run id for its same-day home measurements.
 - Containers filled from a batch: `B001-L1` (for a lab), `B001-A1` (archive).
 - Any later measurement of a container gets its own run id: `B001-L1-M1`, `B001-L1-M2`.
-- After the pilot: every titration cup and every small batch for vials takes the next batch id on the same counter. Vials filled from a batch are `B041-V1`, `B041-V2`. Each titration step is an `observation` entry under its cup's id.
-- Forecasts taken once for a condition are `prediction` entries under a run id for that condition, for example `E2-X30`. Each cup then starts with one `prediction` entry under its own id carrying `_forecast_run=E2-X30`.
+- For the experiments: every titration cup and every small batch for vials takes the next batch id on the same counter. Vials filled from a batch are `B041-V1`, `B041-V2`. Each titration step is an `observation` entry under its cup's id.
+- Forecasts taken once for a condition are `prediction` entries under a run id for that condition, for example `E2-X30`. Each cup then starts with one `prediction` entry under its own id carrying `_forecast_run=E2-X30`. During commissioning, counted cups point at the desk-test run `E12-DESK`; a cup that is not counted carries `_forecast_run=none` and `_excluded` with the reason.
 - Reference paste containers: `REF-L1`, `REF-L2`, with `_parent=LOT-REF-1`.
-- Lots: `LOT-OIL-1`, `LOT-COARSE-1`, `LOT-FINE-1`, `LOT-REF-1`. Equipment: `BAL-1`, `MEAS-1`, `PLATES-1`...
+- Lots: `LOT-OIL-1` (the first bottle, lab track), `LOT-OIL-2` (the three new bottles, experiments; `LOT-OIL-3` and on if they do not share a lot), `LOT-COARSE-1`, `LOT-FINE-1`, `LOT-REF-1`. Equipment: `BAL-1`, `MEAS-1`, `PLATES-1`...
 
 ## Rules that cannot be fixed afterwards
 

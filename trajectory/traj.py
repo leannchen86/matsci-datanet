@@ -95,8 +95,36 @@ def parse_data(pairs):
         is_number = isinstance(parsed, (int, float)) and not isinstance(parsed, bool)
         if is_number and not re.fullmatch(r"-?\d+(\.\d+)?", value.strip()):
             parsed = value.strip()
+        if key.strip() in data:
+            sys.exit(f"--data key given twice: {key.strip()}. Each key can hold one value.")
         data[key.strip()] = parsed
     return data
+
+
+def answer_pairs(root, name, path):
+    """Turn the ANSWER lines of a saved model reply into --data pairs.
+
+    'ANSWER oil_into_powder coarse=0.55 fine=0.40' gives oil_into_powder_coarse and
+    oil_into_powder_fine; a line with no name ('ANSWER mix_class=paste') keeps its keys.
+    """
+    p = Path(path)
+    if not p.is_absolute() and not p.exists():
+        p = campaign_dir(root, name) / path
+    if not p.is_file():
+        sys.exit(f"File not found: {path}")
+    pairs = []
+    for line in p.read_text().splitlines():
+        words = line.strip().strip("`").split()
+        if not words or words[0] != "ANSWER":
+            continue
+        prefix = ""
+        if len(words) > 1 and "=" not in words[1]:
+            prefix = words[1] + "_"
+            words = words[1:]
+        pairs += [prefix + w for w in words[1:] if "=" in w]
+    if not pairs:
+        sys.exit(f"No ANSWER lines found in {path}.")
+    return pairs
 
 
 def settings_signature(data):
@@ -163,8 +191,9 @@ def cmd_add(args):
         if happened.tzinfo is None:
             sys.exit("--at needs a UTC offset, for example 2026-10-08T14:03-07:00.")
     files = hash_files(args.root, args.campaign, args.file or [])
+    pairs = (answer_pairs(args.root, args.campaign, args.answers) if args.answers else []) + (args.data or [])
     entry = new_entry(entries, args.type, args.author, read_text(args), args.run, files, flags,
-                      parse_data(args.data), args.at)
+                      parse_data(pairs), args.at)
     append(args.root, args.campaign, entry)
     note = f" [{', '.join(flags)}]" if flags else ""
     print(f"Entry {entry['seq']} ({args.type}) added{note}. Head {entry['hash'][:12]}.")
@@ -280,6 +309,8 @@ def main():
     s.add_argument("--file", action="append", help="raw file inside the campaign folder; repeatable")
     s.add_argument("--data", action="append", metavar="KEY=VALUE",
                    help="structured field; repeatable. Plain keys are settings; keys starting with '_' are context, e.g. _session, _lot, _chosen_by, _status")
+    s.add_argument("--answers", metavar="FILE",
+                   help="saved model reply; every 'ANSWER name key=value ...' line becomes fields name_key")
     s.add_argument("--at", help="when it actually happened, if not now (ISO time with UTC offset)")
     s.add_argument("--force", action="store_true", help="log an out-of-order entry and flag it")
     s.set_defaults(func=cmd_add)

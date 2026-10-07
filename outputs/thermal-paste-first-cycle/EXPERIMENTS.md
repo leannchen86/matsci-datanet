@@ -1,16 +1,16 @@
-# Experiments after the pilot
+# Experiments beside the pilot
 
-Selected 7 October 2026. Nothing here has been run. The pilot is unchanged and stays on [CHECKLIST.md](CHECKLIST.md). This page takes over from sections 5, 6 and 8 of [BENCH_PROTOCOL.md](BENCH_PROTOCOL.md) for everything after it.
+Selected 7 October 2026. Nothing here has been run. The pilot's steps are unchanged and stay on [CHECKLIST.md](CHECKLIST.md). The experiments do not wait for the pilot to be packed. This page takes over from sections 5, 6 and 8 of [BENCH_PROTOCOL.md](BENCH_PROTOCOL.md).
 
 **What this is.** Three small experiments. Each sets named pictures of how the paste behaves against each other, and each picture commits to a number before the run. All three sit at the mixing limit, where differences are largest and the result is a weighed amount.
 
 **What it is not.** Proof that a trajectory beats a table. Each experiment changes a route or a composition on purpose, and a table column can hold that. The trajectory's value is tested only by the comparison in [Forecasts](#forecasts).
 
-Every number marked *placeholder* is an illustration with made-up inputs. The real prediction is the same formula fed with inputs measured on this bench, logged before the run it predicts. The formulas are fixed in [predict.py](predict.py).
+Every number marked *placeholder* is an illustration with made-up inputs. The real prediction is the same formula fed with inputs measured on this bench, logged before the run it predicts. The formulas are fixed in [predict.py](predict.py). Run every command on this page from the top folder of the repository.
 
 ## Words used
 
-- **Loading:** the share of the paste's volume that is powder. 0.40 is 40 vol%; a change of 0.01 is 1 vol%. `python3 predict.py loading --powder 12.00 --oil 2.40` gives it from two weighings.
+- **Loading:** the share of the paste's volume that is powder. 0.40 is 40 vol%; a change of 0.01 is 1 vol%. `python3 outputs/thermal-paste-first-cycle/predict.py loading --powder 12.00 --oil 2.40` gives it from two weighings; `python3 outputs/thermal-paste-first-cycle/predict.py oil --powder 12.00 --loading 0.52` gives the oil for a chosen loading.
 - **Titration:** adding one ingredient in small weighed steps until the paste changes state.
 - **Endpoint:** after 60 counted strokes, one per second, slow press-and-smear, the whole charge is one glossy body that closes over a spatula cut within 10 seconds and shows no matt patch when pressed.
 - **Mixing limit:** the highest loading that still passes the endpoint. It is the midpoint between the last pass and the first fail.
@@ -19,10 +19,20 @@ Every number marked *placeholder* is an illustration with made-up inputs. The re
 
 ## Order of work
 
-Day 0 is the day the pilot is packed, the handling review covers the new steps, and the new oil is in hand.
+**C1 may start on any bench day that begins with all five of these already true.** The day a practice batch passes is a LAB day, so it cannot also be C1. The day you run C1 is day 0.
 
-- [ ] **C0.** Rig check on plain oil and the reference paste, and the first forecasts. No powder. Can be done before day 0.
+1. The balance check (checklist S5) has passed.
+2. The handling review (checklist G1b) is settled and allows, by name, the steps you are about to do: many small powder additions to one cup, working tubs, oil added to dry powder and stirred, and a dry blend tumbled in a lidded cup. Any condition it sets, such as a respirator, is in place. If it says no to any of these, C1 does not start and the plan goes back to the project owner.
+3. The three new oil bottles are in hand, their lots are recorded, and they are marked EXP (checklist N5).
+4. Both first forecasts (`E12-DESK` and `E3-DESK`, from every model) were logged, anchored, pushed and timestamped outside before either powder was opened.
+5. A practice batch (checklist B1) has passed and its method is written down.
+
+Not on the list: the pilot being packed, any reply from the lab, the rig check, or the second person's reading. The last two are needed at the commissioning gate. If the lab has already named a container and a date when the practice batch passes, batches A and B take the next two bench days, they are packed, and C1 comes next. That is an order, not a sixth condition: C1 does not wait for the drop-off or the report. The bench rules for running both are on the [checklist](CHECKLIST.md#rules-for-running-two-tracks).
+
+- [ ] **C0a.** First forecasts, at the desk, with this page and `predict.py` attached to the log. Before either powder is opened for anything, the practice batch included.
+- [ ] **C0b.** Rig check on plain oil and the reference paste. No powder. Any day before the commissioning gate; it does not hold up C1.
 - [ ] **C1 to C4.** Commissioning: four powder days in week 1.
+- [ ] **Settling stage 1.** Set up on the first experiment day after C1 that the vials are in hand and the handling review has said yes to filling vials. Its 14-day clock is the longest in the programme.
 - [ ] **Commissioning gate.** All five checks pass. Compute and log every prediction.
 - [ ] **Block.** Six titration days over weeks 2 and 3, not consecutive. Experiments 1 and 2 share them.
 - [ ] **Part B.** Three short days, only if Experiment 1 finds a gap.
@@ -31,29 +41,34 @@ Day 0 is the day the pilot is packed, the handling review covers the new steps, 
 
 About 14 bench days over four to five weeks.
 
-## C0. Before any powder
+## C0. Desk forecasts and rig check
 
-1. **Oil between plates.** Weigh the top glass plate and the 500 g weight separately. Put 0.50 mL of oil (0.485 g) at the centre of the lower plate, lower the top plate flat, and photograph from above at 30, 60 and 300 seconds. Compare the diameters with `python3 predict.py squeeze --plate <plate grams>`. **Pass:** within 5% of the "with capillary pull" column (for an 80 g plate, *placeholder*: 62, 69 and 92 mm). Diameters below the "plain viscous" column mean a tilted or bowed plate or a timing fault; fix that first.
-2. **Reference paste between plates.** Two loads (plate; plate plus 500 g) by two doses (0.5 and 2.0 mL), two runs of each, order drawn at random, photos at 30 and 300 seconds. This shows how a real paste stops spreading. No experiment below scores a spread number.
-3. **Desk test.** Send each forecasting model the two prompts in [desk-test-prompts.md](../../trajectory/desk-test-prompts.md). They contain none of this page. Log and anchor the replies before any powder measurement exists.
+**C0a. First forecasts (the desk test).** Needs only the parcel labels. Send each forecasting model the two prompts in [desk-test-prompts.md](../../trajectory/desk-test-prompts.md). They contain none of this page. In the same sitting, copy this page and `predict.py` into the `paste-commission` log's `raw/` folder and attach them to a `note` entry, so the thresholds are fixed in the record. Log, anchor, push and timestamp before either powder is opened for anything, the practice batch included: the pilot recipe is itself one of the things being forecast.
+
+**C0b. Rig check.** Needs the balance check passed, the plates and weight, the new oil, and wet-work handling allowed in writing (checklist G1a ticked, or G1b settled if you wrote that it waits). An EXP day, any time before the commissioning gate.
+
+1. **Oil between plates.** Weigh the top glass plate and the 500 g weight separately. If the weight is at or over the balance's capacity, do not weigh it; record its stated mass and tolerance. Use the new oil (EXP). Put 0.50 mL of oil (0.485 g) at the centre of the lower plate, lower the top plate flat, and photograph from above, with a ruler or millimetre grid under the lower plate, at 30, 60 and 300 seconds. Compare the diameters with `python3 outputs/thermal-paste-first-cycle/predict.py squeeze --plate <plate grams>`. **Pass:** within 5% of the "with capillary pull" column (for an 80 g plate, *placeholder*: 62, 69 and 92 mm). Diameters below the "plain viscous" column mean a tilted or bowed plate or a timing fault; fix that first.
+2. **Reference paste between plates.** Two loads (plate; plate plus 500 g) by two doses (0.5 and 2.0 mL), two runs of each, order drawn at random, photos at 30 and 300 seconds. This shows how a real paste stops spreading. No experiment below scores a spread number. Use the reference-only tool. Wipe the plates with alcohol and never wash them at the sink. Every wipe, glove and scraping goes in the reference-paste tub. Log the date the tube was first opened.
 
 ## Commissioning, week 1
 
 | Day | What you do | Pass |
 |---|---|---|
-| **C1** | One fresh pilot-recipe batch on the new oil. Then practise one dry-side and one wet-side titration on coarse powder (not counted). Photograph a known paste (limit minus 0.03) and a known crumb (limit plus 0.05) as reference photos. The second person sorts a coded set of them. | The reader tells paste from crumb from photos alone. If not, fix lighting and framing. |
-| **C2** | Dry packing in a 100 mL stoppered cylinder: coarse, fine and blend, three fresh fills each. Pour through a funnel from a fixed height, read the volume, then tap from a 10 mm drop in blocks of 100 until two readings agree within 1 mL. Record every reading. Then set up settling stage 1 (Experiment 3) so its clock starts. | Three tapped fills agree within 2%. |
+| **C1** | One fresh pilot-recipe batch on the new oil, by the method written after the practice batch. It is a warm-up: not a third pilot batch, not compared with A and B, not sent to the lab. Then practise one dry-side and one wet-side titration on coarse powder (not counted). Then make the two reference cups described below the table. | All ten reference photos sorted correctly (judged at the gate, not on the day). If not, fix lighting and framing and retake. |
+| **C2** | Dry packing in a 100 mL stoppered cylinder: coarse, fine and blend, three fresh fills each. Pour through a funnel from a fixed height, read the volume, then tap from a 10 mm drop in blocks of 100 until two readings agree within 1 mL. Record every reading. | Three tapped fills agree within 2%. |
 | **C3, C4** | Twelve dry-side titrations: three coarse and three fine each day, interleaved. | Scatter of the limit is 0.015 or less. If not, change step size, strokes or lighting and repeat. |
 
-C2's cylinder work is more open-powder handling than the pilot. It needs the handling review (G1) to cover it. If the reviewer says no, skip it; only the packing-memory picture in Experiment 1 loses its number.
+**C1 reference cups.** Take L, your own bench call of the coarse dry-side limit from today's practice cup. Make two fresh cups of 12.00 g coarse powder: a known paste at loading L minus 0.03 and a known crumb at L plus 0.05 (oil for each from `predict.py oil`; for L = 0.55, *placeholder*, 2.71 g and 1.95 g). Add the oil in 0.20 g steps, 60 strokes after each. Check that the first passes the endpoint and the second fails; if not, log it and move that cup 0.02 further from L. Take five photos of each with the same lighting and framing as titration photos. Give the ten photos shuffled code names and keep the key. The second person sorts them without the key; this may trail the bench by a few days. If there is no second person, do not sort them yourself: keep them as references and write down "unblinded".
 
-**Commissioning gate.** Balance check passed; oil within 5% of the curve; reader separates paste from crumb; tapped density within 2%; limit scatter 0.015 or less. Every detection limit on this page assumes a scatter of 0.01, which is a guess until C4.
+C2's cylinder work is more open-powder handling than the pilot, and its funnel pour departs from the project's own limit of never pouring powder from height. So does adding oil to dry powder. Both need the handling review's yes by name. If it says no to the cylinder, skip C2; only the packing-memory picture in Experiment 1 loses its number. If it says no to adding oil to dry powder, no dry-side titration is run, C1 does not start, and the plan goes back to the project owner.
+
+**Commissioning gate.** Balance check passed; oil within 5% of the curve (C0b); reader separates paste from crumb (needs the second person, or a written decision to report as unblinded); tapped density within 2%; limit scatter 0.015 or less. Every detection limit on this page assumes a scatter of 0.01, which is a guess until C4.
 
 **Then, at the desk:** compute every prediction from the measured inputs, log and anchor them with the models' second forecasts. No blend is titrated before that entry exists. No scouting.
 
 ## How to run one titration
 
-Every cup is at one scale: 12.00 g of powder (dry side) or 2.50 g of oil (wet side). Hold the cup by the rim. Use a metronome.
+Every cup is at one scale: 12.00 g of powder (dry side) or 2.50 g of oil (wet side). Hold the cup by the rim. Use a metronome (a phone app will do). Write each cup on its own ruled page: cup id, date, EXP, powder, direction, empty-cup mass, then one line per step with the balance reading of that addition alone, the strokes, the photo number and your call. Photograph the page when the cup is finished and type it into the log the same day.
 
 **Dry side.**
 1. Weigh 12.00 g of powder into the cup. For a blend weigh coarse and fine separately (x = 0.30: 8.40 g and 3.60 g), put the lid on and tumble 100 turns. Never scoop from a pre-mixed jar; the two powders sift apart.
@@ -108,7 +123,7 @@ The names label patterns of signs. They are not established causes. Coarse powde
 | **No gain** | Hand-mixed fines act like lumps as big as the coarse grains. Each powder keeps its own oil demand and the demands add. No blend beats coarse alone | 1/L = (1 − x)/Lc + x/Lf |
 | **Gap filling** | Fine grains sit in the gaps between coarse grains, less two crowding effects that depend on the size ratio | Published packing model ([source](https://ar5iv.labs.arxiv.org/html/1006.4215)), size ratio from the labels, 45/5.5 = 8.2 |
 
-Lc and Lf are the means of the six C3 and C4 titrations of each powder. Neither formula is tuned to the result. Run `python3 predict.py blend --lc <Lc> --lf <Lf>` and log its output.
+Lc and Lf are the means of the six C3 and C4 titrations of each powder. Neither formula is tuned to the result. Run `python3 outputs/thermal-paste-first-cycle/predict.py blend --lc <Lc> --lf <Lf>` and log its output.
 
 *Placeholder* with Lc 0.55 and Lf 0.40:
 
@@ -146,7 +161,7 @@ At x = 0.30 that is 3.00 g of oil against 1.78 g on 12 g of powder, about eight 
 
 A third forecast is the formulator's: "a 40 vol% paste with fines shows little in a week".
 
-**Stage 1, one half-day during commissioning.** Narrow clear capped vials of one type (about 12 mm inside), filled gently within 10 minutes of mixing, stood against a ruler where the temperature is steady, and not moved.
+**Stage 1, one half-day, on the first experiment day after C1 that the vials are in hand.** Needs the handling review's yes to filling vials. Narrow clear capped vials of one type (about 12 mm inside), filled gently within 10 minutes of mixing, stood against a ruler where the temperature is steady, and not moved.
 
 - Coarse alone at loadings 0.20 (two vials from two separate batches), 0.30 and 0.40, columns 28 mm tall. Photos at 1, 2, 4, 8 and 24 hours. The top of the cloudy zone gives the settling speed and how fast it slows with loading.
 - Fine alone at loadings 0.05, 0.10, 0.15, 0.20, 0.25 and 0.30, columns 28 mm; plus 10 mm columns of 0.05 and 0.15 from the same batches. Photos at 1 hour and 1, 3, 7, 10 and 14 days: height of clear oil, height of sediment, clear or cloudy.
@@ -171,7 +186,7 @@ A third forecast is the formulator's: "a 40 vol% paste with fines shows little i
 
 Three moments. Each is logged and anchored before the first outcome it concerns.
 
-1. **Desk test, before any bench work.** The open question only: the materials as labelled, the procedure, what will be measured. No pictures, no numbers from this page. This measures whether a model can already call the outcome.
+1. **Desk test, before either powder is opened.** The open question only: the materials as labelled, the procedure, what will be measured. No pictures, no numbers from this page. This measures whether a model can already call the outcome.
 2. **After commissioning.** The same questions plus a calibration card: the measured single-powder limits and their scatter, the dry packing, the plate results, the single-powder vial readings.
 3. **During the work.** A forecast from table rows only (recipe, direction, route, outcomes so far) against a forecast from the full log. **The gap between these two is the only measured value of the trajectory over a table.**
 
@@ -196,7 +211,10 @@ Three moments. Each is logged and anchored before the first outcome it concerns.
 
 - Every titration cup and every mini-batch takes the next batch id on the one counter. Vials are `B041-V1`, `B041-V2`. Each titration step is an `observation` entry under its cup's id.
 - Each condition's forecasts are `prediction` entries under a run id for the condition, for example `E2-X30`. At the start of each cup, log one `prediction` entry under the cup's id with `--data _forecast_run=E2-X30`, so the log shows which anchored forecast the cup is scored against.
-- Three new logs: `paste-commission`, `paste-limit` (the block and Part B) and `paste-settle`.
+- Three logs, started at set-up (checklist S6): `paste-commission`, `paste-limit` (the block and Part B) and `paste-settle`.
+- Numbers come from one paper tally at the bench, because the tool checks ids only within one log. A bench day is a LAB day or an EXP day, never both (scheduled photos of sealed archives and vials excepted). All oil on EXP days is from the new lot.
+- This page and `predict.py` are attached to the `paste-commission` log with the first forecasts (C0a). If either changes before C1, attach the new copy the same way and anchor again.
+- Before the commissioning gate no condition run exists. The C3 and C4 cups carry `--data _forecast_run=E12-DESK`. The C1 practice and reference cups are scored against nothing: they carry `--data _forecast_run=none --data _excluded="C1 practice, not counted"`. The C1 warm-up batch goes in `paste-commission` and takes its own model forecast first, as in step 1 of "Make one batch".
 - Every session note carries room temperature, humidity and the minutes each pail was open. Powders are drawn each day from small sealed working tubs so the stock pails open once a day.
 
 ## What to buy
@@ -205,11 +223,12 @@ All prices are estimates except the oil.
 
 | Item | For | About |
 |---|---|---|
-| Three bottles of the same oil, one purchase, one lot | Every counted run. The pilot bottle's remainder is for uncounted practice only | $60 |
+| Three bottles of the same oil, one purchase, one lot | Everything on this page (EXP). The bottle already bought is LAB: the practice batch, A, B and any redo only | $60 |
 | 100 mL stoppered graduated cylinder, powder funnel, rubber pad | C2 | $30 |
 | About 30 clear capped vials near 12 mm inside, three 3 mL needle-free syringes | Experiment 3 | $25 |
 | About 70 more lidded 60 mL cups, a few small lidded tubs | One cup per titration; working tubs | $20 |
-| Two 4 inch glass plates and a 500 g weight, if not already bought | C0 | $40 |
+| Two 4 inch glass plates and a 500 g weight, if not already bought | C0b | $40 |
+| Fine-tip disposable pipettes for oil, a ruler or printed millimetre grid, a room thermometer with humidity, if not already owned | Small oil steps and the rig-check dose; the scale in photos; session notes | $20 |
 | Optional: USB microscope | Sizing the coarse powder for Experiment 2 | $30 |
 
 Counted oil is about 231 g of the 343 g in three bottles. Powder is about 1.3 kg of the 4.5 kg on hand. No lab fee.

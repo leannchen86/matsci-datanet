@@ -1,6 +1,6 @@
 # Prediction preamble (task card v0)
 
-Paste the block below, unchanged, at the top of every prediction prompt, cold and warm. Without it a model is given recipe numbers but not told what the materials are, how each quantity is measured or what the classes mean, and its forecast cannot be scored fairly.
+Paste the block below, unchanged, at the top of every per-batch prediction prompt, cold and warm. Do not add it to the prompts in [desk-test-prompts.md](desk-test-prompts.md): those are complete and are sent on their own. Without it a model is given recipe numbers but not told what the materials are, how each quantity is measured or what the classes mean, and its forecast cannot be scored fairly.
 
 Fill the square brackets once from the lot and calibration notes, save the filled version in the registry as `docs/preamble-v1.md`, and attach it. If anything in it changes, save a new version and say so in a note. Do not edit a version that has been used.
 
@@ -16,7 +16,7 @@ You are forecasting the outcome of one hand-mixed batch of thermal paste before 
 
 MATERIALS
 - Carrier: polydimethylsiloxane (silicone) oil, nominal viscosity [1000] cSt at 25 C, density [0.97] g/cm3. Supplier grade: [ ].
-- Coarse filler: alumina powder, [white fused / as stated on the lot note], stated size [12 to 40 micrometres], density [3.97] g/cm3. Not surface treated.
+- Coarse filler: alumina powder, [white fused / as stated on the lot note], stated size [325 mesh, 45 micrometres and finer], density [3.97] g/cm3. Not surface treated.
 - Fine filler: alumina powder, [as stated on the lot note], stated size [ ], density [3.97] g/cm3. Not surface treated.
 - No other ingredients. Nothing is cured or heated.
 

@@ -2,6 +2,7 @@
 """Fixed formulas for the experiments in EXPERIMENTS.md. Standard library only.
 
   predict.py loading --powder 12.00 --oil 2.41
+  predict.py oil --powder 12.00 --loading 0.52
   predict.py blend --lc 0.55 --lf 0.40
   predict.py squeeze --plate 80 --volume 0.5
 
@@ -72,6 +73,10 @@ def main():
     s.add_argument("--powder", type=float, required=True, help="grams of powder in the cup")
     s.add_argument("--oil", type=float, required=True, help="grams of oil in the cup")
 
+    s = sub.add_parser("oil", help="grams of oil for a chosen loading")
+    s.add_argument("--powder", type=float, required=True, help="grams of powder in the cup")
+    s.add_argument("--loading", type=float, required=True, help="target loading, for example 0.52")
+
     s = sub.add_parser("blend", help="predicted mixing limit of coarse-fine blends")
     s.add_argument("--lc", type=float, required=True, help="measured limit of coarse alone")
     s.add_argument("--lf", type=float, required=True, help="measured limit of fine alone")
@@ -86,6 +91,8 @@ def main():
     args = p.parse_args()
     if args.cmd == "loading":
         print(f"loading {loading(args.powder, args.oil):.4f}")
+    elif args.cmd == "oil":
+        print(f"oil {oil_for(args.powder, args.loading):.2f} g")
     elif args.cmd == "blend":
         print(f"inputs: coarse {args.lc}, fine {args.lf}, size ratio {args.ratio}")
         print("fines share   no-gain   gap-filling   oil at each on "
