@@ -6,6 +6,8 @@ Original plan prepared 5 October 2026; order status updated 6 October. McMaster 
 
 ## What this is
 
+For the first small submission, use the [hands-on run sheet](BENCH_PROTOCOL.md#1-hands-on-run-sheet-for-the-first-submission): practice, independent A and B, and the commercial reference. Home density/spread measurements are optional at this stage and the thermal rig is deferred. The broader measurement programme below is later work, not a requirement to finish before preparing the first specimens.
+
 Hand-mixed thermal pastes: silicone oil plus ceramic powder (alumina first, boron nitride later), about 25 g per batch, mixed by spatula to a fixed, timed protocol. No acids, no solvents beyond alcohol on wipes, no liquid waste.
 
 Four things are measured on every batch at home, the same day:

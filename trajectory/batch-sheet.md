@@ -2,6 +2,8 @@
 
 Print one per batch. Fill it by hand at the bench as you work; it is the original record. Photograph it once at the end, attach the photo to the `action` entry, then type the entries from it in the same session. Write times as clock times with the date.
 
+For the small first submission, follow [the hands-on run sheet](../outputs/thermal-paste-first-cycle/BENCH_PROTOCOL.md#1-hands-on-run-sheet-for-the-first-submission). Density/spread are optional: mark them **not measured** if omitted. Each powder round contains a separately weighed coarse addition and fine addition. Actual entries are readings, not copied target values.
+
 | | |
 |---|---|
 | Batch id | Session id |
@@ -14,22 +16,32 @@ Print one per batch. Fill it by hand at the bench as you work; it is the origina
 
 | Check | Reading |
 |---|---|
-| Balance id, and check weights read (1 g / 10 g / 100 g) | |
+| Balance id / model / capacity | |
+| Check-weight ids, reference masses/tolerances, five readings each (attach sheet) | |
+| Checks with actual cup/preload; zero return / drift / acceptance | |
 | Calibration id of the density measure | |
-| Both predictions logged? (yes / no) | |
+| Applicable predictions logged before outcomes? (yes / no / not planned) | |
+| Cup material / volume / id; mixing-tool id / geometry | |
+| Workspace/dust-control and PPE arrangements ready? | |
+| Planned addition tolerance and method version | |
 
 **Ingredients**
 
 | | Lot id | Target (g) | Actual (g) | Time |
 |---|---|---|---|---|
-| Empty cup (tare) | | | | |
+| Empty mixing cup, no lid (mass before tare) | | | | |
 | Oil | | | | |
 | Coarse powder, portion 1 | | | | |
+| Fine powder, portion 1 | | | | |
 | Coarse powder, portion 2 | | | | |
+| Fine powder, portion 2 | | | | |
 | Coarse powder, portion 3 | | | | |
-| Fine powder, total | | | | |
+| Fine powder, portion 3 | | | | |
+| Coarse total / fine total / all additions total | | | | |
 
-Was the powder tub tumbled before scooping? ______ Minutes each tub was open: coarse ______ fine ______
+Powder preconditioning, if specified by the method (otherwise none): ______ Minutes each tub was open: coarse ______ fine ______
+
+Use a fresh tare with cup only and no tools before **each** ingredient addition. Mixing is off the balance. Record spills, paste left on the mixing tool, and any mass changes rather than compensating with more ingredients.
 
 **Mixing**
 
@@ -42,6 +54,10 @@ Was the powder tub tumbled before scooping? ______ Minutes each tub was open: co
 | Rest | | |
 
 Mixing class (flows / paste / stiff / will not wet): ____________ Photo of the mixed paste taken? ______
+
+Dry pockets / visible bubbles / oil separation / handling difficulty: ____________________
+
+Recovered paste mass, if measured (clear prior tare with pan empty, then gross **uncovered** cup/paste mass minus empty cup mass, no tool): ______ g. Input-minus-recovered mass, and possible reasons: ______. Appearance alone does not establish homogeneity or void fraction.
 
 **Density** (three fresh fills)
 
@@ -60,10 +76,13 @@ Mixing class (flows / paste / stiff / will not wet): ____________ Photo of the m
 
 **Where the batch went**
 
-| Container id | Gross mass at sealing (g) | For |
-|---|---|---|
-| | | Lab |
-| | | Archive |
+| Container id / parent batch | Empty container + lid (g) | Sealed gross mass (g) | Net contents (g) | For / packed time |
+|---|---|---|---|---|
+| | | | | Lab |
+| | | | | Archive |
+| | | | | Optional split / other |
+
+Amount reserved for lab (confirmed requirement / pending): ______. Any mixing or conditioning before aliquoting: ______. Storage conditions and time: ______.
 
 **Deviations from the method** (anything, however small):
 
