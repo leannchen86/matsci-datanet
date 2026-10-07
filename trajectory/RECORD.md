@@ -63,6 +63,8 @@ Fixed before the first entry, because an append-only log cannot rename them.
 - Batches: `B001`, `B002`... on one counter across practice, pilot and main. Never reused. The batch id is the run id for its same-day home measurements.
 - Containers filled from a batch: `B001-L1` (for a lab), `B001-A1` (archive).
 - Any later measurement of a container gets its own run id: `B001-L1-M1`, `B001-L1-M2`.
+- After the pilot: every titration cup and every small batch for vials takes the next batch id on the same counter. Vials filled from a batch are `B041-V1`, `B041-V2`. Each titration step is an `observation` entry under its cup's id.
+- Forecasts taken once for a condition are `prediction` entries under a run id for that condition, for example `E2-X30`. Each cup then starts with one `prediction` entry under its own id carrying `_forecast_run=E2-X30`.
 - Reference paste containers: `REF-L1`, `REF-L2`, with `_parent=LOT-REF-1`.
 - Lots: `LOT-OIL-1`, `LOT-COARSE-1`, `LOT-FINE-1`, `LOT-REF-1`. Equipment: `BAL-1`, `MEAS-1`, `PLATES-1`...
 

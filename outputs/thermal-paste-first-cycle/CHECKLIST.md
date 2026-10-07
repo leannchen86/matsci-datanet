@@ -1,6 +1,6 @@
 # Thermal paste: what to do next
 
-Updated Wednesday 7 October 2026. This page is the whole plan. The long versions are in [BENCH_PROTOCOL.md](BENCH_PROTOCOL.md) (section 1) and [CALLS_AND_ORDERS.md](CALLS_AND_ORDERS.md). Those files call G1 "item 15", S5 "item 16" and S2 "item 05".
+Updated Wednesday 7 October 2026. This page is the whole plan for the pilot. What comes after it is in [EXPERIMENTS.md](EXPERIMENTS.md). The long versions are in [BENCH_PROTOCOL.md](BENCH_PROTOCOL.md) (section 1) and [CALLS_AND_ORDERS.md](CALLS_AND_ORDERS.md). Those files call G1 "item 15", S5 "item 16" and S2 "item 05".
 
 **Goal:** hand LongWin three samples: the bought reference paste, and two batches (A and B) of one home-mixed recipe, made separately.
 
@@ -9,12 +9,13 @@ Updated Wednesday 7 October 2026. This page is the whole plan. The long versions
 - **Arriving Wednesday 7 October:** coarse alumina, fine alumina and the reference paste (McMaster, by 5 pm); silicone oil (Grainger San Jose, 2261 Ringwood Ave, open 7:30 am to 4 pm; go only after the ready notice).
 - **Balance:** ordered, arrival date not confirmed. Check your order for its model, capacity and date.
 - **LongWin:** wants its service form before quoting. Expect about two weeks from drop-off to a report. No appointment yet.
-- **Do not buy:** more powder, another balance, or anything for the thermal rig. Oil is enough for the pilot only; see A2.
+- **Do not buy:** more powder, another balance, or anything for the thermal rig.
+- **Do buy now:** three more bottles of the same oil in one purchase, and check they share a lot. The bottle on order covers the pilot only (about 17 batches).
 
 ## Start here, in this order
 
 - [ ] **G2. Send the LongWin form.** Fill it in from [the form guide](CALLS_AND_ORDERS.md#longwin-service-form-next-action). For thickness, pressure and temperature write "engineer to recommend". Ask for: price, which container to use, a drop-off date, the measured data points as Excel, permission to publish naming the lab, and the price of an optional fourth sample. Also ask: is the gap or the pressure set during the test; is the paste stirred before loading; can they report the thickness reached at a stated pressure; what is their documented repeatability on greases.
-- [ ] **G1. Settle powder handling.** Do not open either powder until this is done. Settled means: you have read the safety data sheets for both powders, the oil and the reference paste; you have a wipe-clean spot away from food, children and pets with no fan blowing across it; and you have safety glasses, gloves and whatever respirator the sheets or a reviewer call for. A balance draft shield is not dust control. If unsure, ask an industrial hygienist.
+- [ ] **G1. Settle powder handling.** Do not open either powder until this is done. Settled means: you have read the safety data sheets for both powders, the oil and the reference paste; you have a wipe-clean spot away from food, children and pets with no fan blowing across it; and you have safety glasses, gloves and whatever respirator the sheets or a reviewer call for. A balance draft shield is not dust control. If unsure, ask an industrial hygienist. Ask the same review to cover three later steps: filling and tapping a cylinder of dry powder, many small powder additions to one cup, and decanting each day's powder into small working tubs.
 - [ ] Then S1 to S6 as things arrive.
 
 ## Set up (no powder needed)
@@ -90,6 +91,15 @@ About 30 to 45 minutes.
 ## Afterwards
 
 - [ ] **A1.** Save LongWin's files unchanged. Compare A with B and write down what you decide next.
-- [ ] **A2.** Before any batch beyond the pilot: buy three more bottles of the same oil in one purchase and check they share a lot. One bottle covers about 17 batches, and every next step needs more.
+- [ ] **A2.** Start the experiments in [EXPERIMENTS.md](EXPERIMENTS.md) at C1. They need the new oil in hand and the handling review extended as in G1.
 
-Not this round: density, spread, more recipes, backup labs. Leave those parts of the batch sheet marked "not measured".
+## Beside the pilot (no powder)
+
+Do these in any gap; none of them holds up the pilot. Steps are in [EXPERIMENTS.md, C0](EXPERIMENTS.md#c0-before-any-powder).
+
+- [ ] **N1.** Buy the oil above and the small items in [What to buy](EXPERIMENTS.md#what-to-buy).
+- [ ] **N2.** Check the spread rig on plain oil, then on the reference paste.
+- [ ] **N3.** Take each model's first forecasts for the three experiments and log them.
+- [ ] **N4.** Ask a second person whether they can code cups and read photos blind.
+
+Not this round: density and spread on batches, more recipes, backup labs. Leave those parts of the batch sheet marked "not measured".

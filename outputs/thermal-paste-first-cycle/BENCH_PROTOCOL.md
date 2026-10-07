@@ -196,6 +196,8 @@ python3 trajectory/traj.py add paste-001 decision --text "what you will do next 
 
 ## 5. Shakedown, then the gate runs
 
+> Superseded 7 October 2026. After the pilot, follow [EXPERIMENTS.md](EXPERIMENTS.md): commissioning and three experiments take the place of the shakedown and the gate schedule. Kept for reference.
+
 - **Shakedown (not counted), about 12 batches.** Control, 30, 50 and 55 vol%. Time weighing, mixing, density and spread separately. Find where hand mixing stops wetting the powder. Adjust the spread dose until the control lands between 30 and 50 mm.
 
   **Done when:** within one batch, the three density fills agree within about 1% and the two spreads within about 5%.
@@ -214,6 +216,8 @@ git push
 - **Three gate sessions.** Each starts with the reference paste, then four fresh control batches and the scheduled extremes. Keep one control cup from two different days for LongWin.
 
 ## 6. The home thermal rig (in parallel, judged a week later)
+
+> Paused 7 October 2026 until the 29 November review. See the gate table in [PLAN.md](../../PLAN.md).
 
 - Cut two 40 mm blocks from the bar. Each needs two 1.6 mm holes drilled to the centre line, 5 mm and 25 mm from the test face. The upper block also needs a 6 mm hole for the heater. Ask whoever drills them to face both ends flat and square.
 - Lap each test face on wet-and-dry paper taped to the float glass, working up to the finest grit.
@@ -243,6 +247,8 @@ At about 10 W the temperature difference along each bar is only about 2 °C, so 
 - Receive and archive the numerical results and raw files agreed in the quote. Log files with `--file` and record the actual fee, test hours if supplied, and turnaround.
 
 ## 8. First gate, Sunday 18 October
+
+> Superseded 7 October 2026 by the commissioning gate in [EXPERIMENTS.md](EXPERIMENTS.md#commissioning-week-1). Item 3, the lab comparison, still stands.
 
 - Make one table: label, scatter within a batch, scatter between days, range across the extremes, the ratio, and the models' error with and without the campaign log.
 - Pass needs all four:

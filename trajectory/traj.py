@@ -191,10 +191,12 @@ def cmd_verify(args):
         prev = e.get("hash")
 
     runs = sorted({e["run"] for e in entries if e.get("run")})
-    clean = 0
+    clean = with_outcome = 0
     for run in runs:
         first_pred = next((e["seq"] for e in entries if e.get("run") == run and e["type"] == "prediction"), None)
         first_obs = next((e["seq"] for e in entries if e.get("run") == run and e["type"] == "observation"), None)
+        if first_obs:
+            with_outcome += 1
         if first_pred and first_obs and first_pred < first_obs:
             clean += 1
     flagged = [e for e in entries if e.get("flags")]
@@ -214,7 +216,7 @@ def cmd_verify(args):
         seen.setdefault(sig, []).append(session)
 
     print(f"{args.campaign}: {len(entries)} entries, {len(runs)} runs.")
-    print(f"Runs with a prediction logged before the outcome: {clean} of {len(runs)}.")
+    print(f"Runs with a prediction logged before the outcome: {clean} of {with_outcome} that have an outcome.")
     print(f"Exact repeats of an earlier plan: {repeats}, of which in a different session: {cross_session}.")
     for e in flagged:
         print(f"Flagged entry {e['seq']} (run {e.get('run')}): {', '.join(e['flags'])}")
