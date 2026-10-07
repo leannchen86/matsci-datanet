@@ -35,7 +35,7 @@ About 14 bench days over four to five weeks.
 
 1. **Oil between plates.** Weigh the top glass plate and the 500 g weight separately. Put 0.50 mL of oil (0.485 g) at the centre of the lower plate, lower the top plate flat, and photograph from above at 30, 60 and 300 seconds. Compare the diameters with `python3 predict.py squeeze --plate <plate grams>`. **Pass:** within 5% of the "with capillary pull" column (for an 80 g plate, *placeholder*: 62, 69 and 92 mm). Diameters below the "plain viscous" column mean a tilted or bowed plate or a timing fault; fix that first.
 2. **Reference paste between plates.** Two loads (plate; plate plus 500 g) by two doses (0.5 and 2.0 mL), two runs of each, order drawn at random, photos at 30 and 300 seconds. This shows how a real paste stops spreading. No experiment below scores a spread number.
-3. **Desk test.** Ask each forecasting model the open questions in [Forecasts](#forecasts), with none of this page in the prompt. Log and anchor the replies before any powder measurement exists.
+3. **Desk test.** Send each forecasting model the two prompts in [desk-test-prompts.md](../../trajectory/desk-test-prompts.md). They contain none of this page. Log and anchor the replies before any powder measurement exists.
 
 ## Commissioning, week 1
 
