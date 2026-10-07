@@ -9,11 +9,11 @@ Updated Wednesday 7 October 2026. This page is the whole plan. The long versions
 - **Arriving Wednesday 7 October:** coarse alumina, fine alumina and the reference paste (McMaster, by 5 pm); silicone oil (Grainger San Jose, 2261 Ringwood Ave, open 7:30 am to 4 pm; go only after the ready notice).
 - **Balance:** ordered, arrival date not confirmed. Check your order for its model, capacity and date.
 - **LongWin:** wants its service form before quoting. Expect about two weeks from drop-off to a report. No appointment yet.
-- **Do not buy:** more powder, more oil, another balance, or anything for the thermal rig.
+- **Do not buy:** more powder, another balance, or anything for the thermal rig. Oil is enough for the pilot only; see A2.
 
 ## Start here, in this order
 
-- [ ] **G2. Send the LongWin form.** Fill it in from [the form guide](CALLS_AND_ORDERS.md#longwin-service-form-next-action). For thickness, pressure and temperature write "engineer to recommend". Ask for: price, which container to use, a drop-off date, the measured data points as Excel, permission to publish naming the lab, and the price of an optional fourth sample.
+- [ ] **G2. Send the LongWin form.** Fill it in from [the form guide](CALLS_AND_ORDERS.md#longwin-service-form-next-action). For thickness, pressure and temperature write "engineer to recommend". Ask for: price, which container to use, a drop-off date, the measured data points as Excel, permission to publish naming the lab, and the price of an optional fourth sample. Also ask: is the gap or the pressure set during the test; is the paste stirred before loading; can they report the thickness reached at a stated pressure; what is their documented repeatability on greases.
 - [ ] **G1. Settle powder handling.** Do not open either powder until this is done. Settled means: you have read the safety data sheets for both powders, the oil and the reference paste; you have a wipe-clean spot away from food, children and pets with no fan blowing across it; and you have safety glasses, gloves and whatever respirator the sheets or a reviewer call for. A balance draft shield is not dust control. If unsure, ask an industrial hygienist.
 - [ ] Then S1 to S6 as things arrive.
 
@@ -80,7 +80,7 @@ About 30 to 45 minutes.
 ## Pack and hand over
 
 - [ ] **P1.** Use the container LongWin names. For A, then B: weigh the empty container with its lid; spoon in about **5 g** (LongWin needs about 1 mL, roughly 2.2 g); close it and weigh it again; write down both numbers. Label it with its batch id plus **-L1**. Wipe the spatula clean and dry between A and B.
-- [ ] **P2.** Keep the rest of each batch sealed as an archive, labelled batch id plus **-A1**.
+- [ ] **P2.** Keep the rest of each batch sealed as an archive, labelled batch id plus **-A1**. Photograph each archive from the side at 1 hour and at 1, 3, 7 and 14 days, to record any oil separating.
 - [ ] **P3.** Reference paste: photograph its label and lot. Add nothing to it. Move about 5 g into its own container with the reference-only tool. Label it **REF-L1**.
 - [ ] **P4.** Optional fourth sample, only if LongWin quoted it: a second container from A. Then label all three home-made containers with plain codes (S1, S2, S3) and keep the key to batch ids in your own record.
 - [ ] **P5.** Before the samples leave: log an AI forecast of the lab's numbers for each container. Run `python3 trajectory/traj.py verify paste-pilot`, then the same with `anchor`. Commit and push `trajectory/anchors.log`, timestamp that file with an outside service such as opentimestamps.org, and copy `trajectory/campaigns/` to a second disk.
@@ -90,5 +90,6 @@ About 30 to 45 minutes.
 ## Afterwards
 
 - [ ] **A1.** Save LongWin's files unchanged. Compare A with B and write down what you decide next.
+- [ ] **A2.** Before any batch beyond the pilot: buy three more bottles of the same oil in one purchase and check they share a lot. One bottle covers about 17 batches, and every next step needs more.
 
 Not this round: density, spread, more recipes, backup labs. Leave those parts of the batch sheet marked "not measured".

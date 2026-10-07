@@ -55,6 +55,23 @@ First cart: approximately $569–698 for ingredients and the density/spread kit,
 | 5 | Arrange the checks only a person can do: respirator fit, heater wiring review, the boron nitride ventilation question, and telling the disposal route about the zinc oxide reference paste | Each has a named person and a date |
 | 6 | Decide whether this repository stays public, and review the two untracked folders under `outputs/` before committing them | Decision written here |
 
+## Open proposal: aim the next stage at repeatable surprise
+
+Raised 7 October 2026 by a new team member; not yet adopted. It needs a decision from the project owner.
+
+**The point.** A smooth recipe-to-result relation can be interpolated by a model from a few rows, so it adds little. What is worth collecting is the outcome that comes out the same when repeated but that a model's forecast gets wrong. That is not the same as a noisy process: noise cannot be learned and scores zero.
+
+**Where the plan stands.** No batch varies the process on purpose; the mixing method is fixed and written into the forecast prompt. The lab's thermal number is the measurement least affected by how a paste was made. The pilot proves the lab route and nothing about surprise, and it stays first because the lab's two-week turnaround is the longest wait.
+
+**Proposed change, after the pilot is packed.**
+
+1. Commission the home density and spread measurements, and make one batch each at 30, 40, 50 and 55% filler by volume to find where hand mixing stops working.
+2. Replace the 12 identical control batches with a 12-batch block over three days: 40% and the highest loading that still mixed, each at 2 and 6 minutes of mixing.
+3. Log three forecasts before each batch: with no history, with a plain table of earlier rows, and with the full log. The gap between the last two is the measured value of the trajectory over a table.
+4. Report model error divided by repeat scatter as a number. Do not make "a surprise was found" a pass or fail gate. The 18 October gate moves by about a week.
+
+**Limits.** Every published effect size comes from other pastes; nobody has measured hand-mixed alumina in silicone oil, so finding nothing is possible. Deliberately varied process settings are just more columns in a table: they do not by themselves show that a trajectory beats a row. Powder humidity and added water are a possible second block and need the owner's sign-off and a handling review first. That model builders want this kind of record is still a hypothesis; ask it directly in the outreach message.
+
 ## Weekly review
 
 Every Monday, seven numbers: runs completed, independent sessions, runs with a prediction logged before the outcome, exact repeats in a different session, spread between those repeats, dollars spent, and reactions from anyone outside the project. Runs completed is the one that must go up.
