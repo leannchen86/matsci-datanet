@@ -1,0 +1,29 @@
+{
+  "release": "B001-process-review-v1",
+  "review_date_local": "2026-10-09",
+  "classification": "post-outcome feedback, interpretation and next-method decision; no new physical observations",
+  "campaign": "paste-practice",
+  "base_release": "../B001",
+  "base_entries": 35,
+  "base_log_sha256": "bebc0c90c9e50f9a2a602d0bcf7f86db5dc4e3d70f992ae8932f7ab7930e5a5e",
+  "base_head_hash": "cc92c28b00052c0dc2ea33a9f1302c89d26d9259826aefebdf6c42ca2ae475b3",
+  "addendum_entries": [
+    36,
+    37,
+    38
+  ],
+  "head_hash": "7cd2f396b302ae5926236716814aab731cde213426b7f9993bdf26b1353cf643",
+  "public_authorization": "User authorized public B001 raw records and photos, and requested this process feedback be recorded.",
+  "files": [
+    {
+      "path": "paste-practice/docs/B001-process-review.v1.md",
+      "bytes": 12656,
+      "sha256": "4d7f7dda2f5c9edd5e22a84155accb0718ffeaab66ffe126cf76de86f01a4d96"
+    },
+    {
+      "path": "paste-practice/log-addendum.jsonl",
+      "bytes": 4409,
+      "sha256": "4111a09211361932248f84a2c8ac5b51a6111ce321dea96edb64a7347d0f2df8"
+    }
+  ]
+}

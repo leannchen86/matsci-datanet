@@ -2,13 +2,15 @@
 
 Use [CHECKLIST.md](CHECKLIST.md) as the single completion tracker. This reference preserves the detailed preparation, logging and later study procedures; supplier scripts and specifications are in [CALLS_AND_ORDERS.md](CALLS_AND_ORDERS.md).
 
+**9 October review status:** [B001_PROCESS_REVIEW.md](B001_PROCESS_REVIEW.md) records the operator's residue criticism, the assistant's process review, and a candidate jar-plus-spatula weighing arrangement. Section 1 below preserves the B001 baseline; its cup-only weighing rules must not be silently combined with the candidate method. Before another powder batch, rehearse the equipment/weighing arrangement without powder and prepare a complete revised run card. No new method has yet passed rehearsal; B1 remains open.
+
 The initial exploratory pilot has no fixed date: batches A and B are made once the lab has named a container, any age limit and a drop-off date (see [CHECKLIST.md](CHECKLIST.md)); they take the next free batch numbers on the days they are made, which may not be B002 and B003. Use separate pilot run IDs and record preparation changes. The larger shakedown, gate study and thermal rig below follow their own readiness criteria; their original dates are provisional and do not have to be completed before the early submission. Rig construction details are candidates pending the design review described in CALLS_AND_ORDERS.md.
 
 Commands are run from the repository root. Example measurements are illustrative, not collected results. Use the PPE and cleanup method selected for the actual materials and workspace.
 
 ## 1. Hands-on run sheet for the first submission
 
-**Prepared October 6, 2026. Status: proposed procedure to rehearse, not a validated mixing method or evidence that work has been completed.** Follow this section for the small first submission. Sections 2 onward retain the broader study; its recipe survey, model panels, density/spread tests and home thermal rig are not prerequisites for this submission. Use [CHECKLIST.md](CHECKLIST.md) for actual completion status.
+**Prepared October 6, 2026; retained as the B001 baseline after the October 9 review. Not a validated mixing method.** A revised run card is required before the next powder batch; see the review notice above. Sections 2 onward retain the broader study; its recipe survey, model panels, density/spread tests and home thermal rig are not prerequisites for this submission. Use [CHECKLIST.md](CHECKLIST.md) for actual completion status.
 
 **What you will physically make:** one approximately 25 g practice batch, then two separately weighed and mixed batches of the same recipe, plus a specimen of purchased DOWSIL 340. The optional fourth laboratory specimen is a split from batch A, not a third independent batch. Budget a first setup session and roughly 30–45 minutes per batch including notes and cleanup; these are planning estimates. Overnight storage is not a curing requirement: record actual preparation and storage times.
 

@@ -1,5 +1,7 @@
 # Batch sheet
 
+**9 October 2026:** this sheet preserves the original cup-only weighing configuration used for B001. The [B001 process review](../outputs/thermal-paste-first-cycle/B001_PROCESS_REVIEW.md) proposes an alternative jar-plus-spatula arrangement. Rehearse and version the chosen arrangement, then revise the run card/sheet consistently before the next powder batch. Do not mix the two tare or final-mass definitions.
+
 Print one per batch. Fill it by hand at the bench as you work; it is the original record. Photograph it once at the end, attach the photo to the `action` entry, then type the entries from it in the same session. Write times as clock times with the date.
 
 For the small first submission, follow [the hands-on run sheet](../outputs/thermal-paste-first-cycle/BENCH_PROTOCOL.md#1-hands-on-run-sheet-for-the-first-submission). Density/spread are optional: mark them **not measured** if omitted. Each powder round contains a separately weighed coarse addition and fine addition. Actual entries are readings, not copied target values.
