@@ -1,0 +1,34 @@
+FORECAST EXECUTION CONDITIONS
+This is one prospective forecast. Use only this prompt and your existing knowledge. Do not use tools, browse, read files, consult other agents, or seek prior experiment outcomes. Give your first response only. These are forecasts, not measured results or a workspace safety assessment.
+
+Forecast the observable result of a beginner's first room-temperature, hand-mixed alumina/silicone-oil practice batch, B001. No paste preparation outcome has been supplied.
+
+MATERIALS AND UNCERTAINTY
+- Oil: Super Lube 56404, nominal 1000 cSt PDMS silicone oil at 25 C; manufacturer-listed density 0.970 g/cm3. Product identity confirmed by user; actual lot not recorded here.
+- Coarse filler: McMaster 5092N124 alumina, catalog-listed 45 micrometres. Actual size distribution, grade, surface treatment and certificate details are unknown here. Do not treat 45 micrometres as a measured mean or assume a white-fused grade.
+- Fine filler: McMaster 5092N131 alumina, catalog-listed 4–7 micrometres. Actual distribution, grade, surface treatment and certificate details unknown here. A 5.5 micrometre midpoint is not a measurement.
+- Assume true particle density 3.97 g/cm3 for both powders only for recipe calculations; it is not lot-verified.
+- Room temperature and humidity unmeasured. Declare any assumed values.
+
+PLANNED METHOD
+- Reused glass jar, cleaned and completely dried per user. Jar indication 204.402 g; whether this included its lid was not confirmed. Internal dimensions and volume are unknown. One steel mixing spatula and two separately dedicated dry plastic powder scoops.
+- Bonvoisin-branded balance, exact model unknown, 500 g maximum and 0.001 g display increment. User reports manual calibration with supplied nominal 200 g weight. Cover removed because fitting it changed readings inconsistently. Small-mass accuracy unverified; no full raw repeatability series supplied. This is learning-only practice.
+- Add 6.71 g oil first. Three rounds each adding 4.27 g coarse powder and then 1.83 g fine powder, with a fresh tare before each addition. After each round, fold and scrape bottom/walls for 60 seconds off the balance. After round three, mix another 180 seconds, scrape blade into jar, cover and rest 120 seconds.
+- Targets total 25.01 g: 6.71 g oil, 12.81 g coarse and 5.49 g fine. Actual additions will be recorded; no rescaling to compensate for handling losses.
+- No heat, vacuum, curing agent or other treatment. This is not a thermal conductivity test.
+
+MEASURED OUTCOME
+After the covered two-minute rest, uncover, lift the spatula once from the centre, photograph the material, and classify:
+flows = levels on its own;
+paste = holds a peak and spreads easily;
+stiff = hard to spread;
+will_not_wet = visible dry clumps remain.
+A fixed quantitative observation time is not yet validated; acknowledge observer/geometry uncertainty.
+Density, spread diameter and thermal conductivity WILL NOT be measured in this practice. Do not invent forecasts for those measured outcomes. You may separately calculate ideal no-air density, explicitly as a calculation.
+
+RESPONSE
+1. Give one primary mixing-class forecast and a subjective probability for each of the four classes, summing to 1. These probabilities are uncalibrated prior judgements.
+2. Explain the reasoning in at most six sentences. Identify assumptions that could change the forecast.
+3. State two or three expected handling/appearance observations and the main ways the record could mislead.
+4. End with this single machine-readable line:
+ANSWER mix_class=<flows|paste|stiff|will_not_wet> p_flows=<number> p_paste=<number> p_stiff=<number> p_will_not_wet=<number> density=null spread_mm=null thermal_conductivity=null

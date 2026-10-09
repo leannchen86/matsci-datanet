@@ -9,7 +9,7 @@ Long versions: [BENCH_PROTOCOL.md](BENCH_PROTOCOL.md) (section 1) and [CALLS_AND
 
 ## Where things stand
 
-- **First learning-only practice batch:** B001 preparation and final weighing are complete per operator reports. Photos and measurements remain in the private practice log. Method review and a repeat rehearsal remain before freezing the procedure for A/B; do not treat this as completion of the balance or handling checks.
+- **First learning-only practice batch:** B001 preparation and final weighing are complete per operator reports. The operator authorized publication of its [raw record and four original photographs](../../trajectory/releases/B001/README.md). Method review and a repeat rehearsal remain before freezing the procedure for A/B; do not treat this as completion of the balance or handling checks.
 - **Materials received, per operator:** coarse alumina, fine alumina, reference paste and silicone oil. Product identities and labels reported checked; full lot-certificate reconciliation remains open.
 - **Balance received:** Bonvoisin-branded, reported 500 g capacity and 0.001 g readability. Manual calibration with the supplied 200 g weight is reported complete. See S5-P for the practice-only cover-off exception; small-mass accuracy is unverified.
 - **LongWin:** wants its service form before quoting. Expect about two weeks from drop-off to a report. No appointment yet.
@@ -67,7 +67,15 @@ mkdir -p trajectory/campaigns/registry/docs trajectory/campaigns/paste-commissio
 
 A LAB day. Needs S5 passed or the documented S5-P learning-only exception, the first G1b line ticked, and N3 done. Separate dry scoops for the two powders are also needed. It does not need the lab, the new oil or any experiment kit. Before you start, fill the oil, powder and balance brackets in [prompt-preamble.md](../../trajectory/prompt-preamble.md), write "not measured" in its density-measure and plate-load brackets, and save it as version 1.
 
-- [ ] **B1. Practice and method freeze.** B001 was prepared on 9 October; its actual execution, deviations and remaining uncertainties are recorded privately. This gate remains open pending review and a repeat rehearsal. If you can weigh, wet all the powder and keep to the times, write down the method exactly as performed and save it in the registry as `docs/BP-v1.md`. Otherwise practise again under the next number; never overwrite B001 or treat it as pilot batch A/B.
+- [ ] **B1. Practice and method freeze.** B001 was prepared on 9 October; its actual execution, deviations and remaining uncertainties are in the authorized [public release](../../trajectory/releases/B001/README.md). This gate remains open pending review and a repeat rehearsal. If you can weigh, wet all the powder and keep to the times, write down the method exactly as performed and save it in the registry as `docs/BP-v1.md`. Otherwise practise again under the next number; never overwrite B001 or treat it as pilot batch A/B.
+
+**B001 storage and recommended next rehearsal after its first observations:**
+
+- Keep B001 as a practice archive: capped, upright, in labeled secondary containment, at stable indoor room temperature away from food, sunlight and heaters. Do not refrigerate, heat, dilute or remix it for storage. Record the actual storage start and temperature if measured. The oil maker specifies cool, dry, ventilated storage in its [SDS, section 7](https://www.super-lube.com/wp-content/uploads/2025/06/SDS_Super_Lube_Silicone_Oil-EN-sds.pdf); this supports a provisional short-term storage choice, not a validated shelf life for the homemade paste.
+- On the following day, photograph the closed jar from the side before disturbing it and note any visible separated layer. Record when the observation occurs; changes in aged B001 are not a fresh-batch repeat. Do not call this an automatic timed settling test.
+- The next new batch is another practice rehearsal, tentatively B002 if no intervening batch uses that ID. Use fresh ingredients, the same intended recipe and the same documented vessel/tool method in a separate clean, dry container. If the vessel changes, record it as a method change. Do not thin B001 or modify the new recipe solely because B001 felt stiff.
+- Before starting, save actual balance-repeat readings and zero returns under S5-P (or complete S5), review the applicable powder-handling setup, and prepare the timed sequence in advance. Record each 60-second round, the final three-minute mix and two-minute rest. Use smaller powder additions near the weighing target. Record the clean/dry spatula mass and its final post-scrape residue mass if feasible, plus the final jar mass; residue mass alone does not establish residue composition.
+- Counted A/B still require S5, a rehearsed written method, applicable handling review, and confirmed lab container, sample-age and appointment requirements. B001 remains an archive and is not relabeled A or B.
 
 Then one question: **has LongWin named the container, any age limit and a date?**
 

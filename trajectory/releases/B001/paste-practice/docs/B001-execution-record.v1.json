@@ -1,0 +1,64 @@
+{
+  "record_version": 1,
+  "batch": "B001",
+  "track": "LAB",
+  "purpose": "learning_only_practice",
+  "client_completion_date": "2026-10-09",
+  "status": "preparation_and_final_weighing_reported_complete; storage_and_cleanup_not_yet_confirmed",
+  "weighed_inputs_g": {
+    "oil": 6.718,
+    "coarse_additions": [
+      4.272,
+      4.266,
+      4.267
+    ],
+    "fine_additions": [
+      1.835,
+      1.847,
+      1.886
+    ],
+    "coarse_total": 12.805,
+    "fine_total": 5.568,
+    "total": 25.091
+  },
+  "weighing": {
+    "empty_jar_baseline_g": 204.588,
+    "final_jar_plus_material_g": 229.612,
+    "derived_material_with_jar_g": 25.024,
+    "apparent_unaccounted_g": 0.067,
+    "lid_excluded_throughout_user_confirmed": true,
+    "spatula_exclusion_final": "as instructed; not separately reiterated",
+    "small_mass_accuracy": "unverified",
+    "balance_cover": "removed; earlier inconsistent readings when fitted"
+  },
+  "timing": {
+    "round_1_reported_s": 60,
+    "extra_after_round_1_estimated_s": 60,
+    "round_2_actual_s": null,
+    "round_3_plus_final_reported_s": 240,
+    "covered_rest_requested_s": 120,
+    "rest_and_lift_sequence_reported_done": true,
+    "exact_clock_times": null
+  },
+  "outcome": {
+    "mix_class": "stiff",
+    "operator_description": "Felt stiff or hard to spread",
+    "density": null,
+    "spread_mm": null,
+    "thermal_conductivity": null
+  },
+  "deviations": [
+    "Approximately one extra minute of mixing after round 1",
+    "Final fine addition 1.886 g versus target 1.830 g; +0.056 g exceeds +/-0.020 g working addition tolerance"
+  ],
+  "limits": [
+    "Unverified small-mass accuracy",
+    "Exact round-2 mixing duration unreported",
+    "Actual retained oil/powder ratio and residue composition unmeasured",
+    "Apparent mass discrepancy may include handling residues, vessel/label changes and weighing error; it is not established physical loss",
+    "No thermal test or quantitative rheology",
+    "No final method freeze or A/B qualification"
+  ],
+  "evidence_log": "log.jsonl through entry 31",
+  "release": "private; only verification hashes published"
+}

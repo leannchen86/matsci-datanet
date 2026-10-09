@@ -1,0 +1,67 @@
+{
+  "release": "B001-practice-v1",
+  "release_date_local": "2026-10-09",
+  "public_authorization": "Publish B001\u2019s raw records and photos too",
+  "campaign": "paste-practice",
+  "entries": 35,
+  "head_hash": "cc92c28b00052c0dc2ea33a9f1302c89d26d9259826aefebdf6c42ca2ae475b3",
+  "source_snapshot": "byte-identical copy of the practice campaign at release",
+  "classification": "public learning-only practice; not held-out evaluation",
+  "files": [
+    {
+      "path": "paste-practice/docs/B001-execution-record.v1.json",
+      "bytes": 2117,
+      "sha256": "14c69f5e3872cc8f4f367ee98dc9bb7e542f3efd29ff0168362d4a7fc3dd6d76"
+    },
+    {
+      "path": "paste-practice/log.jsonl",
+      "bytes": 43826,
+      "sha256": "bebc0c90c9e50f9a2a602d0bcf7f86db5dc4e3d70f992ae8932f7ab7930e5a5e"
+    },
+    {
+      "path": "paste-practice/prompts/B001.v1.txt",
+      "bytes": 3718,
+      "sha256": "f2227ab36877ce877c1224dd603fc927ad51f748911ac7a8fa0c5e3e3bafa4b9"
+    },
+    {
+      "path": "paste-practice/raw/B001-preparation-51594c1.anchors.log",
+      "bytes": 745,
+      "sha256": "43d37c47e7010beefecfd9a4f52b2a39a7c528b5fba5d949b7a84ba1929e47cf"
+    },
+    {
+      "path": "paste-practice/raw/B001-preparation-51594c1.anchors.log.ots",
+      "bytes": 1120,
+      "sha256": "8439e05e64fd2c45f65575dd65efc82a8206435734e1bac8c422b5cc73cd4975"
+    },
+    {
+      "path": "paste-practice/raw/B001-preparation-51594c1.status.txt",
+      "bytes": 843,
+      "sha256": "dc7786501d5d9017395b6eed6e5112429b1f5faffdba02a0ed80073094478216"
+    },
+    {
+      "path": "paste-practice/raw/B001.after-final-mix.01.jpg",
+      "bytes": 1553077,
+      "sha256": "2bf5acf2022acd41f82c5570af7dfd0af2e568332cb71318e7d6fb5b518c4f86"
+    },
+    {
+      "path": "paste-practice/raw/B001.inherited.first.md",
+      "bytes": 1685,
+      "sha256": "3b64f7f5e8d7ab768fc7887483b4d7f750085be74b0ca217a92ccc4b7075da5a"
+    },
+    {
+      "path": "paste-practice/raw/B001.post-rest.01.jpg",
+      "bytes": 1713537,
+      "sha256": "3ba523942c8c41ea23ce64b0dba74c4f0ec8f6fedb46a5dec5c273ad50b78655"
+    },
+    {
+      "path": "paste-practice/raw/B001.post-rest.02.jpg",
+      "bytes": 1721888,
+      "sha256": "69001cfaa632e699ca71350bd4fb0c0a30aed1b6169976d6347203365aab71d8"
+    },
+    {
+      "path": "paste-practice/raw/B001.round2.intermediate.01.jpg",
+      "bytes": 198422,
+      "sha256": "81d92324ea8e4094543091a2b6da47abf4a2fb5d2c524e2cef42f915f1a9be92"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+B001 preparation record anchor
+
+Anchor commit: 51594c1
+Branch: codex/aln-pilot-preparation
+Snapshot: B001-preparation-51594c1.anchors.log
+SHA256: 43d37c47e7010beefecfd9a4f52b2a39a7c528b5fba5d949b7a84ba1929e47cf
+Receipt: B001-preparation-51594c1.anchors.log.ots
+Client: opentimestamps-client 0.7.2
+Initial inspection: four pending calendar attestations; no verified Bitcoin timestamp.
+
+Snapshot and initial receipt are immutable. Only public campaign hashes are
+contained in the snapshot; photos and detailed records remain private.
+Later upgrade a COPY of the receipt, then verify through Bitcoin Core or
+another independently checked verification workflow. ots info is inspection,
+not verification. Preserve the original snapshot when anchors.log grows.
+
+Official client documentation: https://github.com/opentimestamps/opentimestamps-client
