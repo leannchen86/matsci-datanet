@@ -1,6 +1,6 @@
 # Thermal paste: what to do next
 
-Updated Thursday 8 October 2026. Two tracks run side by side:
+Updated Friday 9 October 2026. Two tracks run side by side:
 
 - **LAB:** hand LongWin three samples: the bought reference paste, and two batches (A and B) of one home-mixed recipe, made separately. All of it is on this page.
 - **EXP:** the experiments in [EXPERIMENTS.md](EXPERIMENTS.md). They do not wait for the lab.
@@ -9,14 +9,15 @@ Long versions: [BENCH_PROTOCOL.md](BENCH_PROTOCOL.md) (section 1) and [CALLS_AND
 
 ## Where things stand
 
+- **First learning-only practice batch:** B001 preparation and final weighing are complete per operator reports. Photos and measurements remain in the private practice log. Method review and a repeat rehearsal remain before freezing the procedure for A/B; do not treat this as completion of the balance or handling checks.
 - **Materials received, per operator:** coarse alumina, fine alumina, reference paste and silicone oil. Product identities and labels reported checked; full lot-certificate reconciliation remains open.
 - **Balance received:** Bonvoisin-branded, reported 500 g capacity and 0.001 g readability. Manual calibration with the supplied 200 g weight is reported complete. See S5-P for the practice-only cover-off exception; small-mass accuracy is unverified.
 - **LongWin:** wants its service form before quoting. Expect about two weeks from drop-off to a report. No appointment yet.
 - **Do not buy:** more powder, another balance, or anything for the thermal rig.
 
-## Today: nothing is opened
+## Preparation requirements
 
-Not today, whatever arrives: opening either powder, or the rig check (N2).
+Powder handling requires the applicable G1b review, the balance check or practice-only exception, and N3. The rig check (N2) has separate requirements below.
 
 - [ ] **G2. Send the LongWin form.** Fill it in from [the form guide](CALLS_AND_ORDERS.md#longwin-service-form-next-action). Call the samples "batch A" and "batch B"; ids follow. For thickness, pressure and temperature write "engineer to recommend". Ask for: price, which container to use, the earliest drop-off date, the measured data points as Excel, permission to publish naming the lab, and the price of an optional fourth sample. Also ask: is there a maximum sample age, and must the paste be fresh or stirred before loading; is the gap or the pressure set during the test; can they report the thickness reached at a stated pressure; what is their documented repeatability on greases.
 - [ ] **G1. Start the handling review, one request for both tracks.** Read the safety data sheets for both powders, the oil and the reference paste. Pick a wipe-clean spot away from food, children and pets with no fan blowing across it. A balance draft shield is not dust control. If unsure, ask an industrial hygienist. Ticking this box means the review is started. It opens nothing.
@@ -66,7 +67,7 @@ mkdir -p trajectory/campaigns/registry/docs trajectory/campaigns/paste-commissio
 
 A LAB day. Needs S5 passed or the documented S5-P learning-only exception, the first G1b line ticked, and N3 done. Separate dry scoops for the two powders are also needed. It does not need the lab, the new oil or any experiment kit. Before you start, fill the oil, powder and balance brackets in [prompt-preamble.md](../../trajectory/prompt-preamble.md), write "not measured" in its density-measure and plate-load brackets, and save it as version 1.
 
-- [ ] **B1. Practice.** Make one batch as below. If you could weigh, wet all the powder and keep to the times, write down the method exactly as you did it and save it in the registry as `docs/BP-v1.md`. If not, practise again under the next number.
+- [ ] **B1. Practice and method freeze.** B001 was prepared on 9 October; its actual execution, deviations and remaining uncertainties are recorded privately. This gate remains open pending review and a repeat rehearsal. If you can weigh, wet all the powder and keep to the times, write down the method exactly as performed and save it in the registry as `docs/BP-v1.md`. Otherwise practise again under the next number; never overwrite B001 or treat it as pilot batch A/B.
 
 Then one question: **has LongWin named the container, any age limit and a date?**
 
