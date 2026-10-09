@@ -9,8 +9,8 @@ Long versions: [BENCH_PROTOCOL.md](BENCH_PROTOCOL.md) (section 1) and [CALLS_AND
 
 ## Where things stand
 
-- **Arriving Wednesday 7 October:** coarse alumina, fine alumina and the reference paste (McMaster, by 5 pm); silicone oil (Grainger San Jose, 2261 Ringwood Ave, open 7:30 am to 4 pm; go only after the ready notice).
-- **Balance:** ordered, arrival date not confirmed. Check your order for its model, capacity and date.
+- **Materials received, per operator:** coarse alumina, fine alumina, reference paste and silicone oil. Product identities and labels reported checked; full lot-certificate reconciliation remains open.
+- **Balance received:** Bonvoisin-branded, reported 500 g capacity and 0.001 g readability. Manual calibration with the supplied 200 g weight is reported complete. See S5-P for the practice-only cover-off exception; small-mass accuracy is unverified.
 - **LongWin:** wants its service form before quoting. Expect about two weeks from drop-off to a report. No appointment yet.
 - **Do not buy:** more powder, another balance, or anything for the thermal rig.
 
@@ -44,7 +44,7 @@ mkdir -p trajectory/campaigns/registry/docs trajectory/campaigns/paste-commissio
 
 - [ ] **S1.** Collect the oil and the parcels. Photograph every label and lot number before opening anything. Mark the oil bottle **LAB** and put it in its box.
 - [ ] **S2.** Read both powder certificates in full. The coarse one says 99.40% against 99.5% on the listing; write that down.
-- [ ] **N3. Take the first forecasts. This must be finished before either powder is opened for anything.** Decide two or three models. Follow [desk-test-prompts.md](../../trajectory/desk-test-prompts.md): fill its brackets from the labels and certificates, send its two prompts on their own, log the replies, attach the experiment page, then anchor, push and timestamp.
+- [x] **N3. First forecasts saved, 8 October.** GPT-6.1-sol and GPT-6-astra each returned a first response to both desk prompts in separate fresh contexts. Original responses, exact sent prompts and the experiment-page/formula snapshots are preserved in the private commission log; its hash is pushed in commit `8f156b8`. A separate first forecast for practice B001 is also preserved. Unknown certificate, size-distribution and surface-treatment details were explicitly stated as unknown, a documented departure from the original completed-certificate prerequisite. Model requests are recorded; resolved deployment versions and a separate memory setting are not exposed by the interface. An [OpenTimestamps receipt](../../trajectory/timestamps/first-forecasts-8f156b8.anchors.log.ots) has been saved for the [immutable anchor snapshot](../../trajectory/timestamps/first-forecasts-8f156b8.anchors.log); it contains pending calendar attestations, not yet a verified Bitcoin timestamp. No batch preparation outcome had been reported when these forecasts were recorded. This completes forecast collection, not the handling or balance checks.
 - [ ] **N5. When the three new oil bottles arrive.** Photograph each label and lot. Mark all three **EXP** and keep them apart from the LAB box. Record the lot in the registry as `LOT-OIL-2`. If they do not share one lot, stop: give each lot its own id and write down which lot is used for which experiment before any is opened.
 
 ## When the balance arrives

@@ -1,0 +1,23 @@
+First forecast anchor receipt
+
+Anchor commit: 8f156b8
+Branch: codex/aln-pilot-preparation
+Snapshot: first-forecasts-8f156b8.anchors.log
+SHA256: 253a5e96372f70bcbeb9ee70590125c54b0ab808bfa746e966ca762de570cefc
+Client: opentimestamps-client 0.7.2
+Receipt: first-forecasts-8f156b8.anchors.log.ots
+Initial inspection: four pending calendar attestations; no completed Bitcoin attestation.
+
+The snapshot and initial receipt are retained unchanged. The snapshot contains
+only previously public campaign hashes, not raw prompts, responses or personal
+research records. Calendar submission sends an opaque digest, not those records.
+Saving this receipt does not establish independently verified Bitcoin anchoring.
+
+Later verification: copy the snapshot and receipt to a working location, upgrade
+the copied receipt with `ots upgrade`, then verify with `ots verify` using Bitcoin
+Core or another independently checked verification workflow. Preserve the original
+receipt. `ots info` is inspection, not verification. Do not overwrite this snapshot
+when trajectory/anchors.log grows.
+
+Official client documentation:
+https://github.com/opentimestamps/opentimestamps-client
