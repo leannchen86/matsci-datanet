@@ -82,7 +82,7 @@ Every cup is at one scale: 12.00 g of powder (dry side) or 2.50 g of oil (wet si
 3. Then 0.50 g steps until it first holds a peak, then 0.25 g steps (about 0.005 each). For a blend each step is coarse then fine, weighed separately (0.175 g and 0.075 g). Photograph every step.
 4. A fail counts only if it still fails after 120 more strokes with nothing added. If it passes, carry on.
 
-**Both.** Do not add up the oil or powder until you have called the endpoint. Weigh the cup at the end; the total should match the additions within 0.05 g. The limit that counts is read from coded photos by the second person, who does not know the powder, the direction or the prediction.
+**Both.** Do not add up the oil or powder until you have called the endpoint. The spatula is never wiped or scraped on the rim; when it is out of the cup it lies on its own rest, and "rest + spatula" is weighed clean before the cup and again at the end. At the end weigh the cup too: the cup's gain plus the spatula's gain should match the additions within 0.05 g. No powder or crumb may sit on the wall above the paste when you judge a step. The limit that counts is read from coded photos by the second person, who does not know the powder, the direction or the prediction.
 
 ## Experiment 1. Is the mixing limit one number or a window?
 
@@ -251,8 +251,9 @@ Coding cups and vials, drawing run orders and shelf positions, and reading every
 - All three could come back textbook or null. Each would be a stated bound worth recording, and the project would then say that on this bench a recipe row carries these labels.
 - Every threshold assumes a scatter of 0.01 that nobody has measured. At 0.02 the plan needs more days or coarser claims.
 - The endpoint is judged by a beginner who is learning during the first 30 or so runs. Blind reading covers the class, not the bench decisions about when to switch steps or stop.
-- It is heavy work: about 1,100 strokes per titration, five or six a day. If a block day runs past six hours, drop x = 0.70, where the two rules are too close to separate.
+- It is heavy work, and the first estimate was too low. By this page's own step rules a coarse cup takes about 30 steps (1,800 strokes) and a fine cup about 40 (2,400), not 1,100 strokes. Five or six cups a day is unproven: time one weigh-and-record cycle in the next practice batch and count the steps in the C1 practice cups, then set the number of cups per day (corrected 9 October). If a block day runs past six hours, drop x = 0.70, where the two rules are too close to separate.
 - The coarse powder's size is a sieve limit, so Experiment 2 can tell "ratio 2 or less" from "4 or more" and little finer.
 - One operator, one lot of each ingredient, one room.
+- The endpoint's "closes over a cut within 10 seconds" clause has never been tried on a known paste, and the first practice batch held its ridges at loading 0.40. It is checked on the next practice batch before C1; see [the B001 review, section 6.2](B001_PROCESS_REVIEW.md#62-where-this-review-differs-from-sections-1-to-5).
 - No thermal data comes out of this, and nothing new goes to the lab.
 - Sources: four were opened and checked when the programme was assembled (the packing formula, a second coefficient set, the settling exponents, the network load balance). The rest were opened by reviewers and not re-checked.
