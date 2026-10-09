@@ -1,6 +1,6 @@
 # Thermal paste: what to do next
 
-Updated Wednesday 7 October 2026. Two tracks run side by side:
+Updated Thursday 8 October 2026. Two tracks run side by side:
 
 - **LAB:** hand LongWin three samples: the bought reference paste, and two batches (A and B) of one home-mixed recipe, made separately. All of it is on this page.
 - **EXP:** the experiments in [EXPERIMENTS.md](EXPERIMENTS.md). They do not wait for the lab.
@@ -58,12 +58,13 @@ mkdir -p trajectory/campaigns/registry/docs trajectory/campaigns/paste-commissio
   - labels, marker, wipes, a rimmed tray, a timer;
   - two waste tubs, labelled "reference paste" and "everything else".
 - [ ] **S4.** Wash the cups and tools and dry them completely.
-- [ ] **S5. Check the balance. It must pass before any batch.** Warm it up, level it and calibrate it as its manual says. Place and remove each check weight five times and write down all five readings. Then put the empty cup on the pan, tare, and repeat the 2 g check inside the cup. **Pass:** each reading's error plus the weight's stated tolerance is 0.010 g or less, and the five readings span 0.010 g or less. **Fail:** check draughts, the surface, level and warm-up, then repeat.
+- [ ] **S5. Check the balance. Required for A/B and the expanded experiments; see the learning-only practice exception below.** Warm it up, level it and calibrate it as its manual says. Place and remove each check weight five times and write down all five readings. Then put the empty cup on the pan, tare, and repeat the 2 g check inside the cup. **Pass:** each reading's error plus the weight's stated tolerance is 0.010 g or less, and the five readings span 0.010 g or less. **Fail:** check draughts, the surface, level and warm-up, then repeat.
+- [ ] **S5-P. Learning-only practice exception, agreed 8 October.** A practice batch may use manual calibration with the supplied 200 g weight while small-mass accuracy remains unverified. Record five repeated readings and empty-pan zero returns in the intended cover configuration; the provisional screen is a range of 0.010 g or less and zero returns within +/-0.010 g. A report of completing the steps without the numbers is not a numerical pass. If the removable clear cover causes inconsistent readings, a stable cover-off configuration may be used consistently for practice; document the reason and do not disable ventilation required for powder handling. Label the record "PRACTICE—accuracy of small additions not yet verified." This does not complete S5 or authorize A/B or expanded experiments. G1b, N3 and separate dry powder tools still apply. Source observations and completion reports belong in the local registry and practice logs.
 - [ ] **N2. Rig check on plain oil, then the reference paste** ([steps](EXPERIMENTS.md#c0-desk-forecasts-and-rig-check)). Needs S5 passed, the plates and weight, the new oil (N5), and G1a ticked. If you wrote under G1a that they wait, N2 waits for G1b. It is an EXP day: never on a day with a practice batch, A, B or packing, and never between A and B. Any day before the commissioning gate; it does not hold up anything else.
 
 ## First powder day: the practice batch
 
-A LAB day. Needs S5 passed, the first G1b line ticked, and N3 done. It does not need the lab, the new oil or any experiment kit. Before you start, fill the oil, powder and balance brackets in [prompt-preamble.md](../../trajectory/prompt-preamble.md), write "not measured" in its density-measure and plate-load brackets, and save it as version 1.
+A LAB day. Needs S5 passed or the documented S5-P learning-only exception, the first G1b line ticked, and N3 done. Separate dry scoops for the two powders are also needed. It does not need the lab, the new oil or any experiment kit. Before you start, fill the oil, powder and balance brackets in [prompt-preamble.md](../../trajectory/prompt-preamble.md), write "not measured" in its density-measure and plate-load brackets, and save it as version 1.
 
 - [ ] **B1. Practice.** Make one batch as below. If you could weigh, wet all the powder and keep to the times, write down the method exactly as you did it and save it in the registry as `docs/BP-v1.md`. If not, practise again under the next number.
 
@@ -106,7 +107,7 @@ About 30 to 45 minutes.
 
 ## Rules for running two tracks
 
-1. Nothing is opened before its gate. Oil and reference paste: G1a ticked, or G1b settled. Powder: its G1b line ticked, and S5 passed.
+1. Nothing is opened before its gate. Oil and reference paste: G1a ticked, or G1b settled. Powder: its G1b line ticked, and S5 passed; S5-P is an alternative only for learning-only practice. N3 remains required before any powder work.
 2. Forecasts before powder (N3).
 3. The practice batch is the first powder work for both tracks.
 4. One track per bench day. Before anything is opened, write the date and LAB or EXP on the tally and at the top of every sheet used that day. Never both. Photographing a sealed archive or vial on its schedule is not bench work; do it on any day.
