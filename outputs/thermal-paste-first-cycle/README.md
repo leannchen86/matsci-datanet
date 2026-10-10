@@ -4,9 +4,11 @@ Original plan prepared 5 October 2026; order status updated 6 October. McMaster 
 
 **Start with [CHECKLIST.md](CHECKLIST.md), the single completion tracker for the first submission.** It lists the calls, purchases, preparation and handoff actions for the first submission, which has no fixed date, and the rules for running the experiments beside it. Consult [CALLS_AND_ORDERS.md](CALLS_AND_ORDERS.md) for supplier scripts and specifications, and [BENCH_PROTOCOL.md](BENCH_PROTOCOL.md) for detailed procedures and the later repeatability study. The equipment catalogue and original calendar below provide background; dates depend on actual delivery, handling review and laboratory acceptance. `recipe.py` gives ingredient masses and `thermal.py` does the thermal calculations.
 
+**9 October current scope:** the user chose to finish the paste-to-lab comparison before starting another material system. Follow [the complete next-batch recipe and run card](PASTE_TO_LAB_RUN_CARD.md), PASTE-P2-v1. It covers two fresh independent specimens and the DOWSIL reference, with better residue accounting and a thermal-impedance comparison. B001 is complete as a practice history; next-batch readiness and lab arrangements remain open. The larger home measurements, purchases and campaigns below are deferred, not additional requirements for this milestone.
+
 ## What this is
 
-For the first small submission, use the [hands-on run sheet](BENCH_PROTOCOL.md#1-hands-on-run-sheet-for-the-first-submission): practice, independent A and B, and the commercial reference. Home density/spread measurements are optional at this stage and the thermal rig is deferred. The broader measurement programme below is later work, not a requirement to finish before preparing the first specimens.
+For the first small submission, use [PASTE_TO_LAB_RUN_CARD.md](PASTE_TO_LAB_RUN_CARD.md): the next batch can both confirm the method and become the first exploratory lab specimen under its predeclared process criteria, followed by a fresh independent repeat and the commercial reference. Home density/spread measurements are omitted at this stage and the thermal rig is deferred. The broader measurement programme below is later work, not a requirement to finish before preparing the first specimens.
 
 Hand-mixed thermal pastes: silicone oil plus ceramic powder (alumina first, boron nitride later), about 25 g per batch, mixed by spatula to a fixed, timed protocol. No acids, no solvents beyond alcohol on wipes, no liquid waste.
 

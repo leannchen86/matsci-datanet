@@ -1,15 +1,15 @@
 # Thermal paste: what to do next
 
-Updated Friday 9 October 2026. Two tracks run side by side:
+Updated Friday 9 October 2026. **Current priority: finish the paste-to-lab comparison using existing ingredients.** The complete recipe and procedure are in [PASTE_TO_LAB_RUN_CARD.md](PASTE_TO_LAB_RUN_CARD.md), method PASTE-P2-v1. It supersedes the B001 preparation instructions below for new batches.
 
-- **LAB:** hand LongWin three samples: the bought reference paste, and two batches (A and B) of one home-mixed recipe, made separately. All of it is on this page.
-- **EXP:** the experiments in [EXPERIMENTS.md](EXPERIMENTS.md). They do not wait for the lab.
+- **LAB, active:** hand LongWin the bought reference paste and two independently made batches (A and B) of one recipe. The next batch can also be the first exploratory lab specimen under the run card's predeclared process criteria; an extra disposable practice batch is not mandatory.
+- **EXP, deferred for this milestone:** [EXPERIMENTS.md](EXPERIMENTS.md), cured silicone composites and home rig construction. Their tasks below remain future plans, not current purchases or prerequisites.
 
 Long versions: [BENCH_PROTOCOL.md](BENCH_PROTOCOL.md) (section 1) and [CALLS_AND_ORDERS.md](CALLS_AND_ORDERS.md). Those files call G1 "item 15", S5 "item 16" and S2 "item 05". Run every command from the top folder of the repository.
 
 ## Where things stand
 
-- **First learning-only practice batch:** B001 preparation and final weighing are complete per operator reports. The operator authorized publication of its [raw record and four original photographs](../../trajectory/releases/B001/README.md). The [process review](B001_PROCESS_REVIEW.md) is written. Next: dry equipment/weighing rehearsal and a revised run card, then another practice batch once ready. The method is not frozen for A/B; balance and handling checks remain incomplete.
+- **First learning-only practice batch:** B001 preparation and final weighing are complete per operator reports. Its [raw record and four original photographs](../../trajectory/releases/B001/README.md) are public with authorization. The [process review](B001_PROCESS_REVIEW.md) and [next run card](PASTE_TO_LAB_RUN_CARD.md) are written. The chosen next arrangement is cup-only additions with a separately preweighed spatula/rest. Dry rehearsal, numerical balance checks and the actual handling setup remain unconfirmed. The written method is prospective, not an executed or validated procedure.
 - **Materials received, per operator:** coarse alumina, fine alumina, reference paste and silicone oil. Product identities and labels reported checked; full lot-certificate reconciliation remains open.
 - **Balance received:** Bonvoisin-branded, reported 500 g capacity and 0.001 g readability. Manual calibration with the supplied 200 g weight is reported complete. See S5-P for the practice-only cover-off exception; small-mass accuracy is unverified.
 - **LongWin:** wants its service form before quoting. Expect about two weeks from drop-off to a report. No appointment yet.
@@ -17,7 +17,7 @@ Long versions: [BENCH_PROTOCOL.md](BENCH_PROTOCOL.md) (section 1) and [CALLS_AND
 
 ## Preparation requirements
 
-Powder handling requires the applicable G1b review, the balance check or practice-only exception, and N3. The rig check (N2) has separate requirements below.
+For the active lab comparison, complete G2, the applicable G1b handling review, S5 numerical balance checks and the dry rehearsal in B1. S5-P is still only a learning-practice exception. N3 records earlier forecasts; it does not supply a blind forecast of a changed method. Save any new forecast being evaluated before its outcome, explicitly stating that B001 is known. The later rig check (N2) has separate requirements.
 
 - [ ] **G2. Send the LongWin form.** Fill it in from [the form guide](CALLS_AND_ORDERS.md#longwin-service-form-next-action). Call the samples "batch A" and "batch B"; ids follow. For thickness, pressure and temperature write "engineer to recommend". Ask for: price, which container to use, the earliest drop-off date, the measured data points as Excel, permission to publish naming the lab, and the price of an optional fourth sample. Also ask: is there a maximum sample age, and must the paste be fresh or stirred before loading; is the gap or the pressure set during the test; can they report the thickness reached at a stated pressure; what is their documented repeatability on greases.
 - [ ] **G1. Start the handling review, one request for both tracks.** Read the safety data sheets for both powders, the oil and the reference paste. Pick a wipe-clean spot away from food, children and pets with no fan blowing across it. A balance draft shield is not dust control. If unsure, ask an industrial hygienist. Ticking this box means the review is started. It opens nothing.
@@ -27,9 +27,9 @@ Powder handling requires the applicable G1b review, the balance check or practic
     - [ ] many small powder additions to one cup; daily working tubs; oil added to dry powder and stirred; a dry blend tumbled in a lidded cup (needed for C1);
     - [ ] pouring powder through a funnel and tapping a cylinder (C2 only; if no, skip C2);
     - [ ] filling vials (settling stage 1).
-- [ ] **N1. Order** three more bottles of the same oil in one purchase, asking for one lot; anything in the S3 kit you do not own, check weights first; and the small items in [What to buy](EXPERIMENTS.md#what-to-buy).
-- [ ] **N4. Ask a second person** whether they can code cups and read photos blind. If nobody can, write down "unblinded".
-- [ ] **S6. Set up the record.** Turn off location tagging on your phone camera. Print four [batch sheets](../../trajectory/batch-sheet.md). Mark a lidded box LAB for the first oil bottle. Start a paper tally for batch numbers: one line per cup, written B001, B002 and so on, with the date, LAB or EXP, and the log it goes in. B001 is the first practice batch; a number is never reused. Start six logs; all other commands are in [trajectory/README.md](../../trajectory/README.md):
+- [ ] **N1, deferred EXP purchases.** Three more oil bottles and the expanded [experiment kit](EXPERIMENTS.md#what-to-buy) wait. For the active lab comparison, fill only missing items in the new run card, including borrowed or purchased documented-tolerance check weights. The existing oil and powders are sufficient for the two planned 25.01 g batches, subject to the actual remaining amount.
+- [ ] **N4, optional/deferred.** A second person can code cups and read photos blind for a later study. This is not needed to prepare the current pair; record the current observations as unblinded.
+- [ ] **S6. Set up the record.** Turn off location tagging on your phone camera. Print the new run card and two [batch sheets](../../trajectory/batch-sheet.md). Keep the first oil bottle labeled LAB. Continue the existing paper batch-number tally; never reuse B001 or another assigned number. Reuse the registry and paste-pilot logs for the current pair, preserving the existing practice log. The initialization examples below are only for logs that do not yet exist; the expanded EXP logs can wait. Commands are documented in [trajectory/README.md](../../trajectory/README.md):
 
 ```sh
 python3 trajectory/traj.py init registry --text "materials, equipment, method versions"
@@ -51,7 +51,7 @@ mkdir -p trajectory/campaigns/registry/docs trajectory/campaigns/paste-commissio
 ## When the balance arrives
 
 - [ ] **S3.** Gather the kit:
-  - about ten lidded 60 mL plastic cups;
+  - two matching lidded mixing vessels chosen by dry rehearsal, one rigid tool rest and the lab's accepted submission containers; use existing suitable items;
   - two powder scoops, one per powder, never swapped;
   - one mixing spatula, and one tool used only for the reference paste;
   - check weights near 2 g, 5 g and 20 g with a stated tolerance (the single weight that ships with a balance is not enough);
@@ -63,32 +63,31 @@ mkdir -p trajectory/campaigns/registry/docs trajectory/campaigns/paste-commissio
 - [ ] **S5-P. Learning-only practice exception, agreed 8 October.** A practice batch may use manual calibration with the supplied 200 g weight while small-mass accuracy remains unverified. Record five repeated readings and empty-pan zero returns in the intended cover configuration; the provisional screen is a range of 0.010 g or less and zero returns within +/-0.010 g. A report of completing the steps without the numbers is not a numerical pass. If the removable clear cover causes inconsistent readings, a stable cover-off configuration may be used consistently for practice; document the reason and do not disable ventilation required for powder handling. Label the record "PRACTICE—accuracy of small additions not yet verified." This does not complete S5 or authorize A/B or expanded experiments. G1b, N3 and separate dry powder tools still apply. Source observations and completion reports belong in the local registry and practice logs.
 - [ ] **N2. Rig check on plain oil, then the reference paste** ([steps](EXPERIMENTS.md#c0-desk-forecasts-and-rig-check)). Needs S5 passed, the plates and weight, the new oil (N5), and G1a ticked. If you wrote under G1a that they wait, N2 waits for G1b. It is an EXP day: never on a day with a practice batch, A, B or packing, and never between A and B. Any day before the commissioning gate; it does not hold up anything else.
 
-## First powder day: the practice batch
+## Before the next paste batch
 
-A LAB day. Needs S5 passed or the documented S5-P learning-only exception, the first G1b line ticked, and N3 done. Separate dry scoops for the two powders are also needed. It does not need the lab, the new oil or any experiment kit. Before you start, fill the oil, powder and balance brackets in [prompt-preamble.md](../../trajectory/prompt-preamble.md), write "not measured" in its density-measure and plate-load brackets, and save it as version 1.
+A LAB day using [PASTE-P2-v1](PASTE_TO_LAB_RUN_CARD.md). An intended comparison batch needs S5 passed, the first G1b line completed, separate dry powder scoops, a successful dry rehearsal and the lab's preparation/packaging instructions. Density and plate-spread measurements are not planned. Complete any forecast prompt with the actual method and materials; preserve it before the relevant outcome.
 
-- [ ] **B1. Practice and method freeze.** B001 was prepared on 9 October; its actual execution, deviations and remaining uncertainties are in the authorized [public release](../../trajectory/releases/B001/README.md). The [9 October process review](B001_PROCESS_REVIEW.md) is now written. This gate remains open: first rehearse the vessel/tool and weighing arrangement without powder, prepare one complete revised run card, then rehearse a fresh practice batch once its prerequisites are satisfied. Save the method exactly as rehearsed in the registry with a version ID before counted A/B. A practice pass concerns execution and recording, not achieving a runny paste or proving microscopic uniformity. Never overwrite B001 or treat it as pilot batch A/B.
+- [ ] **B1. Dry rehearsal and prospective method.** Rehearse cup-only weighing, the spatula/rest arrangement and tool reach without powder. Select the vessel/tool configuration and save PASTE-P2-v1 with those details before the intended pair. Read the entire card first. B002, if that ID is free, can be both method confirmation and the first exploratory specimen when the predeclared process criteria are met. A stiff or poorly performing paste is not excluded for that reason. Preserve any deviations and revise the method before another run if needed. Never overwrite B001 or relabel it as A/B.
 
 **B001 storage and recommended next rehearsal after its first observations:**
 
 - Keep B001 as a practice archive: capped, upright, in labeled secondary containment, at stable indoor room temperature away from food, sunlight and heaters. Do not refrigerate, heat, dilute or remix it for storage. Record the actual storage start and temperature if measured. The oil maker specifies cool, dry, ventilated storage in its [SDS, section 7](https://www.super-lube.com/wp-content/uploads/2025/06/SDS_Super_Lube_Silicone_Oil-EN-sds.pdf); this supports a provisional short-term storage choice, not a validated shelf life for the homemade paste.
 - On the following day, photograph the closed jar from the side before disturbing it and note any visible separated layer. Record when the observation occurs; changes in aged B001 are not a fresh-batch repeat. Do not call this an automatic timed settling test.
-- **Second review, 9 October:** [section 6 of the process review](B001_PROCESS_REVIEW.md#6-second-independent-review-9-october) puts numbers on the residue effect, lists free no-powder measurements still available from B001, and leaves three choices to the owner: where the spatula sits during weighing, cup or jar, and whether aged B001 may be used as rehearsal paste.
-- **Next action is dry rehearsal, not a new powder batch.** Assess the candidate jar-plus-dedicated-spatula weighing boundary in the [process review](B001_PROCESS_REVIEW.md#4-candidate-weighing-revision--rehearse-before-adopting). It has not yet been adopted or tested. Check tool reach, stable placement, no external contacts, and repeat readings/zero returns. Retaining the tool does not eliminate scraping for incorporation or allow automatic powder corrections from a total-mass difference.
-- After that preparation, the next new batch is another practice rehearsal, tentatively B002 if no intervening batch uses that ID. Use fresh ingredients and the same intended recipe under the newly documented method. Record vessel/tool or weighing changes; do not describe it as an exact method repeat. Do not thin B001 or change the new recipe solely because B001 felt stiff.
-- Before powder, save actual balance-repeat readings and zero returns under S5-P (or complete S5), document the applicable powder-handling setup, and prepare the whole run card in advance. Targets and actuals have separate columns; all seven additions and the 60/60/60/180-second mixing stages plus 120-second rest must be visible. Record locally rather than waiting for routine chat replies. Record residue and mass discrepancies without inferring their composition or adding compensating ingredients.
-- Counted A/B still require S5, a rehearsed written method, applicable handling review, and confirmed lab container, sample-age and appointment requirements. B001 remains an archive and is not relabeled A or B.
+- **Review interpretation:** the residue calculations in [section 6](B001_PROCESS_REVIEW.md#6-second-independent-review-9-october) are sensitivity scenarios. They do not establish how much early material was stranded or that residue had no effect on B001. Message-entry intervals also do not establish active mixing or rest durations.
+- **Next action is dry rehearsal.** The selected revision uses a cup-only ingredient tare and a separately preweighed rigid rest plus spatula, as specified in the new card. Do not mix this with the earlier candidate of weighing the spatula inside the cup. Check stable placement, tool reach, no external contacts and numerical repeat/zero readings.
+- After readiness and laboratory preparation requirements are complete, make fresh B002 under the new card, then a fresh independent repeat if its method remains unchanged. Retain the intended recipe; do not thin B001 or change new ingredient targets solely because B001 felt stiff. Do not infer residue composition or add compensating ingredients from a total-mass difference.
+- B001 remains a practice archive. It may be quoted/tested as an **additional exploratory specimen** if accepted, with its original preparation, age and balance limitations disclosed; it is not part of the new matched pair.
 
 Then one question: **has LongWin named the container, any age limit and a date?**
 
-- **Yes:** B2 and B3 are your next two bench days, then pack (P1 to P5). The experiments follow.
-- **No:** the experiments are next. Come back to B2 and B3 the day the lab answers.
+- **Yes, and readiness checks complete:** B2 and B3 are the next preparation sessions, then pack (P1 to P5).
+- **No:** complete dry checks, the service form and records while waiting. No additional material system or expanded powder campaign is required to keep this milestone moving.
 
-**The experiments start at [C1](EXPERIMENTS.md#order-of-work)**, on any later bench day that begins with all five of these true: S5 passed; the second G1b line ticked; N5 done; N3 was finished before any powder was opened; B1 passed and the method is written. Never on the practice-batch day itself. C1 does not wait for the drop-off or the report.
+**When the expanded experiments are resumed**, their separate prerequisites in [C1](EXPERIMENTS.md#order-of-work) still apply. Completing this new run card does not silently approve that larger handling scope.
 
 ## Make one batch
 
-**B001 baseline procedure, retained for reference. Do not start the next batch from this section unchanged.** The [process review](B001_PROCESS_REVIEW.md) proposes a different weighing boundary that must first be rehearsed and written into a new run card. The cup-only/tool-out rules below describe the original method, not a rejection of that candidate. B1 remains open.
+**Historical B001 baseline only. For the next batch use [PASTE_TO_LAB_RUN_CARD.md](PASTE_TO_LAB_RUN_CARD.md).** The revised card accounts for the tool/rest residue and supersedes the blade-cleaning instruction below. B1 remains open until dry rehearsal and method details are recorded.
 
 Original planning estimate: 30 to 45 minutes, not validated by B001. Record actual hands-on time separately from logging.
 
@@ -130,10 +129,10 @@ Original planning estimate: 30 to 45 minutes, not validated by B001. Record actu
 
 ## Batches for the lab
 
-Made once LongWin has named the container, any age limit and a drop-off date, and the containers are in hand. Two bench days in a row, LAB oil, no experiment day between. Normally these are your next two bench days. One exception: if the drop-off is so far off that batch A would be older than the lab's age limit, or the lab asked for fresh paste, carry on with the experiments and make A three bench days before the drop-off and B the next day.
+Make once LongWin has named the container, conditioning/age instructions and drop-off date, with containers and readiness checks complete. Prefer consecutive preparation sessions/days using LAB oil, scheduling within its age instructions. Record different sample ages. If no appointment is available yet, finish desk/dry preparation rather than automatically starting the deferred experiments.
 
-- [ ] **B2. Batch A.** Re-read the written method. Fresh ingredients.
-- [ ] **B3. Batch B.** Fresh ingredients again, the next day. Never split A to make B.
+- [ ] **B2. Batch A.** Follow PASTE-P2-v1 from fresh ingredients, tentatively B002. It may also confirm the method under the predeclared criteria. Record deviations before deciding whether a new method is needed; poor appearance/performance alone does not disqualify it.
+- [ ] **B3. Batch B.** Fresh ingredients again, tentatively B003, using the same actual method and observations. Never split A to make B. If the method changes, report that fact and do not claim an exact repeat pair.
 
 ## Pack and hand over
 
@@ -144,6 +143,6 @@ Made once LongWin has named the container, any age limit and a drop-off date, an
 - [ ] **P5.** Before the samples leave: log an AI forecast of the lab's numbers for each container. Run `python3 trajectory/traj.py verify paste-pilot`, then the same with `anchor`. Commit and push `trajectory/anchors.log`, timestamp that file with an outside service such as opentimestamps.org, and copy `trajectory/campaigns/` to a second disk.
 - [ ] **P6.** Tell LongWin what is ready and agree the drop-off.
 - [ ] **P7.** Deliver with the safety data sheets, a list of what each container holds, and each batch's age. Get a receipt and a result date.
-- [ ] **A1.** When the report comes: save LongWin's files unchanged. Compare A with B only (not the warm-up batch from C1) and write down what you decide next.
+- [ ] **A1.** Save LongWin's files unchanged. Compare A with B **and both with the measured DOWSIL reference**, using actual thickness/pressure/temperature, reloads and uncertainty as specified in the new card. Report all submitted outcomes, including loading failures and deviations. Keep any B001 result separate from the new pair.
 
 Not on this page: density and spread on batches, more recipes, backup labs. Leave those parts of the batch sheet marked "not measured".
