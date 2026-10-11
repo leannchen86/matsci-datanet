@@ -13,6 +13,8 @@ Updated 7 October 2026. This is the one live plan. The first target is hand-mixe
 
 ## First target: hand-mixed thermal pastes
 
+**10 October access review:** the user has reopened copper as a possible next experiment while retaining paste testing as a fallback. See [Bay Area copper access and costs](outputs/copper-access-review/README.md) and [unsent inquiry drafts](outputs/copper-access-review/inquiry-drafts.md). No copper purchase, facility acceptance or change to the executable bench protocol has been made. The older November gate below does not prevent this requested access investigation.
+
 Changed 5 October 2026. Copper electroplating was the working choice for a few hours; it had been compared only against other copper plans. Once the home bench and LongWin's advertised testing service were identified, both routes were worked up in full and three independent reviewers all chose thermal pastes (about 40 against 30 out of 60). Their confidence is medium. No laboratory slot is confirmed.
 
 **What gets made.** Silicone oil plus ceramic powder, about 25 g per batch, mixed by hand to a fixed, timed protocol. Alumina first; boron nitride later, once a person has cleared its data sheet.
