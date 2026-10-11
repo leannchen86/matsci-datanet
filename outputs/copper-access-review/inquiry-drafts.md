@@ -1,6 +1,23 @@
 # Copper laboratory inquiry drafts
 
-Prepared 10 October 2026. **Unsent.** Prices, eligibility and availability need replies. These are plain-text drafts for user review, not email drafts created in an external account. [Comparison and quote scope](README.md).
+Prepared 10 October 2026; AcmeBay draft added 11 October. **Unsent.** Prices, eligibility and availability need replies. These are plain-text drafts for user review, not email drafts created in an external account. [Comparison and quote scope](README.md).
+
+## AcmeBay Palo Alto
+
+To **info@acmebay.net**. Phone **650-468-1011**.
+
+**Subject:** Short supervised chemistry-lab session in Palo Alto
+
+Hi,
+
+I'm Leann. I'd like to run a small copper-electrodeposition study on prepared conductive coupons, with a supervised first session and saved process data.
+
+Do you offer daily, weekly or project-based chemistry-hood access for an individual researcher? Can you support an approved acidic copper bath and its waste, and provide a logging potentiostat/galvanostat, cell and electrodes?
+
+Please let me know the minimum commitment, earliest availability and total first-session cost including training and staff help. I can send a one-page scope.
+
+Thank you,
+Leann
 
 ## Zikon
 

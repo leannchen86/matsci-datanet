@@ -4,6 +4,8 @@ Checked 10 October 2026. The best first inquiries are **Zikon for short hands-on
 
 The user has reopened the copper comparison; the older plan's requirement to wait until a November paste gate does not prevent this access investigation. [Brief inquiry drafts](inquiry-drafts.md) are ready but unsent.
 
+**11 October update:** [Palo Alto and flexible laboratory access](palo-alto-and-flexible-labs.md) adds AcmeBay, StartX, Alexandria LaunchLabs and nearby Hatch Labs, and distinguishes day access from monthly space. AcmeBay is a promising Palo Alto chemistry lead; no Palo Alto day-pass copper setup has been verified. Prioritize a suitable shared chemistry lab plus separately priced specialist measurements where that reduces total cost.
+
 ## Shortlist
 
 | Facility | Verified offering | Published cost in USD | What must be confirmed |
