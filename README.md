@@ -4,13 +4,15 @@ Working archive for a research line with one question behind it: **what would it
 
 The short answer the work arrived at: you need two things, and the field is missing both. **Trusted labels** (measurements you can believe) and **a fair exam** (a benchmark that measures what it claims to). Most of the effort here goes into the second one, because it turns out to be the part a person can actually test from a desk.
 
-**Status as of 22 Sep 2026:** research and planning are complete and have been audited. The first hands-on experiment has not started yet. Nothing here is published or peer reviewed. Several claims are explicitly marked unverified and should not be repeated without checking them first.
+**Status as of 12 Oct 2026:** thermal-paste practice batch B001 has been prepared and its selected records/photos published in this repository. External thermal results are not yet recorded. Copper, wafer-film and diamond experiments are being compared as possible next projects; access and dates are not secured. Research judgments and unverified claims remain labeled in the supporting files.
 
 ## Start here
 
-**The current plan is in [PLAN.md](PLAN.md)** (updated 5 Oct 2026). The unit of data is now a whole experimental trajectory, logged with the tool in [trajectory/](trajectory/README.md). The AlN pilot below is paused background.
+**Start with the [materials experiment and laboratory access map](outputs/MATERIALS_EXPERIMENT_MAP.md)** (12 Oct 2026) for the big picture: existing-material experiments, copper and wafer films, diamond, available facilities and unresolved access. It organizes the choices without starting every project.
 
-For the **October 2026 AlN pilot**, start with the [preparation plan](outputs/aln-first-cycle-preparation/README.md). It indexes materials sourcing, Stanford registration, budget and schedule, experiment scope, inquiry drafts, and record templates. The earlier [Stanford public-record audit](outputs/aln-public-record-audit/README.md) provides the desk-research baseline. Real working records and private administration files are excluded from Git.
+For the next paste submission, use the [completion checklist](outputs/thermal-paste-first-cycle/CHECKLIST.md) and [run card](outputs/thermal-paste-first-cycle/PASTE_TO_LAB_RUN_CARD.md). [PLAN.md](PLAN.md) holds the broader experimental-data plan. The unit of data is a whole experimental trajectory, logged with the tool in [trajectory/](trajectory/README.md); [B001's public release](trajectory/releases/B001/README.md) preserves the completed practice history.
+
+The paused **AlN pilot** has a [preparation plan](outputs/aln-first-cycle-preparation/README.md) indexing sourcing, Stanford registration, budget, scope, inquiry drafts and record templates. Its original schedule is historical. The [Stanford public-record audit](outputs/aln-public-record-audit/README.md) provides the desk-research baseline. Private administration and unapproved raw records remain excluded from Git; the selected B001 release is an explicitly authorized exception for experimental records.
 
 For the earlier materials-data research archive:
 
@@ -39,7 +41,11 @@ Ten earlier reports fed the big-picture page. They live as published pages on cl
 
 | Directory | What it holds |
 |---|---|
-| [`outputs/aln-first-cycle-preparation/`](outputs/aln-first-cycle-preparation/README.md) | Current AlN pilot preparation: sourcing, access, scope, schedule, budget, inquiry drafts and blank record templates |
+| [`outputs/MATERIALS_EXPERIMENT_MAP.md`](outputs/MATERIALS_EXPERIMENT_MAP.md) | Current overview of materials, experiments, goals and practical paid access routes |
+| [`outputs/thermal-paste-first-cycle/`](outputs/thermal-paste-first-cycle/CHECKLIST.md) | Paste submission checklist, run card, sourcing history and B001 process review |
+| [`outputs/copper-access-review/`](outputs/copper-access-review/README.md) | Copper, flexible labs, CVD and diamond access research |
+| [`trajectory/`](trajectory/README.md) | Experimental-history logging and authorized public releases |
+| [`outputs/aln-first-cycle-preparation/`](outputs/aln-first-cycle-preparation/README.md) | Paused AlN preparation: sourcing, access, scope, historical schedule, budget and templates |
 | [`outputs/aln-public-record-audit/`](outputs/aln-public-record-audit/README.md) | Reproducible audit of information in the Stanford AlN paper and supplement; human source review remains pending |
 | `page/` | The consolidated big-picture page, its three earlier versions, and the Python scripts that edited it |
 | `research/digests/` | 33 files compressing 16 research sessions (C01 to C16) and the 10 reports (R01 to R10) into a uniform template |
@@ -56,7 +62,9 @@ Ten earlier reports fed the big-picture page. They live as published pages on cl
 - **Thermoelectric**: a material that turns a temperature difference into voltage. The other candidate test bed.
 - **Weighed mixtures**: powders made by weighing known ingredients, so the correct answer comes from a balance rather than from a person's judgment. This is the closest thing available to a reliable answer key.
 
-## The next step
+## Earlier desk research next step
+
+The following XRD task belongs to the earlier research archive. The current physical-experiment choices and paste submission are linked above.
 
 A one to two day test, not a build: mark 40 X-ray scans of weighed mixtures by hand, compare against what the software said, and sort every disagreement into one of four bins (naming artifact, real chemistry disagreement, suspect answer key, unsure).
 
