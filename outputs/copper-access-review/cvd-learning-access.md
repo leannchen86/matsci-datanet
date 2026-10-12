@@ -2,7 +2,29 @@
 
 Checked 11 October 2026. The user wants to learn semiconductor thin-film deposition, synthetic diamond growth and coating existing diamond particles. **These are realistic learning goals as a sequence of supervised projects. They require distinct processes and qualifications; one CVD training session does not establish competence in all three.** No facility has accepted the user or quoted this program.
 
-## Verified candidates
+## First inquiries when speed and limited paperwork matter
+
+Updated 11 October 2026. **No provider has confirmed an earliest appointment or low-paperwork hands-on CVD access for an unaffiliated beginner.** The following is an inquiry priority, not a promised admission timeline. For a first visit, investigate a paid supervised session or process service alongside the university membership route.
+
+| Candidate | Published offering | Practical first request and remaining gap |
+| --- | --- | --- |
+| **Zikon, Sunnyvale** | **$75–150/day**, scheduled shared equipment and basic orientation; project-based technical support also offered | Best published short-commitment bench option. Confirm individual eligibility, project approval, supervision and total price. **No CVD reactor is listed.** |
+| **Seki Diamond / Cornes, San Jose office** | Diamond CVD reactors, R&D/demo facilities, process support and technical consultation | Ask about a paid introductory demonstration or supervised session. **The demo reactor's location, acceptance of non-purchasing individuals, price and lead time are unconfirmed.** A San Jose office is not proof of a local demo reactor. |
+| **sp3, Santa Clara** | Diamond-on-silicon deposition for customer wafers, plus standard diamond-on-silicon wafers | Ask for a small sample project and whether observation/training can accompany it. **A process service is verified; visitor access, hydrogen termination and hands-on participation are not.** Quote required. |
+| **AcmeBay, Palo Alto** | Chemistry services and chemical-hood leasing | Ask whether a supervised single-day project is possible. No published day rate or verified CVD equipment. |
+| **Stanford / Berkeley** | Actual shared CVD tools and qualification routes described below | Stronger documented routes for repeated qualified operation, but account agreements and training remain. Do not promise quick admission. |
+
+Sources: [Zikon access](https://www.zikon.com/lab.html), [Seki services](https://sekidiamond.com/about-us/), [sp3 wafer services](https://sp3-cvd.com/wafers), [AcmeBay](https://www.acmebay.net/incubator/). Stanford's [consultant policy](https://nanolabs.stanford.edu/access/consultants) bills facility charges to the customer's account; hiring a consultant is not an established way around account setup.
+
+### Contacts and unsent short requests
+
+- **Zikon:** **408-386-8191**, 365 San Aleso Avenue, Sunnyvale. [Official contact](https://www.zikon.com/contact.html). Ask: "Can an individual book one day for a small supervised materials project? What project review, documents and orientation are required, and what are the earliest date and total cost?" Specify the actual chemistry before booking; a day pass does not approve every experiment.
+- **Seki:** **408-520-4550**, **sales@sekidiamond.com**. [Official contact](https://sekidiamond.com/contact-us/). Ask: "Do you offer a paid introductory diamond-CVD session for an independent researcher, observing or participating under supervision? Is the demonstration reactor in the Bay Area? What are the earliest date, total cost and minimum onboarding? I am seeking training, rather than buying a reactor."
+- **sp3:** **info@sp3-cvd.com**, 1605 Wyatt Drive, Santa Clara. [Official contact](https://sp3-cvd.com/contact-us). Ask: "Could you quote a small diamond sample/deposition project, and tell me whether supervised observation or training is available? Do you provide hydrogen termination of existing diamond? Please include timing, individual-customer eligibility and available process/measurement records."
+
+For any useful offer, agree on the specimen, treatment, characterization and shareable process records before purchase. A proprietary process service can yield a good specimen without yielding an accessible experimental history. For learning surface treatment, processing purchased diamond may be a smaller project than growing it; confirm the research question and treatment capability first. No outreach has been sent.
+
+## Verified shared-facility candidates
 
 | Facility | Equipment evidence | Access qualification |
 | --- | --- | --- |
