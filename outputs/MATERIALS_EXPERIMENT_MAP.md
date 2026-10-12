@@ -6,6 +6,8 @@ Updated 12 October 2026. This is the overview for choosing the next physical exp
 
 ## Existing materials and completed work
 
+For Taiwan alternatives to California wafer fabrication, see [Taiwan fabrication access and costs](copper-access-review/taiwan-fabrication-access.md): TSRI, NYCU, NTHU and NTU, including independent-user limits, published commercial fees and scheduled TSRI practical courses.
+
 | Item | Recorded identity | Useful role |
 | --- | --- | --- |
 | Coarse alumina | McMaster 5092N124, catalog 45 microns | Ceramic filler |
