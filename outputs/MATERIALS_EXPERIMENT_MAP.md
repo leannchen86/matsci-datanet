@@ -55,6 +55,52 @@ The rows are proposed study directions. “Access route” distinguishes operato
 - Commercial [curable electronics silicones](https://www.dow.com/documents/11/11-3472-01-dowsil-tc-4605-thermally-conductive-encapsulant.pdf?iframe=true) establish the application of cured thermal encapsulants. Select a compatible base system for our proposed filler study rather than altering an already formulated commercial product indiscriminately.
 - Hydrogen-terminated diamond has applications in [surface electrical conduction](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.85.3472) and [near-surface defect control](https://arxiv.org/abs/1011.5109). Pick the measurement first; these are distinct experiments. Surface analysis such as XPS is not a direct measurement of hydrogen coverage.
 
+## Second check, 12 October: confirmed prices, corrections and additions
+
+Added by a second assistant from an independent check: six researchers gathered options and two fact-checkers opened each provider's page. Nobody was contacted and no quote was requested. This check did not cover Zikon, AcmeBay or Silicon Valley Wafer Plating; their entries above stand as first written.
+
+**The main finding.** Almost no provider says in writing that it takes an order from a private individual. LongWin's and Covalent's request forms both require a company or organisation name. Every route therefore starts with one question: "Do you accept an order from an individual paying by card?"
+
+### Prices and times found on the provider's own page
+
+| Need | Provider | Price | Time | Note |
+| --- | --- | --- | --- | --- |
+| Heat flow through pastes and pads | LongWin / MyHeatSinks, Livermore | By quote | Typical one week | A self-run half-day or full-day can also be booked; ask for both prices |
+| X-ray diffraction of a powder | Lorad Chemical (mail-in) | $115 per sample | 4 to 5 business days from receipt | University of Washington testbeds: $60, time not published |
+| Particle size of the two powders | Lorad Chemical | $110 per sample | 4 to 5 business days from receipt | Micromeritics: $385, or 2 to 4 days at +50% |
+| Flow curve and yield stress of a paste | University of Washington testbeds (mail-in) | $170 basic, $340 advanced per sample | Not published | Covalent publishes no current price; its 2021 sheet shows $350 an hour and a $750 minimum per job |
+| Surface checks at Covalent | Covalent, Sunnyvale | 2021 sheet: contact angle $250, surface chemistry (XPS) $365, diffraction $380 per sample | 5 to 7 business days; rush offered | Old prices, probably higher now; $750 minimum per job |
+| Diamond plates | Element Six web store | Heat-spreader plate 10 x 10 x 0.30 mm $160; single crystal 3 x 3 x 0.25 mm $165 | In stock; dispatched within 4 working days | MTI lists a single crystal of the same size at $493 |
+| Diamond powder | UKAM | $80 for 20 g of half-micron powder | Not stated | Coarser grades not checked |
+| A ready-made film to hold and measure | MTI | 200 nm aluminium nitride on silicon, 10 x 10 mm, $198; thermal-oxide wafer $110 | "Email for lead time" | Comes with a spec sheet, not a run record |
+| A film made to order | Hionix, San Jose | By quote | Under 10 days stated for most jobs | Returning the run record is not promised; ask for it in the quote. Silicon Valley Microelectronics also lists reactive aluminium nitride, by quote |
+| Staff-run deposition with published rates | Utah Nanofab | Deposition $156 to $170 an hour, staff $150 an hour, $300 set-up | Not stated | Written for businesses |
+| Kiln firing | Clay Planet, Santa Clara | $5 minimum | 3 weeks | To about 1290 C; the page covers clay only, and the schedule cannot be chosen |
+| Heat flow in thin films or diamond | Laser Thermal (mail-in) | By quote | 2 to 3 weeks, or 3 days expedited | The clock starts after a consultation, a non-disclosure agreement and a proposal |
+| Bulk heat conduction of a solid | TPRL (mail-in) | By quote | Not stated | The one test lab whose page says private individuals may order |
+
+### Corrections to earlier notes in this repository
+
+- **Thermal Engineering Associates, Santa Clara,** sells test hardware. No send-in testing service was found, so it is not a backup lab for paste testing.
+- **Maker Nexus, Sunnyvale,** lists no kiln, furnace, oven or wet-chemistry area.
+- **Stanford's fees changed on 1 September 2026:** $1,500 enrolment and $99 per person per month for a company, plus a retainer and overhead. An organisation must hold the account; set-up takes about 15 business days.
+- **Hydrogen termination of diamond:** no company sells it with a price or a date. One research centre in Michigan states the capability as contract research.
+- **Electrical insulation tests** are written for solid sheets and discs. Wet paste does not fit; test a cured pad instead.
+- **Liquid metal:** no lab states that it accepts gallium.
+- **Paste on a diamond plate:** the LongWin tester would see only the paste layers. A 0.3 mm diamond plate is below its measuring floor.
+
+### Three more experiments with the materials already owned
+
+Each mirrors a real step or problem in chip packaging and needs only a home bench.
+
+| Experiment | What one run is | Why it is chip-related |
+| --- | --- | --- |
+| **Grease reliability** | Oil bleed from a weighed dab on filter paper; weight loss on baking; hot and cold cycling between glass slides to watch the paste creep out | This is how the industry qualifies thermal grease. It needs a small oven used for nothing else |
+| **Silicone oil creep** | How far the oil spreads on copper, glass and circuit board over a week, and whether tape, glue and solder still stick afterwards | Silicone oil migrating onto bonding surfaces is a documented assembly problem. It also means silicone work must be kept apart from anything that has to bond or be coated later |
+| **Lapping** | Fine alumina in water on a glass plate; mass removed from a copper or silicon piece per 100 strokes at two loads | Wafers are lapped with an alumina slurry after slicing. This is not the later chemical polishing step. Water is a new ingredient and needs the owner's sign-off |
+
+Checked and dropped: firing the alumina into a substrate (the local kiln is far short of the industrial temperature), and silicone oil as a coolant (real products are twenty times thinner than the oil on hand).
+
 ## Recommended sequence and navigation
 
 1. Scope **thermal performance plus rheology** as one program using existing ingredients. Choose one formulation or preparation variable; keep references and repeat preparations. Obtain specimen requirements and quotes before making the submission batches.
