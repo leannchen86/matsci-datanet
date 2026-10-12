@@ -8,6 +8,8 @@ The user has reopened the copper comparison; the older plan's requirement to wai
 
 **Cu/diamond research lead:** the user's industry excerpt prompted a [primary-source evidence and feasibility note](cu-diamond-research-lead.md), including a published electrodeposition route. This is a potential heat-spreader follow-on; particle-processing capability and the full measurement cost remain unverified.
 
+**CVD learning:** [hands-on access and a proposed learning sequence](cvd-learning-access.md) identifies Stanford's shared Seki diamond tool and Berkeley's sp3 diamond reactor, alongside standard wafer-film CVD. These specific tool findings strengthen the learning options; they do not establish the user's eligibility or particle-coating permission.
+
 ## Shortlist
 
 | Facility | Verified offering | Published cost in USD | What must be confirmed |
