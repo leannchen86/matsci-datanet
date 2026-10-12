@@ -6,6 +6,8 @@ The user has reopened the copper comparison; the older plan's requirement to wai
 
 **11 October update:** [Palo Alto and flexible laboratory access](palo-alto-and-flexible-labs.md) adds AcmeBay, StartX, Alexandria LaunchLabs and nearby Hatch Labs, and distinguishes day access from monthly space. AcmeBay is a promising Palo Alto chemistry lead; no Palo Alto day-pass copper setup has been verified. Prioritize a suitable shared chemistry lab plus separately priced specialist measurements where that reduces total cost.
 
+**Cu/diamond research lead:** the user's industry excerpt prompted a [primary-source evidence and feasibility note](cu-diamond-research-lead.md), including a published electrodeposition route. This is a potential heat-spreader follow-on; particle-processing capability and the full measurement cost remain unverified.
+
 ## Shortlist
 
 | Facility | Verified offering | Published cost in USD | What must be confirmed |
