@@ -2,6 +2,8 @@
 
 Updated 7 October 2026. This is the one live plan. The first target is hand-mixed thermal pastes. [outputs/aln-first-cycle-preparation/](outputs/aln-first-cycle-preparation/README.md) is background: it was written for a single careful run at a different budget and is paused, not deleted.
 
+**Status, 12 October 2026.** Current work is one bounded paste comparison: two fresh batches and the bought reference paste measured at LongWin, then a short report ([checklist](outputs/thermal-paste-first-cycle/CHECKLIST.md)). The three experiments under "Adopted direction" below, and the gates tied to them, are deferred until that report exists. The next material is being chosen from [the materials map](outputs/MATERIALS_EXPERIMENT_MAP.md); nothing there is booked. The rule under "Decided" that a forecast is logged before every outcome still applies, including to the lab result.
+
 ## Decided
 
 - **Goal.** Produce experimental materials data that people who train models would actually want: complete, checkable, with the failures left in.
